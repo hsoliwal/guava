@@ -1,0 +1,2 @@
+provider	upstream_file	preimage_git_blob	license	recipe_only
+hsoliwal/guava	guava/src/com/google/common/collect/BiMap.java	884caa2f4f8eaee3af25483f71a3d35d9e4809fa	Apache-2.0	YES

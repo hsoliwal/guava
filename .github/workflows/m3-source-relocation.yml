@@ -24,6 +24,13 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      - name: Refuse unpinned donor source preimage before package transformation
+        run: |
+          set -eu
+          input="guava/src/com/google/common/collect/BiMap.java"
+          expected="884caa2f4f8eaee3af25483f71a3d35d9e4809fa"
+          actual="$(git hash-object "$input")"
+          test "$actual" = "$expected"
       - name: Dry run source-first OpenRewrite ChangePackage without changing fork source
         run: |
           set -eu
@@ -57,6 +64,13 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      - name: Refuse unpinned donor source preimage before package transformation
+        run: |
+          set -eu
+          input="guava/src/com/google/common/collect/BiMap.java"
+          expected="884caa2f4f8eaee3af25483f71a3d35d9e4809fa"
+          actual="$(git hash-object "$input")"
+          test "$actual" = "$expected"
       - name: Apply the exact reviewed OpenRewrite recipe to fork branch only
         run: |
           set -eu
