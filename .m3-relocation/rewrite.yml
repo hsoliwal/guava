@@ -1,0 +1,10 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.synexia.m3.RelocateGuavaFork20261018
+displayName: Mechanically relocate Guava source to M3 SDK fork staging packages
+description: Preserve the original donor API in the original branch; isolated Java-LST namespace relocation is only the first phase.
+recipeList:
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: com.google.common
+      newPackageName: com.m3.sdk.guava
+      recursive: true
