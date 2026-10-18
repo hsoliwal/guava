@@ -1,0 +1,17 @@
+key	value
+namespace_gate	SDK_EXECUTION_ANDROID.tsv,SDK_EXECUTION_JRE.tsv,NAMESPACE_DOMAIN_UNION.json,PROMOTION.tsv
+parser_gate	PROVIDER_QUALIFICATION.json; current artifact distinguished from historical qualification runs
+literal_gate	JAVA_LITERAL_EXECUTION_ANDROID.tsv,JAVA_LITERAL_EXECUTION_JRE.tsv; exact original→namespace→literal/current admission
+resource_gate	RESOURCE_METADATA_EXECUTION.tsv and POM_POSTIMAGE_LINEAGE.json for later opt-in receiver snapshots
+module_gate	MODULE_EXECUTION.tsv; actual named-module consumer compile/run, recorded separately
+gwt_gate	GWT_MODULE_CLOSURE.json:19 XML module files,71 resolved renamed inheritance edges; no GWT compiler claim
+checker_gate	ERROR_PRONE_BUILD.json,ERROR_PRONE_QUALIFICATION.json,ERROR_PRONE_OVERLAY_QUALIFICATION.json
+external_runner_regression	NullPointerTesterTest114/0/0/0 with relocated TestParameterInjector1.22 receiver
+native_jre_gate	IN_PROGRESS; exact native suite union with separate console/XML counts; no successful single-reactor claim
+native_android_gate	PENDING_BOUNDED_NATIVE_DISCOVERY_PARTITIONS
+runtime_gate	RUNTIME_PROOF_JRE.json:22321 native and22321 working checks against immutable original; same-class refusal PASS
+compiler_toolchain	Genuine JDK27; Java8/Java9 native source/module releases retained; JDK21 tests
+no_filtered_full_evaluation	Full native attempts unfiltered; bounded selectors partition every discovered expected suite without omissions; failed/partial attempts remain separate
+final_source_gate	JAVA_FINAL_LINEAGE.json; SOURCE_DOMAIN_FINAL.tsv/json; NATIVE_SOURCE_COPY_FINAL.json; ORIGINAL_ARTIFACTS_FINAL.json
+archive_gate	ARCHIVE_JRE_VERIFICATION.json; NATIVE_JRE_PRODUCER_BINDING.json; actual Bnd manifest and named-module runtime
+temporary_environment	TEMP_FILESYSTEM_DIAGNOSIS.json; zero unprivileged root-overlay capacity; startup task tmpdir repair pending accepted failed-class reruns

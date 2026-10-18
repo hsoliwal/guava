@@ -1,0 +1,39 @@
+{
+  "schema": "M3_ERROR_PRONE_EXPORTER_ADMISSION_V1",
+  "exporter_sha256": "d682daa8f02b7ff7ac211b8cee73760401c0a257d54ef3f2fdaa99c11fc2a04b",
+  "provenance_sha256": "f62cd7df95c7c1d6dc893ce88028c6ebc67e00acfc604ef3188edaadf90a65c8",
+  "qualified_jar_sha256": "00bfd0a01639209649f20bf7bd957a34dab4981006203a72d88cdbd35b055f8b",
+  "controls": [
+    {
+      "control": "valid",
+      "status": "PASS",
+      "exit": 0,
+      "refuses_before_any_output": false
+    },
+    {
+      "control": "stale-source",
+      "status": "PASS",
+      "exit": 1,
+      "refuses_before_any_output": true
+    },
+    {
+      "control": "stale-upstream",
+      "status": "PASS",
+      "exit": 1,
+      "refuses_before_any_output": true
+    },
+    {
+      "control": "stale-receiver",
+      "status": "PASS",
+      "exit": 1,
+      "refuses_before_any_output": true
+    },
+    {
+      "control": "stale-pom",
+      "status": "PASS",
+      "exit": 1,
+      "refuses_before_any_output": true
+    }
+  ],
+  "qualified_jar_rebuilt_or_changed": false
+}

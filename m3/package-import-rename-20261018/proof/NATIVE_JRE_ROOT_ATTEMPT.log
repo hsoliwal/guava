@@ -1,0 +1,1313 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 4 modules
+[INFO] Installing Central Publishing features
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Guava Maven Parent                                                 [pom]
+[INFO] Guava: Google Core Libraries for Java                           [bundle]
+[INFO] Guava Testing Library                                              [jar]
+[INFO] Guava Unit Tests                                                   [jar]
+[INFO] 
+[INFO] -------------------< com.google.guava:guava-parent >--------------------
+[INFO] Building Guava Maven Parent 999.0.0-HEAD-jre-SNAPSHOT              [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ guava-parent ---
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] -----------------------< com.google.guava:guava >-----------------------
+[INFO] Building Guava: Google Core Libraries for Java 999.0.0-HEAD-jre-SNAPSHOT [2/4]
+[INFO]   from guava/pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ guava ---
+[INFO] Deleting /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava/target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- toolchains:4.5.0:toolchain (download-27-and-surefire-version) @ guava ---
+[INFO] Required toolchain: jdk [ vendor='temurin' version='27' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Required toolchain: jdk [ vendor='temurin' version='21' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] 
+[INFO] --- toolchains:3.3.0:toolchain (default) @ guava ---
+[INFO] Required toolchain: jdk [ version='27' ]
+[INFO] Found matching toolchain for type jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ guava ---
+[INFO] Copying 7 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ guava ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 610 source files with javac [forked debug parameters target 1.8] to target/classes
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (compile-java9) @ guava ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [forked debug parameters release 9 module-path] to target/classes
+[INFO] JDK-8318913 workaround: patched module-info.class requires version from [9] to [9] on 3 JDK modules [java.base, java.logging, jdk.unsupported]
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava/src/module-info.java:[18,11] [module] module name component m3 should avoid terminal digits
+[INFO] 
+[INFO] --- resources:3.5.0:copy-resources (gradle-module-metadata) @ guava ---
+[INFO] Copying 1 resource from . to target/publish
+[INFO] 
+[INFO] --- bundle:6.2.0:manifest (bundle-manifest) @ guava ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[INFO] Writing manifest: /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ guava ---
+[INFO] skip non existing resourceDirectory /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava/test
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ guava ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ guava ---
+[INFO] Toolchain in maven-surefire-plugin: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- animal-sniffer:1.28:check (check-java-version-compatibility) @ guava ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] -------------------< com.google.guava:guava-testlib >-------------------
+[INFO] Building Guava Testing Library 999.0.0-HEAD-jre-SNAPSHOT           [3/4]
+[INFO]   from guava-testlib/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ guava-testlib ---
+[INFO] Deleting /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-testlib/target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava-testlib ---
+[INFO] 
+[INFO] --- toolchains:4.5.0:toolchain (download-27-and-surefire-version) @ guava-testlib ---
+[INFO] Required toolchain: jdk [ vendor='temurin' version='27' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Required toolchain: jdk [ vendor='temurin' version='21' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] 
+[INFO] --- toolchains:3.3.0:toolchain (default) @ guava-testlib ---
+[INFO] Required toolchain: jdk [ version='27' ]
+[INFO] Found matching toolchain for type jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ guava-testlib ---
+[INFO] Copying 1 resource from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ guava-testlib ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 297 source files with javac [forked debug parameters target 1.8] to target/classes
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (compile-java9) @ guava-testlib ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 298 source files with javac [forked debug parameters release 9 module-path] to target/classes/META-INF/versions/9
+[INFO] JDK-8318913 workaround: patched module-info.class requires version from [9] to [9] on 2 JDK modules [java.base, java.logging]
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-testlib/src/module-info.java:[19,23] [requires-transitive-automatic] requires transitive directive for an automatic module
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-testlib/src/module-info.java:[16,11] [module] module name component m3 should avoid terminal digits
+[INFO] Some input files use or override a deprecated API.
+[INFO] Recompile with -Xlint:deprecation for details.
+[INFO] Some input files use unchecked or unsafe operations.
+[INFO] Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ guava-testlib ---
+[INFO] Copying 0 resource from test to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ guava-testlib ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 38 source files with javac [forked debug parameters target 1.8] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ guava-testlib ---
+[INFO] Toolchain in maven-surefire-plugin: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.m3.collections.guava.collect.testing.FeatureSpecificTestSuiteBuilderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s -- in com.m3.collections.guava.collect.testing.FeatureSpecificTestSuiteBuilderTest
+[INFO] Running com.m3.collections.guava.collect.testing.HelpersTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.testing.HelpersTest
+[INFO] Running com.m3.collections.guava.collect.testing.IteratorTesterTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in com.m3.collections.guava.collect.testing.IteratorTesterTest
+[INFO] Running com.m3.collections.guava.collect.testing.MapTestSuiteBuilderTest
+[INFO] Tests run: 3765, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.485 s -- in com.m3.collections.guava.collect.testing.MapTestSuiteBuilderTest
+[INFO] Running com.m3.collections.guava.collect.testing.MinimalCollectionTest
+[INFO] Tests run: 151, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.collect.testing.MinimalCollectionTest
+[INFO] Running com.m3.collections.guava.collect.testing.MinimalIterableTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.testing.MinimalIterableTest
+[INFO] Running com.m3.collections.guava.collect.testing.MinimalSetTest
+[INFO] Tests run: 187, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.collect.testing.MinimalSetTest
+[INFO] Running com.m3.collections.guava.collect.testing.OpenJdk6ListTest
+[INFO] Tests run: 6831, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.714 s -- in com.m3.collections.guava.collect.testing.OpenJdk6ListTest
+[INFO] Running com.m3.collections.guava.collect.testing.OpenJdk6MapTest
+[INFO] Tests run: 323133, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 56.56 s -- in com.m3.collections.guava.collect.testing.OpenJdk6MapTest
+[INFO] Running com.m3.collections.guava.collect.testing.OpenJdk6QueueTest
+[INFO] Tests run: 2031, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.collect.testing.OpenJdk6QueueTest
+[INFO] Running com.m3.collections.guava.collect.testing.OpenJdk6SetTest
+[INFO] Tests run: 36393, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.515 s -- in com.m3.collections.guava.collect.testing.OpenJdk6SetTest
+[INFO] Running com.m3.collections.guava.collect.testing.OpenJdk6Test
+[INFO] Tests run: 368388, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 41.27 s -- in com.m3.collections.guava.collect.testing.OpenJdk6Test
+[INFO] Running com.m3.collections.guava.collect.testing.ReserializedSafeTreeMapMapInterfaceTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.testing.ReserializedSafeTreeMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.testing.SafeTreeMapTest
+[INFO] Tests run: 118951, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.84 s -- in com.m3.collections.guava.collect.testing.SafeTreeMapTest
+[INFO] Running com.m3.collections.guava.collect.testing.SafeTreeSetTest
+[INFO] Tests run: 509, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.testing.SafeTreeSetTest
+[INFO] Running com.m3.collections.guava.collect.testing.features.FeatureEnumTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.testing.features.FeatureEnumTest
+[INFO] Running com.m3.collections.guava.collect.testing.features.FeatureUtilTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.testing.features.FeatureUtilTest
+[INFO] Running com.m3.collections.guava.testing.AbstractPackageSanityTestsTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.AbstractPackageSanityTestsTest
+[INFO] Running com.m3.collections.guava.testing.AbstractPackageSanityTestsTest$ConcretePackageSanityTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.AbstractPackageSanityTestsTest$ConcretePackageSanityTests
+[INFO] Running com.m3.collections.guava.testing.ArbitraryInstancesTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.m3.collections.guava.testing.ArbitraryInstancesTest
+[INFO] Running com.m3.collections.guava.testing.ClassSanityTesterTest
+[INFO] Tests run: 71, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.ClassSanityTesterTest
+[INFO] Running com.m3.collections.guava.testing.EqualsTesterTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.EqualsTesterTest
+[INFO] Running com.m3.collections.guava.testing.EquivalenceTesterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.EquivalenceTesterTest
+[INFO] Running com.m3.collections.guava.testing.FakeTickerTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.FakeTickerTest
+[INFO] Running com.m3.collections.guava.testing.FreshValueGeneratorTest
+[INFO] Tests run: 64, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.testing.FreshValueGeneratorTest
+[INFO] Running com.m3.collections.guava.testing.GcFinalizationTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.GcFinalizationTest
+[INFO] Running com.m3.collections.guava.testing.NullPointerTesterTest
+[INFO] Tests run: 114, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.NullPointerTesterTest
+[INFO] Running com.m3.collections.guava.testing.RelationshipTesterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.RelationshipTesterTest
+[INFO] Running com.m3.collections.guava.testing.SerializableTesterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.SerializableTesterTest
+[INFO] Running com.m3.collections.guava.testing.TearDownStackTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.TearDownStackTest
+[INFO] Running com.m3.collections.guava.testing.TestLogHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.testing.TestLogHandlerTest
+[INFO] Running com.m3.collections.guava.testing.anotherpackage.ForwardingWrapperTesterTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.testing.anotherpackage.ForwardingWrapperTesterTest
+[INFO] Running com.m3.collections.guava.util.concurrent.testing.TestingExecutorsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.testing.TestingExecutorsTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 860810, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- animal-sniffer:1.28:check (check-java-version-compatibility) @ guava-testlib ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --------------------< com.google.guava:guava-tests >--------------------
+[INFO] Building Guava Unit Tests 999.0.0-HEAD-jre-SNAPSHOT                [4/4]
+[INFO]   from guava-tests/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ guava-tests ---
+[INFO] Deleting /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava-tests ---
+[INFO] 
+[INFO] --- toolchains:4.5.0:toolchain (download-27-and-surefire-version) @ guava-tests ---
+[INFO] Required toolchain: jdk [ vendor='temurin' version='27' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Required toolchain: jdk [ vendor='temurin' version='21' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] 
+[INFO] --- toolchains:3.3.0:toolchain (default) @ guava-tests ---
+[INFO] Required toolchain: jdk [ version='27' ]
+[INFO] Found matching toolchain for type jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ guava-tests ---
+[INFO] Copying 1 resource from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ guava-tests ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- build-helper:3.6.2:add-test-source (add-benchmark-sources) @ guava-tests ---
+[INFO] Test Source directory: /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/benchmark added.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ guava-tests ---
+[INFO] Copying 6 resources from test to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ guava-tests ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 671 source files with javac [forked debug parameters target 1.8] to target/test-classes
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/m3/collections/guava/hash/MacHashFunctionTest.java:[41,24] ProviderList is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/m3/collections/guava/hash/MacHashFunctionTest.java:[42,24] Providers is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/m3/collections/guava/hash/MacHashFunctionTest.java:[95,5] ProviderList is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/m3/collections/guava/hash/MacHashFunctionTest.java:[95,30] Providers is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/m3/collections/guava/hash/MacHashFunctionTest.java:[96,5] Providers is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/m3/collections/guava/hash/MacHashFunctionTest.java:[96,31] ProviderList is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/m3/collections/guava/hash/MacHashFunctionTest.java:[100,7] Providers is internal proprietary API and may be removed in a future release
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ guava-tests ---
+[INFO] Toolchain in maven-surefire-plugin: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.m3.collections.guava.annotations.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.180 s -- in com.m3.collections.guava.annotations.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.base.AbstractIteratorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.070 s -- in com.m3.collections.guava.base.AbstractIteratorTest
+[INFO] Running com.m3.collections.guava.base.AsciiTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.m3.collections.guava.base.AsciiTest
+[INFO] Running com.m3.collections.guava.base.CaseFormatTest
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 s -- in com.m3.collections.guava.base.CaseFormatTest
+[INFO] Running com.m3.collections.guava.base.CharMatcherTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.327 s -- in com.m3.collections.guava.base.CharMatcherTest
+[INFO] Running com.m3.collections.guava.base.CharsetsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.m3.collections.guava.base.CharsetsTest
+[INFO] Running com.m3.collections.guava.base.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.514 s -- in com.m3.collections.guava.base.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.base.ConverterTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.m3.collections.guava.base.ConverterTest
+[INFO] Running com.m3.collections.guava.base.DefaultsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.base.DefaultsTest
+[INFO] Running com.m3.collections.guava.base.EnumsTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s -- in com.m3.collections.guava.base.EnumsTest
+[INFO] Running com.m3.collections.guava.base.EquivalenceTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.m3.collections.guava.base.EquivalenceTest
+[INFO] Running com.m3.collections.guava.base.FinalizableReferenceQueueClassLoaderUnloadingTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s -- in com.m3.collections.guava.base.FinalizableReferenceQueueClassLoaderUnloadingTest
+[INFO] Running com.m3.collections.guava.base.FinalizableReferenceQueueTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.193 s -- in com.m3.collections.guava.base.FinalizableReferenceQueueTest
+[INFO] Running com.m3.collections.guava.base.FunctionsTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s -- in com.m3.collections.guava.base.FunctionsTest
+[INFO] Running com.m3.collections.guava.base.JoinerTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.138 s -- in com.m3.collections.guava.base.JoinerTest
+[INFO] Running com.m3.collections.guava.base.MoreObjectsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.m3.collections.guava.base.MoreObjectsTest
+[INFO] Running com.m3.collections.guava.base.ObjectsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.base.ObjectsTest
+[INFO] Running com.m3.collections.guava.base.OptionalTest
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in com.m3.collections.guava.base.OptionalTest
+[INFO] Running com.m3.collections.guava.base.PreconditionsTest
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s -- in com.m3.collections.guava.base.PreconditionsTest
+[INFO] Running com.m3.collections.guava.base.PredicatesTest
+[INFO] Tests run: 87, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s -- in com.m3.collections.guava.base.PredicatesTest
+[INFO] Running com.m3.collections.guava.base.SplitterTest
+[INFO] Tests run: 104, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in com.m3.collections.guava.base.SplitterTest
+[INFO] Running com.m3.collections.guava.base.StandardSystemPropertyTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in com.m3.collections.guava.base.StandardSystemPropertyTest
+[INFO] Running com.m3.collections.guava.base.StopwatchTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in com.m3.collections.guava.base.StopwatchTest
+[INFO] Running com.m3.collections.guava.base.StringsTest
+[ERROR] Tests run: 21, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.086 s <<< FAILURE! -- in com.m3.collections.guava.base.StringsTest
+[ERROR] com.m3.collections.guava.base.StringsTest.testLenientFormat_badArgumentToString -- Time elapsed: 0.068 s <<< FAILURE!
+expected to match: boiler <com\.google\.common\.base\.StringsTest[.$]ThrowsOnToString@[0-9a-f]+ threw java\.lang\.UnsupportedOperationException> plate
+but was          : boiler <com.m3.collections.guava.base.StringsTest$ThrowsOnToString@288a4658 threw java.lang.UnsupportedOperationException> plate
+	at com.m3.collections.guava.base.StringsTest.testLenientFormat_badArgumentToString(StringsTest.java:237)
+
+[INFO] Running com.m3.collections.guava.base.SuppliersTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.499 s -- in com.m3.collections.guava.base.SuppliersTest
+[INFO] Running com.m3.collections.guava.base.ThrowablesTest
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.m3.collections.guava.base.ThrowablesTest
+[INFO] Running com.m3.collections.guava.base.ToStringHelperTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in com.m3.collections.guava.base.ToStringHelperTest
+[INFO] Running com.m3.collections.guava.base.Utf8Test
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.901 s -- in com.m3.collections.guava.base.Utf8Test
+[INFO] Running com.m3.collections.guava.base.VerifyTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.base.VerifyTest
+[INFO] Running com.m3.collections.guava.cache.AbstractCacheTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.m3.collections.guava.cache.AbstractCacheTest
+[INFO] Running com.m3.collections.guava.cache.AbstractLoadingCacheTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.m3.collections.guava.cache.AbstractLoadingCacheTest
+[INFO] Running com.m3.collections.guava.cache.CacheBuilderGwtTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.m3.collections.guava.cache.CacheBuilderGwtTest
+[INFO] Running com.m3.collections.guava.cache.CacheBuilderSpecTest
+[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in com.m3.collections.guava.cache.CacheBuilderSpecTest
+[INFO] Running com.m3.collections.guava.cache.CacheBuilderTest
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.766 s -- in com.m3.collections.guava.cache.CacheBuilderTest
+[INFO] Running com.m3.collections.guava.cache.CacheEvictionTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s -- in com.m3.collections.guava.cache.CacheEvictionTest
+[INFO] Running com.m3.collections.guava.cache.CacheExpirationTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s -- in com.m3.collections.guava.cache.CacheExpirationTest
+[INFO] Running com.m3.collections.guava.cache.CacheLoaderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.m3.collections.guava.cache.CacheLoaderTest
+[INFO] Running com.m3.collections.guava.cache.CacheLoadingTest
+[INFO] Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.893 s -- in com.m3.collections.guava.cache.CacheLoadingTest
+[INFO] Running com.m3.collections.guava.cache.CacheManualTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.cache.CacheManualTest
+[INFO] Running com.m3.collections.guava.cache.CacheReferencesTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.cache.CacheReferencesTest
+[INFO] Running com.m3.collections.guava.cache.CacheRefreshTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.cache.CacheRefreshTest
+[INFO] Running com.m3.collections.guava.cache.CacheStatsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.cache.CacheStatsTest
+[INFO] Running com.m3.collections.guava.cache.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.249 s -- in com.m3.collections.guava.cache.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.cache.EmptyCachesTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.871 s -- in com.m3.collections.guava.cache.EmptyCachesTest
+[INFO] Running com.m3.collections.guava.cache.ForwardingCacheTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.518 s -- in com.m3.collections.guava.cache.ForwardingCacheTest
+[INFO] Running com.m3.collections.guava.cache.ForwardingLoadingCacheTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s -- in com.m3.collections.guava.cache.ForwardingLoadingCacheTest
+[INFO] Running com.m3.collections.guava.cache.LocalCacheMapComputeTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.415 s -- in com.m3.collections.guava.cache.LocalCacheMapComputeTest
+[INFO] Running com.m3.collections.guava.cache.LocalCacheTest
+[INFO] Tests run: 10309, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.587 s -- in com.m3.collections.guava.cache.LocalCacheTest
+[INFO] Running com.m3.collections.guava.cache.LocalLoadingCacheTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.cache.LocalLoadingCacheTest
+[INFO] Running com.m3.collections.guava.cache.NullCacheTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.cache.NullCacheTest
+[INFO] Running com.m3.collections.guava.cache.PopulatedCachesTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.972 s -- in com.m3.collections.guava.cache.PopulatedCachesTest
+[INFO] Running com.m3.collections.guava.cache.RemovalNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.cache.RemovalNotificationTest
+[INFO] Running com.m3.collections.guava.collect.AbstractBiMapTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in com.m3.collections.guava.collect.AbstractBiMapTest
+[INFO] Running com.m3.collections.guava.collect.AbstractIteratorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s -- in com.m3.collections.guava.collect.AbstractIteratorTest
+[INFO] Running com.m3.collections.guava.collect.AbstractMapEntryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.m3.collections.guava.collect.AbstractMapEntryTest
+[INFO] Running com.m3.collections.guava.collect.AbstractSequentialIteratorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.m3.collections.guava.collect.AbstractSequentialIteratorTest
+[INFO] Running com.m3.collections.guava.collect.ArrayListMultimapTest
+[INFO] Tests run: 6066, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.223 s -- in com.m3.collections.guava.collect.ArrayListMultimapTest
+[INFO] Running com.m3.collections.guava.collect.ArrayTableColumnMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ArrayTableColumnMapTest
+[INFO] Running com.m3.collections.guava.collect.ArrayTableColumnTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ArrayTableColumnTest
+[INFO] Running com.m3.collections.guava.collect.ArrayTableRowMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ArrayTableRowMapTest
+[INFO] Running com.m3.collections.guava.collect.ArrayTableRowTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ArrayTableRowTest
+[INFO] Running com.m3.collections.guava.collect.ArrayTableTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ArrayTableTest
+[INFO] Running com.m3.collections.guava.collect.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.489 s -- in com.m3.collections.guava.collect.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.collect.CollectSpliteratorsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s -- in com.m3.collections.guava.collect.CollectSpliteratorsTest
+[INFO] Running com.m3.collections.guava.collect.Collections2FilterArrayListTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.collect.Collections2FilterArrayListTest
+[INFO] Running com.m3.collections.guava.collect.Collections2Test
+[INFO] Tests run: 1300, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s -- in com.m3.collections.guava.collect.Collections2Test
+[INFO] Running com.m3.collections.guava.collect.CompactHashMapFloodingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.250 s -- in com.m3.collections.guava.collect.CompactHashMapFloodingTest
+[INFO] Running com.m3.collections.guava.collect.CompactHashMapTest
+[INFO] Tests run: 3880, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.483 s -- in com.m3.collections.guava.collect.CompactHashMapTest
+[INFO] Running com.m3.collections.guava.collect.CompactHashSetFloodingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in com.m3.collections.guava.collect.CompactHashSetFloodingTest
+[INFO] Running com.m3.collections.guava.collect.CompactHashSetTest
+[INFO] Tests run: 1569, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.274 s -- in com.m3.collections.guava.collect.CompactHashSetTest
+[INFO] Running com.m3.collections.guava.collect.CompactLinkedHashMapFloodingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s -- in com.m3.collections.guava.collect.CompactLinkedHashMapFloodingTest
+[INFO] Running com.m3.collections.guava.collect.CompactLinkedHashMapTest
+[INFO] Tests run: 4086, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.478 s -- in com.m3.collections.guava.collect.CompactLinkedHashMapTest
+[INFO] Running com.m3.collections.guava.collect.CompactLinkedHashSetFloodingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in com.m3.collections.guava.collect.CompactLinkedHashSetFloodingTest
+[INFO] Running com.m3.collections.guava.collect.CompactLinkedHashSetTest
+[INFO] Tests run: 1110, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.217 s -- in com.m3.collections.guava.collect.CompactLinkedHashSetTest
+[INFO] Running com.m3.collections.guava.collect.ComparatorsTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in com.m3.collections.guava.collect.ComparatorsTest
+[INFO] Running com.m3.collections.guava.collect.ComparisonChainTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s -- in com.m3.collections.guava.collect.ComparisonChainTest
+[INFO] Running com.m3.collections.guava.collect.ConcurrentHashMultisetBasherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.222 s -- in com.m3.collections.guava.collect.ConcurrentHashMultisetBasherTest
+[INFO] Running com.m3.collections.guava.collect.ConcurrentHashMultisetTest
+[INFO] Tests run: 3442, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.656 s -- in com.m3.collections.guava.collect.ConcurrentHashMultisetTest
+[INFO] Running com.m3.collections.guava.collect.ContiguousSetTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ContiguousSetTest
+[INFO] Running com.m3.collections.guava.collect.ContiguousSetTest$BuiltTests
+[INFO] Tests run: 915, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.m3.collections.guava.collect.ContiguousSetTest$BuiltTests
+[INFO] Running com.m3.collections.guava.collect.CountTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.CountTest
+[INFO] Running com.m3.collections.guava.collect.DiscreteDomainTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.DiscreteDomainTest
+[INFO] Running com.m3.collections.guava.collect.EmptyImmutableTableTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.EmptyImmutableTableTest
+[INFO] Running com.m3.collections.guava.collect.EnumBiMapTest
+[INFO] Tests run: 4112, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.467 s -- in com.m3.collections.guava.collect.EnumBiMapTest
+[INFO] Running com.m3.collections.guava.collect.EnumHashBiMapTest
+[INFO] Tests run: 4308, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.357 s -- in com.m3.collections.guava.collect.EnumHashBiMapTest
+[INFO] Running com.m3.collections.guava.collect.EnumMultisetTest
+[INFO] Tests run: 894, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.collect.EnumMultisetTest
+[INFO] Running com.m3.collections.guava.collect.EvictingQueueTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.EvictingQueueTest
+[INFO] Running com.m3.collections.guava.collect.FauxveridesTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.FauxveridesTest
+[INFO] Running com.m3.collections.guava.collect.FilteredBiMapTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.FilteredBiMapTest
+[INFO] Running com.m3.collections.guava.collect.FilteredMapTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.FilteredMapTest
+[INFO] Running com.m3.collections.guava.collect.FilteredMultimapTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.FilteredMultimapTest
+[INFO] Running com.m3.collections.guava.collect.FilteredSortedMapTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.FilteredSortedMapTest
+[INFO] Running com.m3.collections.guava.collect.FluentIterableTest
+[INFO] Tests run: 105, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.FluentIterableTest
+[INFO] Running com.m3.collections.guava.collect.ForMapMultimapAsMapImplementsMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.collect.ForMapMultimapAsMapImplementsMapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingCollectionTest
+[INFO] Tests run: 377, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in com.m3.collections.guava.collect.ForwardingCollectionTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingConcurrentMapTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ForwardingConcurrentMapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingDequeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ForwardingDequeTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingListIteratorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ForwardingListIteratorTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingListMultimapTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.collect.ForwardingListMultimapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingListTest
+[INFO] Tests run: 729, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.362 s -- in com.m3.collections.guava.collect.ForwardingListTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingMapTest
+[INFO] Tests run: 1740, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.222 s -- in com.m3.collections.guava.collect.ForwardingMapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingMultimapTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ForwardingMultimapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingMultisetTest
+[INFO] Tests run: 1732, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 s -- in com.m3.collections.guava.collect.ForwardingMultisetTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingNavigableMapTest
+[INFO] Tests run: 32453, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.668 s -- in com.m3.collections.guava.collect.ForwardingNavigableMapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingNavigableSetTest
+[INFO] Tests run: 507, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ForwardingNavigableSetTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingObjectTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ForwardingObjectTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingQueueTest
+[INFO] Tests run: 228, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ForwardingQueueTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingSetMultimapTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ForwardingSetMultimapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingSetTest
+[INFO] Tests run: 439, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ForwardingSetTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingSortedMapImplementsMapTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ForwardingSortedMapImplementsMapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingSortedMapTest
+[INFO] Tests run: 11098, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.623 s -- in com.m3.collections.guava.collect.ForwardingSortedMapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingSortedMultisetTest
+[INFO] Tests run: 24780, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.457 s -- in com.m3.collections.guava.collect.ForwardingSortedMultisetTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingSortedSetMultimapTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ForwardingSortedSetMultimapTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingSortedSetTest
+[INFO] Tests run: 982, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.collect.ForwardingSortedSetTest
+[INFO] Running com.m3.collections.guava.collect.ForwardingTableTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ForwardingTableTest
+[INFO] Running com.m3.collections.guava.collect.GeneralRangeTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.GeneralRangeTest
+[INFO] Running com.m3.collections.guava.collect.HashBasedTableColumnMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.HashBasedTableColumnMapTest
+[INFO] Running com.m3.collections.guava.collect.HashBasedTableColumnTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.HashBasedTableColumnTest
+[INFO] Running com.m3.collections.guava.collect.HashBasedTableRowMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.HashBasedTableRowMapTest
+[INFO] Running com.m3.collections.guava.collect.HashBasedTableRowTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.HashBasedTableRowTest
+[INFO] Running com.m3.collections.guava.collect.HashBasedTableTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.HashBasedTableTest
+[INFO] Running com.m3.collections.guava.collect.HashBiMapTest
+[INFO] Tests run: 4565, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.289 s -- in com.m3.collections.guava.collect.HashBiMapTest
+[INFO] Running com.m3.collections.guava.collect.HashMultimapTest
+[INFO] Tests run: 5737, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.139 s -- in com.m3.collections.guava.collect.HashMultimapTest
+[INFO] Running com.m3.collections.guava.collect.HashMultisetTest
+[INFO] Tests run: 1867, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.277 s -- in com.m3.collections.guava.collect.HashMultisetTest
+[INFO] Running com.m3.collections.guava.collect.HashingTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.HashingTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableBiMapFloodingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.712 s -- in com.m3.collections.guava.collect.ImmutableBiMapFloodingTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableBiMapInverseMapInterfaceTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.m3.collections.guava.collect.ImmutableBiMapInverseMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableBiMapMapInterfaceTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.m3.collections.guava.collect.ImmutableBiMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableBiMapTest
+[INFO] Tests run: 12551, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.017 s -- in com.m3.collections.guava.collect.ImmutableBiMapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableClassToInstanceMapTest
+[INFO] Tests run: 1442, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.m3.collections.guava.collect.ImmutableClassToInstanceMapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableCollectionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ImmutableCollectionTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableEnumMapTest
+[INFO] Tests run: 1333, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.m3.collections.guava.collect.ImmutableEnumMapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableListCopyOfConcurrentlyModifiedInputTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ImmutableListCopyOfConcurrentlyModifiedInputTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableListMultimapTest
+[INFO] Tests run: 8999, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.220 s -- in com.m3.collections.guava.collect.ImmutableListMultimapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableListTest
+[INFO] Tests run: 4374, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.738 s -- in com.m3.collections.guava.collect.ImmutableListTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableMapFloodingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.217 s -- in com.m3.collections.guava.collect.ImmutableMapFloodingTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableMapTest
+[INFO] Tests run: 12549, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.644 s -- in com.m3.collections.guava.collect.ImmutableMapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableMapWithBadHashesMapInterfaceTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ImmutableMapWithBadHashesMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableMultimapAsMapImplementsMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ImmutableMultimapAsMapImplementsMapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableMultimapTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ImmutableMultimapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableMultisetFloodingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.469 s -- in com.m3.collections.guava.collect.ImmutableMultisetFloodingTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableMultisetTest
+[INFO] Tests run: 4755, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.856 s -- in com.m3.collections.guava.collect.ImmutableMultisetTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableRangeMapTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.855 s -- in com.m3.collections.guava.collect.ImmutableRangeMapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableRangeSetTest
+[INFO] Tests run: 766, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.468 s -- in com.m3.collections.guava.collect.ImmutableRangeSetTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSetFloodingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.347 s -- in com.m3.collections.guava.collect.ImmutableSetFloodingTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSetMultimapAsMapImplementsMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.collect.ImmutableSetMultimapAsMapImplementsMapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSetMultimapTest
+[INFO] Tests run: 8677, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.964 s -- in com.m3.collections.guava.collect.ImmutableSetMultimapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSetTest
+[INFO] Tests run: 3151, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.667 s -- in com.m3.collections.guava.collect.ImmutableSetTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSortedMapHeadMapInclusiveMapInterfaceTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ImmutableSortedMapHeadMapInclusiveMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSortedMapHeadMapMapInterfaceTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ImmutableSortedMapHeadMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSortedMapSubMapMapInterfaceTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ImmutableSortedMapSubMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSortedMapTailMapExclusiveMapInterfaceTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ImmutableSortedMapTailMapExclusiveMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSortedMapTailMapMapInterfaceTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ImmutableSortedMapTailMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSortedMapTest
+[INFO] Tests run: 67161, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.889 s -- in com.m3.collections.guava.collect.ImmutableSortedMapTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSortedMultisetTest
+[INFO] Tests run: 20973, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.685 s -- in com.m3.collections.guava.collect.ImmutableSortedMultisetTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableSortedSetTest
+[INFO] Tests run: 17272, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.577 s -- in com.m3.collections.guava.collect.ImmutableSortedSetTest
+[INFO] Running com.m3.collections.guava.collect.ImmutableTableTest
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.ImmutableTableTest
+[INFO] Running com.m3.collections.guava.collect.InternersTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.InternersTest
+[INFO] Running com.m3.collections.guava.collect.IterablesFilterArrayListTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.IterablesFilterArrayListTest
+[INFO] Running com.m3.collections.guava.collect.IterablesTest
+[INFO] Tests run: 131, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in com.m3.collections.guava.collect.IterablesTest
+[INFO] Running com.m3.collections.guava.collect.IteratorsTest
+[INFO] Tests run: 583, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 s -- in com.m3.collections.guava.collect.IteratorsTest
+[INFO] Running com.m3.collections.guava.collect.LinkedHashMultimapTest
+[INFO] Tests run: 6084, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.620 s -- in com.m3.collections.guava.collect.LinkedHashMultimapTest
+[INFO] Running com.m3.collections.guava.collect.LinkedHashMultisetTest
+[INFO] Tests run: 1969, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.m3.collections.guava.collect.LinkedHashMultisetTest
+[INFO] Running com.m3.collections.guava.collect.LinkedListMultimapTest
+[INFO] Tests run: 6304, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.772 s -- in com.m3.collections.guava.collect.LinkedListMultimapTest
+[INFO] Running com.m3.collections.guava.collect.ListsImplTest
+[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ListsImplTest
+[INFO] Running com.m3.collections.guava.collect.ListsTest
+[INFO] Tests run: 6006, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.840 s -- in com.m3.collections.guava.collect.ListsTest
+[INFO] Running com.m3.collections.guava.collect.MapMakerInternalMapTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.MapMakerInternalMapTest
+[INFO] Running com.m3.collections.guava.collect.MapMakerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MapMakerTest
+[INFO] Running com.m3.collections.guava.collect.MapsCollectionTest
+[INFO] Tests run: 235865, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 25.17 s -- in com.m3.collections.guava.collect.MapsCollectionTest
+[INFO] Running com.m3.collections.guava.collect.MapsSortedTransformValuesTest
+[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.MapsSortedTransformValuesTest
+[INFO] Running com.m3.collections.guava.collect.MapsTest
+[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MapsTest
+[INFO] Running com.m3.collections.guava.collect.MapsTransformValuesTest
+[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MapsTransformValuesTest
+[INFO] Running com.m3.collections.guava.collect.MapsTransformValuesUnmodifiableIteratorTest
+[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MapsTransformValuesUnmodifiableIteratorTest
+[INFO] Running com.m3.collections.guava.collect.MinMaxPriorityQueueTest
+[INFO] Tests run: 253, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MinMaxPriorityQueueTest
+[INFO] Running com.m3.collections.guava.collect.MoreCollectorsTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MoreCollectorsTest
+[INFO] Running com.m3.collections.guava.collect.MultimapBuilderTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MultimapBuilderTest
+[INFO] Running com.m3.collections.guava.collect.MultimapsCollectionTest
+[INFO] Tests run: 38106, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.426 s -- in com.m3.collections.guava.collect.MultimapsCollectionTest
+[INFO] Running com.m3.collections.guava.collect.MultimapsFilterEntriesAsMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MultimapsFilterEntriesAsMapTest
+[INFO] Running com.m3.collections.guava.collect.MultimapsTest
+[INFO] Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MultimapsTest
+[INFO] Running com.m3.collections.guava.collect.MultimapsTransformValuesAsMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MultimapsTransformValuesAsMapTest
+[INFO] Running com.m3.collections.guava.collect.MultisetsCollectionTest
+[INFO] Tests run: 23723, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.663 s -- in com.m3.collections.guava.collect.MultisetsCollectionTest
+[INFO] Running com.m3.collections.guava.collect.MultisetsImmutableEntryTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MultisetsImmutableEntryTest
+[INFO] Running com.m3.collections.guava.collect.MultisetsTest
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.MultisetsTest
+[INFO] Running com.m3.collections.guava.collect.MutableClassToInstanceMapTest
+[INFO] Tests run: 1813, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.collect.MutableClassToInstanceMapTest
+[INFO] Running com.m3.collections.guava.collect.NewCustomTableTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.NewCustomTableTest
+[INFO] Running com.m3.collections.guava.collect.ObjectArraysTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.ObjectArraysTest
+[INFO] Running com.m3.collections.guava.collect.OrderingTest
+[INFO] Tests run: 70, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.569 s -- in com.m3.collections.guava.collect.OrderingTest
+[INFO] Running com.m3.collections.guava.collect.PeekingIteratorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s -- in com.m3.collections.guava.collect.PeekingIteratorTest
+[INFO] Running com.m3.collections.guava.collect.QueuesTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.990 s -- in com.m3.collections.guava.collect.QueuesTest
+[INFO] Running com.m3.collections.guava.collect.RangeNonGwtTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.m3.collections.guava.collect.RangeNonGwtTest
+[INFO] Running com.m3.collections.guava.collect.RangeTest
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.m3.collections.guava.collect.RangeTest
+[INFO] Running com.m3.collections.guava.collect.RegularImmutableAsListTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.RegularImmutableAsListTest
+[INFO] Running com.m3.collections.guava.collect.RegularImmutableMapMapInterfaceTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in com.m3.collections.guava.collect.RegularImmutableMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.RegularImmutableMapWithUnhashableValuesMapInterfaceTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.collect.RegularImmutableMapWithUnhashableValuesMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.RegularImmutableSortedMapMapInterfaceTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.RegularImmutableSortedMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.RegularImmutableTableTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.RegularImmutableTableTest
+[INFO] Running com.m3.collections.guava.collect.ReserializedImmutableMapMapInterfaceTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.collect.ReserializedImmutableMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.ReserializedImmutableSortedMapMapInterfaceTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.m3.collections.guava.collect.ReserializedImmutableSortedMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.SetViewTest
+[INFO] Tests run: 2736, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.267 s -- in com.m3.collections.guava.collect.SetViewTest
+[INFO] Running com.m3.collections.guava.collect.SetsFilterHashSetTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.SetsFilterHashSetTest
+[INFO] Running com.m3.collections.guava.collect.SetsFilterNavigableSetTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.SetsFilterNavigableSetTest
+[INFO] Running com.m3.collections.guava.collect.SetsFilterSortedSetTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.SetsFilterSortedSetTest
+[INFO] Running com.m3.collections.guava.collect.SetsTest
+[INFO] Tests run: 1749, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.m3.collections.guava.collect.SetsTest
+[INFO] Running com.m3.collections.guava.collect.SimpleAbstractMultisetTest
+[INFO] Tests run: 701, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.collect.SimpleAbstractMultisetTest
+[INFO] Running com.m3.collections.guava.collect.SingletonImmutableMapMapInterfaceTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.SingletonImmutableMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.SingletonImmutableMapWithUnhashableValueMapInterfaceTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.SingletonImmutableMapWithUnhashableValueMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.SingletonImmutableSortedMapMapInterfaceTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.SingletonImmutableSortedMapMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.SingletonImmutableTableTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.SingletonImmutableTableTest
+[INFO] Running com.m3.collections.guava.collect.SortedIterablesTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.SortedIterablesTest
+[INFO] Running com.m3.collections.guava.collect.SortedListsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.SortedListsTest
+[INFO] Running com.m3.collections.guava.collect.StreamsTest
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s -- in com.m3.collections.guava.collect.StreamsTest
+[INFO] Running com.m3.collections.guava.collect.SubMapMultimapAsMapImplementsMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.collect.SubMapMultimapAsMapImplementsMapTest
+[INFO] Running com.m3.collections.guava.collect.SynchronizedBiMapTest
+[INFO] Tests run: 6933, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.150 s -- in com.m3.collections.guava.collect.SynchronizedBiMapTest
+[INFO] Running com.m3.collections.guava.collect.SynchronizedDequeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.SynchronizedDequeTest
+[INFO] Running com.m3.collections.guava.collect.SynchronizedMapTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.SynchronizedMapTest
+[INFO] Running com.m3.collections.guava.collect.SynchronizedMultimapTest
+[INFO] Tests run: 5668, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.569 s -- in com.m3.collections.guava.collect.SynchronizedMultimapTest
+[INFO] Running com.m3.collections.guava.collect.SynchronizedNavigableMapTest
+[INFO] Tests run: 32643, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.655 s -- in com.m3.collections.guava.collect.SynchronizedNavigableMapTest
+[INFO] Running com.m3.collections.guava.collect.SynchronizedNavigableSetTest
+[INFO] Tests run: 8953, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.562 s -- in com.m3.collections.guava.collect.SynchronizedNavigableSetTest
+[INFO] Running com.m3.collections.guava.collect.SynchronizedQueueTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.SynchronizedQueueTest
+[INFO] Running com.m3.collections.guava.collect.SynchronizedSetTest
+[INFO] Tests run: 506, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.SynchronizedSetTest
+[INFO] Running com.m3.collections.guava.collect.SynchronizedTableTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.SynchronizedTableTest
+[INFO] Running com.m3.collections.guava.collect.TableCollectionTestSuite
+[INFO] Tests run: 5918, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.612 s -- in com.m3.collections.guava.collect.TableCollectionTestSuite
+[INFO] Running com.m3.collections.guava.collect.TableCollectorsTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.TableCollectorsTest
+[INFO] Running com.m3.collections.guava.collect.TablesTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.TablesTest
+[INFO] Running com.m3.collections.guava.collect.TablesTransformValuesColumnMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.TablesTransformValuesColumnMapTest
+[INFO] Running com.m3.collections.guava.collect.TablesTransformValuesColumnTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.TablesTransformValuesColumnTest
+[INFO] Running com.m3.collections.guava.collect.TablesTransformValuesRowMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.TablesTransformValuesRowMapTest
+[INFO] Running com.m3.collections.guava.collect.TablesTransformValuesRowTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.TablesTransformValuesRowTest
+[INFO] Running com.m3.collections.guava.collect.TablesTransformValuesTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.TablesTransformValuesTest
+[INFO] Running com.m3.collections.guava.collect.TablesTransposeColumnTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.TablesTransposeColumnTest
+[INFO] Running com.m3.collections.guava.collect.TablesTransposeRowTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.TablesTransposeRowTest
+[INFO] Running com.m3.collections.guava.collect.TopKSelectorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.259 s -- in com.m3.collections.guava.collect.TopKSelectorTest
+[INFO] Running com.m3.collections.guava.collect.TransposedTableTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.m3.collections.guava.collect.TransposedTableTest
+[INFO] Running com.m3.collections.guava.collect.TreeBasedTableColumnMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.m3.collections.guava.collect.TreeBasedTableColumnMapTest
+[INFO] Running com.m3.collections.guava.collect.TreeBasedTableColumnTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.m3.collections.guava.collect.TreeBasedTableColumnTest
+[INFO] Running com.m3.collections.guava.collect.TreeBasedTableRowMapHeadMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.collect.TreeBasedTableRowMapHeadMapTest
+[INFO] Running com.m3.collections.guava.collect.TreeBasedTableRowMapInterfaceTest
+[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.TreeBasedTableRowMapInterfaceTest
+[INFO] Running com.m3.collections.guava.collect.TreeBasedTableRowMapSubMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.TreeBasedTableRowMapSubMapTest
+[INFO] Running com.m3.collections.guava.collect.TreeBasedTableRowMapTailMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.collect.TreeBasedTableRowMapTailMapTest
+[INFO] Running com.m3.collections.guava.collect.TreeBasedTableRowMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.collect.TreeBasedTableRowMapTest
+[INFO] Running com.m3.collections.guava.collect.TreeBasedTableRowTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.TreeBasedTableRowTest
+[INFO] Running com.m3.collections.guava.collect.TreeBasedTableTest
+[INFO] Tests run: 3835, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.347 s -- in com.m3.collections.guava.collect.TreeBasedTableTest
+[INFO] Running com.m3.collections.guava.collect.TreeMultimapExplicitTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.TreeMultimapExplicitTest
+[INFO] Running com.m3.collections.guava.collect.TreeMultimapNaturalTest
+[INFO] Tests run: 40300, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.191 s -- in com.m3.collections.guava.collect.TreeMultimapNaturalTest
+[INFO] Running com.m3.collections.guava.collect.TreeMultisetTest
+[INFO] Tests run: 104503, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.84 s -- in com.m3.collections.guava.collect.TreeMultisetTest
+[INFO] Running com.m3.collections.guava.collect.TreeRangeMapTest
+[INFO] Tests run: 3321, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.487 s -- in com.m3.collections.guava.collect.TreeRangeMapTest
+[INFO] Running com.m3.collections.guava.collect.TreeRangeSetTest
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 25.07 s -- in com.m3.collections.guava.collect.TreeRangeSetTest
+[INFO] Running com.m3.collections.guava.collect.TreeTraverserTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in com.m3.collections.guava.collect.TreeTraverserTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableIteratorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.UnmodifiableIteratorTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableListIteratorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.collect.UnmodifiableListIteratorTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableMultimapAsMapImplementsMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.collect.UnmodifiableMultimapAsMapImplementsMapTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnMapTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowMapTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableTableColumnMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.collect.UnmodifiableTableColumnMapTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableTableColumnTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.UnmodifiableTableColumnTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableTableRowMapTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.collect.UnmodifiableTableRowMapTest
+[INFO] Running com.m3.collections.guava.collect.UnmodifiableTableRowTest
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.collect.UnmodifiableTableRowTest
+[INFO] Running com.m3.collections.guava.collect.WriteReplaceOverridesTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.540 s -- in com.m3.collections.guava.collect.WriteReplaceOverridesTest
+[INFO] Running com.m3.collections.guava.escape.ArrayBasedCharEscaperTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.escape.ArrayBasedCharEscaperTest
+[INFO] Running com.m3.collections.guava.escape.ArrayBasedEscaperMapTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.m3.collections.guava.escape.ArrayBasedEscaperMapTest
+[INFO] Running com.m3.collections.guava.escape.ArrayBasedUnicodeEscaperTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.escape.ArrayBasedUnicodeEscaperTest
+[INFO] Running com.m3.collections.guava.escape.CharEscaperBuilderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.escape.CharEscaperBuilderTest
+[INFO] Running com.m3.collections.guava.escape.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s -- in com.m3.collections.guava.escape.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.escape.EscapersTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.escape.EscapersTest
+[INFO] Running com.m3.collections.guava.escape.UnicodeEscaperTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.escape.UnicodeEscaperTest
+[INFO] Running com.m3.collections.guava.eventbus.AsyncEventBusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.eventbus.AsyncEventBusTest
+[INFO] Running com.m3.collections.guava.eventbus.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s -- in com.m3.collections.guava.eventbus.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.eventbus.DispatcherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.eventbus.DispatcherTest
+[INFO] Running com.m3.collections.guava.eventbus.EventBusTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.986 s -- in com.m3.collections.guava.eventbus.EventBusTest
+[INFO] Running com.m3.collections.guava.eventbus.ReentrantEventsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.eventbus.ReentrantEventsTest
+[INFO] Running com.m3.collections.guava.eventbus.SubscriberRegistryTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.eventbus.SubscriberRegistryTest
+[INFO] Running com.m3.collections.guava.eventbus.SubscriberTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.eventbus.SubscriberTest
+[INFO] Running com.m3.collections.guava.eventbus.outside.AbstractNotAnnotatedInSuperclassTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.eventbus.outside.AbstractNotAnnotatedInSuperclassTest
+[INFO] Running com.m3.collections.guava.eventbus.outside.AnnotatedAndAbstractInSuperclassTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.eventbus.outside.AnnotatedAndAbstractInSuperclassTest
+[INFO] Running com.m3.collections.guava.eventbus.outside.AnnotatedNotAbstractInSuperclassTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.eventbus.outside.AnnotatedNotAbstractInSuperclassTest
+[INFO] Running com.m3.collections.guava.eventbus.outside.BaseSubscriberFinderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.eventbus.outside.BaseSubscriberFinderTest
+[INFO] Running com.m3.collections.guava.eventbus.outside.DeepInterfaceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.eventbus.outside.DeepInterfaceTest
+[INFO] Running com.m3.collections.guava.eventbus.outside.NeitherAbstractNorAnnotatedInSuperclassTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.eventbus.outside.NeitherAbstractNorAnnotatedInSuperclassTest
+[INFO] Running com.m3.collections.guava.eventbus.outside.OutsideEventBusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.eventbus.outside.OutsideEventBusTest
+[INFO] Running com.m3.collections.guava.graph.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.138 s -- in com.m3.collections.guava.graph.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.graph.DefaultNetworkImplementationsTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s -- in com.m3.collections.guava.graph.DefaultNetworkImplementationsTest
+[INFO] Running com.m3.collections.guava.graph.ElementOrderTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.graph.ElementOrderTest
+[INFO] Running com.m3.collections.guava.graph.EndpointPairTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.graph.EndpointPairTest
+[INFO] Running com.m3.collections.guava.graph.GraphEquivalenceTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.graph.GraphEquivalenceTest
+[INFO] Running com.m3.collections.guava.graph.GraphMutationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.677 s -- in com.m3.collections.guava.graph.GraphMutationTest
+[INFO] Running com.m3.collections.guava.graph.GraphPropertiesTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.629 s -- in com.m3.collections.guava.graph.GraphPropertiesTest
+[INFO] Running com.m3.collections.guava.graph.GraphsTest
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in com.m3.collections.guava.graph.GraphsTest
+[INFO] Running com.m3.collections.guava.graph.ImmutableNetworkTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.graph.ImmutableNetworkTest
+[INFO] Running com.m3.collections.guava.graph.ImmutableValueGraphTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.graph.ImmutableValueGraphTest
+[INFO] Running com.m3.collections.guava.graph.InvalidatableSetTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.graph.InvalidatableSetTest
+[INFO] Running com.m3.collections.guava.graph.MapCacheTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.graph.MapCacheTest
+[INFO] Running com.m3.collections.guava.graph.NetworkEquivalenceTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.graph.NetworkEquivalenceTest
+[INFO] Running com.m3.collections.guava.graph.NetworkMutationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.195 s -- in com.m3.collections.guava.graph.NetworkMutationTest
+[INFO] Running com.m3.collections.guava.graph.StandardImmutableDirectedGraphTest
+[WARNING] Tests run: 134, Failures: 0, Errors: 0, Skipped: 62, Time elapsed: 0.113 s -- in com.m3.collections.guava.graph.StandardImmutableDirectedGraphTest
+[INFO] Running com.m3.collections.guava.graph.StandardImmutableDirectedNetworkTest
+[WARNING] Tests run: 392, Failures: 0, Errors: 0, Skipped: 187, Time elapsed: 0.438 s -- in com.m3.collections.guava.graph.StandardImmutableDirectedNetworkTest
+[INFO] Running com.m3.collections.guava.graph.StandardImmutableGraphAdditionalTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.graph.StandardImmutableGraphAdditionalTest
+[INFO] Running com.m3.collections.guava.graph.StandardImmutableUndirectedGraphTest
+[WARNING] Tests run: 128, Failures: 0, Errors: 0, Skipped: 58, Time elapsed: 0.060 s -- in com.m3.collections.guava.graph.StandardImmutableUndirectedGraphTest
+[INFO] Running com.m3.collections.guava.graph.StandardMutableDirectedGraphTest
+[WARNING] Tests run: 268, Failures: 0, Errors: 0, Skipped: 37, Time elapsed: 0.131 s -- in com.m3.collections.guava.graph.StandardMutableDirectedGraphTest
+[INFO] Running com.m3.collections.guava.graph.StandardMutableDirectedNetworkTest
+[WARNING] Tests run: 392, Failures: 0, Errors: 0, Skipped: 71, Time elapsed: 0.356 s -- in com.m3.collections.guava.graph.StandardMutableDirectedNetworkTest
+[INFO] Running com.m3.collections.guava.graph.StandardMutableUndirectedGraphTest
+[WARNING] Tests run: 256, Failures: 0, Errors: 0, Skipped: 37, Time elapsed: 0.096 s -- in com.m3.collections.guava.graph.StandardMutableUndirectedGraphTest
+[INFO] Running com.m3.collections.guava.graph.StandardMutableUndirectedNetworkTest
+[WARNING] Tests run: 368, Failures: 0, Errors: 0, Skipped: 67, Time elapsed: 0.347 s -- in com.m3.collections.guava.graph.StandardMutableUndirectedNetworkTest
+[INFO] Running com.m3.collections.guava.graph.TraverserTest
+[INFO] Tests run: 112, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.graph.TraverserTest
+[INFO] Running com.m3.collections.guava.graph.ValueGraphTest
+[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s -- in com.m3.collections.guava.graph.ValueGraphTest
+[INFO] Running com.m3.collections.guava.hash.AbstractByteHasherTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in com.m3.collections.guava.hash.AbstractByteHasherTest
+[INFO] Running com.m3.collections.guava.hash.AbstractNonStreamingHashFunctionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.hash.AbstractNonStreamingHashFunctionTest
+[INFO] Running com.m3.collections.guava.hash.AbstractStreamingHasherTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.353 s -- in com.m3.collections.guava.hash.AbstractStreamingHasherTest
+[INFO] Running com.m3.collections.guava.hash.BloomFilterTest
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.216 s -- in com.m3.collections.guava.hash.BloomFilterTest
+[INFO] Running com.m3.collections.guava.hash.ChecksumHashFunctionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.m3.collections.guava.hash.ChecksumHashFunctionTest
+[INFO] Running com.m3.collections.guava.hash.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 s -- in com.m3.collections.guava.hash.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.hash.Crc32cHashFunctionTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in com.m3.collections.guava.hash.Crc32cHashFunctionTest
+[INFO] Running com.m3.collections.guava.hash.FarmHashFingerprint64Test
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.m3.collections.guava.hash.FarmHashFingerprint64Test
+[INFO] Running com.m3.collections.guava.hash.Fingerprint2011Test
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.hash.Fingerprint2011Test
+[INFO] Running com.m3.collections.guava.hash.FunnelsTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 s -- in com.m3.collections.guava.hash.FunnelsTest
+[INFO] Running com.m3.collections.guava.hash.HashCodeTest
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.m3.collections.guava.hash.HashCodeTest
+[INFO] Running com.m3.collections.guava.hash.HashingInputStreamTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s -- in com.m3.collections.guava.hash.HashingInputStreamTest
+[INFO] Running com.m3.collections.guava.hash.HashingOutputStreamTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.hash.HashingOutputStreamTest
+[INFO] Running com.m3.collections.guava.hash.HashingTest
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.023 s -- in com.m3.collections.guava.hash.HashingTest
+[INFO] Running com.m3.collections.guava.hash.MacHashFunctionTest
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s -- in com.m3.collections.guava.hash.MacHashFunctionTest
+[INFO] Running com.m3.collections.guava.hash.MessageDigestHashFunctionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.hash.MessageDigestHashFunctionTest
+[INFO] Running com.m3.collections.guava.hash.Murmur3Hash128Test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s -- in com.m3.collections.guava.hash.Murmur3Hash128Test
+[INFO] Running com.m3.collections.guava.hash.Murmur3Hash32Test
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 s -- in com.m3.collections.guava.hash.Murmur3Hash32Test
+[INFO] Running com.m3.collections.guava.hash.SipHashFunctionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.hash.SipHashFunctionTest
+[INFO] Running com.m3.collections.guava.html.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.html.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.html.HtmlEscapersTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.html.HtmlEscapersTest
+[INFO] Running com.m3.collections.guava.io.AppendableWriterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.io.AppendableWriterTest
+[INFO] Running com.m3.collections.guava.io.BaseEncodingTest
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.53 s -- in com.m3.collections.guava.io.BaseEncodingTest
+[INFO] Running com.m3.collections.guava.io.ByteSinkTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.io.ByteSinkTest
+[INFO] Running com.m3.collections.guava.io.ByteSourceTest
+[INFO] Tests run: 2223, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s -- in com.m3.collections.guava.io.ByteSourceTest
+[INFO] Running com.m3.collections.guava.io.ByteStreamsTest
+[INFO] Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in com.m3.collections.guava.io.ByteStreamsTest
+[INFO] Running com.m3.collections.guava.io.CharSequenceReaderTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.io.CharSequenceReaderTest
+[INFO] Running com.m3.collections.guava.io.CharSinkTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.io.CharSinkTest
+[INFO] Running com.m3.collections.guava.io.CharSourceTest
+[INFO] Tests run: 1539, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s -- in com.m3.collections.guava.io.CharSourceTest
+[INFO] Running com.m3.collections.guava.io.CharStreamsTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.io.CharStreamsTest
+[INFO] Running com.m3.collections.guava.io.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.210 s -- in com.m3.collections.guava.io.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.io.CloseablesTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.io.CloseablesTest
+[INFO] Running com.m3.collections.guava.io.CloserTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.io.CloserTest
+[INFO] Running com.m3.collections.guava.io.CountingInputStreamTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.io.CountingInputStreamTest
+[INFO] Running com.m3.collections.guava.io.CountingOutputStreamTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.io.CountingOutputStreamTest
+[INFO] Running com.m3.collections.guava.io.FileBackedOutputStreamTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.217 s -- in com.m3.collections.guava.io.FileBackedOutputStreamTest
+[INFO] Running com.m3.collections.guava.io.FilesCreateTempDirTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.io.FilesCreateTempDirTest
+[INFO] Running com.m3.collections.guava.io.FilesFileTraverserTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in com.m3.collections.guava.io.FilesFileTraverserTest
+[INFO] Running com.m3.collections.guava.io.FilesSimplifyPathTest
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 s -- in com.m3.collections.guava.io.FilesSimplifyPathTest
+[INFO] Running com.m3.collections.guava.io.FilesTest
+[INFO] Tests run: 1160, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.566 s -- in com.m3.collections.guava.io.FilesTest
+[INFO] Running com.m3.collections.guava.io.FlushablesTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.io.FlushablesTest
+[INFO] Running com.m3.collections.guava.io.LineBufferTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.io.LineBufferTest
+[INFO] Running com.m3.collections.guava.io.LittleEndianDataInputStreamTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.io.LittleEndianDataInputStreamTest
+[INFO] Running com.m3.collections.guava.io.LittleEndianDataOutputStreamTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.io.LittleEndianDataOutputStreamTest
+[INFO] Running com.m3.collections.guava.io.MoreFilesFileTraverserTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in com.m3.collections.guava.io.MoreFilesFileTraverserTest
+[INFO] Running com.m3.collections.guava.io.MoreFilesTest
+[ERROR] Tests run: 1151, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 3.445 s <<< FAILURE! -- in com.m3.collections.guava.io.MoreFilesTest
+[ERROR] com.m3.collections.guava.io.MoreFilesTest.testCreateParentDirectories_noPermission -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: expected java.io.IOException to be thrown, but nothing was thrown
+	at org.junit.Assert.assertThrows(Assert.java:1028)
+	at org.junit.Assert.assertThrows(Assert.java:981)
+	at com.m3.collections.guava.io.MoreFilesTest.testCreateParentDirectories_noPermission(MoreFilesTest.java:307)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[INFO] Running com.m3.collections.guava.io.MultiInputStreamTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.714 s -- in com.m3.collections.guava.io.MultiInputStreamTest
+[INFO] Running com.m3.collections.guava.io.MultiReaderTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.m3.collections.guava.io.MultiReaderTest
+[INFO] Running com.m3.collections.guava.io.PatternFilenameFilterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.io.PatternFilenameFilterTest
+[INFO] Running com.m3.collections.guava.io.ResourcesTest
+[INFO] Tests run: 773, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.414 s -- in com.m3.collections.guava.io.ResourcesTest
+[INFO] Running com.m3.collections.guava.math.BigDecimalMathTest
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.math.BigDecimalMathTest
+[INFO] Running com.m3.collections.guava.math.BigIntegerMathTest
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.800 s -- in com.m3.collections.guava.math.BigIntegerMathTest
+[INFO] Running com.m3.collections.guava.math.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s -- in com.m3.collections.guava.math.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.math.DoubleMathTest
+[INFO] Tests run: 68, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.205 s -- in com.m3.collections.guava.math.DoubleMathTest
+[INFO] Running com.m3.collections.guava.math.DoubleUtilsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.math.DoubleUtilsTest
+[INFO] Running com.m3.collections.guava.math.IntMathTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.516 s -- in com.m3.collections.guava.math.IntMathTest
+[INFO] Running com.m3.collections.guava.math.LinearTransformationTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.424 s -- in com.m3.collections.guava.math.LinearTransformationTest
+[INFO] Running com.m3.collections.guava.math.LongMathTest
+[INFO] Tests run: 72, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.11 s -- in com.m3.collections.guava.math.LongMathTest
+[INFO] Running com.m3.collections.guava.math.MathPreconditionsTest
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.math.MathPreconditionsTest
+[INFO] Running com.m3.collections.guava.math.PairedStatsAccumulatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.math.PairedStatsAccumulatorTest
+[INFO] Running com.m3.collections.guava.math.PairedStatsTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.math.PairedStatsTest
+[INFO] Running com.m3.collections.guava.math.QuantilesAlgorithmTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.math.QuantilesAlgorithmTest
+[INFO] Running com.m3.collections.guava.math.QuantilesTest
+[INFO] Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.016 s -- in com.m3.collections.guava.math.QuantilesTest
+[INFO] Running com.m3.collections.guava.math.StatsAccumulatorTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.710 s -- in com.m3.collections.guava.math.StatsAccumulatorTest
+[INFO] Running com.m3.collections.guava.math.StatsTest
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.767 s -- in com.m3.collections.guava.math.StatsTest
+[INFO] Running com.m3.collections.guava.net.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s -- in com.m3.collections.guava.net.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.net.HostAndPortTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.m3.collections.guava.net.HostAndPortTest
+[INFO] Running com.m3.collections.guava.net.HostSpecifierTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.m3.collections.guava.net.HostSpecifierTest
+[INFO] Running com.m3.collections.guava.net.HttpHeadersTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.net.HttpHeadersTest
+[INFO] Running com.m3.collections.guava.net.InetAddressesTest
+[INFO] Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s -- in com.m3.collections.guava.net.InetAddressesTest
+[INFO] Running com.m3.collections.guava.net.InternetDomainNameTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.net.InternetDomainNameTest
+[INFO] Running com.m3.collections.guava.net.MediaTypeTest
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in com.m3.collections.guava.net.MediaTypeTest
+[INFO] Running com.m3.collections.guava.net.PercentEscaperTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.net.PercentEscaperTest
+[INFO] Running com.m3.collections.guava.net.UrlEscapersTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.net.UrlEscapersTest
+[INFO] Running com.m3.collections.guava.primitives.BooleansTest
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.m3.collections.guava.primitives.BooleansTest
+[INFO] Running com.m3.collections.guava.primitives.ByteArrayAsListTest
+[INFO] Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s -- in com.m3.collections.guava.primitives.ByteArrayAsListTest
+[INFO] Running com.m3.collections.guava.primitives.BytesTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.primitives.BytesTest
+[INFO] Running com.m3.collections.guava.primitives.CharArrayAsListTest
+[INFO] Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in com.m3.collections.guava.primitives.CharArrayAsListTest
+[INFO] Running com.m3.collections.guava.primitives.CharsTest
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s -- in com.m3.collections.guava.primitives.CharsTest
+[INFO] Running com.m3.collections.guava.primitives.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s -- in com.m3.collections.guava.primitives.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.primitives.DoubleArrayAsListTest
+[INFO] Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s -- in com.m3.collections.guava.primitives.DoubleArrayAsListTest
+[INFO] Running com.m3.collections.guava.primitives.DoublesTest
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.721 s -- in com.m3.collections.guava.primitives.DoublesTest
+[INFO] Running com.m3.collections.guava.primitives.FloatArrayAsListTest
+[INFO] Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s -- in com.m3.collections.guava.primitives.FloatArrayAsListTest
+[INFO] Running com.m3.collections.guava.primitives.FloatsTest
+[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.014 s -- in com.m3.collections.guava.primitives.FloatsTest
+[INFO] Running com.m3.collections.guava.primitives.ImmutableDoubleArrayTest
+[INFO] Tests run: 2399, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.591 s -- in com.m3.collections.guava.primitives.ImmutableDoubleArrayTest
+[INFO] Running com.m3.collections.guava.primitives.ImmutableIntArrayTest
+[INFO] Tests run: 2398, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.044 s -- in com.m3.collections.guava.primitives.ImmutableIntArrayTest
+[INFO] Running com.m3.collections.guava.primitives.ImmutableLongArrayTest
+[INFO] Tests run: 2398, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.222 s -- in com.m3.collections.guava.primitives.ImmutableLongArrayTest
+[INFO] Running com.m3.collections.guava.primitives.IntArrayAsListTest
+[INFO] Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.m3.collections.guava.primitives.IntArrayAsListTest
+[INFO] Running com.m3.collections.guava.primitives.IntsTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.primitives.IntsTest
+[INFO] Running com.m3.collections.guava.primitives.LongArrayAsListTest
+[INFO] Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.primitives.LongArrayAsListTest
+[INFO] Running com.m3.collections.guava.primitives.LongsTest
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.primitives.LongsTest
+[INFO] Running com.m3.collections.guava.primitives.PrimitivesTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.primitives.PrimitivesTest
+[INFO] Running com.m3.collections.guava.primitives.ShortArrayAsListTest
+[INFO] Tests run: 896, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s -- in com.m3.collections.guava.primitives.ShortArrayAsListTest
+[INFO] Running com.m3.collections.guava.primitives.ShortsTest
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.primitives.ShortsTest
+[INFO] Running com.m3.collections.guava.primitives.SignedBytesTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.primitives.SignedBytesTest
+[INFO] Running com.m3.collections.guava.primitives.UnsignedBytesTest
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.primitives.UnsignedBytesTest
+[INFO] Running com.m3.collections.guava.primitives.UnsignedIntegerTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.primitives.UnsignedIntegerTest
+[INFO] Running com.m3.collections.guava.primitives.UnsignedIntsTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 s -- in com.m3.collections.guava.primitives.UnsignedIntsTest
+[INFO] Running com.m3.collections.guava.primitives.UnsignedLongTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.m3.collections.guava.primitives.UnsignedLongTest
+[INFO] Running com.m3.collections.guava.primitives.UnsignedLongsTest
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s -- in com.m3.collections.guava.primitives.UnsignedLongsTest
+[INFO] Running com.m3.collections.guava.reflect.AbstractInvocationHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.m3.collections.guava.reflect.AbstractInvocationHandlerTest
+[INFO] Running com.m3.collections.guava.reflect.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.120 s -- in com.m3.collections.guava.reflect.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.reflect.ClassPathTest
+[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 s -- in com.m3.collections.guava.reflect.ClassPathTest
+[INFO] Running com.m3.collections.guava.reflect.ImmutableTypeToInstanceMapTest
+[INFO] Tests run: 722, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s -- in com.m3.collections.guava.reflect.ImmutableTypeToInstanceMapTest
+[INFO] Running com.m3.collections.guava.reflect.InvokableTest
+[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.reflect.InvokableTest
+[INFO] Running com.m3.collections.guava.reflect.MutableTypeToInstanceMapTest
+[INFO] Tests run: 840, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s -- in com.m3.collections.guava.reflect.MutableTypeToInstanceMapTest
+[INFO] Running com.m3.collections.guava.reflect.ParameterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.reflect.ParameterTest
+[INFO] Running com.m3.collections.guava.reflect.ReflectionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.reflect.ReflectionTest
+[INFO] Running com.m3.collections.guava.reflect.TypeParameterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.reflect.TypeParameterTest
+[INFO] Running com.m3.collections.guava.reflect.TypeResolverTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.reflect.TypeResolverTest
+[INFO] Running com.m3.collections.guava.reflect.TypeTokenResolutionTest
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.reflect.TypeTokenResolutionTest
+[INFO] Running com.m3.collections.guava.reflect.TypeTokenSubtypeTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.reflect.TypeTokenSubtypeTest
+[INFO] Running com.m3.collections.guava.reflect.TypeTokenTest
+[INFO] Tests run: 172, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s -- in com.m3.collections.guava.reflect.TypeTokenTest
+[INFO] Running com.m3.collections.guava.reflect.TypeVisitorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.reflect.TypeVisitorTest
+[INFO] Running com.m3.collections.guava.reflect.TypesTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.reflect.TypesTest
+[INFO] Running com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixTrieTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixTrieTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AbstractExecutionThreadServiceTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.util.concurrent.AbstractExecutionThreadServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AbstractFutureCancellationCauseTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.m3.collections.guava.util.concurrent.AbstractFutureCancellationCauseTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AbstractFutureDefaultAtomicHelperTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.util.concurrent.AbstractFutureDefaultAtomicHelperTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AbstractFutureFallbackAtomicHelperTest
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 119.9 s -- in com.m3.collections.guava.util.concurrent.AbstractFutureFallbackAtomicHelperTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AbstractFutureTest
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 57.85 s -- in com.m3.collections.guava.util.concurrent.AbstractFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AbstractIdleServiceTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.AbstractIdleServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AbstractListeningExecutorServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.AbstractListeningExecutorServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AbstractScheduledServiceTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.75 s -- in com.m3.collections.guava.util.concurrent.AbstractScheduledServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AbstractServiceTest
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s -- in com.m3.collections.guava.util.concurrent.AbstractServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AggregateFutureStatePreliminaryTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.m3.collections.guava.util.concurrent.AggregateFutureStatePreliminaryTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AtomicDoubleArrayTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.188 s -- in com.m3.collections.guava.util.concurrent.AtomicDoubleArrayTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AtomicDoubleTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.m3.collections.guava.util.concurrent.AtomicDoubleTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AtomicLongMapBasherTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.098 s -- in com.m3.collections.guava.util.concurrent.AtomicLongMapBasherTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AtomicLongMapTest
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.050 s -- in com.m3.collections.guava.util.concurrent.AtomicLongMapTest
+[INFO] Running com.m3.collections.guava.util.concurrent.AtomicsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.AtomicsTest
+[INFO] Running com.m3.collections.guava.util.concurrent.CallablesTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.m3.collections.guava.util.concurrent.CallablesTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.667 s -- in com.m3.collections.guava.util.concurrent.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ClosingFutureFinishToFutureTest
+[INFO] Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 57.60 s -- in com.m3.collections.guava.util.concurrent.ClosingFutureFinishToFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ClosingFutureFinishToValueAndCloserTest
+[INFO] Tests run: 64, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 57.31 s -- in com.m3.collections.guava.util.concurrent.ClosingFutureFinishToValueAndCloserTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ClosingFutureLeakTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.593 s -- in com.m3.collections.guava.util.concurrent.ClosingFutureLeakTest
+[INFO] Running com.m3.collections.guava.util.concurrent.CycleDetectingLockFactoryTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s -- in com.m3.collections.guava.util.concurrent.CycleDetectingLockFactoryTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ExecutionListTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.util.concurrent.ExecutionListTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ExecutionSequencerTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.687 s -- in com.m3.collections.guava.util.concurrent.ExecutionSequencerTest
+[INFO] Running com.m3.collections.guava.util.concurrent.FakeTimeLimiterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in com.m3.collections.guava.util.concurrent.FakeTimeLimiterTest
+[INFO] Running com.m3.collections.guava.util.concurrent.FluentFutureTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.FluentFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ForwardingBlockingDequeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.339 s -- in com.m3.collections.guava.util.concurrent.ForwardingBlockingDequeTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ForwardingBlockingQueueTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s -- in com.m3.collections.guava.util.concurrent.ForwardingBlockingQueueTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ForwardingExecutorServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s -- in com.m3.collections.guava.util.concurrent.ForwardingExecutorServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ForwardingFutureTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in com.m3.collections.guava.util.concurrent.ForwardingFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ForwardingListenableFutureTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in com.m3.collections.guava.util.concurrent.ForwardingListenableFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ForwardingListeningExecutorServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s -- in com.m3.collections.guava.util.concurrent.ForwardingListeningExecutorServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ForwardingObjectTesterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in com.m3.collections.guava.util.concurrent.ForwardingObjectTesterTest
+[INFO] Running com.m3.collections.guava.util.concurrent.FutureCallbackTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.util.concurrent.FutureCallbackTest
+[INFO] Running com.m3.collections.guava.util.concurrent.FuturesGetCheckedTest
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.232 s -- in com.m3.collections.guava.util.concurrent.FuturesGetCheckedTest
+[INFO] Running com.m3.collections.guava.util.concurrent.FuturesGetDoneTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.FuturesGetDoneTest
+[INFO] Running com.m3.collections.guava.util.concurrent.FuturesGetUncheckedTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.FuturesGetUncheckedTest
+[INFO] Running com.m3.collections.guava.util.concurrent.FuturesTest
+[INFO] Tests run: 160, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.635 s -- in com.m3.collections.guava.util.concurrent.FuturesTest
+[INFO] Running com.m3.collections.guava.util.concurrent.FuturesTransformAsyncTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in com.m3.collections.guava.util.concurrent.FuturesTransformAsyncTest
+[INFO] Running com.m3.collections.guava.util.concurrent.FuturesTransformTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.FuturesTransformTest
+[INFO] Running com.m3.collections.guava.util.concurrent.GeneratedMonitorTest
+[INFO] Tests run: 980, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.576 s -- in com.m3.collections.guava.util.concurrent.GeneratedMonitorTest
+[INFO] Running com.m3.collections.guava.util.concurrent.InterruptibleMonitorTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.704 s -- in com.m3.collections.guava.util.concurrent.InterruptibleMonitorTest
+[INFO] Running com.m3.collections.guava.util.concurrent.InterruptibleTaskTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.InterruptibleTaskTest
+[INFO] Running com.m3.collections.guava.util.concurrent.JdkFutureAdaptersTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.util.concurrent.JdkFutureAdaptersTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ListenableFutureTaskTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.util.concurrent.ListenableFutureTaskTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ListenableFutureTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.ListenableFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ListenerCallQueueTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.m3.collections.guava.util.concurrent.ListenerCallQueueTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ListeningExecutorServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.ListeningExecutorServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ListeningScheduledExecutorServiceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.ListeningScheduledExecutorServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.MoreExecutorsTest
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.208 s -- in com.m3.collections.guava.util.concurrent.MoreExecutorsTest
+[INFO] Running com.m3.collections.guava.util.concurrent.RateLimiterTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s -- in com.m3.collections.guava.util.concurrent.RateLimiterTest
+[INFO] Running com.m3.collections.guava.util.concurrent.RunnablesTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.RunnablesTest
+[INFO] Running com.m3.collections.guava.util.concurrent.SequentialExecutorTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.SequentialExecutorTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ServiceManagerTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.243 s -- in com.m3.collections.guava.util.concurrent.ServiceManagerTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.m3.collections.guava.util.concurrent.ServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.SettableFutureTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.m3.collections.guava.util.concurrent.SettableFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.SimpleTimeLimiterTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.57 s -- in com.m3.collections.guava.util.concurrent.SimpleTimeLimiterTest
+[INFO] Running com.m3.collections.guava.util.concurrent.StripedTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.980 s -- in com.m3.collections.guava.util.concurrent.StripedTest
+[INFO] Running com.m3.collections.guava.util.concurrent.SupplementalMonitorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.m3.collections.guava.util.concurrent.SupplementalMonitorTest
+[INFO] Running com.m3.collections.guava.util.concurrent.ThreadFactoryBuilderTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in com.m3.collections.guava.util.concurrent.ThreadFactoryBuilderTest
+[INFO] Running com.m3.collections.guava.util.concurrent.TrustedInputFutureTest
+[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.050 s -- in com.m3.collections.guava.util.concurrent.TrustedInputFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.TrustedListenableFutureTaskTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.035 s -- in com.m3.collections.guava.util.concurrent.TrustedListenableFutureTaskTest
+[INFO] Running com.m3.collections.guava.util.concurrent.UncaughtExceptionHandlersTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.m3.collections.guava.util.concurrent.UncaughtExceptionHandlersTest
+[INFO] Running com.m3.collections.guava.util.concurrent.UninterruptibleFutureTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.018 s -- in com.m3.collections.guava.util.concurrent.UninterruptibleFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.UninterruptibleMonitorTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.745 s -- in com.m3.collections.guava.util.concurrent.UninterruptibleMonitorTest
+[INFO] Running com.m3.collections.guava.util.concurrent.UninterruptiblesTest
+[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.38 s -- in com.m3.collections.guava.util.concurrent.UninterruptiblesTest
+[INFO] Running com.m3.collections.guava.util.concurrent.UntrustedInputFutureTest
+[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s -- in com.m3.collections.guava.util.concurrent.UntrustedInputFutureTest
+[INFO] Running com.m3.collections.guava.util.concurrent.WrappingExecutorServiceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.m3.collections.guava.util.concurrent.WrappingExecutorServiceTest
+[INFO] Running com.m3.collections.guava.util.concurrent.WrappingScheduledExecutorServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.m3.collections.guava.util.concurrent.WrappingScheduledExecutorServiceTest
+[INFO] Running com.m3.collections.guava.xml.ClassInitializationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.172 s -- in com.m3.collections.guava.xml.ClassInitializationTest
+[INFO] Running com.m3.collections.guava.xml.XmlEscapersTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.184 s -- in com.m3.collections.guava.xml.XmlEscapersTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   StringsTest.testLenientFormat_badArgumentToString:237 expected to match: boiler <com\.google\.common\.base\.StringsTest[.$]ThrowsOnToString@[0-9a-f]+ threw java\.lang\.UnsupportedOperationException> plate
+but was          : boiler <com.m3.collections.guava.base.StringsTest$ThrowsOnToString@288a4658 threw java.lang.UnsupportedOperationException> plate
+[ERROR]   MoreFilesTest.testCreateParentDirectories_noPermission:307 expected java.io.IOException to be thrown, but nothing was thrown
+[INFO] 
+[ERROR] Tests run: 865625, Failures: 2, Errors: 0, Skipped: 519
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Guava Maven Parent 999.0.0-HEAD-jre-SNAPSHOT:
+[INFO] 
+[INFO] Guava Maven Parent ................................. SUCCESS [  0.390 s]
+[INFO] Guava: Google Core Libraries for Java .............. SUCCESS [ 27.068 s]
+[INFO] Guava Testing Library .............................. SUCCESS [03:33 min]
+[INFO] Guava Unit Tests ................................... FAILURE [12:22 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16:24 min
+[INFO] Finished at: 2026-10-18T03:41:15-07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project guava-tests: There are test failures.
+[ERROR] 
+[ERROR] See /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :guava-tests

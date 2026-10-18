@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "variant": "jre",
+  "artifact_execution": "Actual native org.apache.felix:maven-bundle-plugin:6.2.0:bundle; already compiled classes unchanged",
+  "artifact_path": "/dev/shm/m3-package-rename-39a960e13a39/guava-unprivileged/guava/guava/target/guava-999.0.0-HEAD-jre-SNAPSHOT.jar",
+  "jar_sha256": "f1900ec90df447b5e5f663939e8b75fd474c8da64eff03554b6cf3eddff9b56c",
+  "classfiles": 1967,
+  "class_payload_binding_receipt": "NATIVE_JRE_PRODUCER_BINDING.json",
+  "class_payload_binding_sha256": "a6d2ba511b32f213fc9e71b1ba9da53e8dd858d01e063d33fd5dafa5aa500e21",
+  "old_namespace_classfiles": 0,
+  "thirdparty_classes": "PRESENT",
+  "thirdparty_osgi_export": "ABSENT_PRESERVES_ORIGINAL_SCOPE",
+  "manifest": {
+    "path": "proof/NATIVE_JRE_MANIFEST.MF",
+    "sha256": "dd1efbcd631b7e7d1f8c434cae69239e428f81a558f3b591e3bdfde86299d70c",
+    "export_package": "com.m3.collections.guava.annotations;version=\"999.0.0\",com.m3.collections.guava.base;version=\"999.0.0\";uses:=\"org.jspecify.annotations\",com.m3.collections.guava.cache;version=\"999.0.0\";uses:=\"com.m3.collections.guava.base,com.m3.collections.guava.collect,com.m3.collections.guava.util.concurrent,org.jspecify.annotations\",com.m3.collections.guava.collect;version=\"999.0.0\";uses:=\"com.m3.collections.guava.base,org.jspecify.annotations\",com.m3.collections.guava.escape;version=\"999.0.0\";uses:=\"com.m3.collections.guava.base,org.jspecify.annotations\",com.m3.collections.guava.eventbus;version=\"999.0.0\",com.m3.collections.guava.graph;version=\"999.0.0\";uses:=\"com.m3.collections.guava.collect,org.jspecify.annotations\",com.m3.collections.guava.hash;version=\"999.0.0\";uses:=\"com.m3.collections.guava.base,org.jspecify.annotations\",com.m3.collections.guava.html;version=\"999.0.0\";uses:=\"com.m3.collections.guava.escape\",com.m3.collections.guava.io;version=\"999.0.0\";uses:=\"com.m3.collections.guava.base,com.m3.collections.guava.collect,com.m3.collections.guava.graph,com.m3.collections.guava.hash,org.jspecify.annotations\",com.m3.collections.guava.math;version=\"999.0.0\";uses:=\"org.jspecify.annotations\",com.m3.collections.guava.net;version=\"999.0.0\";uses:=\"com.m3.collections.guava.base,com.m3.collections.guava.collect,com.m3.collections.guava.escape,org.jspecify.annotations\",com.m3.collections.guava.primitives;version=\"999.0.0\";uses:=\"com.m3.collections.guava.base,org.jspecify.annotations\",com.m3.collections.guava.reflect;version=\"999.0.0\";uses:=\"com.m3.collections.guava.collect,com.m3.collections.guava.io,org.jspecify.annotations\",com.m3.collections.guava.util.concurrent;version=\"999.0.0\";uses:=\"com.m3.collections.guava.base,com.m3.collections.guava.collect,org.jspecify.annotations\",com.m3.collections.guava.xml;version=\"999.0.0\";uses:=\"com.m3.collections.guava.escape\"",
+    "import_package": "com.m3.collections.guava.util.concurrent.internal,org.jspecify.annotations;version=\"[1.0,2)\";resolution:=optional,javax.crypto;resolution:=optional,javax.crypto.spec;resolution:=optional,sun.misc;resolution:=optional"
+  },
+  "named_module_consumer": {
+    "status": "PASS",
+    "compile": [
+      "/dev/shm/m3-package-rename-39a960e13a39/guava-unprivileged/toolchain/jdk21/bin/javac",
+      "-proc:none",
+      "-Xlint:all",
+      "-Werror",
+      "--module-path",
+      "/dev/shm/m3-package-rename-39a960e13a39/guava-unprivileged/guava/guava/target/guava-999.0.0-HEAD-jre-SNAPSHOT.jar:/dev/shm/m3-package-rename-39a960e13a39/m2/com/google/guava/failureaccess/1.0.3-m3-relocated-20261018/failureaccess-1.0.3-m3-relocated-20261018.jar:/dev/shm/m3-package-rename-39a960e13a39/m2/com/google/errorprone/error_prone_annotations/2.50.0/error_prone_annotations-2.50.0.jar:/dev/shm/m3-package-rename-39a960e13a39/m2/com/google/j2objc/j2objc-annotations/3.1/j2objc-annotations-3.1.jar:/dev/shm/m3-package-rename-39a960e13a39/m2/org/jspecify/jspecify/1.0.1/jspecify-1.0.1.jar",
+      "-d",
+      "/dev/shm/m3-package-rename-39a960e13a39/guava-native-jre-module-consumer",
+      "/dev/shm/m3-package-rename-39a960e13a39/guava-module-consumer-jre/src/module-info.java",
+      "/dev/shm/m3-package-rename-39a960e13a39/guava-module-consumer-jre/src/Probe.java"
+    ],
+    "run": [
+      "/dev/shm/m3-package-rename-39a960e13a39/guava-unprivileged/toolchain/jdk21/bin/java",
+      "--module-path",
+      "/dev/shm/m3-package-rename-39a960e13a39/guava-unprivileged/guava/guava/target/guava-999.0.0-HEAD-jre-SNAPSHOT.jar:/dev/shm/m3-package-rename-39a960e13a39/m2/com/google/guava/failureaccess/1.0.3-m3-relocated-20261018/failureaccess-1.0.3-m3-relocated-20261018.jar:/dev/shm/m3-package-rename-39a960e13a39/m2/com/google/errorprone/error_prone_annotations/2.50.0/error_prone_annotations-2.50.0.jar:/dev/shm/m3-package-rename-39a960e13a39/m2/com/google/j2objc/j2objc-annotations/3.1/j2objc-annotations-3.1.jar:/dev/shm/m3-package-rename-39a960e13a39/m2/org/jspecify/jspecify/1.0.1/jspecify-1.0.1.jar:/dev/shm/m3-package-rename-39a960e13a39/guava-native-jre-module-consumer",
+      "-m",
+      "synexia.guava.consumer/consumer.Probe"
+    ],
+    "log": "proof/NATIVE_JRE_MODULE_CONSUMER.log",
+    "sha256": "4255111828d621ad10968a291304a80946c6fb0f626ce5bb6ef9007acbe2df59",
+    "dependencies": [
+      {
+        "path": "/dev/shm/m3-package-rename-39a960e13a39/m2/com/google/guava/failureaccess/1.0.3-m3-relocated-20261018/failureaccess-1.0.3-m3-relocated-20261018.jar",
+        "sha256": "443de3d901870616c4d2362f2bb25a0a34e03efbc3042c7b9d261fcfbb896523"
+      },
+      {
+        "path": "/dev/shm/m3-package-rename-39a960e13a39/m2/com/google/errorprone/error_prone_annotations/2.50.0/error_prone_annotations-2.50.0.jar",
+        "sha256": "4667724877f1d37a689202da191e23efa7657c62eef93ccdac406eccfe5cdd0a"
+      },
+      {
+        "path": "/dev/shm/m3-package-rename-39a960e13a39/m2/com/google/j2objc/j2objc-annotations/3.1/j2objc-annotations-3.1.jar",
+        "sha256": "84d3a150518485f8140ea99b8a985656749629f6433c92b80c75b36aba3b099b"
+      },
+      {
+        "path": "/dev/shm/m3-package-rename-39a960e13a39/m2/org/jspecify/jspecify/1.0.1/jspecify-1.0.1.jar",
+        "sha256": "070d75f261fe4c5b8202508366715f7f2d4660f88c8ef7e6d3575e48c9683b66"
+      }
+    ]
+  },
+  "native_test_binding": "Producer bytecode used by full unprivileged native tests; suite results recorded separately",
+  "metadata_lineage": [
+    "OSGI_PRIVATE_SCOPE_EXECUTION.tsv",
+    "OSGI_PRIVATE_SCOPE_NATIVE_COPY.tsv",
+    "OSGI_PRIVATE_SCOPE_LINEAGE.json"
+  ],
+  "scope": "No entire Maven package/install lifecycle claim; actual bundle goal, exact payload verification, isolated install-file and named-module compile/runtime executed."
+}

@@ -417,18 +417,18 @@
           </dependencies>
           <configuration>
             <annotations>
-              <annotation>com.google.common.base.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.cache.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.collect.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.collect.testing.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.collect.testing.testers.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.hash.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.io.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.math.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.primitives.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.reflect.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.testing.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.util.concurrent.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.base.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.cache.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.collect.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.collect.testing.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.collect.testing.testers.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.hash.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.io.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.math.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.primitives.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.reflect.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.testing.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.util.concurrent.IgnoreJRERequirement</annotation>
             </annotations>
             <checkTestClasses>true</checkTestClasses>
             <signature>
@@ -697,6 +697,29 @@
           </plugin>
         </plugins>
       </build>
+    </profile>
+    <!-- Explicit relocated dependency closure; original published coordinates and defaults remain. -->
+    <profile>
+      <id>m3-relocated-verification</id>
+      <properties>
+        <m3.verification.test.heap>512m</m3.verification.test.heap>
+        <error_prone_core.version>2.50.0-m3-guava-namespace-20261018</error_prone_core.version>
+        <test-parameter-injector.version>1.22-m3-relocated-20261018</test-parameter-injector.version>
+        <failureaccess.version>1.0.3-m3-relocated-20261018</failureaccess.version>
+        <truth.version>1.4.5-m3-relocated-20261018</truth.version>
+        <jimfs.version>1.3.1-m3-relocated-20261018</jimfs.version>
+        <caliper.version>1.0-beta-3-m3-relocated-20261018-r2</caliper.version>
+      </properties>
+      <build><plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <forkCount>1</forkCount>
+            <argLine>-Xmx${m3.verification.test.heap} -Duser.language=hi -Duser.country=IN ${test.add.opens}</argLine>
+          </configuration>
+        </plugin>
+      </plugins></build>
     </profile>
   </profiles>
 </project>

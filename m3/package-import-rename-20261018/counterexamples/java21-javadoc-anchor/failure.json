@@ -1,0 +1,10 @@
+{
+  "schema": "M3_GUAVA_JAVADOC_ANCHOR_REFUSAL_V1",
+  "path": "android/guava/src/com/google/common/base/CharMatcher.java",
+  "sha256": "88dd4c2315549eccbcf7edc4cffeddb9c1b30b6a5cdf3635780f0f43548a07e3",
+  "parsed_before_failure": 992,
+  "failure": "Javadoc visitor consumes only typed qualifier from a double-hash anchor signature, then corrupts source cursor and following documentation.",
+  "owner_fix": "Keep typed qualifier AST; consume ##fragment into leading existing Javadoc.Text nodes before actual link label. Original source and license preserved.",
+  "exact_probe": "PASS_LOSSLESS_COMPILATION_UNIT_ZERO_ERRORS; finite full suite pending",
+  "source_promoted": false
+}

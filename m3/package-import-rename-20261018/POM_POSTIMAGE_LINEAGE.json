@@ -1,0 +1,54 @@
+[
+  {
+    "path": "pom.xml",
+    "lineage": [
+      {
+        "owner": "ResourcesCli",
+        "receipt": "RESOURCE_METADATA_EXECUTION.tsv",
+        "sha256": "86e7c9643818fd4fdc1844876e588069888c7facc3fc40d95ae7253b4c169a17"
+      },
+      {
+        "owner": "M3HashPinnedPomSnapshotRecipe",
+        "receipt": "VERIFICATION_PROFILE_JRE.tsv",
+        "sha256": "406fd73998d3e882d59cfb59e8d89f9c61c11008d51177de0357a5f5e36452c4"
+      },
+      {
+        "owner": "M3HashPinnedPomSnapshotRecipe",
+        "receipt": "CHECKER_PROFILE_JRE.tsv",
+        "sha256": "d82c713d5e254a7d90d182001dadd3b7ccd9efb1a70240d0fea0b994712d54aa"
+      },
+      {
+        "owner": "M3HashPinnedPomSnapshotRecipe",
+        "receipt": "TEST_RUNNER_PROFILE_JRE.tsv",
+        "sha256": "217c606c65a0b60bb9a521e5f6780d8c442243ec7e6893969f84931171fbdc0d"
+      }
+    ],
+    "current_hash_admission": "PASS"
+  },
+  {
+    "path": "android/pom.xml",
+    "lineage": [
+      {
+        "owner": "ResourcesCli",
+        "receipt": "RESOURCE_METADATA_EXECUTION.tsv",
+        "sha256": "5cf79879684680bb61cb18608bc2a12afa29dd0212a8e45d3daeff1fbf438fcc"
+      },
+      {
+        "owner": "M3HashPinnedPomSnapshotRecipe",
+        "receipt": "VERIFICATION_PROFILE_ANDROID.tsv",
+        "sha256": "51066029aee306236f87831631940ba0634191e165b0701c12bcbb248bb3f61f"
+      },
+      {
+        "owner": "M3HashPinnedPomSnapshotRecipe",
+        "receipt": "CHECKER_PROFILE_ANDROID.tsv",
+        "sha256": "d9dcd69e4ed48aa44fcb6579cc8e88b365e22e07486fa2824326181c301d9526"
+      },
+      {
+        "owner": "M3HashPinnedPomSnapshotRecipe",
+        "receipt": "TEST_RUNNER_PROFILE_ANDROID.tsv",
+        "sha256": "c6554dfd72ce4f70add84778f9c50e061040fa7828de6d7a19122e533586bcc2"
+      }
+    ],
+    "current_hash_admission": "PASS"
+  }
+]

@@ -105,8 +105,8 @@
               <compilerArgs combine.self="override">
                 <arg>-sourcepath</arg>
                 <arg>${project.basedir}/src</arg>
-                <arg>--add-reads=com.google.common=ALL-UNNAMED</arg>
-                <arg>--add-reads=com.google.common.testlib=ALL-UNNAMED</arg>
+                <arg>--add-reads=com.m3.collections.guava=ALL-UNNAMED</arg>
+                <arg>--add-reads=com.m3.collections.guava.testlib=ALL-UNNAMED</arg>
                 <!-- https://errorprone.info/docs/installation#maven -->
                 <arg>-XDcompilePolicy=simple</arg>
                 <arg>-Xlint:-removal</arg>

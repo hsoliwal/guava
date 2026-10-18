@@ -313,7 +313,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
-              <moduleName>com.google.common.ForceGuavaCompilation</moduleName>
+              <moduleName>com.m3.collections.guava.ForceGuavaCompilation</moduleName>
               <failOnError>true</failOnError>
               <logLevel>${gwt.logLevel}</logLevel>
               <compilerArgs>
@@ -370,7 +370,7 @@
               <goal>test</goal>
             </goals>
             <configuration>
-              <moduleName>com.google.common.GuavaTests</moduleName>
+              <moduleName>com.m3.collections.guava.GuavaTests</moduleName>
               <includes>**/GwtTestSuite.java</includes>
               <logLevel>${gwt.logLevel}</logLevel>
               <testArgs>

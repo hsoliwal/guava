@@ -1,0 +1,22 @@
+[
+  {
+    "generated_candidate_path": "metadata-candidates",
+    "preserved_evidence_path": "/dev/shm/m3-package-rename-39a960e13a39/guava-helper-candidate-evidence/metadata-candidates",
+    "disposition": "Generated duplicate candidate source bodies retained outside active Git source; receipts and canonical immutable templates remain in task/repository."
+  },
+  {
+    "generated_candidate_path": "module-candidates",
+    "preserved_evidence_path": "/dev/shm/m3-package-rename-39a960e13a39/guava-helper-candidate-evidence/module-candidates",
+    "disposition": "Generated duplicate candidate source bodies retained outside active Git source; receipts and canonical immutable templates remain in task/repository."
+  },
+  {
+    "generated_candidate_path": "resource-candidates",
+    "preserved_evidence_path": "/dev/shm/m3-package-rename-39a960e13a39/guava-helper-candidate-evidence/resource-candidates",
+    "disposition": "Generated duplicate candidate source bodies retained outside active Git source; receipts and canonical immutable templates remain in task/repository."
+  },
+  {
+    "generated_candidate_path": "proof-guard-execution/sources",
+    "preserved_evidence_path": "/dev/shm/m3-package-rename-39a960e13a39/guava-helper-candidate-evidence/proof-guard-execution/sources",
+    "disposition": "Generated duplicate candidate source bodies retained outside active Git source; receipts and canonical immutable templates remain in task/repository."
+  }
+]

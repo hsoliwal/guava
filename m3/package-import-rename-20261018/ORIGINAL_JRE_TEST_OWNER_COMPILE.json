@@ -1,0 +1,23 @@
+{
+  "schema": "M3_ORIGINAL_JRE_TEST_OWNER_ADMISSION_V1",
+  "native_goal": "-pl guava,guava-testlib,guava-tests -am test-compile",
+  "compile": "PASS",
+  "native_test_sources": 671,
+  "tests": "NOT_RUN_TEST_COMPILE_GOAL_ONLY",
+  "compiler": "Temurin27.0.2+0",
+  "artifact_source_java_inventory_sha256": "2099103c326c5187e685e8472bb58606a1d147a2f20e2f20d902c8035e5da4d2",
+  "artifacts": [
+    {
+      "module": "guava-testlib",
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/guava-original-jre-test-owner-artifacts/guava-testlib-original-jre-test-owner.jar",
+      "sha256": "898cf748e6324a7df6c0307cd07ec85f1e87ca8d8685dec58f24f0b07d4053fa",
+      "entries": 398
+    },
+    {
+      "module": "guava-tests",
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/guava-original-jre-test-owner-artifacts/guava-tests-original-jre-test-owner.jar",
+      "sha256": "de08388f27012dca7220c144ddd4484ac1b049dae4f43adf44ce966a48237995",
+      "entries": 3189
+    }
+  ]
+}

@@ -13,7 +13,7 @@
   <name>Guava InternalFutureFailureAccess and InternalFutures</name>
   <description>
     Contains
-    com.google.common.util.concurrent.internal.InternalFutureFailureAccess and
+    com.m3.collections.guava.util.concurrent.internal.InternalFutureFailureAccess and
     InternalFutures. Most users will never need to use this artifact. Its
     classes are conceptually a part of Guava, but they're in this separate
     artifact so that Android libraries can use them without pulling in all of
@@ -61,7 +61,7 @@
               <compilerArgs>
                 <arg>-sourcepath</arg>
                 <arg>${project.basedir}/src</arg>
-                <arg>--add-reads=com.google.common=ALL-UNNAMED</arg>
+                <arg>--add-reads=com.m3.collections.guava=ALL-UNNAMED</arg>
                 <!-- https://errorprone.info/docs/installation#maven -->
                 <arg>-XDcompilePolicy=simple</arg>
               </compilerArgs>
@@ -81,7 +81,7 @@
           </archive>
           <excludes>
             <exclude>/module-info.class</exclude>
-            <exclude>META-INF/versions/9/com/google/common/util/concurrent/internal/*.class</exclude>
+            <exclude>META-INF/versions/9/com/m3/collections/guava/util/concurrent/internal/*.class</exclude>
           </excludes>
         </configuration>
       </plugin>
@@ -110,7 +110,7 @@
           <instructions>
             <!-- Silence a warning that claims that META-INF/versions/9/... is the "wrong directory" for our classes. -->
             <_fixupmessages>^Classes found in the wrong directory: .*</_fixupmessages>
-            <Export-Package>com.google.common.util.concurrent.internal,!META-INF.*</Export-Package>
+            <Export-Package>com.m3.collections.guava.util.concurrent.internal,!META-INF.*</Export-Package>
             <Bundle-DocURL>https://github.com/google/guava/</Bundle-DocURL>
           </instructions>
         </configuration>

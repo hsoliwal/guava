@@ -1,0 +1,48 @@
+/*
+ * Copyright (C) 2012 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.m3.collections.guava.collect.testing.google;
+
+import static com.m3.collections.guava.collect.testing.Helpers.assertEqualIgnoringOrder;
+import static com.m3.collections.guava.collect.testing.Helpers.mapEntry;
+import static com.m3.collections.guava.collect.testing.features.CollectionFeature.KNOWN_ORDER;
+
+import com.m3.collections.guava.annotations.GwtCompatible;
+import com.m3.collections.guava.collect.Multimap;
+import com.m3.collections.guava.collect.testing.features.CollectionFeature;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
+
+/**
+ * Tests for {@link Multimap#forEach}.
+ *
+ * @author Louis Wasserman
+ */
+@GwtCompatible
+public class MultimapForEachTester<K, V> extends AbstractMultimapTester<K, V, Multimap<K, V>> {
+  public void testForEach() {
+    List<Entry<K, V>> entries = new ArrayList<>();
+    multimap().forEach((k, v) -> entries.add(mapEntry(k, v)));
+    assertEqualIgnoringOrder(getSampleElements(), multimap().entries());
+  }
+
+  @CollectionFeature.Require(KNOWN_ORDER)
+  public void testForEachOrder() {
+    List<Entry<K, V>> entries = new ArrayList<>();
+    multimap().forEach((k, v) -> entries.add(mapEntry(k, v)));
+    assertEqualIgnoringOrder(getSampleElements(), multimap().entries());
+  }
+}

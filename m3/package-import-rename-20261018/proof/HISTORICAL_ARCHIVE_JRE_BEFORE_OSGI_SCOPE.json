@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "artifact_execution": "JDK_JAR_FROM_ACTUAL_CLEAN_NATIVE_UNPRIVILEGED_OUTPUT; no Maven package/install lifecycle claim",
+  "jar_sha256": "bcafe802e25134e253c562407315eddea74e0d3c080ac5832209a779ebdc1029",
+  "classfiles": 1967,
+  "old_namespace_classfiles": 0,
+  "module": "com.m3.collections.guava",
+  "osgi_manifest": "Actual native Maven Bundle Plugin manifest; renamed export/import package metadata verified",
+  "named_module_consumer": "PASS_IMMUTABLE_MEDIA_PUBLICSUFFIX_FUTURES",
+  "producer_classes": "/dev/shm/m3-package-rename-39a960e13a39/guava-unprivileged/guava/guava/target/classes",
+  "artifact_path": "/dev/shm/m3-package-rename-39a960e13a39/guava-native-jre-artifact-proof/guava-native-jre.jar"
+}

@@ -1,0 +1,62 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --< com.synexia.rewrite.qualification:collections-package-import-rename >--
+[INFO] Building collections-package-import-rename 20261018
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ collections-package-import-rename ---
+[INFO] Copying 16 resources from ../../src/main/resources to ../../../../../../../../dev/shm/m3-package-rename-39a960e13a39/recipe-target-8.90.4-varargs/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ collections-package-import-rename ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 15 source files with javac [debug release 21] to ../../../../../../../../dev/shm/m3-package-rename-39a960e13a39/recipe-target-8.90.4-varargs/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ collections-package-import-rename ---
+[INFO] Copying 2 resources from ../../src/test/resources to ../../../../../../../../dev/shm/m3-package-rename-39a960e13a39/recipe-target-8.90.4-varargs/test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ collections-package-import-rename ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 6 source files with javac [debug release 21] to ../../../../../../../../dev/shm/m3-package-rename-39a960e13a39/recipe-target-8.90.4-varargs/test-classes
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ collections-package-import-rename ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameTest
+APPLIED files=1
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.683 s -- in com.synexia.rewrite.M3CollectionsPackageRenameTest
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameSnippetTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.278 s -- in com.synexia.rewrite.M3CollectionsPackageRenameSnippetTest
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameResourcesTest
+resource_files=1 changed=1 apply=false
+resource_files=1 changed=1 apply=true
+resource_files=1 changed=0 apply=true
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.708 s -- in com.synexia.rewrite.M3CollectionsPackageRenameResourcesTest
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameModulesTest
+module_files=1 changed=1 execution_kind=JDK_MODULE_AST_PARSE apply=false
+module_files=1 changed=1 execution_kind=JDK_MODULE_AST_PARSE apply=true
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.507 s -- in com.synexia.rewrite.M3CollectionsPackageRenameModulesTest
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameMetadataTest
+metadata_files=1 changed=1 apply=false
+metadata_files=1 changed=1 apply=true
+metadata_files=1 changed=0 apply=true
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.971 s -- in com.synexia.rewrite.M3CollectionsPackageRenameMetadataTest
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameImportOrderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.309 s -- in com.synexia.rewrite.M3CollectionsPackageRenameImportOrderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- dependency:3.8.1:build-classpath (default-cli) @ collections-package-import-rename ---
+[INFO] Wrote classpath file '/dev/shm/m3-package-rename-39a960e13a39/recipe-classpath-8.90.4-varargs.txt'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.230 s
+[INFO] Finished at: 2026-10-18T01:27:23-07:00
+[INFO] ------------------------------------------------------------------------

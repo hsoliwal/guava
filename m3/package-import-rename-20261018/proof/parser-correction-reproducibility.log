@@ -1,0 +1,3 @@
+Note: /workspace/scratch/39a960e13a39/repos/com.synexia/synexia-openrewrite-recipes/recipes/collections-package-import-rename-20261018/provider-corrections/java21-8.90.4/src/main/java/org/openrewrite/java/isolated/ReloadableJava21ParserVisitor.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+/dev/shm/m3-package-rename-39a960e13a39/parser-correction-reproducibility/rewrite-java-21-8.90.4-m3-annotated-varargs-20261018.jar

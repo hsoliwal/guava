@@ -1,0 +1,29 @@
+{
+  "schema": "M3_FULL_GUAVA_SDK_DOMAIN_COMPOSITION_V1",
+  "source_inputs": 3274,
+  "source_outputs": 3274,
+  "omissions": 0,
+  "duplicates": 0,
+  "union_matches_original_inventory": true,
+  "candidate_postimage_hashes": "PASS_ALL_3274",
+  "execution": "Two actual SDK stages, not a synthetic claim of one parser context",
+  "domains": [
+    {
+      "domain": "android",
+      "inputs": 1595,
+      "changes": 1595,
+      "sdk_execution_sha256": "71ec326bcce16a926380a04b37c502afbcedd2978d8fc933281142f21b57975a",
+      "changes_sha256": "4ad706231743a47ad7ada94142ae3b4cb789650b0596b3e4aa053b3382746fba",
+      "stage_directory": "/dev/shm/m3-package-rename-39a960e13a39/guava-sdk-candidates-android-fidelity"
+    },
+    {
+      "domain": "jre",
+      "inputs": 1679,
+      "changes": 1679,
+      "sdk_execution_sha256": "d8bc7f384a96ffc4f53f31f6adad59947e2e7f9ef21ac9ab1707fa385e94c728",
+      "changes_sha256": "a7aa77681fd093ee9099d0a6d75ae7cfbb656bdce1aafb46e6bfced05fecf776",
+      "stage_directory": "/dev/shm/m3-package-rename-39a960e13a39/guava-sdk-candidates-jre-complete-owner"
+    }
+  ],
+  "promotion": "PASS_ONE_FULL_INVENTORY_SHARED_PREFLIGHT_APPLIED_3274"
+}

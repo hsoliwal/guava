@@ -1,0 +1,106 @@
+/*
+ * Copyright (C) 2016 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.m3.collections.guava.graph;
+
+import static com.m3.collections.guava.truth.Truth.assertThat;
+
+import com.m3.collections.guava.collect.Ordering;
+import com.google.testing.junit.testparameterinjector.TestParameter;
+import com.google.testing.junit.testparameterinjector.TestParameterInjector;
+import java.util.HashMap;
+import java.util.TreeMap;
+import org.jspecify.annotations.NullUnmarked;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+/** Tests for {@link MapIteratorCache} and {@link MapRetrievalCache}. */
+@RunWith(TestParameterInjector.class)
+@NullUnmarked
+public final class MapCacheTest {
+  private final MapIteratorCache<String, String> mapCache;
+
+  public MapCacheTest(@TestParameter MapCacheType mapCacheType) {
+    this.mapCache = mapCacheType.create();
+  }
+
+  private enum MapCacheType {
+    MAP_ITERATOR_CACHE_HASH_MAP {
+      @Override
+      MapIteratorCache<String, String> create() {
+        return new MapIteratorCache<>(new HashMap<>());
+      }
+    },
+    MAP_ITERATOR_CACHE_TREE_MAP {
+      @Override
+      MapIteratorCache<String, String> create() {
+        return new MapIteratorCache<>(new TreeMap<>(Ordering.natural().nullsLast()));
+      }
+    },
+    MAP_RETRIEVAL_CACHE_HASH_MAP {
+      @Override
+      MapIteratorCache<String, String> create() {
+        return new MapRetrievalCache<>(new HashMap<>());
+      }
+    },
+    MAP_RETRIEVAL_CACHE_TREE_MAP {
+      @Override
+      MapIteratorCache<String, String> create() {
+        return new MapRetrievalCache<>(new TreeMap<>(Ordering.natural().nullsLast()));
+      }
+    };
+
+    abstract MapIteratorCache<String, String> create();
+  }
+
+  @Before
+  public void init() {
+    mapCache.clear();
+  }
+
+  @Test
+  public void testKeySetIterator() {
+    mapCache.put("A", "A_value");
+    mapCache.put("B", "B_value");
+    mapCache.put("C", "C_value");
+
+    assertThat(mapCache.unmodifiableKeySet()).hasSize(3);
+    for (String key : mapCache.unmodifiableKeySet()) {
+      assertThat(mapCache.get(key)).isEqualTo(key + "_value");
+    }
+  }
+
+  @Test
+  public void testPutNewValue() {
+    assertThat(mapCache.put("key", "value")).isNull();
+    assertThat(mapCache.get("key")).isEqualTo("value"); // ensure key/value is cached
+    assertThat(mapCache.put("key", "new value")).isEqualTo("value");
+    assertThat(mapCache.get("key")).isEqualTo("new value");
+  }
+
+  @Test
+  public void testRemoveEqualKeyWithDifferentReference() {
+    String fooReference1 = new String("foo");
+    String fooReference2 = new String("foo");
+    assertThat(fooReference1).isNotSameInstanceAs(fooReference2);
+
+    assertThat(mapCache.put(fooReference1, "bar")).isNull();
+    assertThat(mapCache.get(fooReference1)).isEqualTo("bar"); // ensure first reference is cached
+    assertThat(mapCache.remove(fooReference2)).isEqualTo("bar");
+    assertThat(mapCache.get(fooReference1)).isNull();
+  }
+}

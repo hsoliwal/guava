@@ -1,0 +1,22 @@
+{
+  "schema": "M3_GUAVA_EXACT_ATTRIBUTION_DOMAINS_V1",
+  "full_inventory": "JAVA_INPUT.tsv",
+  "full_sha256": "2099103c326c5187e685e8472bb58606a1d147a2f20e2f20d902c8035e5da4d2",
+  "inputs": 3274,
+  "omitted": 0,
+  "domains": [
+    {
+      "name": "android",
+      "inputs": 1595,
+      "inventory": "JAVA_INPUT_ANDROID.tsv",
+      "sha256": "21ef58bc06ce7f580ebc0ba00f99a5e3cbd8280b60ab1de22f7c847bdaf3dc1b"
+    },
+    {
+      "name": "jre",
+      "inputs": 1679,
+      "inventory": "JAVA_INPUT_JRE.tsv",
+      "sha256": "451769cf075c1bf07bf8c6f0663fd3507508e3eb2bc35eae07b077b10ff5461c"
+    }
+  ],
+  "promotion_rule": "Both real SDK domain stages must succeed; compose only hash-verified candidates and use one full-inventory shared promotion preflight before any source write."
+}

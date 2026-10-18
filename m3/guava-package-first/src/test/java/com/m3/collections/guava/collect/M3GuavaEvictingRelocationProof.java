@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-/** Deterministic oracle: complete original Guava queue versus package-only relocation. */
+/** Renamed working proof; the pinned original-source workflow supplies the independent oracle. */
 public final class M3GuavaEvictingRelocationProof {
     private static long checks;
     private M3GuavaEvictingRelocationProof() { }
@@ -32,7 +32,7 @@ public final class M3GuavaEvictingRelocationProof {
             return in.readObject();
         }
     }
-    private static void verify(com.google.common.collect.EvictingQueue<Integer> a,
+    private static void verify(com.m3.collections.guava.collect.EvictingQueue<Integer> a,
             EvictingQueue<Integer> b,int capacity) {
         equal(a.size(),b.size(),"size");
         equal(a.peek(),b.peek(),"peek");
@@ -40,7 +40,7 @@ public final class M3GuavaEvictingRelocationProof {
         equal(capacity-a.size(),b.remainingCapacity(),"bound");
         equalArray(a.toArray(),b.toArray());
     }
-    private static void removeAt(com.google.common.collect.EvictingQueue<Integer> a,
+    private static void removeAt(com.m3.collections.guava.collect.EvictingQueue<Integer> a,
             EvictingQueue<Integer> b,int index) {
         Iterator<Integer> x=a.iterator(),y=b.iterator();
         for(int i=0;i<=index;i++)equal(x.next(),y.next(),"iterator");
@@ -49,7 +49,7 @@ public final class M3GuavaEvictingRelocationProof {
     private static void run() throws Exception {
         Random rng=new Random(0x4d33475541564145L);
         for(int capacity:new int[]{0,1,2,3,7,31,64}) {
-            var a=com.google.common.collect.EvictingQueue.<Integer>create(capacity);
+            var a=com.m3.collections.guava.collect.EvictingQueue.<Integer>create(capacity);
             var b=EvictingQueue.<Integer>create(capacity);
             for(int step=0;step<500;step++) {
                 switch(rng.nextInt(8)) {
@@ -76,17 +76,20 @@ public final class M3GuavaEvictingRelocationProof {
                 }
                 verify(a,b,capacity);
                 if(step%137==0)equalArray(
-                        ((com.google.common.collect.EvictingQueue<?>)serial(a)).toArray(),
+                        ((com.m3.collections.guava.collect.EvictingQueue<?>)serial(a)).toArray(),
                         ((EvictingQueue<?>)serial(b)).toArray());
             }
         }
         boolean original=false,relocated=false;
-        try{com.google.common.collect.EvictingQueue.create(-1);}catch(IllegalArgumentException ex){original=true;}
+        try{com.m3.collections.guava.collect.EvictingQueue.create(-1);}catch(IllegalArgumentException ex){original=true;}
         try{EvictingQueue.create(-1);}catch(IllegalArgumentException ex){relocated=true;}
         equal(true,original,"invalid capacity");equal(original,relocated,"capacity exception");
     }
     public static void main(String[] args) throws Exception {
         if(args.length!=0)throw new IllegalArgumentException("no arguments");
+        if (com.m3.collections.guava.collect.EvictingQueue.class == EvictingQueue.class) {
+            throw new IllegalStateException("Independent oracle required; use the pinned original-source workflow");
+        }
         run();
         System.out.println("PASS M3_GUAVA_EVICTING_RELOCATION checks="+checks);
     }

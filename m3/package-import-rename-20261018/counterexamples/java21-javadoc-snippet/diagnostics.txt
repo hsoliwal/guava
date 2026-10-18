@@ -1,0 +1,43 @@
+Exception in thread "main" java.lang.IllegalStateException: parse failed at batch 0
+	at com.synexia.rewrite.M3CollectionsPackageRenameCli.requireNoFailures(M3CollectionsPackageRenameCli.java:225)
+	at com.synexia.rewrite.M3CollectionsPackageRenameCli.stage(M3CollectionsPackageRenameCli.java:65)
+	at com.synexia.rewrite.M3CollectionsPackageRenameCli.main(M3CollectionsPackageRenameCli.java:32)
+Caused by: org.openrewrite.java.JavaParsingException: Failed to convert for the following cursor stack:--- BEGIN PATH ---
+JCCompilationUnit(sourceFile = android/guava-testlib/src/com/google/common/collect/testing/IteratorTester.java)
+--- END PATH ---
+
+	at org.openrewrite.java.isolated.ReloadableJava21ParserVisitor.convert(ReloadableJava21ParserVisitor.java:1688)
+	at org.openrewrite.java.isolated.ReloadableJava21ParserVisitor.convertAll(ReloadableJava21ParserVisitor.java:1718)
+	at org.openrewrite.java.isolated.ReloadableJava21ParserVisitor.visitCompilationUnit(ReloadableJava21ParserVisitor.java:549)
+	at org.openrewrite.java.isolated.ReloadableJava21ParserVisitor.visitCompilationUnit(ReloadableJava21ParserVisitor.java:73)
+	at com.sun.tools.javac.tree.JCTree$JCCompilationUnit.accept(JCTree.java:623)
+	at com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:92)
+	at org.openrewrite.java.isolated.ReloadableJava21Parser.lambda$parseInputs$0(ReloadableJava21Parser.java:166)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1939)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622)
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627)
+	at com.synexia.rewrite.M3CollectionsPackageRenameCli.stage(M3CollectionsPackageRenameCli.java:64)
+	... 1 more
+Caused by: java.lang.UnsupportedOperationException: Anywhere text can occur, we need to call the visitText override that returns a list of Javadoc elements.
+	at org.openrewrite.java.isolated.ReloadableJava21JavadocVisitor.visitText(ReloadableJava21JavadocVisitor.java:873)
+	at org.openrewrite.java.isolated.ReloadableJava21JavadocVisitor.visitText(ReloadableJava21JavadocVisitor.java:52)
+	at com.sun.tools.javac.tree.DCTree$DCText.accept(DCTree.java:1254)
+	at com.sun.source.util.DocTreeScanner.scan(DocTreeScanner.java:90)
+	at com.sun.source.util.DocTreeScanner.scanAndReduce(DocTreeScanner.java:94)
+	at com.sun.source.util.DocTreeScanner.visitSnippet(DocTreeScanner.java:530)
+	at com.sun.tools.javac.tree.DCTree$DCSnippet.accept(DCTree.java:1103)
+	at com.sun.source.util.DocTreeScanner.scan(DocTreeScanner.java:90)
+	at org.openrewrite.java.isolated.ReloadableJava21JavadocVisitor.visitDocComment(ReloadableJava21JavadocVisitor.java:297)
+	at org.openrewrite.java.isolated.ReloadableJava21JavadocVisitor.visitDocComment(ReloadableJava21JavadocVisitor.java:52)
+	at com.sun.tools.javac.tree.DCTree$DCDocComment.accept(DCTree.java:358)
+	at com.sun.source.util.DocTreeScanner.scan(DocTreeScanner.java:90)
+	at org.openrewrite.java.isolated.ReloadableJava21ParserVisitor.formatWithCommentTree(ReloadableJava21ParserVisitor.java:2164)
+	at org.openrewrite.java.isolated.ReloadableJava21ParserVisitor.convert(ReloadableJava21ParserVisitor.java:1665)
+	... 18 more

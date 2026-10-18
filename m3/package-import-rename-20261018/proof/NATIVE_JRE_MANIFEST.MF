@@ -1,0 +1,47 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 21
+Bundle-Description: Guava is a suite of core and expanded libraries th
+ at include    utility classes, Google's collections, I/O classes, and
+     much more.
+Bundle-DocURL: https://github.com/google/guava/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Guava: Google Core Libraries for Java
+Bundle-SymbolicName: com.google.guava
+Bundle-Version: 999.0.0.HEAD-jre-SNAPSHOT
+Created-By: Apache Maven Bundle Plugin 6.2.0
+Export-Package: com.m3.collections.guava.annotations;version="999.0.0"
+ ,com.m3.collections.guava.base;version="999.0.0";uses:="org.jspecify.
+ annotations",com.m3.collections.guava.cache;version="999.0.0";uses:="
+ com.m3.collections.guava.base,com.m3.collections.guava.collect,com.m3
+ .collections.guava.util.concurrent,org.jspecify.annotations",com.m3.c
+ ollections.guava.collect;version="999.0.0";uses:="com.m3.collections.
+ guava.base,org.jspecify.annotations",com.m3.collections.guava.escape;
+ version="999.0.0";uses:="com.m3.collections.guava.base,org.jspecify.a
+ nnotations",com.m3.collections.guava.eventbus;version="999.0.0",com.m
+ 3.collections.guava.graph;version="999.0.0";uses:="com.m3.collections
+ .guava.collect,org.jspecify.annotations",com.m3.collections.guava.has
+ h;version="999.0.0";uses:="com.m3.collections.guava.base,org.jspecify
+ .annotations",com.m3.collections.guava.html;version="999.0.0";uses:="
+ com.m3.collections.guava.escape",com.m3.collections.guava.io;version=
+ "999.0.0";uses:="com.m3.collections.guava.base,com.m3.collections.gua
+ va.collect,com.m3.collections.guava.graph,com.m3.collections.guava.ha
+ sh,org.jspecify.annotations",com.m3.collections.guava.math;version="9
+ 99.0.0";uses:="org.jspecify.annotations",com.m3.collections.guava.net
+ ;version="999.0.0";uses:="com.m3.collections.guava.base,com.m3.collec
+ tions.guava.collect,com.m3.collections.guava.escape,org.jspecify.anno
+ tations",com.m3.collections.guava.primitives;version="999.0.0";uses:=
+ "com.m3.collections.guava.base,org.jspecify.annotations",com.m3.colle
+ ctions.guava.reflect;version="999.0.0";uses:="com.m3.collections.guav
+ a.collect,com.m3.collections.guava.io,org.jspecify.annotations",com.m
+ 3.collections.guava.util.concurrent;version="999.0.0";uses:="com.m3.c
+ ollections.guava.base,com.m3.collections.guava.collect,org.jspecify.a
+ nnotations",com.m3.collections.guava.xml;version="999.0.0";uses:="com
+ .m3.collections.guava.escape"
+Import-Package: com.m3.collections.guava.util.concurrent.internal,org.
+ jspecify.annotations;version="[1.0,2)";resolution:=optional,javax.cry
+ pto;resolution:=optional,javax.crypto.spec;resolution:=optional,sun.m
+ isc;resolution:=optional
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-7.4.0.202608180709
+

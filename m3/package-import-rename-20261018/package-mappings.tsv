@@ -1,0 +1,3 @@
+old_package	new_package	recursive
+com.google.common	com.m3.collections.guava	true
+com.google.thirdparty	com.m3.collections.guava.thirdparty	true

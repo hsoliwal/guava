@@ -1,0 +1,13 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- Copyright 2026 Hitesh Soliwal and Contributors to the Synexia Project -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.google.guava</groupId><artifactId>failureaccess</artifactId><version>1.0.3-m3-relocated-20261018</version><name>Exact source receiver for relocated failureaccess</name>
+<properties><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding></properties>
+<build><resources><resource><directory>${project.basedir}/../../../..</directory><includes><include>LICENSE</include></includes><targetPath>META-INF</targetPath></resource></resources><sourceDirectory>${project.basedir}/../../../../futures/failureaccess/src</sourceDirectory><plugins>
+<plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.16.0</version><executions>
+<execution><id>default-compile</id><goals><goal>compile</goal></goals><configuration><release>8</release><excludes><exclude>module-info.java</exclude></excludes><compilerArgs><arg>-sourcepath</arg><arg>doesnotexist</arg></compilerArgs></configuration></execution>
+<execution><id>compile-module</id><goals><goal>compile</goal></goals><configuration><release>9</release><multiReleaseOutput>true</multiReleaseOutput><compilerArgs><arg>-sourcepath</arg><arg>${project.basedir}/../../../../futures/failureaccess/src</arg></compilerArgs></configuration></execution>
+</executions></plugin>
+<plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>3.5.0</version><configuration><archive><manifestEntries><Multi-Release>true</Multi-Release></manifestEntries></archive><excludes><exclude>module-info.class</exclude><exclude>META-INF/versions/9/com/m3/collections/guava/util/concurrent/internal/*.class</exclude></excludes></configuration></plugin>
+</plugins></build></project>

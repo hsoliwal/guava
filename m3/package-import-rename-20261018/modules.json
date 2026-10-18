@@ -1,0 +1,170 @@
+[
+  {
+    "path": "futures/failureaccess/src/module-info.java",
+    "old": "com.google.common.util.concurrent.internal",
+    "new": "com.m3.collections.guava.util.concurrent.internal",
+    "expected_sha256": "89a62a79edb54858d09bfc7cbc213422162a1ca6c385c3999af876397c56daa2"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "com.google.common",
+    "new": "com.m3.collections.guava",
+    "expected_sha256": "667af6daf6173b92c1a01f607a69693c73f805dde40f20a13dfd73219d419ccc"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "com.google.common.collect.testing",
+    "new": "com.m3.collections.guava.collect.testing",
+    "expected_sha256": "667af6daf6173b92c1a01f607a69693c73f805dde40f20a13dfd73219d419ccc"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "com.google.common.collect.testing.features",
+    "new": "com.m3.collections.guava.collect.testing.features",
+    "expected_sha256": "667af6daf6173b92c1a01f607a69693c73f805dde40f20a13dfd73219d419ccc"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "com.google.common.collect.testing.google",
+    "new": "com.m3.collections.guava.collect.testing.google",
+    "expected_sha256": "667af6daf6173b92c1a01f607a69693c73f805dde40f20a13dfd73219d419ccc"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "com.google.common.collect.testing.testers",
+    "new": "com.m3.collections.guava.collect.testing.testers",
+    "expected_sha256": "667af6daf6173b92c1a01f607a69693c73f805dde40f20a13dfd73219d419ccc"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "com.google.common.escape.testing",
+    "new": "com.m3.collections.guava.escape.testing",
+    "expected_sha256": "667af6daf6173b92c1a01f607a69693c73f805dde40f20a13dfd73219d419ccc"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "com.google.common.testing",
+    "new": "com.m3.collections.guava.testing",
+    "expected_sha256": "667af6daf6173b92c1a01f607a69693c73f805dde40f20a13dfd73219d419ccc"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "com.google.common.testlib",
+    "new": "com.m3.collections.guava.testlib",
+    "expected_sha256": "667af6daf6173b92c1a01f607a69693c73f805dde40f20a13dfd73219d419ccc"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "com.google.common.util.concurrent.testing",
+    "new": "com.m3.collections.guava.util.concurrent.testing",
+    "expected_sha256": "667af6daf6173b92c1a01f607a69693c73f805dde40f20a13dfd73219d419ccc"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common",
+    "new": "com.m3.collections.guava",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.annotations",
+    "new": "com.m3.collections.guava.annotations",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.base",
+    "new": "com.m3.collections.guava.base",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.cache",
+    "new": "com.m3.collections.guava.cache",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.collect",
+    "new": "com.m3.collections.guava.collect",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.escape",
+    "new": "com.m3.collections.guava.escape",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.eventbus",
+    "new": "com.m3.collections.guava.eventbus",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.graph",
+    "new": "com.m3.collections.guava.graph",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.hash",
+    "new": "com.m3.collections.guava.hash",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.html",
+    "new": "com.m3.collections.guava.html",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.io",
+    "new": "com.m3.collections.guava.io",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.math",
+    "new": "com.m3.collections.guava.math",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.net",
+    "new": "com.m3.collections.guava.net",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.primitives",
+    "new": "com.m3.collections.guava.primitives",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.reflect",
+    "new": "com.m3.collections.guava.reflect",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.util.concurrent",
+    "new": "com.m3.collections.guava.util.concurrent",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.util.concurrent.internal",
+    "new": "com.m3.collections.guava.util.concurrent.internal",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "com.google.common.xml",
+    "new": "com.m3.collections.guava.xml",
+    "expected_sha256": "fe06b58d85dc8b2f0ecf20dcd828a1f9d538a54eea6ed11f26a322d2e7605795"
+  }
+]

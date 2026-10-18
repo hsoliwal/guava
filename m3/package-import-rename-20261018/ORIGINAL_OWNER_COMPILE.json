@@ -1,0 +1,28 @@
+{
+  "schema": "M3_ORIGINAL_GUAVA_OWNER_COMPILE_V1",
+  "git_head": "dfd9dca629d44faf71846b1f85acd38556f4854d",
+  "native_goal": "-pl guava,guava-testlib -am compile",
+  "compiler": "Temurin 27.0.2+0-202610170812",
+  "maven_runtime": "Temurin 21.0.12.1+1",
+  "compiler_maxmem": "768m",
+  "test_disposition": "NOT_RUN_COMPILE_GOAL_ONLY",
+  "compile": "PASS",
+  "source_java_inventory_sha256": "2099103c326c5187e685e8472bb58606a1d147a2f20e2f20d902c8035e5da4d2",
+  "build_log_sha256": "2e63577c3cfcafee0bd5eaa160eacb15caf0240e7d71b17a14ae65a45bc856fb",
+  "artifacts": [
+    {
+      "module": "guava",
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/guava-original-owner-artifacts/guava-original-owner-classes.jar",
+      "sha256": "f19d3da8dd09971cc0aad7d67c311db472a57f1efdd12e9c8cce5985e3bb01f8",
+      "entries": 1974,
+      "classfiles": 1967
+    },
+    {
+      "module": "guava-testlib",
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/guava-original-owner-artifacts/guava-testlib-original-owner-classes.jar",
+      "sha256": "6e6ff29389e7e44da2650ee044f83f141412281545952d27c5c3c1c084731fe4",
+      "entries": 1242,
+      "classfiles": 1241
+    }
+  ]
+}

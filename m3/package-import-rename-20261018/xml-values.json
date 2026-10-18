@@ -1,0 +1,607 @@
+[
+  {
+    "path": "android/guava-testlib/pom.xml",
+    "old": "--add-reads=com.google.common.testlib=ALL-UNNAMED",
+    "new": "--add-reads=com.m3.collections.guava.testlib=ALL-UNNAMED"
+  },
+  {
+    "path": "android/guava-testlib/pom.xml",
+    "old": "--add-reads=com.google.common=ALL-UNNAMED",
+    "new": "--add-reads=com.m3.collections.guava=ALL-UNNAMED"
+  },
+  {
+    "path": "android/guava/pom.xml",
+    "old": "!com.google.common.base.internal,",
+    "new": "!com.m3.collections.guava.base.internal,"
+  },
+  {
+    "path": "android/guava/pom.xml",
+    "old": "!com.google.common.util.concurrent.internal,",
+    "new": "!com.m3.collections.guava.util.concurrent.internal,"
+  },
+  {
+    "path": "android/guava/pom.xml",
+    "old": "--add-reads=com.google.common=ALL-UNNAMED",
+    "new": "--add-reads=com.m3.collections.guava=ALL-UNNAMED"
+  },
+  {
+    "path": "android/guava/pom.xml",
+    "old": "com.azul.tooling.in,com.google.common.base.internal,com.google.common.base.internal.*,com.google.thirdparty.publicsuffix,com.google.thirdparty.publicsuffix.*,com.oracle.*,com.sun.*,java.*,javax.*,jdk,jdk.*,org.*,sun.*",
+    "new": "com.azul.tooling.in,com.m3.collections.guava.base.internal,com.m3.collections.guava.base.internal.*,com.m3.collections.guava.thirdparty.publicsuffix,com.m3.collections.guava.thirdparty.publicsuffix.*,com.oracle.*,com.sun.*,java.*,javax.*,jdk,jdk.*,org.*,sun.*"
+  },
+  {
+    "path": "android/guava/pom.xml",
+    "old": "com.google.common",
+    "new": "com.m3.collections.guava"
+  },
+  {
+    "path": "android/guava/pom.xml",
+    "old": "com.google.common.*",
+    "new": "com.m3.collections.guava.*"
+  },
+  {
+    "path": "android/guava/pom.xml",
+    "old": "com.google.common.util.concurrent.internal,",
+    "new": "com.m3.collections.guava.util.concurrent.internal,"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.base.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.base.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.cache.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.cache.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.collect.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.collect.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.collect.testing.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.collect.testing.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.collect.testing.testers.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.collect.testing.testers.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.hash.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.hash.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.io.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.io.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.math.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.math.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.primitives.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.primitives.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.reflect.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.reflect.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.testing.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.testing.IgnoreJRERequirement"
+  },
+  {
+    "path": "android/pom.xml",
+    "old": "com.google.common.util.concurrent.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.util.concurrent.IgnoreJRERequirement"
+  },
+  {
+    "path": "futures/failureaccess/pom.xml",
+    "old": "--add-reads=com.google.common=ALL-UNNAMED",
+    "new": "--add-reads=com.m3.collections.guava=ALL-UNNAMED"
+  },
+  {
+    "path": "futures/failureaccess/pom.xml",
+    "old": "META-INF/versions/9/com/google/common/util/concurrent/internal/*.class",
+    "new": "META-INF/versions/9/com/m3/collections/guava/util/concurrent/internal/*.class"
+  },
+  {
+    "path": "futures/failureaccess/pom.xml",
+    "old": "com.google.common.util.concurrent.internal,!META-INF.*",
+    "new": "com.m3.collections.guava.util.concurrent.internal,!META-INF.*"
+  },
+  {
+    "path": "futures/failureaccess/pom.xml",
+    "old": "com.google.common.util.concurrent.internal.InternalFutureFailureAccess and",
+    "new": "com.m3.collections.guava.util.concurrent.internal.InternalFutureFailureAccess and"
+  },
+  {
+    "path": "futures/listenablefuture1/pom.xml",
+    "old": "Contains Guava's com.google.common.util.concurrent.ListenableFuture class,",
+    "new": "Contains Guava's com.m3.collections.guava.util.concurrent.ListenableFuture class,"
+  },
+  {
+    "path": "futures/listenablefuture9999/pom.xml",
+    "old": "contains com.google.common.util.concurrent.ListenableFuture class, without",
+    "new": "contains com.m3.collections.guava.util.concurrent.ListenableFuture class, without"
+  },
+  {
+    "path": "guava-gwt/pom.xml",
+    "old": "com.google.common.ForceGuavaCompilation",
+    "new": "com.m3.collections.guava.ForceGuavaCompilation"
+  },
+  {
+    "path": "guava-gwt/pom.xml",
+    "old": "com.google.common.GuavaTests",
+    "new": "com.m3.collections.guava.GuavaTests"
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.ForceGuavaCompilationEntryPoint\"",
+    "new": "\"com.m3.collections.guava.ForceGuavaCompilationEntryPoint\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.cache.Cache\"",
+    "new": "\"com.m3.collections.guava.cache.Cache\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.collect.Collect\"",
+    "new": "\"com.m3.collections.guava.collect.Collect\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.escape.Escape\"",
+    "new": "\"com.m3.collections.guava.escape.Escape\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.html.Html\"",
+    "new": "\"com.m3.collections.guava.html.Html\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.io.Io\"",
+    "new": "\"com.m3.collections.guava.io.Io\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.math.Math\"",
+    "new": "\"com.m3.collections.guava.math.Math\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.net.Net\"",
+    "new": "\"com.m3.collections.guava.net.Net\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.primitives.Primitives\"",
+    "new": "\"com.m3.collections.guava.primitives.Primitives\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.util.concurrent.Concurrent\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.Concurrent\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.common.xml.Xml\"",
+    "new": "\"com.m3.collections.guava.xml.Xml\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.thirdparty.publicsuffix.PublicSuffixPatterns\"",
+    "new": "\"com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixPatterns\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "old": "\"com.google.thirdparty.publicsuffix.PublicSuffixType\"",
+    "new": "\"com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixType\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+    "old": "\"com.google.common.collect.Collect\"",
+    "new": "\"com.m3.collections.guava.collect.Collect\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+    "old": "\"com.google.common.math.Math\"",
+    "new": "\"com.m3.collections.guava.math.Math\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+    "old": "\"com.google.common.util.concurrent.Concurrent\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.Concurrent\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+    "old": "\"com.google.common.math.Math\"",
+    "new": "\"com.m3.collections.guava.math.Math\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+    "old": "\"com.google.common.primitives.Primitives\"",
+    "new": "\"com.m3.collections.guava.primitives.Primitives\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/html/Html.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/html/Html.gwt.xml",
+    "old": "\"com.google.common.escape.Escape\"",
+    "new": "\"com.m3.collections.guava.escape.Escape\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+    "old": "\"com.google.common.math.Math\"",
+    "new": "\"com.m3.collections.guava.math.Math\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+    "old": "\"com.google.common.primitives.Primitives\"",
+    "new": "\"com.m3.collections.guava.primitives.Primitives\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml",
+    "old": "\"com.google.common.primitives.Primitives\"",
+    "new": "\"com.m3.collections.guava.primitives.Primitives\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+    "old": "\"com.google.common.collect.Collect\"",
+    "new": "\"com.m3.collections.guava.collect.Collect\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+    "old": "\"com.google.common.escape.Escape\"",
+    "new": "\"com.m3.collections.guava.escape.Escape\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+    "old": "\"com.google.common.primitives.Primitives\"",
+    "new": "\"com.m3.collections.guava.primitives.Primitives\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+    "old": "\"com.google.thirdparty.publicsuffix.PublicSuffixPatterns\"",
+    "new": "\"com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixPatterns\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+    "old": "\"com.google.thirdparty.publicsuffix.PublicSuffixType\"",
+    "new": "\"com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixType\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml",
+    "old": "\"com.google.common.collect.Collect\"",
+    "new": "\"com.m3.collections.guava.collect.Collect\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/xml/Xml.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/xml/Xml.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/xml/Xml.gwt.xml",
+    "old": "\"com.google.common.escape.Escape\"",
+    "new": "\"com.m3.collections.guava.escape.Escape\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+    "old": "\"com.google.common.collect.Collect\"",
+    "new": "\"com.m3.collections.guava.collect.Collect\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+    "old": "\"com.google.thirdparty.publicsuffix.PublicSuffixType\"",
+    "new": "\"com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixType\""
+  },
+  {
+    "path": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixType.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.collect.Collect\"",
+    "new": "\"com.m3.collections.guava.collect.Collect\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.primitives.Primitives\"",
+    "new": "\"com.m3.collections.guava.primitives.Primitives\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.testing.Testing\"",
+    "new": "\"com.m3.collections.guava.testing.Testing\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+    "old": "\"com.google.common.collect.Collect\"",
+    "new": "\"com.m3.collections.guava.collect.Collect\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+    "old": "\"com.google.common.collect.testing.Testing\"",
+    "new": "\"com.m3.collections.guava.collect.testing.Testing\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+    "old": "\"com.google.common.primitives.Primitives\"",
+    "new": "\"com.m3.collections.guava.primitives.Primitives\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+    "old": "\"com.google.common.testing.Testing\"",
+    "new": "\"com.m3.collections.guava.testing.Testing\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/escape/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/escape/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.escape.Escape\"",
+    "new": "\"com.m3.collections.guava.escape.Escape\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.annotations.Annotations\"",
+    "new": "\"com.m3.collections.guava.annotations.Annotations\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.base.Base\"",
+    "new": "\"com.m3.collections.guava.base.Base\""
+  },
+  {
+    "path": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml",
+    "old": "\"com.google.common.collect.Collect\"",
+    "new": "\"com.m3.collections.guava.collect.Collect\""
+  },
+  {
+    "path": "guava-testlib/pom.xml",
+    "old": "--add-reads=com.google.common.testlib=ALL-UNNAMED",
+    "new": "--add-reads=com.m3.collections.guava.testlib=ALL-UNNAMED"
+  },
+  {
+    "path": "guava-testlib/pom.xml",
+    "old": "--add-reads=com.google.common=ALL-UNNAMED",
+    "new": "--add-reads=com.m3.collections.guava=ALL-UNNAMED"
+  },
+  {
+    "path": "guava/pom.xml",
+    "old": "!com.google.common.base.internal,",
+    "new": "!com.m3.collections.guava.base.internal,"
+  },
+  {
+    "path": "guava/pom.xml",
+    "old": "!com.google.common.util.concurrent.internal,",
+    "new": "!com.m3.collections.guava.util.concurrent.internal,"
+  },
+  {
+    "path": "guava/pom.xml",
+    "old": "--add-reads=com.google.common=ALL-UNNAMED",
+    "new": "--add-reads=com.m3.collections.guava=ALL-UNNAMED"
+  },
+  {
+    "path": "guava/pom.xml",
+    "old": "com.azul.tooling.in,com.google.common.base.internal,com.google.common.base.internal.*,com.google.thirdparty.publicsuffix,com.google.thirdparty.publicsuffix.*,com.oracle.*,com.sun.*,java.*,javax.*,jdk,jdk.*,org.*,sun.*",
+    "new": "com.azul.tooling.in,com.m3.collections.guava.base.internal,com.m3.collections.guava.base.internal.*,com.m3.collections.guava.thirdparty.publicsuffix,com.m3.collections.guava.thirdparty.publicsuffix.*,com.oracle.*,com.sun.*,java.*,javax.*,jdk,jdk.*,org.*,sun.*"
+  },
+  {
+    "path": "guava/pom.xml",
+    "old": "com.google.common.*",
+    "new": "com.m3.collections.guava.*"
+  },
+  {
+    "path": "guava/pom.xml",
+    "old": "com.google.common.util.concurrent.internal,",
+    "new": "com.m3.collections.guava.util.concurrent.internal,"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.base.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.base.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.cache.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.cache.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.collect.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.collect.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.collect.testing.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.collect.testing.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.collect.testing.testers.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.collect.testing.testers.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.hash.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.hash.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.io.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.io.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.math.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.math.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.primitives.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.primitives.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.reflect.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.reflect.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.testing.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.testing.IgnoreJRERequirement"
+  },
+  {
+    "path": "pom.xml",
+    "old": "com.google.common.util.concurrent.IgnoreJRERequirement",
+    "new": "com.m3.collections.guava.util.concurrent.IgnoreJRERequirement"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "schema": "M3_FROZEN_ORIGINAL_ORACLE_SOURCE_V1",
+  "path": "m3/guava-package-first/src/test/java/com/m3/collections/guava/collect/M3GuavaEvictingRelocationProof.java",
+  "sha256": "8534f8ed9e2000e008ba26288d5efaf40b220c2140510f15f07777ceb136d104",
+  "disposition": "Immutable original Git-object oracle used by namespace CI workflow; active renamed standalone entrypoint explicitly refuses same-class comparison."
+}

@@ -1,0 +1,19 @@
+{
+  "preserved_parent_base": "7f70b54a348dce28fcbfa6005155e71f3140b93f",
+  "immutable_transform_pin": "dfd9dca629d44faf71846b1f85acd38556f4854d",
+  "scope": "Three subsequently added inventory-only owners; no renamed/native product input changed; preserved by parent fast-forward without a redundant native rerun.",
+  "files": [
+    {
+      "path": ".github/workflows/m3scale-all-files-20261018.yml",
+      "sha256": "36855d76638c43c489bcb822115f53422e7b04d7eec223136ea2694bea8270ef"
+    },
+    {
+      "path": "tools/m3scale/M3ForkFilePass.java",
+      "sha256": "e3acdbb5081f0c71c370cfaf6657a8d8d21a36113888db99e3b2ab01bd389e3e"
+    },
+    {
+      "path": "tools/m3scale/README.md",
+      "sha256": "cd2ed7bee23cb522e5a4ce6266d22286313951985c1ea50a6994ce6e79f1196e"
+    }
+  ]
+}
