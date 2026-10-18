@@ -11,7 +11,7 @@
   <version>1.0</version>
   <name>Guava ListenableFuture only</name>
   <description>
-    Contains Guava's com.google.common.util.concurrent.ListenableFuture class,
+    Contains Guava's com.m3.collections.guava.util.concurrent.ListenableFuture class,
     without any of its other classes -- but is also available in a second
     "version" that omits the class to avoid conflicts with the copy in Guava
     itself. The idea is:
@@ -53,4 +53,10 @@
       </plugin>
     </plugins>
   </build>
+  <properties>
+    <!-- M3 namespace source only: retain donor coordinates as provenance.
+         Disable normal lifecycle publication until a target-owned build is qualified. -->
+    <maven.install.skip>true</maven.install.skip>
+    <maven.deploy.skip>true</maven.deploy.skip>
+  </properties>
 </project>

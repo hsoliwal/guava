@@ -15,28 +15,28 @@
  */
 
 /** Google Guava */
-module com.google.common {
+module com.m3.collections.guava {
   requires java.logging;
-  requires transitive com.google.common.util.concurrent.internal;
+  requires transitive com.m3.collections.guava.util.concurrent.internal;
   requires static jdk.unsupported;
   requires static com.google.errorprone.annotations;
   requires static com.google.j2objc.annotations;
   requires static org.jspecify;
 
-  exports com.google.common.annotations;
-  exports com.google.common.base;
-  exports com.google.common.cache;
-  exports com.google.common.collect;
-  exports com.google.common.escape;
-  exports com.google.common.eventbus;
-  exports com.google.common.graph;
-  exports com.google.common.hash;
-  exports com.google.common.html;
-  exports com.google.common.io;
-  exports com.google.common.math;
-  exports com.google.common.net;
-  exports com.google.common.primitives;
-  exports com.google.common.reflect;
-  exports com.google.common.util.concurrent;
-  exports com.google.common.xml;
+  exports com.m3.collections.guava.annotations;
+  exports com.m3.collections.guava.base;
+  exports com.m3.collections.guava.cache;
+  exports com.m3.collections.guava.collect;
+  exports com.m3.collections.guava.escape;
+  exports com.m3.collections.guava.eventbus;
+  exports com.m3.collections.guava.graph;
+  exports com.m3.collections.guava.hash;
+  exports com.m3.collections.guava.html;
+  exports com.m3.collections.guava.io;
+  exports com.m3.collections.guava.math;
+  exports com.m3.collections.guava.net;
+  exports com.m3.collections.guava.primitives;
+  exports com.m3.collections.guava.reflect;
+  exports com.m3.collections.guava.util.concurrent;
+  exports com.m3.collections.guava.xml;
 }

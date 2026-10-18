@@ -12,6 +12,10 @@
   <description>Parent for guava artifacts</description>
   <url>https://github.com/google/guava</url>
   <properties>
+    <!-- M3 namespace source only: retain donor coordinates as provenance.
+         Disable normal lifecycle publication until a target-owned build is qualified. -->
+    <maven.install.skip>true</maven.install.skip>
+    <maven.deploy.skip>true</maven.deploy.skip>
     <!--
     When building Guava, you can pass (e.g.) `-Dsurefire.toolchain.version=21` to change which version to run tests under.
     You may find that you need to use Java 11+ to *build* Guava, but it continues to work under Java 8, and you can run tests to verify that, as we do.
@@ -318,7 +322,7 @@
             <excludes>
               <!-- https://github.com/google/guava/issues/2840 -->
               <exclude>%regex[.*PackageSanityTests.*.class]</exclude>
-              <!-- FeatureUtilTest.*ExampleDerivedInterfaceTester, com.google.common.io.*Tester, incidentally FeatureSpecificTestSuiteBuilderTest.MyAbstractTester (but we don't care either way because it's not meant to run on its own but works OK if it does)... but not NullPointerTesterTest, etc. -->
+              <!-- FeatureUtilTest.*ExampleDerivedInterfaceTester, com.m3.collections.guava.io.*Tester, incidentally FeatureSpecificTestSuiteBuilderTest.MyAbstractTester (but we don't care either way because it's not meant to run on its own but works OK if it does)... but not NullPointerTesterTest, etc. -->
               <exclude>%regex[.*Tester.class]</exclude>
               <!-- Anonymous TestCase subclasses in GeneratedMonitorTest -->
               <exclude>%regex[.*[$]\d+.class]</exclude>
@@ -361,18 +365,18 @@
           </dependencies>
           <configuration>
             <annotations>
-              <annotation>com.google.common.base.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.cache.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.collect.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.collect.testing.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.collect.testing.testers.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.hash.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.io.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.math.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.primitives.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.reflect.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.testing.IgnoreJRERequirement</annotation>
-              <annotation>com.google.common.util.concurrent.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.base.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.cache.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.collect.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.collect.testing.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.collect.testing.testers.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.hash.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.io.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.math.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.primitives.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.reflect.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.testing.IgnoreJRERequirement</annotation>
+              <annotation>com.m3.collections.guava.util.concurrent.IgnoreJRERequirement</annotation>
             </annotations>
             <checkTestClasses>true</checkTestClasses>
             <signature>

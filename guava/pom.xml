@@ -82,13 +82,15 @@
             <!-- Silence a warning that claims that META-INF/versions/9/... is the "wrong directory" for our classes. -->
             <_fixupmessages>^Classes found in the wrong directory: .*</_fixupmessages>
             <Export-Package>
-              !com.google.common.base.internal,
-              !com.google.common.util.concurrent.internal,
+              !com.m3.collections.guava.thirdparty.publicsuffix,
+              !com.m3.collections.guava.thirdparty.publicsuffix.*,
+              !com.m3.collections.guava.base.internal,
+              !com.m3.collections.guava.util.concurrent.internal,
               !META-INF.*,
-              com.google.common.*
+              com.m3.collections.guava.*
             </Export-Package>
             <Import-Package>
-              com.google.common.util.concurrent.internal,
+              com.m3.collections.guava.util.concurrent.internal,
               javax.annotation;resolution:=optional,
               javax.crypto.*;resolution:=optional,
               sun.misc.*;resolution:=optional
@@ -130,7 +132,7 @@
               <compilerArgs combine.self="override">
                 <arg>-sourcepath</arg>
                 <arg>${project.basedir}/src</arg>
-                <arg>--add-reads=com.google.common=ALL-UNNAMED</arg>
+                <arg>--add-reads=com.m3.collections.guava=ALL-UNNAMED</arg>
                 <!-- https://errorprone.info/docs/installation#maven -->
                 <arg>-XDcompilePolicy=simple</arg>
               </compilerArgs>
@@ -149,11 +151,11 @@
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
         <configuration>
-          <!-- Passing `-subpackages com.google.common` breaks things, so we explicitly exclude everything else instead. -->
+          <!-- Passing `-subpackages com.m3.collections.guava` breaks things, so we explicitly exclude everything else instead. -->
           <!-- excludePackageNames requires specification of packages separately from "all subpackages".
                https://issues.apache.org/jira/browse/MJAVADOC-584 -->
           <excludePackageNames>
-            com.azul.tooling.in,com.google.common.base.internal,com.google.common.base.internal.*,com.google.thirdparty.publicsuffix,com.google.thirdparty.publicsuffix.*,com.oracle.*,com.sun.*,java.*,javax.*,jdk,jdk.*,org.*,sun.*
+            com.azul.tooling.in,com.m3.collections.guava.base.internal,com.m3.collections.guava.base.internal.*,com.m3.collections.guava.thirdparty.publicsuffix,com.m3.collections.guava.thirdparty.publicsuffix.*,com.oracle.*,com.sun.*,java.*,javax.*,jdk,jdk.*,org.*,sun.*
           </excludePackageNames>
           <!-- Ignore some tags that are found in Java 11 sources but not recognized... under -source 8, I think it was? I can no longer reproduce the failure. -->
           <tags>
@@ -247,4 +249,10 @@
       </plugin>
     </plugins>
   </build>
+  <properties>
+    <!-- M3 namespace source only: retain donor coordinates as provenance.
+         Disable normal lifecycle publication until a target-owned build is qualified. -->
+    <maven.install.skip>true</maven.install.skip>
+    <maven.deploy.skip>true</maven.deploy.skip>
+  </properties>
 </project>
