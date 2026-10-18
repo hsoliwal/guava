@@ -1,0 +1,14 @@
+SPDX-FileCopyrightText: 2026 Hitesh Soliwal and contributors
+SPDX-License-Identifier: Apache-2.0
+
+HashBiMap API projection cache derives from the primitive M3LFUCache:
+https://github.com/hsoliwal/M3jdk21/blob/6ae20943e2295e6120c9666a04dc1f2be29f4873/m3/collections/src/main/java/com/m3/collections/M3LFUCache.java
+Original Git blob: 315fad8a68c1af45d7e23bdded687bea3d6537e8
+
+The private adaptation adds long slot generations and creator-iterator leases.
+Only API-created Map.Entry views enter its bounded Object[] facade lane; all
+cache identity, frequency, recency and occupancy bookkeeping uses primitive
+arrays and masks. Eviction drops references and never retargets escaped views.
+Authoritative HashBiMap payload, hash and insertion-order storage remains in
+the parallel arrays described in M3-HASH-BIMAP-NOTICE.txt. Distinct creator
+contexts retain their donor-compatible independent snapshots and epochs.

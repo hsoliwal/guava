@@ -1,53 +1,59 @@
+<!-- SPDX-FileCopyrightText: 2026 Hitesh Soliwal and Contributors to the Synexia Project -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Guava M3 Java 21 variant
 
-This standalone module produces `com.google.guava:guava:33.4.8-m3-java21` with
-the complete Guava 33.4.8 runtime classes/resources and native M3 storage for
-`com.google.common.collect.ArrayListMultimap`. It retains that concrete class,
-its public/protected API, inherited Guava multimap policy, and serialization
-protocol. The private owners are the existing M3 Object-array list and indexed
-array/slot map. The ordinary Guava dependencies remain declared in the POM.
+This module builds the complete `com.google.guava:guava:33.4.8-m3-java21`
+provider with qualified native storage for `ArrayListMultimap` and `HashBiMap`.
+HashBiMap keeps payloads, hashes, insertion order, bucket links, offsets, mask,
+generations, free slots and lifetime state in parallel arrays. It retains the
+original concrete class, public/protected API, mutation behavior and stream
+protocol. The existing nine ArrayListMultimap/M3 core Java sources are unchanged.
 
-Build from this fork with JDK 21 and Maven:
+Map.Entry projections are created only by entry APIs. A private bounded
+128-slot primitive-array M3LFUCache adaptation manages those API views using
+slot, long generation and creator-iterator lease coordinates. Eviction drops
+references; escaped entries are never retargeted or shared across incompatible
+creator iterators. Single-pass traversal need not produce cache hits.
+
+Build with JDK 21 and Maven:
 
 ```sh
 mvn -f m3-jre21/pom.xml package
 ```
 
-The result is `m3-jre21/target/guava-33.4.8-m3-java21-qualified.jar`.
-The build unpacks the official `33.4.8-jre` artifact, compiles this module's
-qualified native sources, runs the unchanged 6,064-case upstream suite and four
-native storage tests, then packages the complete artifact. The original
-`guava/src` source and original default build remain the upstream oracle.
-The module inherits the four original test sources from the pinned fork;
-no test copies replace them. The smoke and archived protocol launchers are
-outside the explicit default test-source includes.
+The artifact is
+`m3-jre21/target-hash-bimap-stream-qualified-v4/guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar`.
+The build compiles native sources against the provided original Guava oracle,
+runs all 4,533 unchanged HashBiMap cases, 6,064 unchanged ArrayListMultimap
+cases and four native storage tests, then streams the original archive and
+native replacements into a complete modular JAR. Existing Assembly/Plexus
+and in-process Ant move avoid an unpacked original runtime tree. Production
+compilation retains Java 21, `-Xlint:all` and `-Werror`.
 
-Use the variant artifact with the dependencies in its POM. Its manifest and
-Maven version identify `33.4.8-m3-java21`, and its minimum runtime is Java 21.
-The original JPMS identity/version `com.google.common@33.4.8-jre` is deliberately
-retained. Classpath and named-module execution were both checked.
+The actual final artifact also passed the same 10,601 cases as sole Guava
+provider, public/protected ABI, UIDs, callback/reentrant traces, independent-JVM
+serialization in both directions, classpath and named-module smokes, 12,000
+LFU accesses and 10,000 callback churn operations. It retains the original
+`com.google.common@33.4.8-jre` identity/version and all module requirements,
+exports, opens and services; only the private M3 package is added to ModulePackages.
+The seventeen explicit manifest attributes identify Java 21 and the variant.
 
-The recorded artifact SHA-256 is
-`84050590fa79bd8e6c40bb30cdfa33dad96ac96c0f77645f5723088863e066eb`.
-See `qualification/FULL_QUALIFICATION_REPORT_V2.json` for the executed receipts:
-6,068 packaging tests passed, the public/protected ABI matched the original,
-1,600 seeded differential steps matched, original/candidate serialization
-worked in both directions, 12 core tests and 23 existing interop tests passed.
-These receipts record the local qualification; hosted CI and draft review
-are separate publication checks.
+Final artifact SHA-256: `0d1f77f56a15a9c6c91e3faca6b598e8bff5b17ecb76c323feff9c427351539a`.
+Final report SHA-256: `1a3c4cb47de723d59fd64c756b9a1ea14158847455a4521b7dd992c077ce0a4f`.
+See `qualification/HASH_BIMAP_FULL_QUALIFICATION_REPORT_V7.json` and
+`qualification/NATIVE_GUAVA_MANIFEST_COUNTEREVIDENCE_V1.json`. The latter
+corrects the earlier artifact's overstated manifest qualification; historical
+reports and source/behavior proofs remain preserved.
 
-`src/test/java/com/m3/validation/ArtifactSmoke.java` uses only the public Guava
-and JDK APIs. Compile it separately against the finished artifact, then run
-`com.m3.validation.ArtifactSmoke <actual-jar-path>`. For the named-module check,
-place this Guava JAR and its runtime module dependencies on `--module-path`,
-use `--add-modules com.google.common`, and place the compiled launcher on the
-classpath. It checks the exact artifact CodeSource and needs no `--add-opens`.
+The original `guava/src` sources and official tests remain unchanged oracles.
+Source/proof ownership and exact recipe inputs are recorded in
+`SOURCE_PROVENANCE.tsv` and the canonical crate: https://github.com/hsoliwal/com.synexia/tree/03de1b62d58a98972e42eb09fae7635ff007c1e0/synexia-openrewrite-recipes/recipe-crates/guava-native-hash-bimap-v7-20261018.
+This increment builds on merged Guava PR #4 at
+`0d2b43dd16385c12f79eba52fb9fea6bc9835804`, on
+`m3/guava-33.4.8-jre-baseline`; unrelated master work is preserved.
 
-`SOURCE_PROVENANCE.tsv` binds copied production sources to original revisions,
-exact preimage/postimage hashes and the qualified recipe manifests. The pinned
-fork baseline is `f06690fa3e874f65515e8fd338a74d636e2c792f` on
-`m3/guava-33.4.8-jre-baseline`; unrelated newer fork master work is preserved.
-
-Only this concrete Guava family is qualified here. The broader 107-row
-collection catalogue remains in progress; this module makes no completeness
-claim for its other entries, Android or GWT.
+Configured autoreview returned NO_VERDICT under its mandatory no-tools mode;
+it was not retried, switched or bypassed. Hosted CI and draft review remain
+pending. This increment does not claim universal nested-pressure/OOM behavior,
+performance improvement, conversion of all retained Guava owners, Android/GWT,
+java.base promotion, or completion of the 107-family collection superset.
