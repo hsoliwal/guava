@@ -2,12 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 package com.google.common.collect;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
+import com.m3.collections.M3IndexMaskCompactor;
+import com.m3.collections.M3IndexedListSnapshot;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -133,6 +136,24 @@ public final class M3NativeStorageTest {
     assertTrue(restoredLive.isEmpty());
     restoredLive.add("reattached");
     assertEquals(Arrays.asList("reattached"), restored.get("key"));
+  }
+
+  @Test public void multimapViewsComposeWithM3IndexMasksWithoutLosingOccurrences() {
+    ArrayListMultimap<String, String> map = ArrayListMultimap.create();
+    List<String> live = map.get("key");
+    live.addAll(Arrays.asList("same", "same", null, "drop", "keep"));
+
+    M3IndexedListSnapshot<String> selected =
+        M3IndexedListSnapshot.copyOf(live).filtered(value -> !"drop".equals(value));
+    live.add("late");
+
+    assertEquals(Arrays.asList("same", "same", null, "keep"), selected);
+    assertEquals(Arrays.asList("same", "same", null, "drop", "keep", "late"), live);
+
+    byte[] flags = {1, 0, 1, 1, 1};
+    assertArrayEquals(
+        new int[] {0, 2, 3, 4},
+        M3IndexMaskCompactor.selectPositions(flags, 1, M3IndexMaskCompactor.Backend.JAVA));
   }
 
   private static void assertCodeSource(Class<?> type) throws Exception {
