@@ -1,0 +1,7 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: com.synexia.m3.donors.GuavaEvictingPackageFirst20261018
+displayName: Preserve complete Guava evicting queue with M3 package first
+description: Source-sealed pure original class relocated plus two explicit original Guava dependency imports.
+recipeList:
+  - com.synexia.rewrite.M3HashPinnedJavaSnapshotRecipe:
+      crateName: m3-donors-guava-evicting-package-20261018

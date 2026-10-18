@@ -1,0 +1,2 @@
+source	original_sha256	relocated_sha256	change
+guava/src/com/google/common/collect/EvictingQueue.java	b67eeb12eb582992eece1703b7bac34d3150948a0752c352b092737c00e7c8c2	86df1e316f759d25aee9bdeb8bd88e21c969af1b7fa8aadd67933aa19bef3d9c	package and original Guava ForwardingQueue/Iterables imports only

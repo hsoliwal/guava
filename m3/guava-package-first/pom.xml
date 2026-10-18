@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- First-party independent M3 donor working module. Original Guava remains unchanged. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.m3.donors</groupId>
+  <artifactId>guava-evicting-package-first</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <name>M3 relocated Guava EvictingQueue donor</name>
+  <description>Only a package-relocated licensed source and independent differential test.</description>
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>999.0.0-HEAD-jre-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+  <build><plugins>
+    <plugin><groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version>
+      <configuration><release>21</release><proc>none</proc></configuration>
+    </plugin>
+  </plugins></build>
+</project>
