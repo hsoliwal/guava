@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Hitesh Soliwal and Contributors to the Synexia Project -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.google.guava</groupId>
+  <artifactId>guava</artifactId>
+  <version>33.4.8-m3-java21</version>
+  <name>Guava M3 Java 21 variant</name>
+  <description>Guava 33.4.8 with the qualified native M3 ArrayListMultimap storage variant.</description>
+  <licenses><license><name>Apache License, Version 2.0</name><url>https://www.apache.org/licenses/LICENSE-2.0.txt</url></license></licenses>
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.outputTimestamp>2026-10-18T00:00:00Z</project.build.outputTimestamp>
+  </properties>
+  <dependencies>
+    <!-- The original artifact supplies the compilation oracle and unpack input.
+         It does not become a transitive runtime dependency of this variant. -->
+    <dependency><groupId>com.google.guava</groupId><artifactId>guava</artifactId><version>33.4.8-jre</version><scope>provided</scope></dependency>
+    <dependency><groupId>com.google.guava</groupId><artifactId>failureaccess</artifactId><version>1.0.3</version></dependency>
+    <dependency><groupId>com.google.guava</groupId><artifactId>listenablefuture</artifactId><version>9999.0-empty-to-avoid-conflict-with-guava</version></dependency>
+    <dependency><groupId>org.jspecify</groupId><artifactId>jspecify</artifactId><version>1.0.0</version></dependency>
+    <dependency><groupId>com.google.errorprone</groupId><artifactId>error_prone_annotations</artifactId><version>2.36.0</version></dependency>
+    <dependency><groupId>com.google.j2objc</groupId><artifactId>j2objc-annotations</artifactId><version>3.0.0</version></dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId><artifactId>guava-testlib</artifactId><version>33.4.8-jre</version><scope>test</scope>
+      <exclusions><exclusion><groupId>com.google.guava</groupId><artifactId>guava</artifactId></exclusion></exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.google.truth</groupId><artifactId>truth</artifactId><version>1.4.4</version><scope>test</scope>
+      <exclusions><exclusion><groupId>com.google.guava</groupId><artifactId>guava</artifactId></exclusion></exclusions>
+    </dependency>
+    <dependency><groupId>junit</groupId><artifactId>junit</artifactId><version>4.13.2</version><scope>test</scope></dependency>
+  </dependencies>
+  <build>
+    <finalName>guava-33.4.8-m3-java21-qualified</finalName>
+    <!-- The four donor sources remain byte-for-byte unchanged in the fork. -->
+    <testSourceDirectory>${project.basedir}/..</testSourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId><version>3.3.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId><version>3.8.1</version>
+        <executions><execution><id>original-guava-runtime</id><phase>process-resources</phase><goals><goal>unpack</goal></goals>
+          <configuration>
+            <artifactItems><artifactItem>
+              <groupId>com.google.guava</groupId><artifactId>guava</artifactId><version>33.4.8-jre</version><type>jar</type>
+              <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+              <!-- Never allow fresh extraction timestamps to suppress native compilation. -->
+              <excludes>com/google/common/collect/ArrayListMultimap.class,META-INF/maven/**</excludes>
+            </artifactItem></artifactItems>
+            <markersDirectory>${project.build.directory}/dependency-markers</markersDirectory>
+          </configuration>
+        </execution></executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version>
+        <configuration>
+          <release>21</release><fork>false</fork><proc>none</proc>
+          <testIncludes>
+            <testInclude>guava-tests/test/com/google/common/collect/AndroidIncompatible.java</testInclude>
+            <testInclude>guava-tests/test/com/google/common/collect/ArrayListMultimapTest.java</testInclude>
+            <testInclude>guava-tests/test/com/google/common/collect/ReflectionFreeAssertThrows.java</testInclude>
+            <testInclude>guava-tests/test/com/google/common/collect/TestExceptions.java</testInclude>
+            <testInclude>m3-jre21/src/test/java/com/google/common/collect/M3NativeStorageTest.java</testInclude>
+          </testIncludes>
+        </configuration>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <configuration>
+              <compilerArgs><arg>-Xlint:all</arg><arg>-Werror</arg></compilerArgs>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-testCompile</id>
+            <configuration>
+              <!-- Unchanged official fixtures: six serial warnings and one deprecated trim call.
+                   No production -Werror option is inherited into test compilation.
+                   See the sealed UPSTREAM_WARNING_DISPOSITION.json; new test code expects no warnings. -->
+              <compilerArgs><arg>-Xlint:all</arg></compilerArgs>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.2</version>
+        <dependencies><dependency><groupId>org.apache.maven.surefire</groupId><artifactId>surefire-junit4</artifactId><version>3.5.2</version></dependency></dependencies>
+        <configuration>
+          <forkCount>0</forkCount><useModulePath>false</useModulePath><failIfNoTests>true</failIfNoTests>
+          <includes><include>**/ArrayListMultimapTest.java</include><include>**/M3NativeStorageTest.java</include></includes>
+          <systemPropertyVariables><m3.native.outputDirectory>${project.build.outputDirectory}</m3.native.outputDirectory></systemPropertyVariables>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>3.5.0</version>
+        <configuration>
+          <forceCreation>true</forceCreation><detectMultiReleaseJar>true</detectMultiReleaseJar>
+          <archive>
+            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+            <manifestEntries>
+              <Build-Jdk-Spec>21</Build-Jdk-Spec>
+              <Bundle-Name>Guava M3 Java 21 variant</Bundle-Name>
+              <Bundle-Version>33.4.8.m3-java21</Bundle-Version>
+              <Implementation-Title>Guava M3 Java 21 variant</Implementation-Title>
+              <Implementation-Version>${project.version}</Implementation-Version>
+              <Multi-Release>true</Multi-Release>
+              <Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=21))"</Require-Capability>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

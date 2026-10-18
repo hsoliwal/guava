@@ -1,0 +1,318 @@
+{
+  "schema": "M3_CONCRETE_GUAVA_ARRAY_LIST_MULTIMAP_QUALIFICATION_V2",
+  "scope": "Guava 33.4.8 ArrayListMultimap fully qualified; other catalogue rows remain open",
+  "upstream_commit": "f06690fa3e874f65515e8fd338a74d636e2c792f",
+  "java_release": 21,
+  "recipe_engine_stage_a_tests": 5,
+  "native_path_scope_stage_b_tests": 6,
+  "single_owner_family_recipe_test_methods": 5,
+  "single_owner_family_recipe_cases": 20,
+  "canonical_map_tests": 4,
+  "receiver_map_tests": 4,
+  "receiver_list_tests": 4,
+  "existing_interop_tests": 23,
+  "unchanged_guava_suite_cases": 6064,
+  "packaging_suite_cases": 6068,
+  "packaging_suites": [
+    {
+      "name": "com.google.common.collect.ArrayListMultimapTest",
+      "tests": "6064",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.google.common.collect.M3NativeStorageTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "differential_seeded_steps": 1600,
+  "differential_digest": "ddd0ee8efe253ce82d94cc1ec4de67064c3de7c257685f6e0c8b3acfa6fc9dce",
+  "public_protected_abi_byte_identical": true,
+  "cross_jvm_serialization": "PASS BOTH DIRECTIONS",
+  "code_source_assertions": "original provider, compiled candidate and packaged jar checked independently",
+  "retained_failure_evidence": [
+    "fg-protocol-candidate-1: reflection helper incorrectly inspected wrapper instead of private Table; corrected v2, no production change",
+    "fg-upstream-compile-1: unchanged donor test fixtures expose 6 serial and 1 deprecated-method warning; production remains -Werror",
+    "fg-recipe-engine-b-1/fg-upstream-compile-2: historical global commit guard stopped owned JVM; new explicit bounded memory policy preserves storage guard",
+    "fg-recipe-engine-b-2: fixture emission directory collided with stage A; v3 runner uses separate fixture output"
+  ],
+  "review": "independent read-only source review found no concrete introduced defect; bundled autoreview unavailable under mandatory tool/auth controls; draft review remains pending",
+  "artifact": {
+    "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work\\m3-jre21\\target\\guava-33.4.8-m3-java21-qualified.jar",
+    "sha256": "84050590fa79bd8e6c40bb30cdfa33dad96ac96c0f77645f5723088863e066eb",
+    "bytes": 3063424,
+    "original_sha256": "f3d7f57f67fd622f4d468dfdd692b3a5e3909246c28017ac3263405f0fe617ed",
+    "original_regular_entries": 1978,
+    "regular_entries": 2001,
+    "changed_original_entries": [
+      "META-INF/MANIFEST.MF",
+      "META-INF/maven/com.google.guava/guava/pom.properties",
+      "META-INF/maven/com.google.guava/guava/pom.xml",
+      "META-INF/versions/9/module-info.class",
+      "com/google/common/collect/ArrayListMultimap.class"
+    ],
+    "added_entries": [
+      "META-INF/M3-NOTICE.txt",
+      "com/m3/collections/M3ArrayList.class",
+      "com/m3/collections/M3IndexMaskCompactor$Backend.class",
+      "com/m3/collections/M3IndexMaskCompactor$NativeLibrary.class",
+      "com/m3/collections/M3IndexMaskCompactor$NativePositions.class",
+      "com/m3/collections/M3IndexMaskCompactor$NativeRange.class",
+      "com/m3/collections/M3IndexMaskCompactor.class",
+      "com/m3/collections/M3IndexedListSnapshot.class",
+      "com/m3/collections/M3LinkedHashMap$Table.class",
+      "com/m3/collections/M3LinkedHashMap.class",
+      "com/m3/collections/M3OrderedSlotMap$SetView.class",
+      "com/m3/collections/M3OrderedSlotMap$View.class",
+      "com/m3/collections/M3OrderedSlotMap.class",
+      "com/m3/collections/M3SlotArrays.class",
+      "com/m3/collections/M3SlotMap$1.class",
+      "com/m3/collections/M3SlotMap$2.class",
+      "com/m3/collections/M3SlotMap$3.class",
+      "com/m3/collections/M3SlotMap$4.class",
+      "com/m3/collections/M3SlotMap$LiveEntry.class",
+      "com/m3/collections/M3SlotMap.class",
+      "com/m3/collections/M3SlotSpliterators$1.class",
+      "com/m3/collections/M3SlotSpliterators$2.class",
+      "com/m3/collections/M3SlotSpliterators.class"
+    ],
+    "license_byte_identical": true,
+    "native_class_major": 65,
+    "original_module_identity_and_version": "com.google.common@33.4.8-jre",
+    "variant_manifest_version": "33.4.8-m3-java21",
+    "named_module_smoke_passed": true
+  },
+  "executed_receipts": [
+    {
+      "name": "fg-recipe-engine-a-1",
+      "receipt_sha256": "5d54a7ba3dd29c6a3fd116f7350f4b6064f1d6a3610581df062027607fa1f6eb",
+      "log_sha256": "80849d7abd119714142b067dcffd126720f50e06fcd39bae2cf592907eff70c0",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-recipe-engine-b-3",
+      "receipt_sha256": "57b14a15097c73a8dc9ff643e7d3e9257218ee391e561b90581d958a547094fe",
+      "log_sha256": "6ecd1e09e0936edcd802ef088bf8c163a99085a4d9610770c2af83ca436b156b",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-family-recipes-1",
+      "receipt_sha256": "1df1d49260a205444ec305f9b128b93ac2aa764c76caf72ebd5134267710526b",
+      "log_sha256": "38e653e1de944143f086d60f26f37cbc5ba1db02ccb169f46a9490c68475a81c",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-canonical-map-compile-1",
+      "receipt_sha256": "dd1ba552730e9a8a9d272a3e68ec6a9e5e90f71d27f560e48864b02b3815b137",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-canonical-map-test-1",
+      "receipt_sha256": "27ab42fcf299f2f939cff132a83a36d5726d5e3def16da67f0b2a838a8a723c9",
+      "log_sha256": "d225137e7ad238d63ec8428cbe613fe6f1a15e6360ae8b77682a8186f1ae6be5",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-receiver-map-compile-1",
+      "receipt_sha256": "81c2721e8b157aa65614b3f621b4998629097dcf62c9a4e451d57f698e310bd7",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-receiver-map-test-1",
+      "receipt_sha256": "1aca53e9f4793c65ed37edd050830579115375a4c729c9d9a5e3ada18b805237",
+      "log_sha256": "db3e5ad6661f23cc2bc132fb92196b9d0b8cc934b62faf65a88eb4428ea61f1c",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-list-compile-1",
+      "receipt_sha256": "3fc3299c387c30d9e3094dbf15f3453941a363a00448edf3e39e8fb832bb4ed1",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-list-test-1",
+      "receipt_sha256": "34b58a681619040fab684ff436da61420c9b00c9cb3c7034d98d0589ec7a1a45",
+      "log_sha256": "458c489615e3c73c2abf0a2e54a74b310dcee639bc1d54336d7a491a1c6676e6",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-guava-compile-1",
+      "receipt_sha256": "a854145cb12d488632f293abc47175409016d7afda03a84eae0c7d82fedeb35c",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-upstream-compile-3",
+      "receipt_sha256": "5a3ea7c2244add6b5f779553ec9a33b0688e7347a2a78790dbac2c25da2f74a2",
+      "log_sha256": "a64485988736b5e6f7b2a5fd2a34a687f374db48236c40d4a495d73a03c33683",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-upstream-provider-1",
+      "receipt_sha256": "4b6a45060bbadd0d40968ff564f84b816a856271f66460a5d3830cfae9fd39d8",
+      "log_sha256": "50eae17b29995e369a8e07dfeb8b0b94b3644adddf970e6eadc5a24826726a4a",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-upstream-candidate-1",
+      "receipt_sha256": "0001eb957735dabc9ff2b35451224471ca4843a61e985830c26dc8e3610aff0f",
+      "log_sha256": "a8b1928df278b591f25e16592418c26e06d646940ec9fb48a042fbe67c2b5536",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-existing-interop-1",
+      "receipt_sha256": "e845b148ebab7496a5d0ebad257aa852d9562207ed6519ae170ed38fc2f7a99e",
+      "log_sha256": "cf08fd4572f42bc49fed4e76ad6f2ac124169bd4b2b48ad40a01d5dcaec7c621",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-protocol-compile-2",
+      "receipt_sha256": "005486d5f3fc142887274c48780f106f306e9ed9621d83af954ee36b3040a65f",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-protocol-provider-2",
+      "receipt_sha256": "3510fdb3518b28d6e0f4b4479d2662b7d3819dae52fd267df039b3be08dc4ccc",
+      "log_sha256": "41972b435601a134f02c44eee107428c326ca1ca3fbf09da7f2e44852b4d0734",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-protocol-candidate-2",
+      "receipt_sha256": "5cbe50f7a12bf47907d2399ab5f367c2cd5becdd0078567321b624ab7136d475",
+      "log_sha256": "870a21fb97b4f4522e30f5034fe071d941cc87c5b70a013e733911292daf1dc4",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-stream-write-provider-1",
+      "receipt_sha256": "e57634888dbb00e75d5dd4fe051c994244e4b22538b9d773a49bf545f9600c9d",
+      "log_sha256": "3072020e86de273b9fd89627b4adf7e7ac2f319bd86e3da84c83f8653c93aa21",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-stream-read-candidate-1",
+      "receipt_sha256": "c8940091b90e4ad3d7dda1440be266cee491d749579a1c693529064cea0c4e88",
+      "log_sha256": "968836c9aa5d1e1b436c2165a024ff1286f2d317f1ffdd78edc10318bb15011f",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-stream-write-candidate-1",
+      "receipt_sha256": "3f8f0f3968db3ccd3a63cf96365f5f49620afb39ece968988f8a18aa3027e747",
+      "log_sha256": "c7b4eb6d4f056d7fbe402121df5d1e8e1461870f26034ecc8255b6d838646dc3",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-stream-read-provider-1",
+      "receipt_sha256": "76d2fdc179591d435976944d1c6d761269719f142285984160b15af868c5d1af",
+      "log_sha256": "968836c9aa5d1e1b436c2165a024ff1286f2d317f1ffdd78edc10318bb15011f",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-guava-abi-provider-1",
+      "receipt_sha256": "6b6e28bd47659a44dedc4123f8de0d1b860cae88337bc71d5d1bb7e23cf53fd1",
+      "log_sha256": "b477ffb011ab71b16cae4616a4d49e8e526ff0e4d657b104f8ce89b90c91b786",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-guava-abi-candidate-1",
+      "receipt_sha256": "747d4508410409dd7c5e2eba1815ff712bf5bba228559cd153749598c335e3e8",
+      "log_sha256": "b477ffb011ab71b16cae4616a4d49e8e526ff0e4d657b104f8ce89b90c91b786",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-product-package-2",
+      "receipt_sha256": "4b74edc43e124370f316ead34da324e8ffdbddea30aea4465509982570292e6d",
+      "log_sha256": "0a0ce6ed8b92c14a93dcfbbbb7a163a61e1eb8cecd52bc22b34c2fbfdb5244ef",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-product-smoke-compile-1",
+      "receipt_sha256": "d310aea20fad2d7eff8fa5fce932a16ca8b3bb71573003849389da24e22dfba2",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-product-smoke-classpath-2",
+      "receipt_sha256": "f37048d9352734eed3446a23791daf49a0b12e200b072dcad9d7b71cf2563662",
+      "log_sha256": "a9b51dc27b34d2ef260e2de0e5194fd59b9658496bb78714ad33107ff1f4f236",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-product-smoke-modulepath-2",
+      "receipt_sha256": "a2916915d2a6e263d5d951cfd3ce6a872762302bc0a640d8ec9da6dcf16e80de",
+      "log_sha256": "79668cf5b511431921d12539cd381cb228010950405bdeda282683a7f3f15338",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-product-upstream-2",
+      "receipt_sha256": "e5a2e3cf7c68a427335a990d25fc78e39ec75ff5c11ba91723a823f51a1c869c",
+      "log_sha256": "728b300228641e1dcc5dc4f63aefb6f08077e0d30c20ccbf771e8a61adeadae3",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-product-protocol-2",
+      "receipt_sha256": "14e8091f3b257f97d5cb77d8045990d536a8a4e97beb3ac515b146e1939cf09f",
+      "log_sha256": "870a21fb97b4f4522e30f5034fe071d941cc87c5b70a013e733911292daf1dc4",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    },
+    {
+      "name": "fg-product-abi-2",
+      "receipt_sha256": "be5ec946ccca08e191b589089092c894d11c46e9fb42566b676593dd003d3e72",
+      "log_sha256": "b477ffb011ab71b16cae4616a4d49e8e526ff0e4d657b104f8ce89b90c91b786",
+      "exit": 0,
+      "status": "QUALIFIED_CANDIDATE"
+    }
+  ],
+  "storage": {
+    "regular_task_bytes_before_report": 52301184,
+    "task_cap_bytes": 67108864,
+    "S_free_bytes": 25680072704,
+    "K_free_bytes": 2628009984,
+    "native_temp": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\tmp\\",
+    "protection_goal": "ACTIVE",
+    "task_S_exception": "user-authorized bounded64MiB"
+  },
+  "packaging_metadata": {
+    "embedded_pom_matches_qualified_source": true,
+    "embedded_maven_version": "33.4.8-m3-java21",
+    "original_jpms_version_intentionally_preserved": "33.4.8-jre",
+    "module_packages_include_private_m3_storage": true,
+    "prior_report_preserved": "FULL_QUALIFICATION_REPORT.json",
+    "prior_artifact_preserved": "product-work/m3-jre21/target/guava-33.4.8-m3-java21.jar"
+  }
+}
