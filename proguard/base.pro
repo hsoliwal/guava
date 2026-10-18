@@ -18,16 +18,16 @@
 # Proguard is intelligent enough to spot the use of reflection onto this, so we
 # only need to keep the names, and allow it to be stripped out if
 # FinalizableReferenceQueue is unused.
--keepnames class com.google.common.base.internal.Finalizer {
+-keepnames class com.m3.collections.guava.base.internal.Finalizer {
   *** startFinalizer(...);
 }
 # However, it cannot "spot" that this method needs to be kept IF the class is.
--keepclassmembers class com.google.common.base.internal.Finalizer {
+-keepclassmembers class com.m3.collections.guava.base.internal.Finalizer {
   *** startFinalizer(...);
 }
--keepnames class com.google.common.base.FinalizableReference {
+-keepnames class com.m3.collections.guava.base.FinalizableReference {
   void finalizeReferent();
 }
--keepclassmembers class com.google.common.base.FinalizableReference {
+-keepclassmembers class com.m3.collections.guava.base.FinalizableReference {
   void finalizeReferent();
 }

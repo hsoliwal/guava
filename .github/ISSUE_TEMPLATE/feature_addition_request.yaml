@@ -117,21 +117,21 @@ body:
       description: Please select all of the packages that are relevant to this feature request.
       multiple: true
       options:
-        - com.google.common.annotations
-        - com.google.common.base
-        - com.google.common.cache
-        - com.google.common.collect
-        - com.google.common.escape
-        - com.google.common.eventbus
-        - com.google.common.graph
-        - com.google.common.hash
-        - com.google.common.io
-        - com.google.common.math
-        - com.google.common.net
-        - com.google.common.primitives
-        - com.google.common.reflect
-        - com.google.common.testing
-        - com.google.common.util.concurrent
+        - com.m3.collections.guava.annotations
+        - com.m3.collections.guava.base
+        - com.m3.collections.guava.cache
+        - com.m3.collections.guava.collect
+        - com.m3.collections.guava.escape
+        - com.m3.collections.guava.eventbus
+        - com.m3.collections.guava.graph
+        - com.m3.collections.guava.hash
+        - com.m3.collections.guava.io
+        - com.m3.collections.guava.math
+        - com.m3.collections.guava.net
+        - com.m3.collections.guava.primitives
+        - com.m3.collections.guava.reflect
+        - com.m3.collections.guava.testing
+        - com.m3.collections.guava.util.concurrent
 
   - type: checkboxes
     attributes:

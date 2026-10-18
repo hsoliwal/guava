@@ -17,6 +17,10 @@
     This project includes GWT-friendly sources.
   </description>
   <properties>
+    <!-- M3 namespace source only: retain donor coordinates as provenance.
+         Disable normal lifecycle publication until a target-owned build is qualified. -->
+    <maven.install.skip>true</maven.install.skip>
+    <maven.deploy.skip>true</maven.deploy.skip>
     <gwt.version>2.12.1</gwt.version>
     <gwt.plugin.version>2.10.0</gwt.plugin.version>
     <gwt.logLevel>WARN</gwt.logLevel>
@@ -355,7 +359,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
-              <module>com.google.common.ForceGuavaCompilation</module>
+              <module>com.m3.collections.guava.ForceGuavaCompilation</module>
               <failOnError>true</failOnError>
               <logLevel>${gwt.logLevel}</logLevel>
               <generateJsInteropExports>true</generateJsInteropExports>
@@ -408,7 +412,7 @@
               <goal>test</goal>
             </goals>
             <configuration>
-              <module>com.google.common.GuavaTests</module>
+              <module>com.m3.collections.guava.GuavaTests</module>
               <includes>**/GwtTestSuite.java</includes>
               <logLevel>${gwt.logLevel}</logLevel>
               <mode>htmlunit</mode>

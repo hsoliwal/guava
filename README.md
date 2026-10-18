@@ -121,7 +121,7 @@ for the Android flavor.
 
 6.  For the mainline flavor, we test the libraries using OpenJDK 8, 11, and 17
     on Linux, with some additional testing on newer JDKs and on Windows. Some
-    features, especially in `com.google.common.io`, may not work correctly in
+    features, especially in `com.m3.collections.guava.io`, may not work correctly in
     non-Linux environments. For the Android flavor, our unit tests also run on
     API level 21 (Lollipop).
 
