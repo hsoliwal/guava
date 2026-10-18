@@ -9,7 +9,7 @@
   <artifactId>guava</artifactId>
   <version>33.4.8-m3-java21</version>
   <name>Guava M3 Java 21 variant</name>
-  <description>Guava 33.4.8 with the qualified native M3 ArrayListMultimap storage variant.</description>
+  <description>Guava 33.4.8 with qualified native M3 ArrayListMultimap and indexed HashBiMap storage variants.</description>
   <licenses><license><name>Apache License, Version 2.0</name><url>https://www.apache.org/licenses/LICENSE-2.0.txt</url></license></licenses>
   <properties>
     <maven.compiler.release>21</maven.compiler.release>
@@ -17,7 +17,7 @@
     <project.build.outputTimestamp>2026-10-18T00:00:00Z</project.build.outputTimestamp>
   </properties>
   <dependencies>
-    <!-- The original artifact supplies the compilation oracle and unpack input.
+    <!-- The original artifact supplies the compilation oracle and streamed assembly input.
          It does not become a transitive runtime dependency of this variant. -->
     <dependency><groupId>com.google.guava</groupId><artifactId>guava</artifactId><version>33.4.8-jre</version><scope>provided</scope></dependency>
     <dependency><groupId>com.google.guava</groupId><artifactId>failureaccess</artifactId><version>1.0.3</version></dependency>
@@ -36,26 +36,13 @@
     <dependency><groupId>junit</groupId><artifactId>junit</artifactId><version>4.13.2</version><scope>test</scope></dependency>
   </dependencies>
   <build>
-    <finalName>guava-33.4.8-m3-java21-qualified</finalName>
-    <!-- The four donor sources remain byte-for-byte unchanged in the fork. -->
+    <directory>${project.basedir}/target-hash-bimap-stream-qualified-v4</directory>
+    <finalName>guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4</finalName>
+    <!-- The five donor sources remain byte-for-byte unchanged in the fork. -->
     <testSourceDirectory>${project.basedir}/..</testSourceDirectory>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId><version>3.3.1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId><version>3.8.1</version>
-        <executions><execution><id>original-guava-runtime</id><phase>process-resources</phase><goals><goal>unpack</goal></goals>
-          <configuration>
-            <artifactItems><artifactItem>
-              <groupId>com.google.guava</groupId><artifactId>guava</artifactId><version>33.4.8-jre</version><type>jar</type>
-              <outputDirectory>${project.build.outputDirectory}</outputDirectory>
-              <!-- Never allow fresh extraction timestamps to suppress native compilation. -->
-              <excludes>com/google/common/collect/ArrayListMultimap.class,META-INF/maven/**</excludes>
-            </artifactItem></artifactItems>
-            <markersDirectory>${project.build.directory}/dependency-markers</markersDirectory>
-          </configuration>
-        </execution></executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version>
@@ -64,6 +51,7 @@
           <testIncludes>
             <testInclude>guava-tests/test/com/google/common/collect/AndroidIncompatible.java</testInclude>
             <testInclude>guava-tests/test/com/google/common/collect/ArrayListMultimapTest.java</testInclude>
+            <testInclude>guava-tests/test/com/google/common/collect/HashBiMapTest.java</testInclude>
             <testInclude>guava-tests/test/com/google/common/collect/ReflectionFreeAssertThrows.java</testInclude>
             <testInclude>guava-tests/test/com/google/common/collect/TestExceptions.java</testInclude>
             <testInclude>m3-jre21/src/test/java/com/google/common/collect/M3NativeStorageTest.java</testInclude>
@@ -92,7 +80,7 @@
         <dependencies><dependency><groupId>org.apache.maven.surefire</groupId><artifactId>surefire-junit4</artifactId><version>3.5.2</version></dependency></dependencies>
         <configuration>
           <forkCount>0</forkCount><useModulePath>false</useModulePath><failIfNoTests>true</failIfNoTests>
-          <includes><include>**/ArrayListMultimapTest.java</include><include>**/M3NativeStorageTest.java</include></includes>
+          <includes><include>**/ArrayListMultimapTest.java</include><include>**/HashBiMapTest.java</include><include>**/M3NativeStorageTest.java</include></includes>
           <systemPropertyVariables><m3.native.outputDirectory>${project.build.outputDirectory}</m3.native.outputDirectory></systemPropertyVariables>
         </configuration>
       </plugin>
@@ -101,18 +89,98 @@
         <configuration>
           <forceCreation>true</forceCreation><detectMultiReleaseJar>true</detectMultiReleaseJar>
           <archive>
-            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+            <!-- Explicit entries avoid external upstream manifest precedence. -->
             <manifestEntries>
+              <Manifest-Version>1.0</Manifest-Version>
+              <Java-Version>21</Java-Version>
               <Build-Jdk-Spec>21</Build-Jdk-Spec>
               <Bundle-Name>Guava M3 Java 21 variant</Bundle-Name>
               <Bundle-Version>33.4.8.m3-java21</Bundle-Version>
               <Implementation-Title>Guava M3 Java 21 variant</Implementation-Title>
-              <Implementation-Version>${project.version}</Implementation-Version>
+              <Implementation-Version>33.4.8-m3-java21</Implementation-Version>
               <Multi-Release>true</Multi-Release>
               <Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=21))"</Require-Capability>
+              <Bundle-Description>Guava is a suite of core and expanded libraries that include    utility classes, Google's collections, I/O classes, and    much more.</Bundle-Description>
+              <Bundle-DocURL>https://github.com/google/guava/</Bundle-DocURL>
+              <Bundle-License>http://www.apache.org/licenses/LICENSE-2.0.txt</Bundle-License>
+              <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+              <Bundle-SymbolicName>com.google.guava</Bundle-SymbolicName>
+              <Export-Package>com.google.common.annotations;version="33.4.8",com.google.common.base;version="33.4.8",com.google.common.cache;version="33.4.8";uses:="com.google.common.base,com.google.common.collect,com.google.common.util.concurrent",com.google.common.collect;version="33.4.8";uses:="com.google.common.base",com.google.common.escape;version="33.4.8";uses:="com.google.common.base",com.google.common.eventbus;version="33.4.8",com.google.common.graph;version="33.4.8";uses:="com.google.common.collect",com.google.common.hash;version="33.4.8";uses:="com.google.common.base",com.google.common.html;version="33.4.8";uses:="com.google.common.escape",com.google.common.io;version="33.4.8";uses:="com.google.common.base,com.google.common.collect,com.google.common.graph,com.google.common.hash",com.google.common.math;version="33.4.8",com.google.common.net;version="33.4.8";uses:="com.google.common.base,com.google.common.collect,com.google.common.escape",com.google.common.primitives;version="33.4.8";uses:="com.google.common.base",com.google.common.reflect;version="33.4.8";uses:="com.google.common.collect,com.google.common.io",com.google.common.util.concurrent;version="33.4.8";uses:="com.google.common.base,com.google.common.collect",com.google.common.xml;version="33.4.8";uses:="com.google.common.escape"</Export-Package>
+              <Import-Package>com.google.common.util.concurrent.internal;version="[1.0,2)",javax.crypto;resolution:=optional,javax.crypto.spec;resolution:=optional,sun.misc;resolution:=optional,javax.annotation;resolution:=optional</Import-Package>
+              <Tool>Bnd-6.3.1.202206071316</Tool>
             </manifestEntries>
           </archive>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-assembly-plugin</artifactId><version>3.8.0</version>
+        <executions><execution><id>stream-complete-guava-runtime</id><phase>package</phase><goals><goal>single</goal></goals></execution></executions>
+        <configuration>
+          <!-- Existing modular archiver streams ZIP members, then updates ModulePackages. -->
+          <appendAssemblyId>false</appendAssemblyId><attach>false</attach>
+          <outputDirectory>${project.build.directory}</outputDirectory><finalName>${project.build.finalName}</finalName>
+          <mergeManifestMode>skip</mergeManifestMode>
+          <archiverConfig><moduleVersion>33.4.8-jre</moduleVersion></archiverConfig>
+          <archive>
+            <addMavenDescriptor>false</addMavenDescriptor>
+            <manifestEntries>
+              <Build-Jdk-Spec>21</Build-Jdk-Spec>
+              <Bundle-Description>Guava is a suite of core and expanded libraries that include    utility classes, Google's collections, I/O classes, and    much more.</Bundle-Description>
+              <Bundle-DocURL>https://github.com/google/guava/</Bundle-DocURL>
+              <Bundle-License>http://www.apache.org/licenses/LICENSE-2.0.txt</Bundle-License>
+              <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+              <Bundle-Name>Guava M3 Java 21 variant</Bundle-Name>
+              <Bundle-SymbolicName>com.google.guava</Bundle-SymbolicName>
+              <Bundle-Version>33.4.8.m3-java21</Bundle-Version>
+              <Export-Package>com.google.common.annotations;version="33.4.8",com.google.common.base;version="33.4.8",com.google.common.cache;version="33.4.8";uses:="com.google.common.base,com.google.common.collect,com.google.common.util.concurrent",com.google.common.collect;version="33.4.8";uses:="com.google.common.base",com.google.common.escape;version="33.4.8";uses:="com.google.common.base",com.google.common.eventbus;version="33.4.8",com.google.common.graph;version="33.4.8";uses:="com.google.common.collect",com.google.common.hash;version="33.4.8";uses:="com.google.common.base",com.google.common.html;version="33.4.8";uses:="com.google.common.escape",com.google.common.io;version="33.4.8";uses:="com.google.common.base,com.google.common.collect,com.google.common.graph,com.google.common.hash",com.google.common.math;version="33.4.8",com.google.common.net;version="33.4.8";uses:="com.google.common.base,com.google.common.collect,com.google.common.escape",com.google.common.primitives;version="33.4.8";uses:="com.google.common.base",com.google.common.reflect;version="33.4.8";uses:="com.google.common.collect,com.google.common.io",com.google.common.util.concurrent;version="33.4.8";uses:="com.google.common.base,com.google.common.collect",com.google.common.xml;version="33.4.8";uses:="com.google.common.escape"</Export-Package>
+              <Implementation-Title>Guava M3 Java 21 variant</Implementation-Title>
+              <Implementation-Version>33.4.8-m3-java21</Implementation-Version>
+              <Import-Package>com.google.common.util.concurrent.internal;version="[1.0,2)",javax.crypto;resolution:=optional,javax.crypto.spec;resolution:=optional,sun.misc;resolution:=optional,javax.annotation;resolution:=optional</Import-Package>
+              <Java-Version>21</Java-Version>
+              <Manifest-Version>1.0</Manifest-Version>
+              <Multi-Release>true</Multi-Release>
+              <Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=21))"</Require-Capability>
+              <Tool>Bnd-6.3.1.202206071316</Tool>
+            </manifestEntries>
+          </archive>
+          <inlineDescriptors>
+            <inlineDescriptor implementation="org.apache.maven.plugins.assembly.model.Assembly">
+              <id>complete-native-guava</id><formats><format>mjar</format></formats><includeBaseDirectory>false</includeBaseDirectory>
+              <dependencySets><dependencySet>
+                <outputDirectory>/</outputDirectory><scope>provided</scope>
+                <useProjectArtifact>false</useProjectArtifact><useTransitiveDependencies>false</useTransitiveDependencies>
+                <includes><include>com.google.guava:guava</include></includes><unpack>true</unpack>
+                <unpackOptions>
+                  <filtered>false</filtered><useDefaultExcludes>false</useDefaultExcludes>
+                  <excludes>
+                    <exclude>com/google/common/collect/ArrayListMultimap.class</exclude>
+                    <exclude>com/google/common/collect/HashBiMap*.class</exclude>
+                    <exclude>META-INF/maven/**</exclude><exclude>META-INF/MANIFEST.MF</exclude>
+                  </excludes>
+                </unpackOptions>
+              </dependencySet></dependencySets>
+              <fileSets><fileSet>
+                <directory>${project.build.outputDirectory}</directory><outputDirectory>/</outputDirectory>
+                <useDefaultExcludes>false</useDefaultExcludes>
+                <excludes><exclude>META-INF/MANIFEST.MF</exclude></excludes>
+              </fileSet></fileSets>
+              <files>
+                <file><source>${project.basedir}/pom.xml</source><outputDirectory>META-INF/maven/com.google.guava/guava</outputDirectory><destName>pom.xml</destName><filtered>false</filtered></file>
+                <file><source>${project.build.directory}/maven-archiver/pom.properties</source><outputDirectory>META-INF/maven/com.google.guava/guava</outputDirectory><destName>pom.properties</destName><filtered>false</filtered></file>
+              </files>
+            </inlineDescriptor>
+          </inlineDescriptors>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.2.0</version>
+        <executions><execution><id>finalize-complete-guava-artifact</id><phase>package</phase><goals><goal>run</goal></goals>
+          <configuration><target>
+            <!-- Same-directory move replaces the path already attached by default-jar. -->
+            <move file="${project.build.directory}/${project.build.finalName}.mjar"
+                  tofile="${project.build.directory}/${project.build.finalName}.jar" overwrite="true" failonerror="true"/>
+          </target></configuration>
+        </execution></executions>
       </plugin>
     </plugins>
   </build>

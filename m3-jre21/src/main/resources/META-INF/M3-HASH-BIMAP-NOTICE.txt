@@ -1,0 +1,20 @@
+SPDX-FileCopyrightText: 2026 Hitesh Soliwal and Contributors to the Synexia Project
+SPDX-License-Identifier: Apache-2.0
+
+Guava M3 Java 21: native HashBiMap increment
+
+Guava is Copyright The Guava Authors, Apache License, Version 2.0.
+Original JRE HashBiMap source and Android array/index donor:
+https://github.com/google/guava/commit/f06690fa3e874f65515e8fd338a74d636e2c792f
+JRE source Git blob: f5254b367e72e97067739c40c91bdfd94edd4847
+Android source Git blob: ad9138c8eca437bda700df63a4afa80e5abe474f
+
+The native HashBiMap preserves the JRE class, public API, ordering, mutation
+epochs and serialization protocol while using private payload arrays, integer
+index/link lanes, generation lanes and explicit lifecycle flags. Existing M3
+slot/residency mechanisms informed its private lifetime integration.
+
+The retained M3-NOTICE.txt documents the earlier ArrayListMultimap increment.
+This artifact contains that qualified increment and the additional HashBiMap
+variant described here. Original Guava source remains the separate oracle.
+The original Guava LICENSE, AUTHORS and individual notices are retained.
