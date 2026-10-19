@@ -1,0 +1,24 @@
+[
+  {
+    "repository": "hsoliwal/guava",
+    "commit": "120424a121f1cbda05d2fe0f041779b2344d8ccb",
+    "path": "guava/src/com/m3/collections/guava/collect/TopKSelector.java",
+    "beforeSha256": "f7870a994d0eed6124c483825fe5a411ce9b182236cf27c983d20cd888a2b4e6",
+    "afterSha256": "0433587c8f69f727cf7891de8b528f6eefbbad430d1448db347faadecfa71c5f",
+    "template": "JreTopKSelector.java.txt",
+    "recipe": "m3-array-operations-guava-20261019",
+    "license": "Apache-2.0",
+    "status": "SEALED_CANDIDATE_NOT_RUNTIME_ADMITTED"
+  },
+  {
+    "repository": "hsoliwal/guava",
+    "commit": "120424a121f1cbda05d2fe0f041779b2344d8ccb",
+    "path": "android/guava/src/com/m3/collections/guava/collect/TopKSelector.java",
+    "beforeSha256": "983eec6661e4e9cad801f1cb6750744b6a9edfa34e40569d9724b95e247af7da",
+    "afterSha256": "181a8f64264717fe657788d005246015b771d189cc0540120b788a9b5d6d09bd",
+    "template": "AndroidTopKSelector.java.txt",
+    "recipe": "m3-array-operations-guava-20261019",
+    "license": "Apache-2.0",
+    "status": "SEALED_CANDIDATE_NOT_RUNTIME_ADMITTED"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "sourcePr": "https://github.com/hsoliwal/com.synexia/pull/12484",
+  "sourceCommit": "da475085ca326d91e20314c2fd7f895accc2b6cc",
+  "base": "120424a121f1cbda05d2fe0f041779b2344d8ccb",
+  "behavior": "135,815 checks per version in each JRE and Android source domain; identical comparison/result transcripts. Five fixtures retain 1,067 discarded references before the change and zero after. JMH uses the JRE implementation: fixed-CPU k=1 and k=1024 timing is effectively unchanged within wide intervals.",
+  "hold": "HELD: time improvement is not proven; this is not accepted as a universal space-and-time optimization. Native Maven compile also stops at missing failureaccess:1.0.3-m3-relocated-20261018. Android-device benchmarks and full native suites are unrun.",
+  "sdk": "PASS_15_TESTS_EXACT_POSTIMAGES_AND_FIXED_POINT",
+  "api": "FULL_FIELD_METHOD_DESCRIPTORS_IDENTICAL",
+  "nativeGate": "BLOCKED_MISSING_RELOCATED_FAILUREACCESS",
+  "allForksComplete": false
+}
