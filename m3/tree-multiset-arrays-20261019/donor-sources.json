@@ -1,0 +1,21 @@
+{
+  "repository": "hsoliwal/guava",
+  "predecessor_commit": "7880ddf3302778f1f02946bbc37c22a992b97e71",
+  "original_donor_commit": "120424a121f1cbda05d2fe0f041779b2344d8ccb",
+  "semantic_owner_sources": {
+    "guava/src/com/m3/collections/guava/collect/TreeMultiset.java": "d23e20c0c1ecc0b20b0b287d06f994b215410e7299dcb4739a7d340b18e6624c",
+    "guava/src/com/m3/collections/guava/collect/AbstractSortedMultiset.java": "bfd67a3b74df8e1998f0efce804b9144a09e06ac0625a08f071d94c7603ba290",
+    "guava/src/com/m3/collections/guava/collect/GeneralRange.java": "a974582349010758a2df6ffcf5fe51123324b334553eb638cf7fe26f5131ba82",
+    "guava/src/com/m3/collections/guava/collect/Multisets.java": "e7b5931afbf6b01f679f0e2c6bd519ccbad47c360ca919e49a14192fc8737e03",
+    "guava/src/com/m3/collections/guava/collect/Serialization.java": "019ce6d148ebbbdde8cfcd7394e768ba8c44b3379005a3834b026521abf96df9"
+  },
+  "array_pattern_comparison": {
+    "canonical_dataset": "commons-tree-arrays",
+    "owner": "src/main/java/com/m3/collections/apache/list/TreeList.java",
+    "sha256": "2c1f47e3736f1366105258db91eb563780322956462460ffdb403d4f66a96f65",
+    "relationship": "Shared arena, atomic lane publication and deferred-release ownership pattern; TreeMultiset comparator AVL and serial algorithms lowered from its own Guava owner."
+  },
+  "license": "Apache-2.0; original Guava notices retained; Commons pattern source retains ASF notices in its own owner",
+  "intrinsic_scope": "Partial JRE TreeMultiset AVL/link topology, header, counts and aggregates lowered to shared arrays; original comparator and serialization owners retained.",
+  "remaining": "Lazy shared int-only ExportedCount objects remain for observed live generations; the arena releases them at retirement and wrappers/cursors alone can retain them afterward. Exceptional iterator-owned chain arrays and an operation-scoped descriptor array add O(active-created cursors + captured chain lengths) storage; the arena descriptor array is nulled on outer exit. User elements and public wrappers/views remain. Android/GWT variants are outside this packet."
+}
