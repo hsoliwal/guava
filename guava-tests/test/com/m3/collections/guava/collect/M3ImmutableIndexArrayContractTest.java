@@ -129,18 +129,22 @@ public final class M3ImmutableIndexArrayContractTest {
         Object actualBuilder = builder(getClass().getClassLoader(), "ImmutableMap", capacity);
         if (round % 3 == 0) {
           Comparator<Integer> order = Comparator.reverseOrder();
-          invoke(
+          assertSame(
               expectedBuilder,
-              "ImmutableMap$Builder",
-              "orderEntriesByValue",
-              new Class<?>[] {Comparator.class},
-              order);
-          invoke(
+              invoke(
+                  expectedBuilder,
+                  "ImmutableMap$Builder",
+                  "orderEntriesByValue",
+                  new Class<?>[] {Comparator.class},
+                  order));
+          assertSame(
               actualBuilder,
-              "ImmutableMap$Builder",
-              "orderEntriesByValue",
-              new Class<?>[] {Comparator.class},
-              order);
+              invoke(
+                  actualBuilder,
+                  "ImmutableMap$Builder",
+                  "orderEntriesByValue",
+                  new Class<?>[] {Comparator.class},
+                  order));
         }
         int mask = new int[] {0, 3, 31}[round % 3];
         List<Map<?, ?>> saved = new ArrayList<>();
@@ -313,13 +317,15 @@ public final class M3ImmutableIndexArrayContractTest {
   }
 
   private static void put(Object builder, String owner, Object key, Object value) throws Exception {
-    invoke(
+    assertSame(
         builder,
-        owner + "$Builder",
-        "put",
-        new Class<?>[] {Object.class, Object.class},
-        key,
-        value);
+        invoke(
+            builder,
+            owner + "$Builder",
+            "put",
+            new Class<?>[] {Object.class, Object.class},
+            key,
+            value));
   }
 
   private static Map<?, ?> build(Object builder, String owner, boolean keepingLast)

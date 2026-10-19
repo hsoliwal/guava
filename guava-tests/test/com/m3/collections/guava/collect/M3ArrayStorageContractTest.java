@@ -310,8 +310,10 @@ public final class M3ArrayStorageContractTest {
         assertSame(restored, inverse(castMap(graph[1])));
         for (String owner : Arrays.asList("HashMultiset", "LinkedHashMultiset")) {
           Object multiset = create(writer, owner);
-          multisetCall(multiset, "add", new Class<?>[] {Object.class, int.class}, "value", 7);
-          multisetCall(multiset, "add", new Class<?>[] {Object.class, int.class}, null, 2);
+          assertEquals(
+              0, multisetCall(multiset, "add", new Class<?>[] {Object.class, int.class}, "value", 7));
+          assertEquals(
+              0, multisetCall(multiset, "add", new Class<?>[] {Object.class, int.class}, null, 2));
           Object restoredMultiset = read(write(multiset), reader);
           assertEquals(9, ((Collection<?>) restoredMultiset).size());
           assertEquals(
@@ -321,7 +323,8 @@ public final class M3ArrayStorageContractTest {
               multisetCall(
                   restoredMultiset, "count", new Class<?>[] {Object.class}, new Object[] {null}));
           Object self = create(writer, owner);
-          multisetCall(self, "add", new Class<?>[] {Object.class, int.class}, self, 2);
+          assertEquals(
+              0, multisetCall(self, "add", new Class<?>[] {Object.class, int.class}, self, 2));
           Object restoredSelf = read(write(self), reader);
           assertEquals(2, ((Collection<?>) restoredSelf).size());
           assertSame(restoredSelf, ((Collection<?>) restoredSelf).iterator().next());

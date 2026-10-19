@@ -77,7 +77,7 @@ public final class M3ImmutableCountArrayContractTest {
     assertEquals(400, result.elementSet().size());
     assertEquals(78, result.count(77));
     assertEquals(0, result.count(null));
-    assertThrows(UnsupportedOperationException.class, () -> result.add(7, 1));
+    assertImmutableMutationRejected(result);
   }
 
   @Test
@@ -224,13 +224,15 @@ public final class M3ImmutableCountArrayContractTest {
           Object builder = builder(writer);
           for (int i = 0; i < 64; i++) {
             String key = flooded ? collisionString(i) : "key-" + i;
-            invoke(
+            assertSame(
                 builder,
-                "ImmutableMultiset$Builder",
-                "addCopies",
-                new Class<?>[] {Object.class, int.class},
-                key,
-                i + 1);
+                invoke(
+                    builder,
+                    "ImmutableMultiset$Builder",
+                    "addCopies",
+                    new Class<?>[] {Object.class, int.class},
+                    key,
+                    i + 1));
           }
           Object multiset = invoke(builder, "ImmutableMultiset$Builder", "build");
           Object entries = invoke(multiset, "Multiset", "entrySet");
@@ -246,6 +248,10 @@ public final class M3ImmutableCountArrayContractTest {
     }
   }
 
+  private static void assertImmutableMutationRejected(Multiset<Integer> mutationView) {
+    assertThrows(UnsupportedOperationException.class, () -> mutationView.add(7, 1));
+  }
+
   private static void assertDenseSlots(ObjectCountHashMap<?> owner) {
     for (int i = 0; i < owner.size(); i++) {
       assertEquals(i, owner.indexOf(owner.getKey(i)));
@@ -256,13 +262,15 @@ public final class M3ImmutableCountArrayContractTest {
   private static Object edit(Object builder, String method, Object key, int count)
       throws Exception {
     try {
-      invoke(
+      assertSame(
           builder,
-          "ImmutableMultiset$Builder",
-          method,
-          new Class<?>[] {Object.class, int.class},
-          key,
-          count);
+          invoke(
+              builder,
+              "ImmutableMultiset$Builder",
+              method,
+              new Class<?>[] {Object.class, int.class},
+              key,
+              count));
       return null;
     } catch (IllegalArgumentException | NullPointerException exception) {
       return Arrays.asList(exception.getClass().getName(), exception.getMessage());

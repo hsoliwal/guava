@@ -31,6 +31,7 @@ jobs:
             source: 'android'
     env:
       M3_DONOR_PIN: dfd9dca629d44faf71846b1f85acd38556f4854d
+      M3_ARRAY_ORIGINAL_PIN: 120424a121f1cbda05d2fe0f041779b2344d8ccb
       MAVEN_OPTS: '-Xmx2560m'
     steps:
       - uses: actions/checkout@v4
@@ -100,9 +101,20 @@ jobs:
       - name: Build isolated relocated external signature receivers
         run: |
           mvn -B -ntp -f m3/package-import-rename-20261018/verification-dependencies/pom.xml install
+      - name: Compile pinned original JRE storage oracle for array contracts
+        if: matrix.variant == 'jre'
+        run: |
+          set -eu
+          ORIGINAL="$RUNNER_TEMP/m3-guava-array-original"
+          git cat-file -e "$M3_ARRAY_ORIGINAL_PIN^{commit}"
+          git worktree add --detach "$ORIGINAL" "$M3_ARRAY_ORIGINAL_PIN"
+          mvn -B -ntp -f "$ORIGINAL/pom.xml" -Pm3-relocated-verification \
+            -pl guava,guava-testlib -am -Dsurefire.toolchain.version=21 \
+            -Dmaven.compiler.meminitial=128m -Dmaven.compiler.maxmem=768m compile
       - name: Compile and run the complete native evaluation without disabling tests
         run: |
           mvn -B -ntp -f '${{ matrix.source }}/pom.xml' -Pm3-relocated-verification -Dm3.verification.test.heap=1536m \
+            -Dm3.baseline.classes="$RUNNER_TEMP/m3-guava-array-original/guava/target/classes" \
             -pl guava,guava-testlib,guava-tests -am -Dsurefire.toolchain.version=21 \
             -Dmaven.compiler.meminitial=128m -Dmaven.compiler.maxmem=768m test
       - name: Prove independent original versus native and existing working queue receivers

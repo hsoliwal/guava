@@ -1,0 +1,14 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+# Array contract tests: declared Error Prone closure
+
+This exact successor changes only three added qualification test sources, the existing native workflow, and this record. It is based on `915c0f300f5c8db070c399df22ef2f4e3b78c9a3`. The original collection implementation bytes and all original test-source bytes remain outside this packet.
+
+The hosted native evaluation at run `39200297452`, JRE job `117891685812`, rejected the previous test sources under the repository's declared Error Prone checker. Three reflective multiset `add` calls ignored their previous-count results. Two immutable-count builder calls and three immutable-index builder calls ignored their returned builder identity. The immutable mutation rejection test called the concretely annotated `ImmutableMultiset.add` method.
+
+The successor asserts zero previous counts for the three empty-multiset additions and asserts the original builder identity at every previously ignored reflective builder result. It exercises immutable mutation rejection through the public `Multiset` interface, still requiring `UnsupportedOperationException` from the same runtime immutable instance. No assertion, diagnostic rule, exception requirement or checker annotation is suppressed.
+
+The exact existing Error Prone `2.50.0-m3-guava-namespace-20261018` receiver is reconstructed from its pinned original artifact and eight-class overlay using the repository's unchanged reconstructor. The finite qualification compiles the predecessor and successor test sources with the same declared Error Prone arguments, preserving the rejected predecessor output, then runs the three corrected contract classes against the independently built original source oracle. This is a finite compiler and behavior gate; complete native JRE/Android workflow outcomes are tracked separately.
+
+The canonical source of the successor is `com.synexia.m3jdk.CollectionsContractRefinement20261017`, dataset `guava-array-contract-ci`. The task's SDK Results and strict receiver seals define the accepted bytes and fixed point. This test correction is not counted as an additional physical collection conversion.
+
+The existing native workflow now compiles the independently pinned JRE storage baseline `120424a121f1cbda05d2fe0f041779b2344d8ccb` in a separate checkout after reconstructing the existing relocated checker/dependency closure. The unchanged complete native test command receives that baseline class directory as `m3.baseline.classes`. No native test filter or exclusion is introduced. Android has its own original test-source tree; this packet adds no JRE representation tests to that tree. The earlier four-target `guava-array-contract-lint` dataset preserves compiler qualification before this workflow integration.
