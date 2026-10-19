@@ -1,0 +1,5 @@
+{
+  "guava-tests/test/com/m3/collections/guava/collect/M3ArrayStorageContractTest.java": "4aa907d13bb7d8c028425e2e287a284c1b26957eb5b005b4bb7e4d56adeee42b",
+  "guava-tests/test/com/m3/collections/guava/collect/M3ImmutableCountArrayContractTest.java": "9b7ef0b91a58e0c7f7adbf5e8fc9d4043c4870db6e7d6159a3c90ec009082270",
+  "guava-tests/test/com/m3/collections/guava/collect/M3ImmutableIndexArrayContractTest.java": "f95b04f21bc1e8463b6cd00abd7f4f494e89c4cfdeccbfb2b7ff3086c0a29219"
+}

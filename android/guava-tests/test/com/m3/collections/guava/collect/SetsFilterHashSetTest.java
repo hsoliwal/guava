@@ -19,6 +19,7 @@ package com.m3.collections.guava.collect;
 import static com.m3.collections.guava.collect.Sets.newHashSet;
 
 import com.m3.collections.guava.base.Predicate;
+import com.m3.collections.guava.collect.FilteredCollectionsTestUtil.AbstractFilteredSetTest;
 import java.util.Set;
 import org.jspecify.annotations.NullUnmarked;
 

@@ -38,6 +38,8 @@ import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.base.Ticker;
+import com.m3.collections.guava.cache.TestingRemovalListeners.CountingRemovalListener;
+import com.m3.collections.guava.cache.TestingRemovalListeners.QueuingRemovalListener;
 import com.m3.collections.guava.testing.NullPointerTester;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.time.Duration;

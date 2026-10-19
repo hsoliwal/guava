@@ -25,6 +25,7 @@ import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.base.Supplier;
 import com.m3.collections.guava.base.Suppliers;
+import com.m3.collections.guava.util.concurrent.TestExceptions.SomeCheckedException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import junit.framework.TestCase;

@@ -21,6 +21,8 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.m3.collections.guava.base.Optional;
 import com.m3.collections.guava.collect.ImmutableList;
+import com.m3.collections.guava.io.SourceSinkFactory.ByteSourceFactory;
+import com.m3.collections.guava.io.SourceSinkFactory.CharSourceFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;

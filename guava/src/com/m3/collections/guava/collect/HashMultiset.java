@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
+// M3 array-storage adaptation; provenance: m3/array-storage-20261019/CONTRACT.md
 package com.m3.collections.guava.collect;
-
-import static com.m3.collections.guava.collect.Maps.newHashMapWithExpectedSize;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
@@ -24,11 +23,10 @@ import com.m3.collections.guava.annotations.J2ktIncompatible;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.HashMap;
 import org.jspecify.annotations.Nullable;
 
 /**
- * Multiset implementation backed by a {@link HashMap}.
+ * Multiset implementation backed by compact key and integer-count arrays.
  *
  * @author Kevin Bourrillion
  * @author Jared Levy
@@ -68,11 +66,11 @@ public final class HashMultiset<E extends @Nullable Object> extends AbstractMapB
   }
 
   private HashMultiset() {
-    super(new HashMap<>());
+    super(new ObjectCountHashMap<>());
   }
 
   private HashMultiset(int distinctElements) {
-    super(newHashMapWithExpectedSize(distinctElements));
+    super(new ObjectCountHashMap<>(distinctElements));
   }
 
   /**
@@ -81,17 +79,17 @@ public final class HashMultiset<E extends @Nullable Object> extends AbstractMapB
    */
   @GwtIncompatible
   @J2ktIncompatible
-    private void writeObject(ObjectOutputStream stream) throws IOException {
+  private void writeObject(ObjectOutputStream stream) throws IOException {
     stream.defaultWriteObject();
     Serialization.writeMultiset(this, stream);
   }
 
   @GwtIncompatible
   @J2ktIncompatible
-    private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
+  private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
     int distinctElements = stream.readInt();
-    setBackingMap(new HashMap<>());
+    setBackingMap(new ObjectCountHashMap<>());
     Serialization.populateMultiset(this, stream, distinctElements);
   }
 

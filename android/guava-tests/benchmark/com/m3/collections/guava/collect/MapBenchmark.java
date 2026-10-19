@@ -22,6 +22,7 @@ import static java.util.Collections.unmodifiableMap;
 import com.google.caliper.BeforeExperiment;
 import com.google.caliper.Benchmark;
 import com.google.caliper.Param;
+import com.m3.collections.guava.collect.CollectionBenchmarkSampleData.Element;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;

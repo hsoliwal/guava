@@ -22,6 +22,7 @@ import static org.junit.Assert.assertThrows;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
+import com.m3.collections.guava.collect.TestExceptions.SomeUncheckedException;
 import com.m3.collections.guava.collect.testing.IteratorTester;
 import java.util.Iterator;
 import java.util.NoSuchElementException;

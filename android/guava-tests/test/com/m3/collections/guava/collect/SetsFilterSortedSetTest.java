@@ -19,6 +19,7 @@ package com.m3.collections.guava.collect;
 import static com.m3.collections.guava.collect.Sets.newTreeSet;
 
 import com.m3.collections.guava.base.Predicate;
+import com.m3.collections.guava.collect.FilteredCollectionsTestUtil.AbstractFilteredSortedSetTest;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import org.jspecify.annotations.NullUnmarked;

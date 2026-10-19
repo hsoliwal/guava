@@ -26,6 +26,8 @@ import static java.util.Arrays.asList;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.cache.CacheTesting.Receiver;
+import com.m3.collections.guava.cache.TestingCacheLoaders.IdentityLoader;
+import com.m3.collections.guava.cache.TestingRemovalListeners.CountingRemovalListener;
 import java.util.List;
 import java.util.Set;
 import junit.framework.TestCase;

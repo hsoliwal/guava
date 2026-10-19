@@ -19,6 +19,7 @@ package com.m3.collections.guava.base;
 import com.google.caliper.BeforeExperiment;
 import com.google.caliper.Benchmark;
 import com.google.caliper.Param;
+import com.m3.collections.guava.base.BenchmarkHelpers.SampleMatcherConfig;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.Collections;

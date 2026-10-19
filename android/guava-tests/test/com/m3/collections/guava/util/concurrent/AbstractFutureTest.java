@@ -44,6 +44,8 @@ import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.collect.Range;
 import com.m3.collections.guava.primitives.Ints;
+import com.m3.collections.guava.util.concurrent.SettableAbstractFuture.TrustedAbstractFuture;
+import com.m3.collections.guava.util.concurrent.SettableAbstractFuture.UntrustedAbstractFuture;
 import com.m3.collections.guava.util.concurrent.internal.InternalFutureFailureAccess;
 import java.io.InputStream;
 import java.lang.classfile.ClassFile;

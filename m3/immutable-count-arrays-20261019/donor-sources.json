@@ -1,0 +1,16 @@
+{
+  "original_repository": "hsoliwal/guava",
+  "original_commit": "120424a121f1cbda05d2fe0f041779b2344d8ccb",
+  "predecessor_dataset": "guava-arrays",
+  "sources": {
+    "guava/src/com/m3/collections/guava/collect/RegularImmutableMultiset.java": "dfb016d0d4401119c2c2cd0e2bc010a159b94ee75c23fee8e36b88e8067b0b6f",
+    "android/guava/src/com/m3/collections/guava/collect/RegularImmutableMultiset.java": "5479dbbaaa6412410e998968d9c0fc8d8d2429c094f7dcaabf798cce0ad4c28c",
+    "guava/src/com/m3/collections/guava/collect/CompactHashMap.java": "7623bb1c9009c1527ba4687952e03fbe0ad3ed221f1ac4a15bdb52ff404ede81",
+    "guava/src/com/m3/collections/guava/collect/JdkBackedImmutableMultiset.java": "6831c630c5e2b9aa86bc6f2eb0046baaffdab8f3ab5936c15940efd963336b73"
+  },
+  "predecessor_sources": {
+    "guava/src/com/m3/collections/guava/collect/ObjectCountHashMap.java": "37a5eda359ec28e14368d1bfbb0ab153675872cb0c451c29ffa228eaa942015c"
+  },
+  "license": "Apache-2.0; original source notices retained",
+  "predecessor_commit": "6dcb62c653c3c0ac11011a79dff97d395c1a751a"
+}

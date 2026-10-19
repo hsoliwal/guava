@@ -19,6 +19,8 @@ package com.m3.collections.guava.collect;
 import com.google.caliper.BeforeExperiment;
 import com.google.caliper.Benchmark;
 import com.google.caliper.Param;
+import com.m3.collections.guava.collect.BenchmarkHelpers.SetImpl;
+import com.m3.collections.guava.collect.CollectionBenchmarkSampleData.Element;
 import java.util.Set;
 import org.jspecify.annotations.NullUnmarked;
 

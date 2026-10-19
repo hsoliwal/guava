@@ -20,6 +20,7 @@ import static com.m3.collections.guava.truth.Truth.assertThat;
 
 import com.m3.collections.guava.base.Joiner;
 import com.m3.collections.guava.collect.ImmutableList;
+import com.m3.collections.guava.io.SourceSinkFactory.CharSinkFactory;
 import java.io.IOException;
 import java.io.Writer;
 import java.lang.reflect.Method;

@@ -55,6 +55,7 @@ import static org.junit.Assert.assertThrows;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.collect.ImmutableList;
+import com.m3.collections.guava.math.StatsTesting.ManyValues;
 import com.m3.collections.guava.testing.EqualsTester;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

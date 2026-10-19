@@ -28,6 +28,7 @@ import static org.junit.Assert.assertThrows;
 
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
+import com.m3.collections.guava.cache.CacheBuilderFactory.DurationSpec;
 import com.m3.collections.guava.cache.LocalCache.Strength;
 import com.m3.collections.guava.collect.ImmutableList;
 import com.m3.collections.guava.collect.ImmutableMap;

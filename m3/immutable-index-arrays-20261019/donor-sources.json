@@ -1,0 +1,22 @@
+{
+  "repository": "hsoliwal/guava",
+  "predecessor_commit": "3aea962167e102158aaf6ef39ce3c2c17e8a9f15",
+  "original_donor_commit": "120424a121f1cbda05d2fe0f041779b2344d8ccb",
+  "original_sources": {
+    "guava/src/com/m3/collections/guava/collect/RegularImmutableMap.java": "544457d6ba3560779c4a93ce07675b4a574bcca0b6b4e52a58d2580782a28b34",
+    "guava/src/com/m3/collections/guava/collect/RegularImmutableBiMap.java": "3c507522099ea28d0c0a111eedda01914cae23399c1febb17cb78f6082c1e8ce",
+    "guava/src/com/m3/collections/guava/collect/ImmutableMapEntry.java": "21ec63e3b44d91c5f07713fbd5dbee517898208ef1ecab248983de92c98a73eb",
+    "guava/src/com/m3/collections/guava/collect/JdkBackedImmutableMap.java": "521bb60f9dd0015538c7aec1febe12a1a995235e8aff9bc207540be26f541957",
+    "guava/src/com/m3/collections/guava/collect/JdkBackedImmutableBiMap.java": "f0f9b1c3d8ed34550ca42b198a3fac65a4195523dbd6d94b0649cd144a293d5f"
+  },
+  "array_pattern_sources": {
+    "guava/src/com/m3/collections/guava/collect/HashBiMap.java": "51ddbaa37adfa0b74fc414d70ea48c3621502458d0dffd9c0f16ebffb75368a7",
+    "guava/src/com/m3/collections/guava/collect/ObjectCountHashMap.java": "d56bd54224ebe51ed7a66875bb0c3063e8b3f95090bc3eaaeadfaa13473c38a1"
+  },
+  "android_patterns": {
+    "android/guava/src/com/m3/collections/guava/collect/RegularImmutableMap.java": "1f344f180b8f85ed5d8d28e48b72ef06730b14fc70e56b328c3888a762f9053e",
+    "android/guava/src/com/m3/collections/guava/collect/RegularImmutableBiMap.java": "7362330f8aa8b6820f0c16c80f5f3721363f3946a234ccabbe16e9c1d1528540"
+  },
+  "license": "Apache-2.0; original notices retained",
+  "retained_payload": "Entry[] identity required by unchanged original builder tests; topology only converted"
+}

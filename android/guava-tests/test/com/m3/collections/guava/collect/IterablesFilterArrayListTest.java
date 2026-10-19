@@ -19,6 +19,7 @@ package com.m3.collections.guava.collect;
 import static com.m3.collections.guava.collect.Lists.newArrayList;
 
 import com.m3.collections.guava.base.Predicate;
+import com.m3.collections.guava.collect.FilteredCollectionsTestUtil.AbstractFilteredIterableTest;
 import org.jspecify.annotations.NullUnmarked;
 
 @NullUnmarked

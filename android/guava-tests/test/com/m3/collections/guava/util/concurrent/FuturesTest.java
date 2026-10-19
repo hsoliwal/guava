@@ -69,6 +69,8 @@ import com.m3.collections.guava.collect.ImmutableSet;
 import com.m3.collections.guava.testing.ClassSanityTester;
 import com.m3.collections.guava.testing.GcFinalization;
 import com.m3.collections.guava.testing.TestLogHandler;
+import com.m3.collections.guava.util.concurrent.TestExceptions.SomeError;
+import com.m3.collections.guava.util.concurrent.TestExceptions.SomeUncheckedException;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.io.FileNotFoundException;
 import java.io.IOException;

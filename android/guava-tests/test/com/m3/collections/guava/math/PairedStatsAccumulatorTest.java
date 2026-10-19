@@ -49,6 +49,7 @@ import static org.junit.Assert.assertThrows;
 
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
+import com.m3.collections.guava.math.StatsTesting.ManyValues;
 import junit.framework.TestCase;
 import org.jspecify.annotations.NullUnmarked;
 

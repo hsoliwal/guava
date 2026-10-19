@@ -1,0 +1,6 @@
+owner	status	physical_storage	boundary
+RegularImmutableMap	partial-topology-arrayed	int[] bucket heads and int[] next-slot links over original Entry[] payload	Ordinary per-mapping immutable Entry objects and exact builder array identity remain
+RegularImmutableBiMap	partial-topology-arrayed	Two int[] bucket-head tables and two int[] next-slot columns over original Entry[] payload	Ordinary Entry objects remain; original inverse and cached hash contracts retained
+ImmutableMapEntry.NonTerminalImmutableMapEntry / NonTerminalImmutableBiMapEntry	retired-from-normal-runtime-owner	Regular immutable owners no longer instantiate or retain these collision-link nodes	Definitions remain unchanged to read legacy standalone serialized entries
+JdkBackedImmutableMap / JdkBackedImmutableBiMap	existing-contract-fallback	Existing JDK delegates and Entry payloads retained after the original bucket threshold	Both unchanged original construction/query flooding suites remain required
+ArrayTable / DenseImmutableTable / SparseImmutableTable / immutable multimaps / ExplicitOrdering	transitive-partial-index-topology	Regular immutable map key indexes inherit primitive collision topology	Per-mapping Entry payloads and each facade own remaining storage remain explicitly unflattened
