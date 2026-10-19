@@ -1,0 +1,267 @@
+[
+  {
+    "path": "android/guava-testlib/src/com/m3/collections/guava/testing/AbstractClassInitializationTest.java",
+    "old": "\"com.google.common.\"",
+    "new": "\"com.m3.collections.guava.\""
+  },
+  {
+    "path": "android/guava-testlib/src/com/m3/collections/guava/testing/NullPointerTester.java",
+    "old": "\"com.google.common\"",
+    "new": "\"com.m3.collections.guava\""
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/util/concurrent/MonitorBenchmark.java",
+    "old": "\"com.google.common.util.concurrent.MonitorBased\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.MonitorBased\""
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/base/EnumsTest.java",
+    "old": "\"Enums.stringConverter(com.google.common.base.EnumsTest$TestEnum.class)\"",
+    "new": "\"Enums.stringConverter(com.m3.collections.guava.base.EnumsTest$TestEnum.class)\""
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/WriteReplaceOverridesTest.java",
+    "old": "\"com.google.common.\"",
+    "new": "\"com.m3.collections.guava.\""
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\" relative to com.google.common.io.ResourcesTest not found.\"",
+    "new": "\" relative to com.m3.collections.guava.io.ResourcesTest not found.\""
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\"com/google/common/io/testdata/i18n.txt\"",
+    "new": "\"com/m3/collections/guava/io/testdata/i18n.txt\""
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\"resource com/google/common/io/testdata/i18n.txt\"",
+    "new": "\"resource com/m3/collections/guava/io/testdata/i18n.txt\""
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/reflect/ClassPathTest.java",
+    "old": "\"com/google/common/reflect/ClassPathTest.class\"",
+    "new": "\"com/m3/collections/guava/reflect/ClassPathTest.class\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/FinalizableReferenceQueue.java",
+    "old": "\"com.google.common.base.internal.Finalizer\"",
+    "new": "\"com.m3.collections.guava.base.internal.Finalizer\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/PatternCompiler.java",
+    "old": "\".*/com/google/common/base/.*\"",
+    "new": "\".*/com/m3/collections/guava/base/.*\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/PatternCompiler.java",
+    "old": "\"PatternCompiler is an implementation detail of com.google.common.base\"",
+    "new": "\"PatternCompiler is an implementation detail of com.m3.collections.guava.base\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/Strings.java",
+    "old": "\"com.google.common.base.Strings\"",
+    "new": "\"com.m3.collections.guava.base.Strings\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/internal/Finalizer.java",
+    "old": "\"com.google.common.base.internal.Finalizer\"",
+    "new": "\"com.m3.collections.guava.base.internal.Finalizer\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/FluentIterable.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Iterables.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Iterators.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Multimaps.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Multisets.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Ordering.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/graph/ImmutableGraph.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/graph/ImmutableNetwork.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/graph/ImmutableValueGraph.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/io/Files.java",
+    "old": "\"com.google.common.io.FileWriteMode\"",
+    "new": "\"com.m3.collections.guava.io.FileWriteMode\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/io/Files.java",
+    "old": "\"com.google.common.io.Files\"",
+    "new": "\"com.m3.collections.guava.io.Files\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/util/concurrent/AbstractFuture.java",
+    "old": "\"com.google.common.util.concurrent.\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.\""
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/util/concurrent/FluentFuture.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava-testlib/src/com/m3/collections/guava/testing/AbstractClassInitializationTest.java",
+    "old": "\"com.google.common.\"",
+    "new": "\"com.m3.collections.guava.\""
+  },
+  {
+    "path": "guava-tests/benchmark/com/m3/collections/guava/util/concurrent/MonitorBenchmark.java",
+    "old": "\"com.google.common.util.concurrent.MonitorBased\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.MonitorBased\""
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/base/EnumsTest.java",
+    "old": "\"Enums.stringConverter(com.google.common.base.EnumsTest$TestEnum.class)\"",
+    "new": "\"Enums.stringConverter(com.m3.collections.guava.base.EnumsTest$TestEnum.class)\""
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/collect/WriteReplaceOverridesTest.java",
+    "old": "\"com.google.common.\"",
+    "new": "\"com.m3.collections.guava.\""
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\" relative to com.google.common.io.ResourcesTest not found.\"",
+    "new": "\" relative to com.m3.collections.guava.io.ResourcesTest not found.\""
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\"com/google/common/io/testdata/i18n.txt\"",
+    "new": "\"com/m3/collections/guava/io/testdata/i18n.txt\""
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\"resource com/google/common/io/testdata/i18n.txt\"",
+    "new": "\"resource com/m3/collections/guava/io/testdata/i18n.txt\""
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/reflect/ClassPathTest.java",
+    "old": "\"com/google/common/reflect/ClassPathTest.class\"",
+    "new": "\"com/m3/collections/guava/reflect/ClassPathTest.class\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/FinalizableReferenceQueue.java",
+    "old": "\"com.google.common.base.internal.Finalizer\"",
+    "new": "\"com.m3.collections.guava.base.internal.Finalizer\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/PatternCompiler.java",
+    "old": "\".*/com/google/common/base/.*\"",
+    "new": "\".*/com/m3/collections/guava/base/.*\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/PatternCompiler.java",
+    "old": "\"PatternCompiler is an implementation detail of com.google.common.base\"",
+    "new": "\"PatternCompiler is an implementation detail of com.m3.collections.guava.base\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/Strings.java",
+    "old": "\"com.google.common.base.Strings\"",
+    "new": "\"com.m3.collections.guava.base.Strings\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/internal/Finalizer.java",
+    "old": "\"com.google.common.base.internal.Finalizer\"",
+    "new": "\"com.m3.collections.guava.base.internal.Finalizer\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/FluentIterable.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Iterables.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Iterators.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Multimaps.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Multisets.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Ordering.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/graph/ImmutableGraph.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/graph/ImmutableNetwork.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/graph/ImmutableValueGraph.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/io/Files.java",
+    "old": "\"com.google.common.io.FileWriteMode\"",
+    "new": "\"com.m3.collections.guava.io.FileWriteMode\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/io/Files.java",
+    "old": "\"com.google.common.io.Files\"",
+    "new": "\"com.m3.collections.guava.io.Files\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/util/concurrent/AbstractFuture.java",
+    "old": "\"com.google.common.util.concurrent.\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.\""
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/util/concurrent/FluentFuture.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\""
+  }
+]

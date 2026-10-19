@@ -1,0 +1,21 @@
+{
+  "status": "ENVIRONMENT_FAILURE_IDENTIFIED",
+  "source_change": false,
+  "diagnosis": "Root overlay filesystem has zero unprivileged-available bytes; no inode exhaustion. Existing MAVEN_OPTS tmpdir did not transfer into fork; pass explicit user property to Surefire JVM.",
+  "statvfs": [
+    {
+      "path": "/tmp",
+      "free_bytes": 1267953664,
+      "unprivileged_available_bytes": 0,
+      "free_inodes": 904314
+    },
+    {
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/guava-unprivileged/tmp",
+      "free_bytes": 3057565696,
+      "unprivileged_available_bytes": 3057565696,
+      "free_inodes": 1188658
+    }
+  ],
+  "repair": "Task-owned tmpdir with available bytes; explicit -Djava.io.tmpdir on Maven command and verify report property",
+  "filesystem_reserve_or_access_changes": false
+}

@@ -1,0 +1,426 @@
+[
+  {
+    "path": "android/guava-testlib/src/com/m3/collections/guava/testing/AbstractClassInitializationTest.java",
+    "old": "\"com.google.common.\"",
+    "new": "\"com.m3.collections.guava.\"",
+    "expected_sha256": "dc95489e1b843a58d4936f37d0f9188f95de73349f35460adfff185d1c8b7c72",
+    "namespace_source_path": "android/guava-testlib/src/com/google/common/testing/AbstractClassInitializationTest.java",
+    "namespace_preimage_sha256": "a1e8f2124f89963a030472551d43f153ae6107d12746f68fbb596432b3fda4dd"
+  },
+  {
+    "path": "android/guava-testlib/src/com/m3/collections/guava/testing/NullPointerTester.java",
+    "old": "\"com.google.common\"",
+    "new": "\"com.m3.collections.guava\"",
+    "expected_sha256": "c26c97df78b4c4c7f1167dc77ef9c206a81349710caba3cbe9e80ef0062e8448",
+    "namespace_source_path": "android/guava-testlib/src/com/google/common/testing/NullPointerTester.java",
+    "namespace_preimage_sha256": "181dce1698f9657bdf00f3407dd01705df7182ac690cbf83f2a26053a03bd718"
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/util/concurrent/MonitorBenchmark.java",
+    "old": "\"com.google.common.util.concurrent.MonitorBased\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.MonitorBased\"",
+    "expected_sha256": "a3f79bc5cdf6a29837a1c7a66bd016b0e21630b31ed42e4bd93af5b2f5e5f036",
+    "namespace_source_path": "android/guava-tests/benchmark/com/google/common/util/concurrent/MonitorBenchmark.java",
+    "namespace_preimage_sha256": "69324fa829dc207f76c8be3471be4d59a1d8a4651729039c9f54daaf384fb6d5"
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/base/EnumsTest.java",
+    "old": "\"Enums.stringConverter(com.google.common.base.EnumsTest$TestEnum.class)\"",
+    "new": "\"Enums.stringConverter(com.m3.collections.guava.base.EnumsTest$TestEnum.class)\"",
+    "expected_sha256": "c3706bf3dbc99aed1566e0284335724a2cb30a3dc6e8ffbd0df491ea31cea19c",
+    "namespace_source_path": "android/guava-tests/test/com/google/common/base/EnumsTest.java",
+    "namespace_preimage_sha256": "314643aa64c81687d3d7d60a5007bda8b9a6be899a508897971a0b6b4ca0d47d"
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/WriteReplaceOverridesTest.java",
+    "old": "\"com.google.common.\"",
+    "new": "\"com.m3.collections.guava.\"",
+    "expected_sha256": "35dbf222d24bc03a96e8f5065ac028575ec5cd350dff50f39232af1174b702bd",
+    "namespace_source_path": "android/guava-tests/test/com/google/common/collect/WriteReplaceOverridesTest.java",
+    "namespace_preimage_sha256": "80076c76d26e0f061722d4c3da54482de99ccf95e8b7b6ce6ebdb336e2654152"
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\" relative to com.google.common.io.ResourcesTest not found.\"",
+    "new": "\" relative to com.m3.collections.guava.io.ResourcesTest not found.\"",
+    "expected_sha256": "eb1262f7b582dfb5b3e826e19d733507f183937a887285938293caa20ac82e13",
+    "namespace_source_path": "android/guava-tests/test/com/google/common/io/ResourcesTest.java",
+    "namespace_preimage_sha256": "91b25bc15ea1712e4d6f09b3da349558ef872380e42c3459b4104520c5a96734"
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\"com/google/common/io/testdata/i18n.txt\"",
+    "new": "\"com/m3/collections/guava/io/testdata/i18n.txt\"",
+    "expected_sha256": "eb1262f7b582dfb5b3e826e19d733507f183937a887285938293caa20ac82e13",
+    "namespace_source_path": "android/guava-tests/test/com/google/common/io/ResourcesTest.java",
+    "namespace_preimage_sha256": "91b25bc15ea1712e4d6f09b3da349558ef872380e42c3459b4104520c5a96734"
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\"resource com/google/common/io/testdata/i18n.txt\"",
+    "new": "\"resource com/m3/collections/guava/io/testdata/i18n.txt\"",
+    "expected_sha256": "eb1262f7b582dfb5b3e826e19d733507f183937a887285938293caa20ac82e13",
+    "namespace_source_path": "android/guava-tests/test/com/google/common/io/ResourcesTest.java",
+    "namespace_preimage_sha256": "91b25bc15ea1712e4d6f09b3da349558ef872380e42c3459b4104520c5a96734"
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/reflect/ClassPathTest.java",
+    "old": "\"com/google/common/reflect/ClassPathTest.class\"",
+    "new": "\"com/m3/collections/guava/reflect/ClassPathTest.class\"",
+    "expected_sha256": "1df6b0af26b39b35039f52fe66f6fd667d098cd71bb2acc3234968acef759fb1",
+    "namespace_source_path": "android/guava-tests/test/com/google/common/reflect/ClassPathTest.java",
+    "namespace_preimage_sha256": "81d4ff9df1825452e4e009206c25b8a91be8f5ae9f088b5b85306251f3d93a6e"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/FinalizableReferenceQueue.java",
+    "old": "\"com.google.common.base.internal.Finalizer\"",
+    "new": "\"com.m3.collections.guava.base.internal.Finalizer\"",
+    "expected_sha256": "06e6ca3df3e07448dd79a1f0251a274590b37093719958b3d450cb568d139fd4",
+    "namespace_source_path": "android/guava/src/com/google/common/base/FinalizableReferenceQueue.java",
+    "namespace_preimage_sha256": "b0fa1b35949305879774d9143b40bd372d337f411111e6d3d20a019856dbb093"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/PatternCompiler.java",
+    "old": "\".*/com/google/common/base/.*\"",
+    "new": "\".*/com/m3/collections/guava/base/.*\"",
+    "expected_sha256": "52e51535a4bc354d03e475644e88b31f8b0374d993497209572aedd5fabc9c75",
+    "namespace_source_path": "android/guava/src/com/google/common/base/PatternCompiler.java",
+    "namespace_preimage_sha256": "aea09b28e4c7521d843c9cab37b66f180e57ebbac56838a4204f1b46b232fd0b"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/PatternCompiler.java",
+    "old": "\"PatternCompiler is an implementation detail of com.google.common.base\"",
+    "new": "\"PatternCompiler is an implementation detail of com.m3.collections.guava.base\"",
+    "expected_sha256": "52e51535a4bc354d03e475644e88b31f8b0374d993497209572aedd5fabc9c75",
+    "namespace_source_path": "android/guava/src/com/google/common/base/PatternCompiler.java",
+    "namespace_preimage_sha256": "aea09b28e4c7521d843c9cab37b66f180e57ebbac56838a4204f1b46b232fd0b"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/Strings.java",
+    "old": "\"com.google.common.base.Strings\"",
+    "new": "\"com.m3.collections.guava.base.Strings\"",
+    "expected_sha256": "2f2825df5c03cac69d954286f08a2ba9ef32f89a230cc8ef9581251e93debbd2",
+    "namespace_source_path": "android/guava/src/com/google/common/base/Strings.java",
+    "namespace_preimage_sha256": "452c6456b0846359cf8d01f98a6be493f8d5d4eafedba19f2d9c0946eac40ee9"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/base/internal/Finalizer.java",
+    "old": "\"com.google.common.base.internal.Finalizer\"",
+    "new": "\"com.m3.collections.guava.base.internal.Finalizer\"",
+    "expected_sha256": "076ffbbfbd14dfb1202251c3d879b1b37e9ea469198ef2e8bb776d512ca07489",
+    "namespace_source_path": "android/guava/src/com/google/common/base/internal/Finalizer.java",
+    "namespace_preimage_sha256": "2adbf4874eb7ed09117baae9845b5527996a9fce5a7625c91aa2a05bfe966a68"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/FluentIterable.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "613f64cc234b1a359b6a6bf763af60daf557401575e87e26bddca317b2e23c67",
+    "namespace_source_path": "android/guava/src/com/google/common/collect/FluentIterable.java",
+    "namespace_preimage_sha256": "d1e733e4ae19a513d48044ebdf37f9247ff10113ef004ef30002ffd24efd0c0a"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Iterables.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "9300c87ae1c7aeedbac256b3359395ce335566852626eab45d7d07f2f30683e0",
+    "namespace_source_path": "android/guava/src/com/google/common/collect/Iterables.java",
+    "namespace_preimage_sha256": "b7c9fb20a66c5368f7099e439ea9b228a92d6505b265da613c83d6e3f6a54088"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Iterators.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "7fbc2ed14e8825ea549f1629303d061ba0add9c2dbc000ceef491aad37361ecf",
+    "namespace_source_path": "android/guava/src/com/google/common/collect/Iterators.java",
+    "namespace_preimage_sha256": "63306b9c2f591a39ecc9a8ff1ce8290f889155c03bdc6e74d1cc10c5aab5d511"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Multimaps.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "d816cc0e113a4e6eeb1fdf1a8dfbd46b1611425fb8bc3d4eb389d3eee22eacc1",
+    "namespace_source_path": "android/guava/src/com/google/common/collect/Multimaps.java",
+    "namespace_preimage_sha256": "ed05df09184378d1ffc283e24f087256dd155733fd431ebd657456f13c05a5ca"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Multisets.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "fcbc11d756eaf1b10d5967978ee87c652b8a83594be1ccde245a969b1c6c3066",
+    "namespace_source_path": "android/guava/src/com/google/common/collect/Multisets.java",
+    "namespace_preimage_sha256": "19c0a4af5ad9f854f66ce41be455f75f8219e12d86521237e6dff944c36e1c8e"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/collect/Ordering.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "f7cdc411f0ffb9236cc3892c18ac6c5cd07e997580b3fed1b8204f2f02234654",
+    "namespace_source_path": "android/guava/src/com/google/common/collect/Ordering.java",
+    "namespace_preimage_sha256": "e70520cc1b913b9f7d13a822259bf6e8804a075b0b9376ab5f24eb649c39d661"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/graph/ImmutableGraph.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "fbdac56589106a7d22d4986d52861aee491bf76c860bce6d1b635f15a9864f83",
+    "namespace_source_path": "android/guava/src/com/google/common/graph/ImmutableGraph.java",
+    "namespace_preimage_sha256": "41dc606b7c8ecd1eebcd21ec863e10d8b8b388b1230a7cb6eff32b9f673dbf9d"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/graph/ImmutableNetwork.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "8bcfcc081d9871aa5780c46930eef765a28fb6be5572a15bcfb536608e221e9f",
+    "namespace_source_path": "android/guava/src/com/google/common/graph/ImmutableNetwork.java",
+    "namespace_preimage_sha256": "38d7c8d47bbef49907f93a2d09ed7f0e4cc1c9683d9f688b82bf682ffb428d16"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/graph/ImmutableValueGraph.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "00ba2959f80fe535699f0f884586bdae12faf237a3ddeee8305b462b29fe867e",
+    "namespace_source_path": "android/guava/src/com/google/common/graph/ImmutableValueGraph.java",
+    "namespace_preimage_sha256": "1789c1550840d4d8d5738cdae15ccd8f8278aa289fd738541d0dcc23175fdd27"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/io/Files.java",
+    "old": "\"com.google.common.io.FileWriteMode\"",
+    "new": "\"com.m3.collections.guava.io.FileWriteMode\"",
+    "expected_sha256": "ec9ea8f93c86ab331a1348472c50efd6ebaf6646056412f567707c409ad76d4e",
+    "namespace_source_path": "android/guava/src/com/google/common/io/Files.java",
+    "namespace_preimage_sha256": "e3e15611f332cc1785d97c5aaef8bb7f793dbbd7e674d8f6627bf2007bfeeec3"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/io/Files.java",
+    "old": "\"com.google.common.io.Files\"",
+    "new": "\"com.m3.collections.guava.io.Files\"",
+    "expected_sha256": "ec9ea8f93c86ab331a1348472c50efd6ebaf6646056412f567707c409ad76d4e",
+    "namespace_source_path": "android/guava/src/com/google/common/io/Files.java",
+    "namespace_preimage_sha256": "e3e15611f332cc1785d97c5aaef8bb7f793dbbd7e674d8f6627bf2007bfeeec3"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/util/concurrent/AbstractFuture.java",
+    "old": "\"com.google.common.util.concurrent.\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.\"",
+    "expected_sha256": "0d95f3d56458e1afd9e80eec3c8398e9b07df47c87472acca0c1664149c31201",
+    "namespace_source_path": "android/guava/src/com/google/common/util/concurrent/AbstractFuture.java",
+    "namespace_preimage_sha256": "16c4e2dd502777a50ecb2b87ea125f688e5d1186485ae61b31bad8999fa21374"
+  },
+  {
+    "path": "android/guava/src/com/m3/collections/guava/util/concurrent/FluentFuture.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "76e6d5aa8978b1289e2cc29b053b90e7b1b2212c4c2d26b0d93e3dd649a2d42e",
+    "namespace_source_path": "android/guava/src/com/google/common/util/concurrent/FluentFuture.java",
+    "namespace_preimage_sha256": "c7343c37959849d000b10b015cc1fe6098c8bcc942605d391c2c1305d661847d"
+  },
+  {
+    "path": "guava-testlib/src/com/m3/collections/guava/testing/AbstractClassInitializationTest.java",
+    "old": "\"com.google.common.\"",
+    "new": "\"com.m3.collections.guava.\"",
+    "expected_sha256": "dc95489e1b843a58d4936f37d0f9188f95de73349f35460adfff185d1c8b7c72",
+    "namespace_source_path": "guava-testlib/src/com/google/common/testing/AbstractClassInitializationTest.java",
+    "namespace_preimage_sha256": "a1e8f2124f89963a030472551d43f153ae6107d12746f68fbb596432b3fda4dd"
+  },
+  {
+    "path": "guava-tests/benchmark/com/m3/collections/guava/util/concurrent/MonitorBenchmark.java",
+    "old": "\"com.google.common.util.concurrent.MonitorBased\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.MonitorBased\"",
+    "expected_sha256": "a3f79bc5cdf6a29837a1c7a66bd016b0e21630b31ed42e4bd93af5b2f5e5f036",
+    "namespace_source_path": "guava-tests/benchmark/com/google/common/util/concurrent/MonitorBenchmark.java",
+    "namespace_preimage_sha256": "69324fa829dc207f76c8be3471be4d59a1d8a4651729039c9f54daaf384fb6d5"
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/base/EnumsTest.java",
+    "old": "\"Enums.stringConverter(com.google.common.base.EnumsTest$TestEnum.class)\"",
+    "new": "\"Enums.stringConverter(com.m3.collections.guava.base.EnumsTest$TestEnum.class)\"",
+    "expected_sha256": "c3706bf3dbc99aed1566e0284335724a2cb30a3dc6e8ffbd0df491ea31cea19c",
+    "namespace_source_path": "guava-tests/test/com/google/common/base/EnumsTest.java",
+    "namespace_preimage_sha256": "314643aa64c81687d3d7d60a5007bda8b9a6be899a508897971a0b6b4ca0d47d"
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/collect/WriteReplaceOverridesTest.java",
+    "old": "\"com.google.common.\"",
+    "new": "\"com.m3.collections.guava.\"",
+    "expected_sha256": "35dbf222d24bc03a96e8f5065ac028575ec5cd350dff50f39232af1174b702bd",
+    "namespace_source_path": "guava-tests/test/com/google/common/collect/WriteReplaceOverridesTest.java",
+    "namespace_preimage_sha256": "80076c76d26e0f061722d4c3da54482de99ccf95e8b7b6ce6ebdb336e2654152"
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\" relative to com.google.common.io.ResourcesTest not found.\"",
+    "new": "\" relative to com.m3.collections.guava.io.ResourcesTest not found.\"",
+    "expected_sha256": "eb1262f7b582dfb5b3e826e19d733507f183937a887285938293caa20ac82e13",
+    "namespace_source_path": "guava-tests/test/com/google/common/io/ResourcesTest.java",
+    "namespace_preimage_sha256": "91b25bc15ea1712e4d6f09b3da349558ef872380e42c3459b4104520c5a96734"
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\"com/google/common/io/testdata/i18n.txt\"",
+    "new": "\"com/m3/collections/guava/io/testdata/i18n.txt\"",
+    "expected_sha256": "eb1262f7b582dfb5b3e826e19d733507f183937a887285938293caa20ac82e13",
+    "namespace_source_path": "guava-tests/test/com/google/common/io/ResourcesTest.java",
+    "namespace_preimage_sha256": "91b25bc15ea1712e4d6f09b3da349558ef872380e42c3459b4104520c5a96734"
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/io/ResourcesTest.java",
+    "old": "\"resource com/google/common/io/testdata/i18n.txt\"",
+    "new": "\"resource com/m3/collections/guava/io/testdata/i18n.txt\"",
+    "expected_sha256": "eb1262f7b582dfb5b3e826e19d733507f183937a887285938293caa20ac82e13",
+    "namespace_source_path": "guava-tests/test/com/google/common/io/ResourcesTest.java",
+    "namespace_preimage_sha256": "91b25bc15ea1712e4d6f09b3da349558ef872380e42c3459b4104520c5a96734"
+  },
+  {
+    "path": "guava-tests/test/com/m3/collections/guava/reflect/ClassPathTest.java",
+    "old": "\"com/google/common/reflect/ClassPathTest.class\"",
+    "new": "\"com/m3/collections/guava/reflect/ClassPathTest.class\"",
+    "expected_sha256": "343928169d2669d9e5de5735e629fc7b5ad739895ba266a927ce9a63e107613a",
+    "namespace_source_path": "guava-tests/test/com/google/common/reflect/ClassPathTest.java",
+    "namespace_preimage_sha256": "8345b99f4623b22d19a55533bbf00acc865361fbe6a0c91a4e57f0a7bcc6a48a"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/FinalizableReferenceQueue.java",
+    "old": "\"com.google.common.base.internal.Finalizer\"",
+    "new": "\"com.m3.collections.guava.base.internal.Finalizer\"",
+    "expected_sha256": "ad18aa64a9c384551be58703c08c9ee4e3db54e90d0fd1aee487e698415211ad",
+    "namespace_source_path": "guava/src/com/google/common/base/FinalizableReferenceQueue.java",
+    "namespace_preimage_sha256": "d2cae2e0db81302b9fcbb3b1bae2ea2bb1412dcb8795199515b7d84a549f1a63"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/PatternCompiler.java",
+    "old": "\".*/com/google/common/base/.*\"",
+    "new": "\".*/com/m3/collections/guava/base/.*\"",
+    "expected_sha256": "52e51535a4bc354d03e475644e88b31f8b0374d993497209572aedd5fabc9c75",
+    "namespace_source_path": "guava/src/com/google/common/base/PatternCompiler.java",
+    "namespace_preimage_sha256": "aea09b28e4c7521d843c9cab37b66f180e57ebbac56838a4204f1b46b232fd0b"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/PatternCompiler.java",
+    "old": "\"PatternCompiler is an implementation detail of com.google.common.base\"",
+    "new": "\"PatternCompiler is an implementation detail of com.m3.collections.guava.base\"",
+    "expected_sha256": "52e51535a4bc354d03e475644e88b31f8b0374d993497209572aedd5fabc9c75",
+    "namespace_source_path": "guava/src/com/google/common/base/PatternCompiler.java",
+    "namespace_preimage_sha256": "aea09b28e4c7521d843c9cab37b66f180e57ebbac56838a4204f1b46b232fd0b"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/Strings.java",
+    "old": "\"com.google.common.base.Strings\"",
+    "new": "\"com.m3.collections.guava.base.Strings\"",
+    "expected_sha256": "2f2825df5c03cac69d954286f08a2ba9ef32f89a230cc8ef9581251e93debbd2",
+    "namespace_source_path": "guava/src/com/google/common/base/Strings.java",
+    "namespace_preimage_sha256": "452c6456b0846359cf8d01f98a6be493f8d5d4eafedba19f2d9c0946eac40ee9"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/base/internal/Finalizer.java",
+    "old": "\"com.google.common.base.internal.Finalizer\"",
+    "new": "\"com.m3.collections.guava.base.internal.Finalizer\"",
+    "expected_sha256": "076ffbbfbd14dfb1202251c3d879b1b37e9ea469198ef2e8bb776d512ca07489",
+    "namespace_source_path": "guava/src/com/google/common/base/internal/Finalizer.java",
+    "namespace_preimage_sha256": "2adbf4874eb7ed09117baae9845b5527996a9fce5a7625c91aa2a05bfe966a68"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/FluentIterable.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "5f18794a9baa719ed4d9fd3c934e8920ba40d17ca31c874783a01721b2ce645f",
+    "namespace_source_path": "guava/src/com/google/common/collect/FluentIterable.java",
+    "namespace_preimage_sha256": "28473680b65fb2d0a4bb9756ce43d93985835aa1927588eadda83ebd08cc37c8"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Iterables.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "cc2cb93eeea248c0d451cb2b5022166fc0f2bf39de1f3777c1455f8460f7d4b0",
+    "namespace_source_path": "guava/src/com/google/common/collect/Iterables.java",
+    "namespace_preimage_sha256": "6033d9cd00e6a158ae537da1ac6cf7e5b362a6bac4f719e3c2967b7862150fa3"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Iterators.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "7fbc2ed14e8825ea549f1629303d061ba0add9c2dbc000ceef491aad37361ecf",
+    "namespace_source_path": "guava/src/com/google/common/collect/Iterators.java",
+    "namespace_preimage_sha256": "63306b9c2f591a39ecc9a8ff1ce8290f889155c03bdc6e74d1cc10c5aab5d511"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Multimaps.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "e3668b03f9b35ea3149f9c3e3d26d52c8d64c829a51a073142ccf304ac9302fe",
+    "namespace_source_path": "guava/src/com/google/common/collect/Multimaps.java",
+    "namespace_preimage_sha256": "3f765f76106f61a457308bb54206ebf0a9524d0a2f912f8ec9626f79f08cbef3"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Multisets.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "56eb242aa6ac12939c7ab7438e2eb3331cbf964cad7dc99b25cf843fc1f318db",
+    "namespace_source_path": "guava/src/com/google/common/collect/Multisets.java",
+    "namespace_preimage_sha256": "3e66093fe766b99f437937fe2d62c38786827b2df0cb786c58a6853455fd6e58"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/collect/Ordering.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "f7cdc411f0ffb9236cc3892c18ac6c5cd07e997580b3fed1b8204f2f02234654",
+    "namespace_source_path": "guava/src/com/google/common/collect/Ordering.java",
+    "namespace_preimage_sha256": "e70520cc1b913b9f7d13a822259bf6e8804a075b0b9376ab5f24eb649c39d661"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/graph/ImmutableGraph.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "fbdac56589106a7d22d4986d52861aee491bf76c860bce6d1b635f15a9864f83",
+    "namespace_source_path": "guava/src/com/google/common/graph/ImmutableGraph.java",
+    "namespace_preimage_sha256": "41dc606b7c8ecd1eebcd21ec863e10d8b8b388b1230a7cb6eff32b9f673dbf9d"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/graph/ImmutableNetwork.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "8bcfcc081d9871aa5780c46930eef765a28fb6be5572a15bcfb536608e221e9f",
+    "namespace_source_path": "guava/src/com/google/common/graph/ImmutableNetwork.java",
+    "namespace_preimage_sha256": "38d7c8d47bbef49907f93a2d09ed7f0e4cc1c9683d9f688b82bf682ffb428d16"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/graph/ImmutableValueGraph.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "00ba2959f80fe535699f0f884586bdae12faf237a3ddeee8305b462b29fe867e",
+    "namespace_source_path": "guava/src/com/google/common/graph/ImmutableValueGraph.java",
+    "namespace_preimage_sha256": "1789c1550840d4d8d5738cdae15ccd8f8278aa289fd738541d0dcc23175fdd27"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/io/Files.java",
+    "old": "\"com.google.common.io.FileWriteMode\"",
+    "new": "\"com.m3.collections.guava.io.FileWriteMode\"",
+    "expected_sha256": "ec9ea8f93c86ab331a1348472c50efd6ebaf6646056412f567707c409ad76d4e",
+    "namespace_source_path": "guava/src/com/google/common/io/Files.java",
+    "namespace_preimage_sha256": "e3e15611f332cc1785d97c5aaef8bb7f793dbbd7e674d8f6627bf2007bfeeec3"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/io/Files.java",
+    "old": "\"com.google.common.io.Files\"",
+    "new": "\"com.m3.collections.guava.io.Files\"",
+    "expected_sha256": "ec9ea8f93c86ab331a1348472c50efd6ebaf6646056412f567707c409ad76d4e",
+    "namespace_source_path": "guava/src/com/google/common/io/Files.java",
+    "namespace_preimage_sha256": "e3e15611f332cc1785d97c5aaef8bb7f793dbbd7e674d8f6627bf2007bfeeec3"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/util/concurrent/AbstractFuture.java",
+    "old": "\"com.google.common.util.concurrent.\"",
+    "new": "\"com.m3.collections.guava.util.concurrent.\"",
+    "expected_sha256": "0d95f3d56458e1afd9e80eec3c8398e9b07df47c87472acca0c1664149c31201",
+    "namespace_source_path": "guava/src/com/google/common/util/concurrent/AbstractFuture.java",
+    "namespace_preimage_sha256": "16c4e2dd502777a50ecb2b87ea125f688e5d1186485ae61b31bad8999fa21374"
+  },
+  {
+    "path": "guava/src/com/m3/collections/guava/util/concurrent/FluentFuture.java",
+    "old": "\"com.google.common.base.Preconditions.checkNotNull\"",
+    "new": "\"com.m3.collections.guava.base.Preconditions.checkNotNull\"",
+    "expected_sha256": "8454feef6c2997dfd28e0ea00407e094715f04c4a2af82dbd6ec61b5cf346a36",
+    "namespace_source_path": "guava/src/com/google/common/util/concurrent/FluentFuture.java",
+    "namespace_preimage_sha256": "1e893bd444bafd37608576f94670ccf0f28fb4c03df5fceb3f1da985778c64ab"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "fixture": "testCreateParentDirectories_noPermission",
+  "records": [
+    {
+      "identity": "original",
+      "privilege": "root",
+      "exit": 1,
+      "status": "EXPECTED_ENVIRONMENT_FAILURE"
+    },
+    {
+      "identity": "original",
+      "privilege": "unprivileged",
+      "exit": 0,
+      "status": "PASS_UNCHANGED_CASE"
+    },
+    {
+      "identity": "renamed",
+      "privilege": "root",
+      "exit": 1,
+      "status": "EXPECTED_ENVIRONMENT_FAILURE"
+    },
+    {
+      "identity": "renamed",
+      "privilege": "unprivileged",
+      "exit": 0,
+      "status": "PASS_UNCHANGED_CASE"
+    }
+  ],
+  "test_source_or_algorithm_changed": false,
+  "root_created_empty_parent_removed": true
+}

@@ -1,0 +1,130 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 3 modules
+[INFO] Installing Central Publishing features
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Guava Maven Parent                                                 [pom]
+[INFO] Guava: Google Core Libraries for Java                           [bundle]
+[INFO] Guava Testing Library                                              [jar]
+[INFO] 
+[INFO] -------------------< com.google.guava:guava-parent >--------------------
+[INFO] Building Guava Maven Parent 999.0.0-HEAD-jre-SNAPSHOT              [1/3]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] -----------------------< com.google.guava:guava >-----------------------
+[INFO] Building Guava: Google Core Libraries for Java 999.0.0-HEAD-jre-SNAPSHOT [2/3]
+[INFO]   from guava/pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- toolchains:4.5.0:toolchain (download-27-and-surefire-version) @ guava ---
+[INFO] Required toolchain: jdk [ vendor='temurin' version='27' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Required toolchain: jdk [ vendor='temurin' version='21' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] 
+[INFO] --- toolchains:3.3.0:toolchain (default) @ guava ---
+[INFO] Required toolchain: jdk [ version='27' ]
+[INFO] Found matching toolchain for type jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ guava ---
+[INFO] Copying 7 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ guava ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 610 source files with javac [forked debug parameters target 1.8] to target/classes
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (compile-java9) @ guava ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [forked debug parameters release 9 module-path] to target/classes
+[INFO] JDK-8318913 workaround: patched module-info.class requires version from [9] to [9] on 3 JDK modules [java.base, java.logging, jdk.unsupported]
+[INFO] 
+[INFO] --- resources:3.5.0:copy-resources (gradle-module-metadata) @ guava ---
+[INFO] Copying 1 resource from . to target/publish
+[INFO] 
+[INFO] -------------------< com.google.guava:guava-testlib >-------------------
+[INFO] Building Guava Testing Library 999.0.0-HEAD-jre-SNAPSHOT           [3/3]
+[INFO]   from guava-testlib/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/testparameterinjector/test-parameter-injector/1.22/test-parameter-injector-1.22.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/testparameterinjector/test-parameter-injector/1.22/test-parameter-injector-1.22.pom (1.6 kB at 3.1 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/testparameterinjector/test-parameter-injector-parent/1.22/test-parameter-injector-parent-1.22.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/testparameterinjector/test-parameter-injector-parent/1.22/test-parameter-injector-parent-1.22.pom (9.0 kB at 187 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-annotations/1.7.4/auto-value-annotations-1.7.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-annotations/1.7.4/auto-value-annotations-1.7.4.pom (2.7 kB at 29 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-parent/1.7.4/auto-value-parent-1.7.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-parent/1.7.4/auto-value-parent-1.7.4.pom (6.1 kB at 105 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/32.0.0-jre/guava-32.0.0-jre.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/32.0.0-jre/guava-32.0.0-jre.pom (11 kB at 126 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/32.0.0-jre/guava-parent-32.0.0-jre.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/32.0.0-jre/guava-parent-32.0.0-jre.pom (21 kB at 219 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/2.0/snakeyaml-2.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/2.0/snakeyaml-2.0.pom (21 kB at 425 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-reflect/2.2.20/kotlin-reflect-2.2.20.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-reflect/2.2.20/kotlin-reflect-2.2.20.pom (1.4 kB at 15 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/2.2.20/kotlin-stdlib-2.2.20.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/2.2.20/kotlin-stdlib-2.2.20.pom (2.3 kB at 25 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.pom (4.9 kB at 56 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/truth/truth/1.4.5/truth-1.4.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/truth/truth/1.4.5/truth-1.4.5.pom (10 kB at 178 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/truth/truth-parent/1.4.5/truth-parent-1.4.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/truth/truth-parent/1.4.5/truth-parent-1.4.5.pom (14 kB at 168 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-annotations/1.11.0/auto-value-annotations-1.11.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-annotations/1.11.0/auto-value-annotations-1.11.0.pom (2.7 kB at 32 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-parent/1.11.0/auto-value-parent-1.11.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-parent/1.11.0/auto-value-parent-1.11.0.pom (8.3 kB at 181 kB/s)
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava-testlib ---
+[INFO] 
+[INFO] --- toolchains:4.5.0:toolchain (download-27-and-surefire-version) @ guava-testlib ---
+[INFO] Required toolchain: jdk [ vendor='temurin' version='27' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Required toolchain: jdk [ vendor='temurin' version='21' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] 
+[INFO] --- toolchains:3.3.0:toolchain (default) @ guava-testlib ---
+[INFO] Required toolchain: jdk [ version='27' ]
+[INFO] Found matching toolchain for type jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ guava-testlib ---
+[INFO] Copying 1 resource from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ guava-testlib ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 297 source files with javac [forked debug parameters target 1.8] to target/classes
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (compile-java9) @ guava-testlib ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 298 source files with javac [forked debug parameters release 9 module-path] to target/classes/META-INF/versions/9
+[INFO] JDK-8318913 workaround: patched module-info.class requires version from [9] to [9] on 2 JDK modules [java.base, java.logging]
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-testlib/src/module-info.java:[19,23] [requires-transitive-automatic] requires transitive directive for an automatic module
+[INFO] Some input files use or override a deprecated API.
+[INFO] Recompile with -Xlint:deprecation for details.
+[INFO] Some input files use unchecked or unsafe operations.
+[INFO] Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Guava Maven Parent 999.0.0-HEAD-jre-SNAPSHOT:
+[INFO] 
+[INFO] Guava Maven Parent ................................. SUCCESS [  0.410 s]
+[INFO] Guava: Google Core Libraries for Java .............. SUCCESS [ 23.828 s]
+[INFO] Guava Testing Library .............................. SUCCESS [ 21.481 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  47.294 s
+[INFO] Finished at: 2026-10-18T01:33:57-07:00
+[INFO] ------------------------------------------------------------------------

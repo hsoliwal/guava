@@ -1,0 +1,167 @@
+[
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/alice_in_wonderland.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/alice_in_wonderland.txt",
+    "sha256": "23039cead202def299484d5e799adbd180889d7f8ea5882ef576411dad88499a"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/ascii.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/ascii.txt",
+    "sha256": "cb2a9233adc1225c5c495c46e62cf6308223c5e241ef33ad109f03141b57966a"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/i18n.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/i18n.txt",
+    "sha256": "2fd82eb777414914e4ac6f18c1e2aeda33b58206d7e6ea9734ad23f85115be94"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/simplifypathnoprefixtests.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/simplifypathnoprefixtests.txt",
+    "sha256": "fd2772a93d53a9c0a6290e6218e90f2231a89c0ea3fd1a1d0ee49e8015f2916e"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/simplifypathwithabsoluteprefixtests.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/simplifypathwithabsoluteprefixtests.txt",
+    "sha256": "4338b1d5e82285bd245bc6e686ff5867d1762ccd2303034bd6c53ac072f58a34"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/reflect/test.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/reflect/test.txt",
+    "sha256": "7df236bef9464afe9a924c50b80b12228bee841f60933a79c375e8e7077cde33"
+  },
+  {
+    "path": "guava-gwt/src-super/com/google/common/base/super/com/google/common/base/Platform.native.js",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/base/super/com/m3/collections/guava/base/Platform.native.js",
+    "sha256": "4aa7db4c04971d228f8df7eae8923022e738bfe11e2a303be18f603b2e14273f"
+  },
+  {
+    "path": "guava-gwt/src-super/com/google/common/collect/super/com/google/common/collect/Platform.native.js",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/Platform.native.js",
+    "sha256": "5be33cb0c2c559d21c7b1de2efda5e32afa80831399cdfe95d08d5cadad7314e"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/ForceGuavaCompilation.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "sha256": "d02c2dee7ccbcdfa595a8907da4cdf1519e1a6334a96496eb728f706fd91494e"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/annotations/Annotations.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml",
+    "sha256": "e8d3f8b5b9f26144e1542db3b5baf6b8df90a595e00255ba9377af2150309931"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/base/Base.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml",
+    "sha256": "9ddc5c069f3dcac8f5dca38dbf4ddc37bc627ba7968caabc4e6cd06da74b0aa8"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/cache/Cache.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+    "sha256": "d4f2c24d20f20ab566dbf657d5cc10ba314edf8512d4dd252006055c6d0ad19c"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/collect/Collect.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+    "sha256": "39da72f4bc0480f8e2005dbc6c2777cbe65b2131dc496c76c2e7bd7b88d87234"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/escape/Escape.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml",
+    "sha256": "479e7d9f617b663c55e88dced2147ef3033f8c56a9e280f2d5400e01112391ca"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/html/Html.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/html/Html.gwt.xml",
+    "sha256": "891b21416446e1e755e108c43081979284ef58e438ff917c4504424e8f42cf0d"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/io/Io.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+    "sha256": "39da72f4bc0480f8e2005dbc6c2777cbe65b2131dc496c76c2e7bd7b88d87234"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/math/Math.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml",
+    "sha256": "09a0653320fef15ba3f6a360be53d14101aed8ee12ea63c870ae804ea8a178a0"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/net/Net.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+    "sha256": "a7909c2c24e63671d998532960352333bf460b1a7064497029809d25004d5b7a"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/primitives/Primitives.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml",
+    "sha256": "479e7d9f617b663c55e88dced2147ef3033f8c56a9e280f2d5400e01112391ca"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/util/concurrent/Concurrent.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml",
+    "sha256": "1a05425130c4675795f37253bfb0a204f2a2530f41cd0978355d0524b1314b28"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/xml/Xml.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/xml/Xml.gwt.xml",
+    "sha256": "7735d505879a0058b0d11bed5adf57f49427b6087504d8bbd9db22447693167e"
+  },
+  {
+    "path": "guava-gwt/src/com/google/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+    "sha256": "6dbaa30922815db18cae14b0baa4b9559035ddd0e22ce6175887baed5d62ec21"
+  },
+  {
+    "path": "guava-gwt/src/com/google/thirdparty/publicsuffix/PublicSuffixType.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixType.gwt.xml",
+    "sha256": "9ddc5c069f3dcac8f5dca38dbf4ddc37bc627ba7968caabc4e6cd06da74b0aa8"
+  },
+  {
+    "path": "guava-gwt/test/com/google/common/collect/testing/Testing.gwt.xml",
+    "newPath": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+    "sha256": "65ee7e2af87d23fcac02640ffe89ff517a5c5f5bf2b7cbc531af061c444ec372"
+  },
+  {
+    "path": "guava-gwt/test/com/google/common/collect/testing/google/Google.gwt.xml",
+    "newPath": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+    "sha256": "96a2e571ea494242e64e7f766d3b63e1276cbe4f6056f6f98085b79deafe6c72"
+  },
+  {
+    "path": "guava-gwt/test/com/google/common/escape/testing/Testing.gwt.xml",
+    "newPath": "guava-gwt/test/com/m3/collections/guava/escape/testing/Testing.gwt.xml",
+    "sha256": "f71b49ec4e64b50749425507cb90f7e72e2e88ee3b66ac42d3bd7a92b5a07eec"
+  },
+  {
+    "path": "guava-gwt/test/com/google/common/testing/Testing.gwt.xml",
+    "newPath": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml",
+    "sha256": "7bf7953a781d84aeb600f2c8810266350b4f57865318bd09a493fde800a34efe"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/alice_in_wonderland.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/alice_in_wonderland.txt",
+    "sha256": "23039cead202def299484d5e799adbd180889d7f8ea5882ef576411dad88499a"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/ascii.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/ascii.txt",
+    "sha256": "cb2a9233adc1225c5c495c46e62cf6308223c5e241ef33ad109f03141b57966a"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/i18n.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/i18n.txt",
+    "sha256": "2fd82eb777414914e4ac6f18c1e2aeda33b58206d7e6ea9734ad23f85115be94"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/simplifypathnoprefixtests.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/simplifypathnoprefixtests.txt",
+    "sha256": "fd2772a93d53a9c0a6290e6218e90f2231a89c0ea3fd1a1d0ee49e8015f2916e"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/simplifypathwithabsoluteprefixtests.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/simplifypathwithabsoluteprefixtests.txt",
+    "sha256": "4338b1d5e82285bd245bc6e686ff5867d1762ccd2303034bd6c53ac072f58a34"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/reflect/test.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/reflect/test.txt",
+    "sha256": "7df236bef9464afe9a924c50b80b12228bee841f60933a79c375e8e7077cde33"
+  }
+]

@@ -1,0 +1,11 @@
+key	value
+authorized_delta	Recursive package/import/qualified-type namespace rename plus explicit literal, XML/text, module and resource-path owners
+locks	Class/method names and production implementation source bytes preserved after namespace normalization; licenses retained; Maven public artifact coordinates unchanged
+java_outputs	3274 admitted inputs: Android1595 and JRE1679; both actual SDK stages plus union preflight before promotion
+literal_outputs	47 Java owners,55 rules; retained-LST replay from exact original owner class contexts
+resource_outputs	33 XML/ProGuard owners,142 rules; exact scalar/text transforms; comments preserved
+module_outputs	3 module descriptors,28 unique directive rules; real JDK ModuleTree execution
+path_outputs	87 exact resource/GWT source moves, content SHA admitted after its preceding content owner
+implementation_gate	SOURCE_BODY_PRESERVATION.json and SOURCE_NONPRODUCTION_REVIEW.json
+generated_candidates	Generated duplicate source bodies retained outside active Git source; GENERATED_EVIDENCE_DISPOSITION.json
+source_status	Complete local implementation; parent handles publication

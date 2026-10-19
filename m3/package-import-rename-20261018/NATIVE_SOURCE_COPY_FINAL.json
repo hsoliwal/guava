@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "initial_copied_files": 3527,
+  "current_nonpacket_source_files": 3377,
+  "uid": 65534,
+  "initial_admission_sha256": "85a1f6390876dcf10fe982819a54535a7aa5b5d9ee9afba2ed45fa0b0034ff39",
+  "all_current_nonpacket_source_bytes_equal_verification_copy": true,
+  "post_start_metadata_only_deltas": [
+    {
+      "path": "android/guava/pom.xml",
+      "initial_sha256": "bc4abe281a076a0acb07e3b4d7e7898bb3d079385fcbdf11b77b790c55b745af",
+      "current_sha256": "b51a54bcd61176ef47c6675af8ad79d91f69244a599a5f69feffcbb4c2d69f93"
+    },
+    {
+      "path": "guava/pom.xml",
+      "initial_sha256": "1eca593174591a199b5c1f48685fd652b8f1559f19c7763bcc055f9b73b3003a",
+      "current_sha256": "f5c1aaf9a72f9f56e77db1fb3965a5eb16694565452c19a2422b96941e90169f"
+    }
+  ],
+  "metadata_receipt": "OSGI_PRIVATE_SCOPE_NATIVE_COPY.tsv",
+  "java_source_changes_after_initial_copy": 0,
+  "packet_evidence_files_excluded_from_native_input_claim": 150,
+  "preserved_remote_inventory_only_files": "PRESERVED_CONCURRENT_WORK.json; not native product inputs"
+}

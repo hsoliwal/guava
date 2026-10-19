@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "entries": 47,
+  "all_original_sha256_unchanged": true,
+  "admission_receipt": "PARSER_CLASSPATH_ADMISSION.json",
+  "admission_sha256": "bea76ded678b313c0524d361f3167480da2dda24b7478d24fda29f89e4a6ef65"
+}

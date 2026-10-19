@@ -1,0 +1,49 @@
+{
+  "schema": "M3_GUAVA_ISOLATED_EXTERNAL_RECEIVERS_V1",
+  "build": "PASS_FOUR_SIGNATURE_RECEIVERS_PLUS_SEPARATE_NATIVE_FAILUREACCESS",
+  "tests": "EXACT_TEST_PARAMETER_RUNNER_REGRESSION_114_0_0_0_PASSED; FULL_REACTOR_RETRY_IN_PROGRESS",
+  "coordinate_cache_isolation": "PASS_ORIGINAL_JARS_MATCH_PREBUILD_CLASSPATH_ADMISSION_HASHES",
+  "relocation": "Standard Maven Shade 3.6.1, original family artifact bodies excluded",
+  "artifacts": [
+    {
+      "coordinate": "com.google.truth:truth:1.4.5-m3-relocated-20261018",
+      "sha256": "32b1fca59b9d41e0052f5ebebc29354f28c6293f83de7c1bacde8425c0a7b132",
+      "classfiles": 1005,
+      "old_namespace_classfiles": 0,
+      "donor_implementation_bodies": 0,
+      "original_coordinate_sha256_unchanged": "a6409e90fdd6b31f239b0c02065c43b53e1b09c72f2e08c3a86d04fe5910cf4b"
+    },
+    {
+      "coordinate": "com.google.jimfs:jimfs:1.3.1-m3-relocated-20261018",
+      "sha256": "c3eca1dd1f3147ad9714f1b6dc3388ff8e65725079ad7845480c0fe662681a84",
+      "classfiles": 173,
+      "old_namespace_classfiles": 0,
+      "donor_implementation_bodies": 0,
+      "original_coordinate_sha256_unchanged": "b31e5da8d4d73bf9634ca8543af099517d45e9c2e6b47b76c6bcc28736902f14"
+    },
+    {
+      "coordinate": "com.google.caliper:caliper:1.0-beta-3-m3-relocated-20261018-r2",
+      "sha256": "61c74197445d43cf243ab2510c963657e3bb867c1d8de4413fd5844a0923a26c",
+      "classfiles": 4441,
+      "old_namespace_classfiles": 0,
+      "donor_implementation_bodies": 0,
+      "original_coordinate_sha256_unchanged": "d54e1bfdbe9359a79e175c217b8d472555cf20da9c5c0a18bdb1ea7db979ed8e",
+      "qualification": "PASS_OWNED_INSTRUMENTER_PREFIX_AND_STATIC_FIELD_RUNTIME_PROBE",
+      "embedded_external_thirdparty_classes": 3,
+      "superseded_coordinate": "com.google.caliper:caliper:1.0-beta-3-m3-relocated-20261018",
+      "embedded_external_thirdparty_namespace": "com.google.monitoring.runtime.instrumentation.thirdparty",
+      "probe": "EXACT=9143, UNDER=64, EXCLUDED=8; declared field types retain existing instrumenter common namespace"
+    },
+    {
+      "coordinate": "com.google.testparameterinjector:test-parameter-injector:1.22-m3-relocated-20261018",
+      "sha256": "161950b9454bcefbe8db93bfe5f3d8809ceffa2edaf4d8f196c71187923d6c4b",
+      "classfiles": 4277,
+      "old_namespace_classfiles": 0,
+      "donor_implementation_bodies": 0,
+      "original_coordinate_sha256_unchanged": "ff534578f2e3dc6030d1f4a6896df3d20573644858c6ade878efb75d2a36504b",
+      "qualification": "PASS_EXACT_NULL_POINTER_TESTER_TEST_REGRESSION_114_0_0_0"
+    }
+  ],
+  "scope": "Internal verification signatures; source-family bodies are not duplicated into target Guava namespaces.",
+  "cache_isolation_checked_original_artifacts": 47
+}

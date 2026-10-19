@@ -1,0 +1,56 @@
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:21: error: package com.google.common.truth does not exist
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - import static com.google.common.truth.Truth.assertThat;
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -                                      ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:21: error: static import only from classes and interfaces
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - import static com.google.common.truth.Truth.assertThat;
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:116: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     assertThat(Suppliers.memoize(memoizedSupplier)).isSameInstanceAs(memoizedSupplier);
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol:   method assertThat(Supplier<Integer>)
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   location: class SuppliersTest
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:143: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     assertThat(memoizedSupplier.toString()).isEqualTo("Suppliers.memoize(CountingSupplier)");
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol:   method assertThat(String)
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   location: class SuppliersTest
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:147: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     assertThat(memoizedSupplier.toString())
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol:   method assertThat(String)
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   location: class SuppliersTest
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:152: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     assertThat(ex).hasCauseThat().isInstanceOf(NotSerializableException.class);
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol:   method assertThat(RuntimeException)
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   location: class SuppliersTest
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:160: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     assertThat(memoizedSupplier.toString()).isEqualTo("Suppliers.memoize(CountingSupplier)");
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol:   method assertThat(String)
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   location: class SuppliersTest
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:164: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     assertThat(memoizedSupplier.toString())
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol:   method assertThat(String)
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   location: class SuppliersTest
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:297: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     assertThat(objectSupplier.get()).isSameInstanceAs(toBeSupplied);
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol:   method assertThat(Object)
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   location: class SuppliersTest
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:298: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     assertThat(objectSupplier.get()).isSameInstanceAs(toBeSupplied); // idempotent
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol:   method assertThat(Object)
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   location: class SuppliersTest
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:303: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     assertThat(nullSupplier.get()).isNull();
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -     ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol:   method assertThat(@org.jspecify.annotations.Nullable Integer)
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   location: class SuppliersTest
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - SuppliersTest.java:381: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -               assertThat(memoizedSupplier.get()).isSameInstanceAs(Boolean.TRUE);
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -               ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol: method assertThat(Boolean)
+parsed=1 errors=0 kind=class org.openrewrite.java.tree.J$CompilationUnit

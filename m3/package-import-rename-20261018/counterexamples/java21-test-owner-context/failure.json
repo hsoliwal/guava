@@ -1,0 +1,8 @@
+{
+  "path": "guava-tests/test/com/google/common/collect/CompactHashMapFloodingTest.java",
+  "sha256": "0ae959fabab8ece574925fb6b22068a70d1285f019eaa77f6c2bf4520fbea132",
+  "scope": "Missing superclass AbstractHashFloodingTest lives in native guava-tests test output; no parser correction applied.",
+  "original_test_compile": "PASS_GENUINE_TEMURIN27_NATIVE_TEST_COMPILE",
+  "direct_exact_owner_probe": "PASS_LOSSLESS_J_COMPILATION_UNIT_ZERO_ERRORS",
+  "fresh_jre_domain_stage": "IN_PROGRESS"
+}

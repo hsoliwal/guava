@@ -1,0 +1,19 @@
+{
+  "files": [
+    {
+      "path": "android/guava/pom.xml",
+      "original_resource_postimage": "bc4abe281a076a0acb07e3b4d7e7898bb3d079385fcbdf11b77b790c55b745af",
+      "scope_preserving_postimage": "b51a54bcd61176ef47c6675af8ad79d91f69244a599a5f69feffcbb4c2d69f93",
+      "native_copy_equality": "PASS"
+    },
+    {
+      "path": "guava/pom.xml",
+      "original_resource_postimage": "1eca593174591a199b5c1f48685fd652b8f1559f19c7763bcc055f9b73b3003a",
+      "scope_preserving_postimage": "f5c1aaf9a72f9f56e77db1fb3965a5eb16694565452c19a2422b96941e90169f",
+      "native_copy_equality": "PASS"
+    }
+  ],
+  "original_policy": "Only old common subtree exported; original thirdparty namespace outside wildcard",
+  "renamed_policy": "Explicit nested thirdparty subtree exclusion preserves same public set",
+  "runtime_module_exports": "JPMS explicit exports already unchanged in scope"
+}

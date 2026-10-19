@@ -1,0 +1,14 @@
+[
+  {
+    "path": "android/guava/pom.xml",
+    "old": "!com.m3.collections.guava.util.concurrent.internal,\n              !META-INF.*,",
+    "new": "!com.m3.collections.guava.util.concurrent.internal,\n              !com.m3.collections.guava.thirdparty.*,\n              !META-INF.*,",
+    "expected_sha256": "bc4abe281a076a0acb07e3b4d7e7898bb3d079385fcbdf11b77b790c55b745af"
+  },
+  {
+    "path": "guava/pom.xml",
+    "old": "!com.m3.collections.guava.util.concurrent.internal,\n              !META-INF.*,",
+    "new": "!com.m3.collections.guava.util.concurrent.internal,\n              !com.m3.collections.guava.thirdparty.*,\n              !META-INF.*,",
+    "expected_sha256": "1eca593174591a199b5c1f48685fd652b8f1559f19c7763bcc055f9b73b3003a"
+  }
+]

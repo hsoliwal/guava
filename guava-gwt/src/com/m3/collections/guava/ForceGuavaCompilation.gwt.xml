@@ -1,0 +1,24 @@
+<module>
+  <inherits name="com.m3.collections.guava.annotations.Annotations" />
+  <inherits name="com.m3.collections.guava.base.Base" />
+  <inherits name="com.m3.collections.guava.cache.Cache" />
+  <inherits name="com.m3.collections.guava.collect.Collect" />
+  <inherits name="com.m3.collections.guava.escape.Escape" />
+  <inherits name="com.m3.collections.guava.html.Html" />
+  <inherits name="com.m3.collections.guava.io.Io" />
+  <inherits name="com.m3.collections.guava.math.Math" />
+  <inherits name="com.m3.collections.guava.net.Net" />
+  <inherits name="com.m3.collections.guava.primitives.Primitives" />
+  <inherits name="com.m3.collections.guava.util.concurrent.Concurrent" />
+  <inherits name="com.m3.collections.guava.xml.Xml" />
+  <inherits name="com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixPatterns" />
+  <inherits name="com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixType" />
+
+  <!-- com.google.common.testing.Testing is located in
+       GuavaTests under guava-gwt/test -->
+
+  <source path="">
+    <include name="ForceGuavaCompilationEntryPoint.java" />
+  </source>
+  <entry-point class="com.m3.collections.guava.ForceGuavaCompilationEntryPoint" />
+</module>

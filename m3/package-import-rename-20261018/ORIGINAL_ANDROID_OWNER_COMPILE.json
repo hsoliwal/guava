@@ -1,0 +1,29 @@
+{
+  "schema": "M3_ORIGINAL_GUAVA_OWNER_COMPILE_V1",
+  "git_head": "dfd9dca629d44faf71846b1f85acd38556f4854d",
+  "native_goal": "-f android/pom.xml -pl guava,guava-testlib -am compile",
+  "compiler": "Temurin 27.0.2+0-202610170812",
+  "maven_runtime": "Temurin 21.0.12.1+1",
+  "compiler_maxmem": "768m",
+  "test_disposition": "NOT_RUN_COMPILE_GOAL_ONLY",
+  "compile": "PASS",
+  "source_java_inventory_sha256": "2099103c326c5187e685e8472bb58606a1d147a2f20e2f20d902c8035e5da4d2",
+  "build_log_sha256": "1a0a98d94de03df9791c3a673db3c7475f76fa0e81f69393f59973d187b13ac2",
+  "artifacts": [
+    {
+      "module": "guava",
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/guava-original-android-owner-artifacts/guava-original-android-owner-classes.jar",
+      "sha256": "10cd1552174ffe410031da7c2c6cb116da4824ac550f03f6cc2d5634b6baf1d2",
+      "entries": 1942,
+      "classfiles": 1935
+    },
+    {
+      "module": "guava-testlib",
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/guava-original-android-owner-artifacts/guava-testlib-original-android-owner-classes.jar",
+      "sha256": "840bc2b81cc2d2d86caf5c2b84b4579c62417fe3789499b358de4e81fb170fa5",
+      "entries": 1213,
+      "classfiles": 1212
+    }
+  ],
+  "variant": "ANDROID"
+}

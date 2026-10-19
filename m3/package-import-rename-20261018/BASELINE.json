@@ -1,0 +1,32 @@
+{
+  "schema": "M3_GUAVA_PACKAGE_IMPORT_BASELINE_V1",
+  "source_commit": "dfd9dca629d44faf71846b1f85acd38556f4854d",
+  "baseline_status": "ORIGINAL_GUAVA_AND_TESTLIB_NATIVE_COMPILE_PASSED",
+  "namespace_apply_status": "APPLIED_3274_INPUTS_WITH_ANDROID_JRE_DOMAIN_UNION_PREFLIGHT",
+  "compiler_status": "PASS_ORIGINAL_JRE_ANDROID_AND_RENAMED_JRE_GUAVA_TESTLIB_WITH_PINNED_CHECKER_RECEIVER",
+  "tests_status": "CLEAN_NATIVE_JRE_IN_PROGRESS; NO_SUITE_PASS_CLAIMED_YET",
+  "compiler_toolchain": "Eclipse Adoptium Temurin-27.0.2+0-202610170812",
+  "test_toolchain": "Temurin21.0.12.1+1",
+  "compiler_distribution_sha256": "2ff93ba9d6de9c7d1e291165d475fa07ca1182b880b27962b1b04e158b6ef461",
+  "toolchain_selection_status": "PASSED_ACTUAL_MAVEN_SELECTION",
+  "prior_environment_refusals": [
+    "DNS_MAVEN_CENTRAL",
+    "JDK_BUNDLED_TRUSTSTORE_PROXY_CA",
+    "MISSING_TOOLCHAIN_REGISTRATION",
+    "WORKSPACE_DISK_ENOSPC"
+  ],
+  "resolved_environment_controls": [
+    "MAVEN_PROXY_SETTINGS",
+    "SYSTEM_JAVA_TLS_TRUSTSTORE",
+    "GENUINE_TASK_SCOPED_TOOLCHAIN27_AND21",
+    "MEMORY_BACKED_ISOLATED_STORAGE"
+  ],
+  "required_remaining": [
+    "NATIVE_JRE_ANDROID_TEST_SUITES",
+    "GWT_MODULE_CONSUMER_PROOF",
+    "RUNTIME_DIFFERENTIAL_PROOF",
+    "FINAL_PACKET"
+  ],
+  "promotion_authority": false,
+  "prior_compile_attempt": "Initial resource-pressure interruption retained in proof logs; superseded by bounded successful original-owner compile."
+}

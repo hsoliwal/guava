@@ -1,0 +1,27 @@
+{
+  "controls": [
+    {
+      "control": "positive",
+      "exit": 0,
+      "status": "PASS"
+    },
+    {
+      "control": "original-drift",
+      "exit": 1,
+      "status": "PASS"
+    },
+    {
+      "control": "overlay-drift",
+      "exit": 1,
+      "status": "PASS"
+    },
+    {
+      "control": "notice-drift",
+      "exit": 1,
+      "status": "PASS"
+    }
+  ],
+  "exact_final_sha256": "00bfd0a01639209649f20bf7bd957a34dab4981006203a72d88cdbd35b055f8b",
+  "overlay_class_entries": 8,
+  "private_repository_access": "NOT_REQUIRED"
+}

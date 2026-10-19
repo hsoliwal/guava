@@ -1,0 +1,64 @@
+{
+  "fixtures": [
+    {
+      "identity": "original",
+      "fixture": "immutable-positive",
+      "expected": "PASS",
+      "exit": 0,
+      "source_sha256": "5721dfc830452cde10243cff9ae2dfcc730ff33fd4c051af17e9ced1804bc60c"
+    },
+    {
+      "identity": "original",
+      "fixture": "immutable-negative",
+      "expected": "Immutable_REFUSAL",
+      "exit": 1,
+      "source_sha256": "1fa3ebedb5d74a58fe34cae92499cf69a0cf227e1f19263655cf7c372af5675e"
+    },
+    {
+      "identity": "original",
+      "fixture": "monitor-positive",
+      "expected": "PASS",
+      "exit": 0,
+      "source_sha256": "0070f8cf9d232b57518d34c24820cadbd5beba93fd754c854394e5e778c1b75a"
+    },
+    {
+      "identity": "original",
+      "fixture": "monitor-negative",
+      "expected": "GuardedBy_REFUSAL",
+      "exit": 1,
+      "source_sha256": "43262af7d39f26d4f3fe60f6fd78e495a7980523a3f67e585adad2e4ea3c84fc"
+    },
+    {
+      "identity": "renamed",
+      "fixture": "immutable-positive",
+      "expected": "PASS",
+      "exit": 0,
+      "source_sha256": "751960b23475d814e24dc212784808692f54aec03aa3bedc746e17cbf8d2b4a0"
+    },
+    {
+      "identity": "renamed",
+      "fixture": "immutable-negative",
+      "expected": "Immutable_REFUSAL",
+      "exit": 1,
+      "source_sha256": "6f1e1abb62965f90957b336bc58730b8680a84a9d69987cf278dff349a31b788"
+    },
+    {
+      "identity": "renamed",
+      "fixture": "monitor-positive",
+      "expected": "PASS",
+      "exit": 0,
+      "source_sha256": "94ee9fb1bc333063752e93def19555e76a74445373d0be3f05c63fa24fc3769f"
+    },
+    {
+      "identity": "renamed",
+      "fixture": "monitor-negative",
+      "expected": "GuardedBy_REFUSAL",
+      "exit": 1,
+      "source_sha256": "262b1fab092a2691e64394b2c64f2662cf759723c5a4a94895d708023837e1df"
+    }
+  ],
+  "original_rule_rows": 253,
+  "alias_rule_rows": 41,
+  "exact_additive_container_constraints": "PASS",
+  "receiver_sha256": "00bfd0a01639209649f20bf7bd957a34dab4981006203a72d88cdbd35b055f8b"
+}

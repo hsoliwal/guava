@@ -1,0 +1,13 @@
+{
+  "stage": "OPENREWRITE_JAVA21_PARSE",
+  "kind": "UnsupportedOperationException",
+  "signature": "ReloadableJava21JavadocVisitor.visitText via DocTreeScanner.visitSnippet",
+  "source_path": "android/guava-testlib/src/com/google/common/collect/testing/IteratorTester.java",
+  "source_sha256": "ae1eb0baf647fc49a0bf48aa5c7941c6a4204a7d4debbbff15b27887da24b031",
+  "provider": "org.openrewrite:rewrite-java-21:8.17.1",
+  "java": "21.0.12.1",
+  "source_modified": false,
+  "minimized": false,
+  "target_mutation": "NONE",
+  "status": "RETAINED_SHARED_PARSER_CORRECTION_REQUIRED"
+}

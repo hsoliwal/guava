@@ -1,0 +1,3707 @@
+{
+  "status": "COMPLETE_FAILED_ATTEMPT_RETAINED",
+  "uid": 0,
+  "profile": "m3-relocated-verification",
+  "command": "clean test -pl guava,guava-testlib,guava-tests -am; no test selector or skip",
+  "modules": [
+    {
+      "module": "guava-testlib",
+      "counts": {
+        "tests": 860810,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "suites": [
+        {
+          "name": "com.m3.collections.guava.collect.testing.FeatureSpecificTestSuiteBuilderTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.HelpersTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.IteratorTesterTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.MapTestSuiteBuilderTest",
+          "tests": "3765",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.MinimalCollectionTest",
+          "tests": "151",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.MinimalIterableTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.MinimalSetTest",
+          "tests": "187",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.OpenJdk6ListTest",
+          "tests": "6831",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.OpenJdk6MapTest",
+          "tests": "323133",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.OpenJdk6QueueTest",
+          "tests": "2031",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.OpenJdk6SetTest",
+          "tests": "36393",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.OpenJdk6Test",
+          "tests": "368388",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.ReserializedSafeTreeMapMapInterfaceTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.SafeTreeMapTest",
+          "tests": "118951",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.SafeTreeSetTest",
+          "tests": "509",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.features.FeatureEnumTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.testing.features.FeatureUtilTest",
+          "tests": "21",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.AbstractPackageSanityTestsTest$ConcretePackageSanityTests",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.AbstractPackageSanityTestsTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.ArbitraryInstancesTest",
+          "tests": "25",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.ClassSanityTesterTest",
+          "tests": "71",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.EqualsTesterTest",
+          "tests": "19",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.EquivalenceTesterTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.FakeTickerTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.FreshValueGeneratorTest",
+          "tests": "64",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.GcFinalizationTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.NullPointerTesterTest",
+          "tests": "114",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.RelationshipTesterTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.SerializableTesterTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.TearDownStackTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.TestLogHandlerTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.testing.anotherpackage.ForwardingWrapperTesterTest",
+          "tests": "19",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.testing.TestingExecutorsTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        }
+      ]
+    },
+    {
+      "module": "guava-tests",
+      "counts": {
+        "tests": 861645,
+        "failures": 2,
+        "errors": 0,
+        "skipped": 519
+      },
+      "suites": [
+        {
+          "name": "com.m3.collections.guava.annotations.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.AbstractIteratorTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.AsciiTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.CaseFormatTest",
+          "tests": "32",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.CharMatcherTest",
+          "tests": "21",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.CharsetsTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.ConverterTest",
+          "tests": "14",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.DefaultsTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.EnumsTest",
+          "tests": "13",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.EquivalenceTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.FinalizableReferenceQueueClassLoaderUnloadingTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.FinalizableReferenceQueueTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.FunctionsTest",
+          "tests": "26",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.JoinerTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.MoreObjectsTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.ObjectsTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.OptionalTest",
+          "tests": "44",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.PreconditionsTest",
+          "tests": "47",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.PredicatesTest",
+          "tests": "87",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.SplitterTest",
+          "tests": "104",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.StandardSystemPropertyTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.StopwatchTest",
+          "tests": "17",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.StringsTest",
+          "tests": "21",
+          "failures": "1",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.SuppliersTest",
+          "tests": "23",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.ThrowablesTest",
+          "tests": "40",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.ToStringHelperTest",
+          "tests": "52",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.Utf8Test",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.base.VerifyTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.AbstractCacheTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.AbstractLoadingCacheTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheBuilderGwtTest",
+          "tests": "19",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheBuilderSpecTest",
+          "tests": "43",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheBuilderTest",
+          "tests": "47",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheEvictionTest",
+          "tests": "15",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheExpirationTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheLoaderTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheLoadingTest",
+          "tests": "46",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheManualTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheReferencesTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheRefreshTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.CacheStatsTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.EmptyCachesTest",
+          "tests": "22",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.ForwardingCacheTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.ForwardingLoadingCacheTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.LocalCacheMapComputeTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.LocalCacheTest",
+          "tests": "10309",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.LocalLoadingCacheTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.NullCacheTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.PopulatedCachesTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.cache.RemovalNotificationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.AbstractBiMapTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.AbstractIteratorTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.AbstractMapEntryTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.AbstractSequentialIteratorTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ArrayListMultimapTest",
+          "tests": "6066",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ArrayTableColumnMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ArrayTableColumnTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ArrayTableRowMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ArrayTableRowTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ArrayTableTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CollectSpliteratorsTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.Collections2FilterArrayListTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.Collections2Test",
+          "tests": "860",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CompactHashMapFloodingTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CompactHashMapTest",
+          "tests": "3880",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CompactHashSetFloodingTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CompactHashSetTest",
+          "tests": "1569",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CompactLinkedHashMapFloodingTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CompactLinkedHashMapTest",
+          "tests": "4086",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CompactLinkedHashSetFloodingTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CompactLinkedHashSetTest",
+          "tests": "1110",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ComparatorsTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ComparisonChainTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ConcurrentHashMultisetBasherTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ConcurrentHashMultisetTest",
+          "tests": "3442",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ContiguousSetTest$BuiltTests",
+          "tests": "915",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ContiguousSetTest",
+          "tests": "26",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.CountTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.DiscreteDomainTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.EmptyImmutableTableTest",
+          "tests": "25",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.EnumBiMapTest",
+          "tests": "4112",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.EnumHashBiMapTest",
+          "tests": "4308",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.EnumMultisetTest",
+          "tests": "894",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.EvictingQueueTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.FauxveridesTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.FilteredBiMapTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.FilteredMapTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.FilteredMultimapTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.FilteredSortedMapTest",
+          "tests": "13",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.FluentIterableTest",
+          "tests": "105",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForMapMultimapAsMapImplementsMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingCollectionTest",
+          "tests": "377",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingConcurrentMapTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingDequeTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingListIteratorTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingListMultimapTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingListTest",
+          "tests": "729",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingMapTest",
+          "tests": "1740",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingMultimapTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingMultisetTest",
+          "tests": "1732",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingNavigableMapTest",
+          "tests": "32453",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingNavigableSetTest",
+          "tests": "507",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingObjectTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingQueueTest",
+          "tests": "228",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingSetMultimapTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingSetTest",
+          "tests": "439",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingSortedMapImplementsMapTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingSortedMapTest",
+          "tests": "11098",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingSortedMultisetTest",
+          "tests": "24780",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingSortedSetMultimapTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingSortedSetTest",
+          "tests": "982",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ForwardingTableTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.GeneralRangeTest",
+          "tests": "19",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.HashBasedTableColumnMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.HashBasedTableColumnTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.HashBasedTableRowMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.HashBasedTableRowTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.HashBasedTableTest",
+          "tests": "29",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.HashBiMapTest",
+          "tests": "4565",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.HashMultimapTest",
+          "tests": "5737",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.HashMultisetTest",
+          "tests": "1867",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.HashingTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableBiMapFloodingTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableBiMapInverseMapInterfaceTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableBiMapMapInterfaceTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableBiMapTest",
+          "tests": "12551",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableClassToInstanceMapTest",
+          "tests": "1442",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableCollectionTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableEnumMapTest",
+          "tests": "1333",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableListCopyOfConcurrentlyModifiedInputTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableListMultimapTest",
+          "tests": "8999",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableListTest",
+          "tests": "4374",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableMapFloodingTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableMapTest",
+          "tests": "12549",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableMapWithBadHashesMapInterfaceTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableMultimapAsMapImplementsMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableMultimapTest",
+          "tests": "14",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableMultisetFloodingTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableMultisetTest",
+          "tests": "4755",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableRangeMapTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableRangeSetTest",
+          "tests": "766",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSetFloodingTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSetMultimapAsMapImplementsMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSetMultimapTest",
+          "tests": "8677",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSetTest",
+          "tests": "3151",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSortedMapHeadMapInclusiveMapInterfaceTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSortedMapHeadMapMapInterfaceTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSortedMapSubMapMapInterfaceTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSortedMapTailMapExclusiveMapInterfaceTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSortedMapTailMapMapInterfaceTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSortedMapTest",
+          "tests": "67161",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSortedMultisetTest",
+          "tests": "20973",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableSortedSetTest",
+          "tests": "17272",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ImmutableTableTest",
+          "tests": "45",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.InternersTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.IterablesFilterArrayListTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.IterablesTest",
+          "tests": "131",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.IteratorsTest",
+          "tests": "583",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.LinkedHashMultimapTest",
+          "tests": "6084",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.LinkedHashMultisetTest",
+          "tests": "1969",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.LinkedListMultimapTest",
+          "tests": "6304",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ListsImplTest",
+          "tests": "42",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ListsTest",
+          "tests": "6006",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MapMakerInternalMapTest",
+          "tests": "29",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MapMakerTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MapsCollectionTest",
+          "tests": "235865",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MapsSortedTransformValuesTest",
+          "tests": "66",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MapsTest",
+          "tests": "97",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MapsTransformValuesTest",
+          "tests": "66",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MapsTransformValuesUnmodifiableIteratorTest",
+          "tests": "66",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MinMaxPriorityQueueTest",
+          "tests": "253",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MoreCollectorsTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MultimapBuilderTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MultimapsCollectionTest",
+          "tests": "38106",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MultimapsFilterEntriesAsMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MultimapsTest",
+          "tests": "58",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MultimapsTransformValuesAsMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MultisetsCollectionTest",
+          "tests": "23723",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MultisetsImmutableEntryTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MultisetsTest",
+          "tests": "34",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.MutableClassToInstanceMapTest",
+          "tests": "1813",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.NewCustomTableTest",
+          "tests": "25",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ObjectArraysTest",
+          "tests": "26",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.OrderingTest",
+          "tests": "70",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.PeekingIteratorTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.QueuesTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.RangeNonGwtTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.RangeTest",
+          "tests": "37",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.RegularImmutableAsListTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.RegularImmutableMapMapInterfaceTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.RegularImmutableMapWithUnhashableValuesMapInterfaceTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.RegularImmutableSortedMapMapInterfaceTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.RegularImmutableTableTest",
+          "tests": "22",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ReserializedImmutableMapMapInterfaceTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.ReserializedImmutableSortedMapMapInterfaceTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SetViewTest",
+          "tests": "2736",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SetsFilterHashSetTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SetsFilterNavigableSetTest",
+          "tests": "23",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SetsFilterSortedSetTest",
+          "tests": "16",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SetsTest",
+          "tests": "1749",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SimpleAbstractMultisetTest",
+          "tests": "701",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SingletonImmutableMapMapInterfaceTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SingletonImmutableMapWithUnhashableValueMapInterfaceTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SingletonImmutableSortedMapMapInterfaceTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SingletonImmutableTableTest",
+          "tests": "25",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SortedIterablesTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SortedListsTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.StreamsTest",
+          "tests": "50",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SubMapMultimapAsMapImplementsMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SynchronizedBiMapTest",
+          "tests": "6933",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SynchronizedDequeTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SynchronizedMapTest",
+          "tests": "15",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SynchronizedMultimapTest",
+          "tests": "5668",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SynchronizedNavigableMapTest",
+          "tests": "32643",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SynchronizedNavigableSetTest",
+          "tests": "8953",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SynchronizedQueueTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SynchronizedSetTest",
+          "tests": "506",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.SynchronizedTableTest",
+          "tests": "23",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TableCollectionTestSuite",
+          "tests": "5918",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TableCollectorsTest",
+          "tests": "15",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TablesTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TablesTransformValuesColumnMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TablesTransformValuesColumnTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TablesTransformValuesRowMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TablesTransformValuesRowTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TablesTransformValuesTest",
+          "tests": "23",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TablesTransposeColumnTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TablesTransposeRowTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TopKSelectorTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TransposedTableTest",
+          "tests": "27",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeBasedTableColumnMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeBasedTableColumnTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeBasedTableRowMapHeadMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeBasedTableRowMapInterfaceTest",
+          "tests": "60",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeBasedTableRowMapSubMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeBasedTableRowMapTailMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeBasedTableRowMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeBasedTableRowTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeBasedTableTest",
+          "tests": "3835",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeMultimapExplicitTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeMultimapNaturalTest",
+          "tests": "40300",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeMultisetTest",
+          "tests": "102676",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeRangeMapTest",
+          "tests": "3321",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeRangeSetTest",
+          "tests": "45",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.TreeTraverserTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableIteratorTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableListIteratorTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableMultimapAsMapImplementsMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableTableColumnMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableTableColumnTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableTableRowMapTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.UnmodifiableTableRowTest",
+          "tests": "56",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.collect.WriteReplaceOverridesTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.escape.ArrayBasedCharEscaperTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.escape.ArrayBasedEscaperMapTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.escape.ArrayBasedUnicodeEscaperTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.escape.CharEscaperBuilderTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.escape.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.escape.EscapersTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.escape.UnicodeEscaperTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.AsyncEventBusTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.DispatcherTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.EventBusTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.ReentrantEventsTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.SubscriberRegistryTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.SubscriberTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.outside.AbstractNotAnnotatedInSuperclassTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.outside.AnnotatedAndAbstractInSuperclassTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.outside.AnnotatedNotAbstractInSuperclassTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.outside.BaseSubscriberFinderTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.outside.DeepInterfaceTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.outside.NeitherAbstractNorAnnotatedInSuperclassTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.eventbus.outside.OutsideEventBusTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.DefaultNetworkImplementationsTest",
+          "tests": "14",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.ElementOrderTest",
+          "tests": "13",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.EndpointPairTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.GraphEquivalenceTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.GraphMutationTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.GraphPropertiesTest",
+          "tests": "14",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.GraphsTest",
+          "tests": "39",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.ImmutableNetworkTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.ImmutableValueGraphTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.InvalidatableSetTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.MapCacheTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.NetworkEquivalenceTest",
+          "tests": "16",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.NetworkMutationTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.StandardImmutableDirectedGraphTest",
+          "tests": "134",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "62"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.StandardImmutableDirectedNetworkTest",
+          "tests": "392",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "187"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.StandardImmutableGraphAdditionalTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.StandardImmutableUndirectedGraphTest",
+          "tests": "128",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "58"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.StandardMutableDirectedGraphTest",
+          "tests": "268",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "37"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.StandardMutableDirectedNetworkTest",
+          "tests": "392",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "71"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.StandardMutableUndirectedGraphTest",
+          "tests": "256",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "37"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.StandardMutableUndirectedNetworkTest",
+          "tests": "368",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "67"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.TraverserTest",
+          "tests": "112",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.graph.ValueGraphTest",
+          "tests": "35",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.AbstractByteHasherTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.AbstractNonStreamingHashFunctionTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.AbstractStreamingHasherTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.BloomFilterTest",
+          "tests": "33",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.ChecksumHashFunctionTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.Crc32cHashFunctionTest",
+          "tests": "13",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.FarmHashFingerprint64Test",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.Fingerprint2011Test",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.FunnelsTest",
+          "tests": "14",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.HashCodeTest",
+          "tests": "31",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.HashingInputStreamTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.HashingOutputStreamTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.HashingTest",
+          "tests": "40",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.MacHashFunctionTest",
+          "tests": "28",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.MessageDigestHashFunctionTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.Murmur3Hash128Test",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.Murmur3Hash32Test",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.hash.SipHashFunctionTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.html.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.html.HtmlEscapersTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.AppendableWriterTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.BaseEncodingTest",
+          "tests": "41",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.ByteSinkTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.ByteSourceTest",
+          "tests": "1261",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.ByteStreamsTest",
+          "tests": "58",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.CharSequenceReaderTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.CharSinkTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.CharSourceTest",
+          "tests": "1259",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.CharStreamsTest",
+          "tests": "15",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.CloseablesTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.CloserTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.CountingInputStreamTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.CountingOutputStreamTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.FileBackedOutputStreamTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.FilesCreateTempDirTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.FilesFileTraverserTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.FilesSimplifyPathTest",
+          "tests": "34",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.FilesTest",
+          "tests": "1160",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.FlushablesTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.LineBufferTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.LittleEndianDataInputStreamTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.LittleEndianDataOutputStreamTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.MoreFilesFileTraverserTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.MoreFilesTest",
+          "tests": "1151",
+          "failures": "1",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.MultiInputStreamTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.MultiReaderTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.PatternFilenameFilterTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.io.ResourcesTest",
+          "tests": "773",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.BigDecimalMathTest",
+          "tests": "33",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.BigIntegerMathTest",
+          "tests": "63",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.DoubleMathTest",
+          "tests": "68",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.DoubleUtilsTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.IntMathTest",
+          "tests": "59",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.LinearTransformationTest",
+          "tests": "25",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.LongMathTest",
+          "tests": "72",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.MathPreconditionsTest",
+          "tests": "45",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.PairedStatsAccumulatorTest",
+          "tests": "8",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.PairedStatsTest",
+          "tests": "15",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.QuantilesAlgorithmTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.QuantilesTest",
+          "tests": "58",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.StatsAccumulatorTest",
+          "tests": "14",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.math.StatsTest",
+          "tests": "24",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.net.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.net.HostAndPortTest",
+          "tests": "15",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.net.HostSpecifierTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.net.HttpHeadersTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.net.InetAddressesTest",
+          "tests": "46",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.net.InternetDomainNameTest",
+          "tests": "23",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.net.MediaTypeTest",
+          "tests": "51",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.net.PercentEscaperTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.net.UrlEscapersTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.BooleansTest",
+          "tests": "34",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.ByteArrayAsListTest",
+          "tests": "896",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.BytesTest",
+          "tests": "23",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.CharArrayAsListTest",
+          "tests": "896",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.CharsTest",
+          "tests": "40",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.DoubleArrayAsListTest",
+          "tests": "896",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.DoublesTest",
+          "tests": "50",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.FloatArrayAsListTest",
+          "tests": "896",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.FloatsTest",
+          "tests": "49",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.ImmutableDoubleArrayTest",
+          "tests": "2399",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.ImmutableIntArrayTest",
+          "tests": "2398",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.ImmutableLongArrayTest",
+          "tests": "2398",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.IntArrayAsListTest",
+          "tests": "896",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.IntsTest",
+          "tests": "52",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.LongArrayAsListTest",
+          "tests": "896",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.LongsTest",
+          "tests": "50",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.PrimitivesTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.ShortArrayAsListTest",
+          "tests": "896",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.ShortsTest",
+          "tests": "47",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.SignedBytesTest",
+          "tests": "13",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.UnsignedBytesTest",
+          "tests": "24",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.UnsignedIntegerTest",
+          "tests": "21",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.UnsignedIntsTest",
+          "tests": "26",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.UnsignedLongTest",
+          "tests": "21",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.primitives.UnsignedLongsTest",
+          "tests": "24",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.AbstractInvocationHandlerTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.ClassPathTest",
+          "tests": "43",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.ImmutableTypeToInstanceMapTest",
+          "tests": "722",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.InvokableTest",
+          "tests": "62",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.MutableTypeToInstanceMapTest",
+          "tests": "840",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.ParameterTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.ReflectionTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.TypeParameterTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.TypeResolverTest",
+          "tests": "27",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.TypeTokenResolutionTest",
+          "tests": "36",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.TypeTokenSubtypeTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.TypeTokenTest",
+          "tests": "172",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.TypeVisitorTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.reflect.TypesTest",
+          "tests": "27",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixTrieTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AbstractExecutionThreadServiceTest",
+          "tests": "12",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AbstractFutureCancellationCauseTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AbstractFutureDefaultAtomicHelperTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AbstractFutureFallbackAtomicHelperTest",
+          "tests": "45",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AbstractFutureTest",
+          "tests": "45",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AbstractIdleServiceTest",
+          "tests": "10",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AbstractListeningExecutorServiceTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AbstractScheduledServiceTest",
+          "tests": "20",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AbstractServiceTest",
+          "tests": "38",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AggregateFutureStatePreliminaryTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AtomicDoubleArrayTest",
+          "tests": "27",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AtomicDoubleTest",
+          "tests": "25",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AtomicLongMapBasherTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AtomicLongMapTest",
+          "tests": "31",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.AtomicsTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.CallablesTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ClosingFutureFinishToFutureTest",
+          "tests": "69",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ClosingFutureFinishToValueAndCloserTest",
+          "tests": "64",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ClosingFutureLeakTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.CycleDetectingLockFactoryTest",
+          "tests": "23",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ExecutionListTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ExecutionSequencerTest",
+          "tests": "16",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.FakeTimeLimiterTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.FluentFutureTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ForwardingBlockingDequeTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ForwardingBlockingQueueTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ForwardingExecutorServiceTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ForwardingFutureTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ForwardingListenableFutureTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ForwardingListeningExecutorServiceTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ForwardingObjectTesterTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.FutureCallbackTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.FuturesGetCheckedTest",
+          "tests": "33",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.FuturesGetDoneTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.FuturesGetUncheckedTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.FuturesTest",
+          "tests": "160",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.FuturesTransformAsyncTest",
+          "tests": "15",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.FuturesTransformTest",
+          "tests": "7",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.GeneratedMonitorTest",
+          "tests": "509",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.InterruptibleMonitorTest",
+          "tests": "16",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.InterruptibleTaskTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.JdkFutureAdaptersTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ListenableFutureTaskTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ListenableFutureTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ListenerCallQueueTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ListeningExecutorServiceTest",
+          "tests": "3",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ListeningScheduledExecutorServiceTest",
+          "tests": "4",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.MoreExecutorsTest",
+          "tests": "34",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.RateLimiterTest",
+          "tests": "30",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.RunnablesTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.SequentialExecutorTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ServiceManagerTest",
+          "tests": "21",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ServiceTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.SettableFutureTest",
+          "tests": "16",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.SimpleTimeLimiterTest",
+          "tests": "16",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.StripedTest",
+          "tests": "9",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.SupplementalMonitorTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.ThreadFactoryBuilderTest",
+          "tests": "14",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.TrustedInputFutureTest",
+          "tests": "35",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.TrustedListenableFutureTaskTest",
+          "tests": "6",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.UncaughtExceptionHandlersTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.UninterruptibleFutureTest",
+          "tests": "11",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.UninterruptibleMonitorTest",
+          "tests": "16",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.UninterruptiblesTest",
+          "tests": "60",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.UntrustedInputFutureTest",
+          "tests": "35",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.WrappingExecutorServiceTest",
+          "tests": "5",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.util.concurrent.WrappingScheduledExecutorServiceTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.xml.ClassInitializationTest",
+          "tests": "1",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        },
+        {
+          "name": "com.m3.collections.guava.xml.XmlEscapersTest",
+          "tests": "2",
+          "failures": "0",
+          "errors": "0",
+          "skipped": "0"
+        }
+      ]
+    }
+  ],
+  "failures": [
+    "StringsTest escaped original namespace expectation (subsequently admitted exact literal)",
+    "MoreFilesTest noPermission assumes unprivileged UID (same exact original and renamed method fail under root and pass under unprivileged UID)"
+  ],
+  "subsequent_controls": [
+    "JAVA_REGEX_LITERAL_EXECUTION_ANDROID.tsv",
+    "JAVA_REGEX_LITERAL_EXECUTION_JRE.tsv",
+    "PERMISSION_ENVIRONMENT_BASELINE.json"
+  ]
+}

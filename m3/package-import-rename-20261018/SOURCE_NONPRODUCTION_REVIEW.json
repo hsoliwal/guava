@@ -1,0 +1,352 @@
+[
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/base/CharMatcherBenchmark.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/collect/MapBenchmark.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/collect/MapsMemoryBenchmark.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/collect/SetContainsBenchmark.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/collect/SetCreationBenchmark.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/collect/SetIterationBenchmark.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/util/concurrent/AbstractFutureFootprintBenchmark.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/util/concurrent/ExecutionListBenchmark.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/benchmark/com/m3/collections/guava/util/concurrent/SingleThreadAbstractFutureBenchmark.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/base/AbstractIteratorTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/cache/CacheBuilderTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/cache/CacheEvictionTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/cache/CacheExpirationTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/cache/CacheLoadingTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/cache/CacheRefreshTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/cache/LocalCacheTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/cache/PopulatedCachesTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/AbstractIteratorTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/AbstractSequentialIteratorTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/ArrayTableColumnMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/ArrayTableColumnTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/ArrayTableRowMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/ArrayTableRowTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/HashBasedTableColumnMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/HashBasedTableColumnTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/HashBasedTableRowMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/HashBasedTableRowTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/ImmutableClassToInstanceMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/IterablesFilterArrayListTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/MutableClassToInstanceMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/SetsFilterHashSetTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/SetsFilterNavigableSetTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/SetsFilterSortedSetTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TablesTransformValuesColumnMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TablesTransformValuesColumnTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TablesTransformValuesRowMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TablesTransformValuesRowTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TablesTransposeColumnTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TablesTransposeRowTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TreeBasedTableColumnMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TreeBasedTableColumnTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TreeBasedTableRowMapHeadMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TreeBasedTableRowMapSubMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TreeBasedTableRowMapTailMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TreeBasedTableRowMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/TreeBasedTableRowTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/UnmodifiableRowSortedTableColumnMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/UnmodifiableRowSortedTableColumnTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/UnmodifiableRowSortedTableRowMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/UnmodifiableRowSortedTableRowTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/UnmodifiableTableColumnMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/UnmodifiableTableColumnTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/UnmodifiableTableRowMapTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/collect/UnmodifiableTableRowTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/graph/DefaultNetworkImplementationsTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/graph/GraphEquivalenceTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/graph/NetworkEquivalenceTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/graph/StandardImmutableDirectedNetworkTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/graph/StandardMutableDirectedNetworkTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/io/CharSinkTester.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/io/CharSourceTester.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/math/PairedStatsAccumulatorTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/math/PairedStatsTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/util/concurrent/AbstractAbstractFutureTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/util/concurrent/AbstractFutureTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/util/concurrent/CallablesTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/util/concurrent/FutureCallbackTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/util/concurrent/FuturesTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "android/guava-tests/test/com/m3/collections/guava/util/concurrent/SupplementalMonitorTest.java",
+    "only_import_owner_changes": true,
+    "diff": null
+  },
+  {
+    "path": "m3/guava-package-first/src/test/java/com/m3/collections/guava/collect/M3GuavaEvictingRelocationProof.java",
+    "only_import_owner_changes": false,
+    "diff": "--- \n+++ \n@@ -1,5 +1,5 @@\n // SPDX-License-Identifier: Apache-2.0\n-package com.m3.collections.guava.collect;\n+package com.google.common.collect;\n \n import java.io.ByteArrayInputStream;\n import java.io.ByteArrayOutputStream;\n@@ -12,7 +12,7 @@\n import java.util.Objects;\n import java.util.Random;\n \n-/** Deterministic oracle: complete original Guava queue versus package-only relocation. */\n+/** Renamed working proof; the pinned original-source workflow supplies the independent oracle. */\n public final class M3GuavaEvictingRelocationProof {\n     private static long checks;\n     private M3GuavaEvictingRelocationProof() { }\n@@ -87,6 +87,9 @@\n     }\n     public static void main(String[] args) throws Exception {\n         if(args.length!=0)throw new IllegalArgumentException(\"no arguments\");\n+        if (com.google.common.collect.EvictingQueue.class == EvictingQueue.class) {\n+            throw new IllegalStateException(\"Independent oracle required; use the pinned original-source workflow\");\n+        }\n         run();\n         System.out.println(\"PASS M3_GUAVA_EVICTING_RELOCATION checks=\"+checks);\n     }\n"
+  }
+]

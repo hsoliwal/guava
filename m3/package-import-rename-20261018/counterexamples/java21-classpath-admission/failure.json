@@ -1,0 +1,12 @@
+{
+  "schema": "M3_GUAVA_PARSER_CLASSPATH_REFUSAL_V1",
+  "path": "android/guava-tests/test/com/google/common/base/SuppliersTest.java",
+  "preimage_sha256": "4da78bf5b1f88b1e9e08c22c192f03c17111a6b2304e8d3ebb38a31b0ba47ef9",
+  "classpath_sha256": "bc02ed0f72a48d8d060e87d6118e25707ff0568b337190d8e5a46bbb3f50f6e1",
+  "failure": "Erroneous tree from Guava 20.0 overload attribution, then visitErroneous missing end position",
+  "parsed_before_failure": 416,
+  "total": 3274,
+  "source_promoted": false,
+  "diagnostic": "Direct exact-source probe becomes lossless J.CompilationUnit after removing older Guava jars and putting owner classes first. Other unresolved external symbols remain and are not accepted as compilation proof.",
+  "required_next_gate": "Compile original guava + guava-testlib with declared Temurin 27 toolchain, freeze owner class artifacts and exact current Maven dependency closure, then restart staging in a new directory."
+}

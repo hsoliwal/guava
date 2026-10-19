@@ -82,13 +82,14 @@
             <!-- Silence a warning that claims the default package is a "split package" because both Guava and JSpecify have a root `module-info.class`. -->
             <_fixupmessages>^Split package, multiple jars provide the same package:.*</_fixupmessages>
             <Export-Package>
-              !com.google.common.base.internal,
-              !com.google.common.util.concurrent.internal,
+              !com.m3.collections.guava.base.internal,
+              !com.m3.collections.guava.util.concurrent.internal,
+              !com.m3.collections.guava.thirdparty.*,
               !META-INF.*,
-              com.google.common.*
+              com.m3.collections.guava.*
             </Export-Package>
             <Import-Package>
-              com.google.common.util.concurrent.internal,
+              com.m3.collections.guava.util.concurrent.internal,
               org.jspecify.annotations;resolution:=optional,
               javax.crypto.*;resolution:=optional,
               sun.misc.*;resolution:=optional
@@ -130,7 +131,7 @@
               <compilerArgs combine.self="override">
                 <arg>-sourcepath</arg>
                 <arg>${project.basedir}/src</arg>
-                <arg>--add-reads=com.google.common=ALL-UNNAMED</arg>
+                <arg>--add-reads=com.m3.collections.guava=ALL-UNNAMED</arg>
                 <!-- https://errorprone.info/docs/installation#maven -->
                 <arg>-XDcompilePolicy=simple</arg>
               </compilerArgs>
@@ -152,7 +153,7 @@
           <!-- excludePackageNames requires specification of packages separately from "all subpackages".
                https://issues.apache.org/jira/browse/MJAVADOC-584 -->
           <excludePackageNames>
-            com.azul.tooling.in,com.google.common.base.internal,com.google.common.base.internal.*,com.google.thirdparty.publicsuffix,com.google.thirdparty.publicsuffix.*,com.oracle.*,com.sun.*,java.*,javax.*,jdk,jdk.*,org.*,sun.*
+            com.azul.tooling.in,com.m3.collections.guava.base.internal,com.m3.collections.guava.base.internal.*,com.m3.collections.guava.thirdparty.publicsuffix,com.m3.collections.guava.thirdparty.publicsuffix.*,com.oracle.*,com.sun.*,java.*,javax.*,jdk,jdk.*,org.*,sun.*
           </excludePackageNames>
           <!-- Ignore some tags that are found in Java 11 sources but not recognized... under -source 8, I think it was? I can no longer reproduce the failure. -->
           <tags>

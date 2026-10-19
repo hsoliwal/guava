@@ -1,0 +1,16 @@
+key	value
+donor_repo	https://github.com/hsoliwal/guava
+donor_source_base	dfd9dca629d44faf71846b1f85acd38556f4854d
+canonical_recipe_home	hsoliwal/com.synexia/synexia-openrewrite-recipes
+canonical_engine_base	140c263a90f9803b9c46103c63355a286e0515f0
+namespace_owner	com.synexia.rewrite.M3CollectionsPackageRenameRecipe delegates to actual org.openrewrite.java.ChangePackage
+java_literal_owner	M3CollectionsPackageRenameMetadataRecipe through MetadataReplayCli retained LST
+resource_owner	M3CollectionsPackageRenameResourcesCli; XmlParser/visitor scalar nodes or existing FindAndReplace text owner
+module_owner	M3CollectionsPackageRenameModulesCli; JDK JavacTask ModuleTree source-position directives
+provider_owner	provider-corrections/java21-8.90.4; official source with narrow annotated-varargs and typed Javadoc anchor fidelity corrections
+provider_jar_sha256	0c2fa9f1eb36263c81c98e76c31984f53b981f4527ea3438e199feeffdd45a2c
+checker_owner	tool-corrections/error-prone-2.50.0; two official licensed owner sources with additive Guava identities
+checker_jar_sha256	00bfd0a01639209649f20bf7bd957a34dab4981006203a72d88cdbd35b055f8b
+checker_ci_receiver	verification-dependencies/error-prone-overlay; eight class-entry overlay derived from canonical owner, full artifact SHA controlled
+original_oracle	frozen-oracles/manifest.json plus immutable original Git object
+preserved_current_base	7f70b54a348dce28fcbfa6005155e71f3140b93f (three inventory-only additions; no native inputs changed)

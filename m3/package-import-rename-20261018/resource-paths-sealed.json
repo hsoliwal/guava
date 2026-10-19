@@ -1,0 +1,524 @@
+[
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/alice_in_wonderland.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/alice_in_wonderland.txt",
+    "sha256": "23039cead202def299484d5e799adbd180889d7f8ea5882ef576411dad88499a",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/ascii.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/ascii.txt",
+    "sha256": "cb2a9233adc1225c5c495c46e62cf6308223c5e241ef33ad109f03141b57966a",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/i18n.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/i18n.txt",
+    "sha256": "2fd82eb777414914e4ac6f18c1e2aeda33b58206d7e6ea9734ad23f85115be94",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/simplifypathnoprefixtests.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/simplifypathnoprefixtests.txt",
+    "sha256": "fd2772a93d53a9c0a6290e6218e90f2231a89c0ea3fd1a1d0ee49e8015f2916e",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/io/testdata/simplifypathwithabsoluteprefixtests.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/io/testdata/simplifypathwithabsoluteprefixtests.txt",
+    "sha256": "4338b1d5e82285bd245bc6e686ff5867d1762ccd2303034bd6c53ac072f58a34",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "android/guava-tests/test/com/google/common/reflect/test.txt",
+    "newPath": "android/guava-tests/test/com/m3/collections/guava/reflect/test.txt",
+    "sha256": "7df236bef9464afe9a924c50b80b12228bee841f60933a79c375e8e7077cde33",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-gwt/src-super/com/google/common/base/super/com/google/common/base/Platform.native.js",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/base/super/com/m3/collections/guava/base/Platform.native.js",
+    "sha256": "4aa7db4c04971d228f8df7eae8923022e738bfe11e2a303be18f603b2e14273f",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-gwt/src-super/com/google/common/collect/super/com/google/common/collect/Platform.native.js",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/Platform.native.js",
+    "sha256": "5be33cb0c2c559d21c7b1de2efda5e32afa80831399cdfe95d08d5cadad7314e",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/ForceGuavaCompilation.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+    "sha256": "0f12bba06739101e39aa7701fbb11f9050c548660b0d2b97146a34ac7c3d579e",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/annotations/Annotations.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml",
+    "sha256": "e8d3f8b5b9f26144e1542db3b5baf6b8df90a595e00255ba9377af2150309931",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/base/Base.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml",
+    "sha256": "448c218535dfbba2c2981ded3f962eff27a639a3f5a9a87855842d1791c2591a",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/cache/Cache.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+    "sha256": "de2847cf50e8761ba997d421a4489f6e3226b5cd54d0778c0c64427e446b3cf2",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/collect/Collect.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+    "sha256": "db7b545eb5879014c3a9eba4bdab1e4e6005f9b1b9c6f28002626c6510d5e4dd",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/escape/Escape.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml",
+    "sha256": "832c493417779051986bc6f2c47cc39500902f41840fbc72be2f26f3cc11570c",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/html/Html.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/html/Html.gwt.xml",
+    "sha256": "65e5775cda7d149b142877efd89871cdb9c07d8d70cb0eac8520be2c8f0835b0",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/io/Io.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+    "sha256": "db7b545eb5879014c3a9eba4bdab1e4e6005f9b1b9c6f28002626c6510d5e4dd",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/math/Math.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml",
+    "sha256": "c7369dce8d48d31eb781df4dd52195f412674048d6556e3ea45918e3a16e7229",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/net/Net.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+    "sha256": "a3dc3d64c33316a3e19d4319bd3b79a8c44dcdde9a579be0805b0a8fc8952747",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/primitives/Primitives.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml",
+    "sha256": "832c493417779051986bc6f2c47cc39500902f41840fbc72be2f26f3cc11570c",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/util/concurrent/Concurrent.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml",
+    "sha256": "39680aec1e67fbf4859d355a4f9a88d352d89722122811a4ac1bafd7d63f2a1c",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/common/xml/Xml.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/xml/Xml.gwt.xml",
+    "sha256": "a36eb5ddbbc31eb922d3d2141d5e79dce0d5d06741a3b3292839c18a0c1c8396",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+    "sha256": "14bf7aa94016770f3fc7b6bdf6b88d00642917ddb3d8bdd2b34abd0b3a8938ca",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/src/com/google/thirdparty/publicsuffix/PublicSuffixType.gwt.xml",
+    "newPath": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixType.gwt.xml",
+    "sha256": "448c218535dfbba2c2981ded3f962eff27a639a3f5a9a87855842d1791c2591a",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/test/com/google/common/collect/testing/Testing.gwt.xml",
+    "newPath": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+    "sha256": "d6758dd6eb62cccf06eaa69aa7f614b36874dddb52f50a59c80afebdaf43c0b9",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/test/com/google/common/collect/testing/google/Google.gwt.xml",
+    "newPath": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+    "sha256": "fab012b45f14049a4a3f706240e802b52ec63f1d6ade964f135751a09f8a13f6",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/test/com/google/common/escape/testing/Testing.gwt.xml",
+    "newPath": "guava-gwt/test/com/m3/collections/guava/escape/testing/Testing.gwt.xml",
+    "sha256": "d2e1ac6b88a7e2ef5121f37a88b5fd2c96a7b2830c8e30743fa2da0e6d1b148c",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-gwt/test/com/google/common/testing/Testing.gwt.xml",
+    "newPath": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml",
+    "sha256": "057d7c85caa4feb47f743f39075c06b4eebf455e744094f84aa9ec3a81979f44",
+    "authority": "RESOURCE_METADATA_EXECUTION.tsv"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/alice_in_wonderland.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/alice_in_wonderland.txt",
+    "sha256": "23039cead202def299484d5e799adbd180889d7f8ea5882ef576411dad88499a",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/ascii.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/ascii.txt",
+    "sha256": "cb2a9233adc1225c5c495c46e62cf6308223c5e241ef33ad109f03141b57966a",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/i18n.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/i18n.txt",
+    "sha256": "2fd82eb777414914e4ac6f18c1e2aeda33b58206d7e6ea9734ad23f85115be94",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/simplifypathnoprefixtests.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/simplifypathnoprefixtests.txt",
+    "sha256": "fd2772a93d53a9c0a6290e6218e90f2231a89c0ea3fd1a1d0ee49e8015f2916e",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/io/testdata/simplifypathwithabsoluteprefixtests.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/io/testdata/simplifypathwithabsoluteprefixtests.txt",
+    "sha256": "4338b1d5e82285bd245bc6e686ff5867d1762ccd2303034bd6c53ac072f58a34",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-tests/test/com/google/common/reflect/test.txt",
+    "newPath": "guava-tests/test/com/m3/collections/guava/reflect/test.txt",
+    "sha256": "7df236bef9464afe9a924c50b80b12228bee841f60933a79c375e8e7077cde33",
+    "authority": "resource-paths.json immutable original"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/base/super/com/google/common/base/ExtraObjectsMethodsForWeb.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/base/super/com/m3/collections/guava/base/ExtraObjectsMethodsForWeb.java",
+    "sha256": "03389d0ea283a2c25a10b89bc1a1350fc890f49511510df9229c72379aac2d37",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/base/super/com/google/common/base/Platform.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/base/super/com/m3/collections/guava/base/Platform.java",
+    "sha256": "cee4d2869e6316383c4261da250267bed8986e3906b65330f685e5089825e505",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/cache/super/com/google/common/cache/CapacityEnforcingMap.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/cache/super/com/m3/collections/guava/cache/CapacityEnforcingMap.java",
+    "sha256": "cd9112c087935e044a9ecde2f22ab6fbffad8d55d701f7f7003409d5b79261f4",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/cache/super/com/google/common/cache/LocalCache.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/cache/super/com/m3/collections/guava/cache/LocalCache.java",
+    "sha256": "703c12c7816cec46ef60124ce35506b6ea0aa787256fce47d552c73896040422",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/cache/super/com/google/common/cache/LongAddables.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/cache/super/com/m3/collections/guava/cache/LongAddables.java",
+    "sha256": "8a4fbf7ee98453d75b111a2295636905bddda1874766a5117bd2d0005e0234b0",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/AbstractSortedMultiset.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/AbstractSortedMultiset.java",
+    "sha256": "90039711b556af3b6c0537574a148c56378b797c32646f6392ec591d82c6b63c",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/DescendingMultiset.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/DescendingMultiset.java",
+    "sha256": "de56ce4a31719793cda462c4472a77573eeb73473112fc909ec3b83feca5493e",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/EnumMultiset.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/EnumMultiset.java",
+    "sha256": "4a50e0eb09664f9e535d967c98c729baf7a264891c22aac462210f70c3d21989",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ForwardingImmutableCollection.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ForwardingImmutableCollection.java",
+    "sha256": "0d69b3929abe7b010da452fc2dc278734ecdbcc149fc4fde480c0ba9bf0389f3",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ForwardingImmutableList.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ForwardingImmutableList.java",
+    "sha256": "4c535aa877de9bf878d8ae6eb6acabed985375968970f6d5fbba192e240aad26",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ForwardingImmutableMap.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ForwardingImmutableMap.java",
+    "sha256": "cb9c46413dfeda8f898710670d742e9337808cf3d72436d8b379d7f202a440cc",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ForwardingImmutableSet.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ForwardingImmutableSet.java",
+    "sha256": "3325865b54654598ffe1055acab89d0ae99983cbd974d4da3f1e343d5c63a554",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ForwardingSortedMultiset.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ForwardingSortedMultiset.java",
+    "sha256": "72679dc5a9c6cda84b159cc79dfd8adc2a25aa17ab60f4496ad7eb59fe948400",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ImmutableBiMap.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ImmutableBiMap.java",
+    "sha256": "e9cdaf5f3496a3f661a168b4abccd6f2ca042f5939edaf1dbf83fdc102638010",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ImmutableCollection.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ImmutableCollection.java",
+    "sha256": "49e333adea661d771cef605da8d30538bd4e33cf0735a7a77ef1425e849a62bd",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ImmutableEnumMap.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ImmutableEnumMap.java",
+    "sha256": "b8c537ab451d80a99b6d4d659d101a0a505d7863ea620a2510cf79674a156fa1",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ImmutableEnumSet.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ImmutableEnumSet.java",
+    "sha256": "4a1357dc4b4859297ec45c5eaa655ba821e5d3bc8ba83caf93ecb4d55f6727bb",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ImmutableList.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ImmutableList.java",
+    "sha256": "5ec39611ba6665dddcc0e507ac05f071a8cb651ce826888f1bdbaf2866012429",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ImmutableMap.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ImmutableMap.java",
+    "sha256": "caa7b3344f90cc8a20d1ccabcb708171aacc8d7b3733b09f7d1c9a156cdfdfdc",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ImmutableSet.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ImmutableSet.java",
+    "sha256": "3bec973f4fe6706880704d454274d9e0197f0d49cf72dc38bb03c457e58113bb",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ImmutableSortedMap.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ImmutableSortedMap.java",
+    "sha256": "cdef38757082a169ee6ec2caa3a440697363936a62970b696f497dfddf642e5c",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/ImmutableSortedSet.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/ImmutableSortedSet.java",
+    "sha256": "1f2b8b525655afb91cbd563c025b48242593293f49b2c66d4950835889fdc2b6",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/MapMaker.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/MapMaker.java",
+    "sha256": "e65e6912564cb9ecd7d8f3c1a9ba66ac7e805d2230c4af73496a57f13c9fcf4a",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/Platform.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/Platform.java",
+    "sha256": "8c64b889e0e021b010decd558fef08ac569783606c8ca875a30c293e62c9d135",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/RegularImmutableBiMap.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/RegularImmutableBiMap.java",
+    "sha256": "6052682d782d7ad1ad19c55ce88d38babd09616f22ab0ac8690454d2c5b643bc",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/RegularImmutableList.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/RegularImmutableList.java",
+    "sha256": "5d1c4ebe2727301b0763c691af1eeed443be6e2268f6d78ba0a745f6a0ef1073",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/RegularImmutableMap.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/RegularImmutableMap.java",
+    "sha256": "1ee76e274ed35895146481d8dd3f1bddd917074dd096af8e7e496e8032a944c6",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/RegularImmutableMultiset.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/RegularImmutableMultiset.java",
+    "sha256": "d9e71d4ad0afe22de8c4fc80d7b556e979b8670e3a916bc5bb32588f32f09b9f",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/RegularImmutableSet.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/RegularImmutableSet.java",
+    "sha256": "b05e210b441f4cc7abd393f74574a35560a3aed183a6743533c9683122abb66f",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/RegularImmutableSortedSet.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/RegularImmutableSortedSet.java",
+    "sha256": "aa375b3d34f6aa047332cf1603ba8b526af477ac7ab187ec69005402e9e7656e",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/SingletonImmutableBiMap.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/SingletonImmutableBiMap.java",
+    "sha256": "3de4d33d752ffac5e986c2547d0a6df4bfa166d737a64c4c24d40637e92d11f5",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/SingletonImmutableList.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/SingletonImmutableList.java",
+    "sha256": "0e9c776b0efd0f59a3a7c2944160f8a3d2f0058a7e1a91d461edcac35c02f026",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/SingletonImmutableSet.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/SingletonImmutableSet.java",
+    "sha256": "40ea95ee30c20cbdc1cad470c8d367ed685137835617dd923ed150e58aeb4960",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/SortedMultiset.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/SortedMultiset.java",
+    "sha256": "8d6266d5094d8438658cb73b621eb646d5f5376b901cb916297b742136d0f5ce",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/google/common/collect/UnmodifiableSortedMultiset.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/collect/super/com/m3/collections/guava/collect/UnmodifiableSortedMultiset.java",
+    "sha256": "103cb1f4047a192f18f9622600a85a1a4ab5e255fe53f08f737227f2a2622e23",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/escape/super/com/google/common/escape/Platform.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/escape/super/com/m3/collections/guava/escape/Platform.java",
+    "sha256": "c51ec25c733d86c8a8cc13669a07aebcd71bd036fc8ed6de6a298248bbef3833",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/primitives/super/com/google/common/primitives/DoublesMethodsForWeb.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/primitives/super/com/m3/collections/guava/primitives/DoublesMethodsForWeb.java",
+    "sha256": "dd18019629e40d680e59d679205297295cfaa25d6fdf62d188258e9a08d34f8f",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/primitives/super/com/google/common/primitives/FloatsMethodsForWeb.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/primitives/super/com/m3/collections/guava/primitives/FloatsMethodsForWeb.java",
+    "sha256": "07d136c09e7c2907bfb8d121853ef9a957a2001fad1fbd7f42329649004f8e08",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/primitives/super/com/google/common/primitives/IntsMethodsForWeb.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/primitives/super/com/m3/collections/guava/primitives/IntsMethodsForWeb.java",
+    "sha256": "086d49639e21fde6d477373ba0b4e4380650d20ada49f720e232a1216c2559bc",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/primitives/super/com/google/common/primitives/ShortsMethodsForWeb.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/primitives/super/com/m3/collections/guava/primitives/ShortsMethodsForWeb.java",
+    "sha256": "747d8c841505631a308009f0c1789a6ac1739f23294aba74ebc02d4ad504d74d",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/google/common/util/concurrent/AbstractFutureState.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/m3/collections/guava/util/concurrent/AbstractFutureState.java",
+    "sha256": "8fd758e14e79e7b2ecac87e6d7ad84342cc5db56b6ca91d760d37c3211c479e4",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/google/common/util/concurrent/AggregateFutureState.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/m3/collections/guava/util/concurrent/AggregateFutureState.java",
+    "sha256": "0b76f1a8e80cc47cc0c2fd206b74b204686d66ffac493a7a4fba988d3bf5dbe4",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/google/common/util/concurrent/GwtFluentFutureCatchingSpecialization.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/m3/collections/guava/util/concurrent/GwtFluentFutureCatchingSpecialization.java",
+    "sha256": "c5b07802ecf59363f53b5f904c40f805c7519e4b7de610c7fa9bb646f5fe3f5b",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/google/common/util/concurrent/GwtFuturesCatchingSpecialization.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/m3/collections/guava/util/concurrent/GwtFuturesCatchingSpecialization.java",
+    "sha256": "48c1136ef85c9c236120607bad12055c56fe6fa23baffd7b2e659d66e34b9717",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/google/common/util/concurrent/InterruptibleTask.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/m3/collections/guava/util/concurrent/InterruptibleTask.java",
+    "sha256": "47a04c1e44812aec85d271b6a5c8c12c44944cecb32ebe6ed689d96f56c62f31",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/google/common/util/concurrent/ListenableFuture.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/m3/collections/guava/util/concurrent/ListenableFuture.java",
+    "sha256": "c07e28444adb985cc55a6c7357848a3ec37a5bd591eaeb7b61664cff736e631e",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/google/common/util/concurrent/Platform.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/m3/collections/guava/util/concurrent/Platform.java",
+    "sha256": "e134125034e94a4921573cb7caad10e794eae6fa004c1c0baa9e6458ccc852b9",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/google/common/util/concurrent/Uninterruptibles.java",
+    "newPath": "guava-gwt/src-super/com/m3/collections/guava/util/concurrent/super/com/m3/collections/guava/util/concurrent/Uninterruptibles.java",
+    "sha256": "6ba30b0ce8ff0c11015939bad24c2f4e5cd22344c4c2ed2dd7d93954d33f0dfa",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/test-super/com/m3/collections/guava/collect/testing/super/com/google/common/collect/testing/Platform.java",
+    "newPath": "guava-gwt/test-super/com/m3/collections/guava/collect/testing/super/com/m3/collections/guava/collect/testing/Platform.java",
+    "sha256": "b4171515ec718250dedb5cfb014e98d6ff9b3508dd1d4a61bbe113833884d99c",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/test-super/com/google/common/collect/testing/super/com/m3/collections/guava/collect/testing/testers/Platform.java",
+    "newPath": "guava-gwt/test-super/com/m3/collections/guava/collect/testing/super/com/m3/collections/guava/collect/testing/testers/Platform.java",
+    "sha256": "968486f1cb52c3fc97925d2ca400c86e83224a4cac2f9076903289069852250f",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/test-super/com/m3/collections/guava/math/super/com/google/common/math/TestPlatform.java",
+    "newPath": "guava-gwt/test-super/com/m3/collections/guava/math/super/com/m3/collections/guava/math/TestPlatform.java",
+    "sha256": "221db7f7d747e439f8d81d65861e0968246b4ffb170942ad8b16220513efb67a",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/test-super/com/m3/collections/guava/primitives/super/com/google/common/primitives/TestPlatform.java",
+    "newPath": "guava-gwt/test-super/com/m3/collections/guava/primitives/super/com/m3/collections/guava/primitives/TestPlatform.java",
+    "sha256": "085c4b4d33c7573ae938904c90cf6cd4903a0f28109a05c941f664728d991558",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/test-super/com/m3/collections/guava/testing/super/com/google/common/testing/Platform.java",
+    "newPath": "guava-gwt/test-super/com/m3/collections/guava/testing/super/com/m3/collections/guava/testing/Platform.java",
+    "sha256": "798929b8284e40e624dadca68d043d969e81aa8d97e1ad520a120c445ea55a02",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  },
+  {
+    "path": "guava-gwt/test-super/com/m3/collections/guava/util/concurrent/super/com/google/common/util/concurrent/TestPlatform.java",
+    "newPath": "guava-gwt/test-super/com/m3/collections/guava/util/concurrent/super/com/m3/collections/guava/util/concurrent/TestPlatform.java",
+    "sha256": "b31972a69c6c7e3cf96dc4d3e7b22b6157933513b382a374708fc33b7c236688",
+    "authority": "NAMESPACE_CHANGES.tsv plus literal receipt if applicable"
+  }
+]

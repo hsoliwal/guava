@@ -1,0 +1,6 @@
+{
+  "scope": "Byte-identical published immutable JAR/POM payloads share read-only root-owned inodes; independent unprivileged cache metadata and new receiver/source artifact versions remain separate. Verification UID cannot write original payload inodes.",
+  "deduplicated_payloads": 1831,
+  "bytes_saved": 329653697,
+  "original_bytes_or_ownership_changed": false
+}

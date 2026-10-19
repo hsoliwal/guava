@@ -1,0 +1,16 @@
+key	value
+checkout	/dev/shm/m3-package-rename-39a960e13a39/repos/guava
+branch	m3/package-import-rename-20261018
+compiler	Temurin27.0.2+0-202610170812
+test_runtime	Temurin21.0.12.1+1
+maven	3.9.11
+provider	OpenRewrite8.90.4 with source-faithful isolated Java21 correction; default canonical private pins remain8.17.1
+maven_reporting_heap	Historical full attempts2560/2048 MiB; bounded completion batches512 MiB; failed/interrupted logs retained
+surefire_heap	1536 MiB original native upstream setting, forkCount1
+profile	m3-relocated-verification
+original_cache	Published original artifacts unchanged; distinct task receiver versions installed
+network_tls	Configured workspace proxy and system Java CA truststore; TLS verification retained
+preserved_current_base	7f70b54a348dce28fcbfa6005155e71f3140b93f (three inventory-only additions; no native inputs changed)
+native_execution_uid	65534; original permission-dependent native tests unchanged
+native_tmpdir	Task-owned tmpfs directory, startup-bound via JAVA_TOOL_OPTIONS after retained default-/tmp reserved-space failures
+native_coverage	Explicit variant+module+suite inventory union; no successful single-reactor claim

@@ -1,0 +1,97 @@
+[
+  {
+    "path": "proguard/base.pro",
+    "old": "-keepclassmembernames class com.google.common.base.FinalizableReference {",
+    "new": "-keepclassmembernames class com.m3.collections.guava.base.FinalizableReference {"
+  },
+  {
+    "path": "proguard/base.pro",
+    "old": "-keepclassmembernames class com.google.common.base.internal.Finalizer {",
+    "new": "-keepclassmembernames class com.m3.collections.guava.base.internal.Finalizer {"
+  },
+  {
+    "path": "proguard/base.pro",
+    "old": "-keepclassmembers class com.google.common.base.FinalizableReference {",
+    "new": "-keepclassmembers class com.m3.collections.guava.base.FinalizableReference {"
+  },
+  {
+    "path": "proguard/base.pro",
+    "old": "-keepclassmembers class com.google.common.base.internal.Finalizer {",
+    "new": "-keepclassmembers class com.m3.collections.guava.base.internal.Finalizer {"
+  },
+  {
+    "path": "proguard/cache.pro",
+    "old": "-keepclassmembers class com.google.common.cache.Striped64 {",
+    "new": "-keepclassmembers class com.m3.collections.guava.cache.Striped64 {"
+  },
+  {
+    "path": "proguard/cache.pro",
+    "old": "-keepclassmembers class com.google.common.cache.Striped64$Cell {",
+    "new": "-keepclassmembers class com.m3.collections.guava.cache.Striped64$Cell {"
+  },
+  {
+    "path": "proguard/collect.pro",
+    "old": "-keepclassmembernames class com.google.common.collect.AbstractSortedMultiset {",
+    "new": "-keepclassmembernames class com.m3.collections.guava.collect.AbstractSortedMultiset {"
+  },
+  {
+    "path": "proguard/collect.pro",
+    "old": "-keepclassmembernames class com.google.common.collect.ConcurrentHashMultiset {",
+    "new": "-keepclassmembernames class com.m3.collections.guava.collect.ConcurrentHashMultiset {"
+  },
+  {
+    "path": "proguard/collect.pro",
+    "old": "-keepclassmembernames class com.google.common.collect.ImmutableMultimap {",
+    "new": "-keepclassmembernames class com.m3.collections.guava.collect.ImmutableMultimap {"
+  },
+  {
+    "path": "proguard/collect.pro",
+    "old": "-keepclassmembernames class com.google.common.collect.ImmutableSetMultimap {",
+    "new": "-keepclassmembernames class com.m3.collections.guava.collect.ImmutableSetMultimap {"
+  },
+  {
+    "path": "proguard/collect.pro",
+    "old": "-keepclassmembernames class com.google.common.collect.TreeMultiset {",
+    "new": "-keepclassmembernames class com.m3.collections.guava.collect.TreeMultiset {"
+  },
+  {
+    "path": "proguard/concurrent.pro",
+    "old": "-keep,allowshrinking,allowobfuscation class com.google.common.util.concurrent.AbstractFuture** {",
+    "new": "-keep,allowshrinking,allowobfuscation class com.m3.collections.guava.util.concurrent.AbstractFuture** {"
+  },
+  {
+    "path": "proguard/concurrent.pro",
+    "old": "-keep,allowshrinking,allowobfuscation class com.google.common.util.concurrent.AbstractFutureState** {",
+    "new": "-keep,allowshrinking,allowobfuscation class com.m3.collections.guava.util.concurrent.AbstractFutureState** {"
+  },
+  {
+    "path": "proguard/concurrent.pro",
+    "old": "-keepclassmembers class com.google.common.util.concurrent.AbstractFuture** {",
+    "new": "-keepclassmembers class com.m3.collections.guava.util.concurrent.AbstractFuture** {"
+  },
+  {
+    "path": "proguard/concurrent.pro",
+    "old": "-keepclassmembers class com.google.common.util.concurrent.AbstractFutureState** {",
+    "new": "-keepclassmembers class com.m3.collections.guava.util.concurrent.AbstractFutureState** {"
+  },
+  {
+    "path": "proguard/concurrent.pro",
+    "old": "-keepclassmembers class com.google.common.util.concurrent.AggregateFutureState {",
+    "new": "-keepclassmembers class com.m3.collections.guava.util.concurrent.AggregateFutureState {"
+  },
+  {
+    "path": "proguard/concurrent.pro",
+    "old": "-keepclassmembers class com.google.common.util.concurrent.AtomicDouble {",
+    "new": "-keepclassmembers class com.m3.collections.guava.util.concurrent.AtomicDouble {"
+  },
+  {
+    "path": "proguard/hash.pro",
+    "old": "-keepclassmembers class com.google.common.hash.Striped64 {",
+    "new": "-keepclassmembers class com.m3.collections.guava.hash.Striped64 {"
+  },
+  {
+    "path": "proguard/hash.pro",
+    "old": "-keepclassmembers class com.google.common.hash.Striped64$Cell {",
+    "new": "-keepclassmembers class com.m3.collections.guava.hash.Striped64$Cell {"
+  }
+]

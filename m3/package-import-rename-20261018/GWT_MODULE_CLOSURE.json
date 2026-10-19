@@ -1,0 +1,363 @@
+{
+  "scope": "Structured module metadata closure; not a GWT compiler execution",
+  "module_files": 19,
+  "unique_receiver_module_names": 19,
+  "receiver_inheritance_edges": 71,
+  "edges": [
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.collect.Collect",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/escape/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/escape/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.escape.Escape",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.collect.Collect",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.primitives.Primitives",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml",
+      "module": "com.m3.collections.guava.testing.Testing",
+      "resolved": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+      "module": "com.m3.collections.guava.collect.Collect",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+      "module": "com.m3.collections.guava.collect.testing.Testing",
+      "resolved": "guava-gwt/test/com/m3/collections/guava/collect/testing/Testing.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+      "module": "com.m3.collections.guava.primitives.Primitives",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/test/com/m3/collections/guava/collect/testing/google/Google.gwt.xml",
+      "module": "com.m3.collections.guava.testing.Testing",
+      "resolved": "guava-gwt/test/com/m3/collections/guava/testing/Testing.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.cache.Cache",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.collect.Collect",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.escape.Escape",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.html.Html",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/html/Html.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.io.Io",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.math.Math",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.net.Net",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.primitives.Primitives",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.util.concurrent.Concurrent",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.xml.Xml",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/xml/Xml.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixPatterns",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/ForceGuavaCompilation.gwt.xml",
+      "module": "com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixType",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixType.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/xml/Xml.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/xml/Xml.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/xml/Xml.gwt.xml",
+      "module": "com.m3.collections.guava.escape.Escape",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+      "module": "com.m3.collections.guava.collect.Collect",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+      "module": "com.m3.collections.guava.escape.Escape",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+      "module": "com.m3.collections.guava.primitives.Primitives",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+      "module": "com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixPatterns",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/net/Net.gwt.xml",
+      "module": "com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixType",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixType.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml",
+      "module": "com.m3.collections.guava.primitives.Primitives",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+      "module": "com.m3.collections.guava.math.Math",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/io/Io.gwt.xml",
+      "module": "com.m3.collections.guava.primitives.Primitives",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/html/Html.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/html/Html.gwt.xml",
+      "module": "com.m3.collections.guava.escape.Escape",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/escape/Escape.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+      "module": "com.m3.collections.guava.math.Math",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml",
+      "module": "com.m3.collections.guava.primitives.Primitives",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/primitives/Primitives.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+      "module": "com.m3.collections.guava.collect.Collect",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+      "module": "com.m3.collections.guava.math.Math",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/math/Math.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/cache/Cache.gwt.xml",
+      "module": "com.m3.collections.guava.util.concurrent.Concurrent",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixType.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+      "module": "com.m3.collections.guava.collect.Collect",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml",
+      "module": "com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixType",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/thirdparty/publicsuffix/PublicSuffixType.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml",
+      "module": "com.m3.collections.guava.annotations.Annotations",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/annotations/Annotations.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml",
+      "module": "com.m3.collections.guava.base.Base",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/base/Base.gwt.xml"
+    },
+    {
+      "owner": "guava-gwt/src/com/m3/collections/guava/util/concurrent/Concurrent.gwt.xml",
+      "module": "com.m3.collections.guava.collect.Collect",
+      "resolved": "guava-gwt/src/com/m3/collections/guava/collect/Collect.gwt.xml"
+    }
+  ]
+}

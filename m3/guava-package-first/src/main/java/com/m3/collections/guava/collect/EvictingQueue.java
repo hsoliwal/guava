@@ -16,15 +16,15 @@
 
 package com.m3.collections.guava.collect;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
+import static com.m3.collections.guava.base.Preconditions.checkArgument;
+import static com.m3.collections.guava.base.Preconditions.checkNotNull;
 
-import com.google.common.collect.ForwardingQueue;
-import com.google.common.collect.Iterables;
-import com.google.common.annotations.GwtCompatible;
-import com.google.common.annotations.GwtIncompatible;
-import com.google.common.annotations.J2ktIncompatible;
-import com.google.common.annotations.VisibleForTesting;
+import com.m3.collections.guava.collect.ForwardingQueue;
+import com.m3.collections.guava.collect.Iterables;
+import com.m3.collections.guava.annotations.GwtCompatible;
+import com.m3.collections.guava.annotations.GwtIncompatible;
+import com.m3.collections.guava.annotations.J2ktIncompatible;
+import com.m3.collections.guava.annotations.VisibleForTesting;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.io.Serializable;
 import java.util.ArrayDeque;

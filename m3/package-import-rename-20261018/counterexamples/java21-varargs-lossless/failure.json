@@ -1,0 +1,10 @@
+{
+  "stage": "OPENREWRITE_JAVA21_PARSE_PRINT",
+  "kind": "ParseError",
+  "signature": "parse-to-print idempotence: equalityGroups.add(list); -> equalityGroups.add(list){;",
+  "provider": "org.openrewrite:rewrite-java-21:8.90.4",
+  "source_sha256": "b8eec50365cf4223bb33c172d9df0710a880086b11fdb41bb7ad6e598c8d32a0",
+  "source_modified": false,
+  "minimized": false,
+  "status": "RETAINED_ADMISSION_REFUSAL"
+}

@@ -1,0 +1,111 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --< com.synexia.rewrite.qualification:collections-package-import-rename >--
+[INFO] Building collections-package-import-rename 20261018
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ collections-package-import-rename ---
+[INFO] Copying 16 resources from ../../src/main/resources to ../../../../../../../../dev/shm/m3-package-rename-39a960e13a39/recipe-target-8.90.4-varargs/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ collections-package-import-rename ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 15 source files with javac [debug release 21] to ../../../../../../../../dev/shm/m3-package-rename-39a960e13a39/recipe-target-8.90.4-varargs/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ collections-package-import-rename ---
+[INFO] Copying 2 resources from ../../src/test/resources to ../../../../../../../../dev/shm/m3-package-rename-39a960e13a39/recipe-target-8.90.4-varargs/test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ collections-package-import-rename ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 6 source files with javac [debug release 21] to ../../../../../../../../dev/shm/m3-package-rename-39a960e13a39/recipe-target-8.90.4-varargs/test-classes
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ collections-package-import-rename ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameTest
+APPLIED files=2
+APPLIED files=1
+APPLIED files=1
+[ERROR] Tests run: 7, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 6.075 s <<< FAILURE! -- in com.synexia.rewrite.M3CollectionsPackageRenameTest
+[ERROR] com.synexia.rewrite.M3CollectionsPackageRenameTest.promotionRefusesSymlinkAncestorBeforeAnyWrite -- Time elapsed: 0.030 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at com.synexia.rewrite.M3CollectionsPackageRenameTest.promotionRefusesSymlinkAncestorBeforeAnyWrite(M3CollectionsPackageRenameTest.java:39)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] com.synexia.rewrite.M3CollectionsPackageRenameTest.promotionRefusesDanglingDestinationSymlink -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at com.synexia.rewrite.M3CollectionsPackageRenameTest.promotionRefusesDanglingDestinationSymlink(M3CollectionsPackageRenameTest.java:59)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameSnippetTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.391 s -- in com.synexia.rewrite.M3CollectionsPackageRenameSnippetTest
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameResourcesTest
+resource_files=1 changed=1 apply=false
+resource_files=1 changed=1 apply=true
+resource_files=1 changed=0 apply=true
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.574 s -- in com.synexia.rewrite.M3CollectionsPackageRenameResourcesTest
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameModulesTest
+module_files=1 changed=1 execution_kind=JDK_MODULE_AST_PARSE apply=false
+module_files=1 changed=1 execution_kind=JDK_MODULE_AST_PARSE apply=true
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.622 s -- in com.synexia.rewrite.M3CollectionsPackageRenameModulesTest
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameMetadataTest
+metadata_files=1 changed=1 apply=false
+metadata_files=1 changed=1 apply=true
+metadata_files=1 changed=0 apply=true
+metadata_files=2 changed=2 apply=true
+[ERROR] Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 9.130 s <<< FAILURE! -- in com.synexia.rewrite.M3CollectionsPackageRenameMetadataTest
+[ERROR] com.synexia.rewrite.M3CollectionsPackageRenameMetadataTest.cliRefusesSymlinkAliasesBeforeAnyCandidateOrSourceWrite -- Time elapsed: 2.592 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at com.synexia.rewrite.M3CollectionsPackageRenameMetadataTest.cliRefusesSymlinkAliasesBeforeAnyCandidateOrSourceWrite(M3CollectionsPackageRenameMetadataTest.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[INFO] Running com.synexia.rewrite.M3CollectionsPackageRenameImportOrderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.466 s -- in com.synexia.rewrite.M3CollectionsPackageRenameImportOrderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   M3CollectionsPackageRenameMetadataTest.cliRefusesSymlinkAliasesBeforeAnyCandidateOrSourceWrite:43 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR]   M3CollectionsPackageRenameTest.promotionRefusesDanglingDestinationSymlink:59 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR]   M3CollectionsPackageRenameTest.promotionRefusesSymlinkAncestorBeforeAnyWrite:39 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[INFO] 
+[ERROR] Tests run: 29, Failures: 3, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  29.811 s
+[INFO] Finished at: 2026-10-18T01:36:12-07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project collections-package-import-rename: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /dev/shm/m3-package-rename-39a960e13a39/recipe-target-8.90.4-varargs/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,15 @@
+{
+  "status": "INTERRUPTED_EXTERNAL_SIGKILL_NO_SUITE_PASS_CLAIM",
+  "exit_code": 137,
+  "uid": 65534,
+  "completed_testlib_console": {
+    "tests": 860810,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "main_status": "PARTIAL; no test failure reported before external kill; not counted as complete",
+  "host_context": "Memory-backed report/copy retention plus bounded reporter and test heaps; kernel cgroup records OOM kills, exact per-process kernel attribution unavailable",
+  "source_change": "None; subsequent module processes retain native tests/options and pin exact producer artifacts",
+  "retained_log": "proof/NATIVE_JRE_UNPRIVILEGED_INTERRUPTED.log"
+}

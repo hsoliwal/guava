@@ -1,0 +1,5671 @@
+{
+  "status": "INTERRUPTED_EXTERNAL_SIGKILL",
+  "maven_returncode": -9,
+  "full_module_attempt": true,
+  "uid": 65534,
+  "expected_suite_count": 491,
+  "completed_suite_count": 424,
+  "completed_console_totals": [
+    863570,
+    0,
+    69,
+    519
+  ],
+  "failed_classes": [
+    "com.m3.collections.guava.io.ByteStreamsTest",
+    "com.m3.collections.guava.io.FilesCreateTempDirTest",
+    "com.m3.collections.guava.io.FilesFileTraverserTest",
+    "com.m3.collections.guava.io.FilesTest",
+    "com.m3.collections.guava.io.MoreFilesTest",
+    "com.m3.collections.guava.io.ResourcesTest",
+    "com.m3.collections.guava.reflect.ClassPathTest"
+  ],
+  "uncompleted_classes": [
+    "com.m3.collections.guava.util.concurrent.AbstractFutureFallbackAtomicHelperTest",
+    "com.m3.collections.guava.util.concurrent.AbstractFutureTest",
+    "com.m3.collections.guava.util.concurrent.AbstractIdleServiceTest",
+    "com.m3.collections.guava.util.concurrent.AbstractListeningExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.AbstractScheduledServiceTest",
+    "com.m3.collections.guava.util.concurrent.AbstractServiceTest",
+    "com.m3.collections.guava.util.concurrent.AggregateFutureStatePreliminaryTest",
+    "com.m3.collections.guava.util.concurrent.AtomicDoubleArrayTest",
+    "com.m3.collections.guava.util.concurrent.AtomicDoubleTest",
+    "com.m3.collections.guava.util.concurrent.AtomicLongMapBasherTest",
+    "com.m3.collections.guava.util.concurrent.AtomicLongMapTest",
+    "com.m3.collections.guava.util.concurrent.AtomicsTest",
+    "com.m3.collections.guava.util.concurrent.CallablesTest",
+    "com.m3.collections.guava.util.concurrent.ClassInitializationTest",
+    "com.m3.collections.guava.util.concurrent.ClosingFutureFinishToFutureTest",
+    "com.m3.collections.guava.util.concurrent.ClosingFutureFinishToValueAndCloserTest",
+    "com.m3.collections.guava.util.concurrent.ClosingFutureLeakTest",
+    "com.m3.collections.guava.util.concurrent.CycleDetectingLockFactoryTest",
+    "com.m3.collections.guava.util.concurrent.ExecutionListTest",
+    "com.m3.collections.guava.util.concurrent.ExecutionSequencerTest",
+    "com.m3.collections.guava.util.concurrent.FakeTimeLimiterTest",
+    "com.m3.collections.guava.util.concurrent.FluentFutureTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingBlockingDequeTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingBlockingQueueTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingFutureTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingListenableFutureTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingListeningExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingObjectTesterTest",
+    "com.m3.collections.guava.util.concurrent.FutureCallbackTest",
+    "com.m3.collections.guava.util.concurrent.FuturesGetCheckedTest",
+    "com.m3.collections.guava.util.concurrent.FuturesGetDoneTest",
+    "com.m3.collections.guava.util.concurrent.FuturesGetUncheckedTest",
+    "com.m3.collections.guava.util.concurrent.FuturesTest",
+    "com.m3.collections.guava.util.concurrent.FuturesTransformAsyncTest",
+    "com.m3.collections.guava.util.concurrent.FuturesTransformTest",
+    "com.m3.collections.guava.util.concurrent.GeneratedMonitorTest",
+    "com.m3.collections.guava.util.concurrent.InterruptibleMonitorTest",
+    "com.m3.collections.guava.util.concurrent.InterruptibleTaskTest",
+    "com.m3.collections.guava.util.concurrent.JdkFutureAdaptersTest",
+    "com.m3.collections.guava.util.concurrent.ListenableFutureTaskTest",
+    "com.m3.collections.guava.util.concurrent.ListenableFutureTest",
+    "com.m3.collections.guava.util.concurrent.ListenerCallQueueTest",
+    "com.m3.collections.guava.util.concurrent.ListeningExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.ListeningScheduledExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.MoreExecutorsTest",
+    "com.m3.collections.guava.util.concurrent.RateLimiterTest",
+    "com.m3.collections.guava.util.concurrent.RunnablesTest",
+    "com.m3.collections.guava.util.concurrent.SequentialExecutorTest",
+    "com.m3.collections.guava.util.concurrent.ServiceManagerTest",
+    "com.m3.collections.guava.util.concurrent.ServiceTest",
+    "com.m3.collections.guava.util.concurrent.SettableFutureTest",
+    "com.m3.collections.guava.util.concurrent.SimpleTimeLimiterTest",
+    "com.m3.collections.guava.util.concurrent.StripedTest",
+    "com.m3.collections.guava.util.concurrent.SupplementalMonitorTest",
+    "com.m3.collections.guava.util.concurrent.ThreadFactoryBuilderTest",
+    "com.m3.collections.guava.util.concurrent.TrustedInputFutureTest",
+    "com.m3.collections.guava.util.concurrent.TrustedListenableFutureTaskTest",
+    "com.m3.collections.guava.util.concurrent.UncaughtExceptionHandlersTest",
+    "com.m3.collections.guava.util.concurrent.UninterruptibleFutureTest",
+    "com.m3.collections.guava.util.concurrent.UninterruptibleMonitorTest",
+    "com.m3.collections.guava.util.concurrent.UninterruptiblesTest",
+    "com.m3.collections.guava.util.concurrent.UntrustedInputFutureTest",
+    "com.m3.collections.guava.util.concurrent.WrappingExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.WrappingScheduledExecutorServiceTest",
+    "com.m3.collections.guava.xml.ClassInitializationTest",
+    "com.m3.collections.guava.xml.XmlEscapersTest"
+  ],
+  "completion_run_classes": [
+    "com.m3.collections.guava.io.ByteStreamsTest",
+    "com.m3.collections.guava.io.FilesCreateTempDirTest",
+    "com.m3.collections.guava.io.FilesFileTraverserTest",
+    "com.m3.collections.guava.io.FilesTest",
+    "com.m3.collections.guava.io.MoreFilesTest",
+    "com.m3.collections.guava.io.ResourcesTest",
+    "com.m3.collections.guava.reflect.ClassPathTest",
+    "com.m3.collections.guava.util.concurrent.AbstractFutureFallbackAtomicHelperTest",
+    "com.m3.collections.guava.util.concurrent.AbstractFutureTest",
+    "com.m3.collections.guava.util.concurrent.AbstractIdleServiceTest",
+    "com.m3.collections.guava.util.concurrent.AbstractListeningExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.AbstractScheduledServiceTest",
+    "com.m3.collections.guava.util.concurrent.AbstractServiceTest",
+    "com.m3.collections.guava.util.concurrent.AggregateFutureStatePreliminaryTest",
+    "com.m3.collections.guava.util.concurrent.AtomicDoubleArrayTest",
+    "com.m3.collections.guava.util.concurrent.AtomicDoubleTest",
+    "com.m3.collections.guava.util.concurrent.AtomicLongMapBasherTest",
+    "com.m3.collections.guava.util.concurrent.AtomicLongMapTest",
+    "com.m3.collections.guava.util.concurrent.AtomicsTest",
+    "com.m3.collections.guava.util.concurrent.CallablesTest",
+    "com.m3.collections.guava.util.concurrent.ClassInitializationTest",
+    "com.m3.collections.guava.util.concurrent.ClosingFutureFinishToFutureTest",
+    "com.m3.collections.guava.util.concurrent.ClosingFutureFinishToValueAndCloserTest",
+    "com.m3.collections.guava.util.concurrent.ClosingFutureLeakTest",
+    "com.m3.collections.guava.util.concurrent.CycleDetectingLockFactoryTest",
+    "com.m3.collections.guava.util.concurrent.ExecutionListTest",
+    "com.m3.collections.guava.util.concurrent.ExecutionSequencerTest",
+    "com.m3.collections.guava.util.concurrent.FakeTimeLimiterTest",
+    "com.m3.collections.guava.util.concurrent.FluentFutureTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingBlockingDequeTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingBlockingQueueTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingFutureTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingListenableFutureTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingListeningExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.ForwardingObjectTesterTest",
+    "com.m3.collections.guava.util.concurrent.FutureCallbackTest",
+    "com.m3.collections.guava.util.concurrent.FuturesGetCheckedTest",
+    "com.m3.collections.guava.util.concurrent.FuturesGetDoneTest",
+    "com.m3.collections.guava.util.concurrent.FuturesGetUncheckedTest",
+    "com.m3.collections.guava.util.concurrent.FuturesTest",
+    "com.m3.collections.guava.util.concurrent.FuturesTransformAsyncTest",
+    "com.m3.collections.guava.util.concurrent.FuturesTransformTest",
+    "com.m3.collections.guava.util.concurrent.GeneratedMonitorTest",
+    "com.m3.collections.guava.util.concurrent.InterruptibleMonitorTest",
+    "com.m3.collections.guava.util.concurrent.InterruptibleTaskTest",
+    "com.m3.collections.guava.util.concurrent.JdkFutureAdaptersTest",
+    "com.m3.collections.guava.util.concurrent.ListenableFutureTaskTest",
+    "com.m3.collections.guava.util.concurrent.ListenableFutureTest",
+    "com.m3.collections.guava.util.concurrent.ListenerCallQueueTest",
+    "com.m3.collections.guava.util.concurrent.ListeningExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.ListeningScheduledExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.MoreExecutorsTest",
+    "com.m3.collections.guava.util.concurrent.RateLimiterTest",
+    "com.m3.collections.guava.util.concurrent.RunnablesTest",
+    "com.m3.collections.guava.util.concurrent.SequentialExecutorTest",
+    "com.m3.collections.guava.util.concurrent.ServiceManagerTest",
+    "com.m3.collections.guava.util.concurrent.ServiceTest",
+    "com.m3.collections.guava.util.concurrent.SettableFutureTest",
+    "com.m3.collections.guava.util.concurrent.SimpleTimeLimiterTest",
+    "com.m3.collections.guava.util.concurrent.StripedTest",
+    "com.m3.collections.guava.util.concurrent.SupplementalMonitorTest",
+    "com.m3.collections.guava.util.concurrent.ThreadFactoryBuilderTest",
+    "com.m3.collections.guava.util.concurrent.TrustedInputFutureTest",
+    "com.m3.collections.guava.util.concurrent.TrustedListenableFutureTaskTest",
+    "com.m3.collections.guava.util.concurrent.UncaughtExceptionHandlersTest",
+    "com.m3.collections.guava.util.concurrent.UninterruptibleFutureTest",
+    "com.m3.collections.guava.util.concurrent.UninterruptibleMonitorTest",
+    "com.m3.collections.guava.util.concurrent.UninterruptiblesTest",
+    "com.m3.collections.guava.util.concurrent.UntrustedInputFutureTest",
+    "com.m3.collections.guava.util.concurrent.WrappingExecutorServiceTest",
+    "com.m3.collections.guava.util.concurrent.WrappingScheduledExecutorServiceTest",
+    "com.m3.collections.guava.xml.ClassInitializationTest",
+    "com.m3.collections.guava.xml.XmlEscapersTest"
+  ],
+  "expected_suites_from": "proof/NATIVE_JRE_ROOT_ATTEMPT.log (complete original native main inventory; two known failure deltas repaired)",
+  "expected_suites": {
+    "com.m3.collections.guava.annotations.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.AbstractIteratorTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.AsciiTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.CaseFormatTest": [
+      32,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.CharMatcherTest": [
+      21,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.CharsetsTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ConverterTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.DefaultsTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.EnumsTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.EquivalenceTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.FinalizableReferenceQueueClassLoaderUnloadingTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.FinalizableReferenceQueueTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.FunctionsTest": [
+      26,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.JoinerTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.MoreObjectsTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ObjectsTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.OptionalTest": [
+      44,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.PreconditionsTest": [
+      47,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.PredicatesTest": [
+      87,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.SplitterTest": [
+      104,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.StandardSystemPropertyTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.StopwatchTest": [
+      17,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.StringsTest": [
+      21,
+      1,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.SuppliersTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ThrowablesTest": [
+      40,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ToStringHelperTest": [
+      52,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.Utf8Test": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.VerifyTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.AbstractCacheTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.AbstractLoadingCacheTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheBuilderGwtTest": [
+      19,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheBuilderSpecTest": [
+      43,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheBuilderTest": [
+      47,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheEvictionTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheExpirationTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheLoaderTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheLoadingTest": [
+      46,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheManualTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheReferencesTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheRefreshTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheStatsTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.EmptyCachesTest": [
+      22,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.ForwardingCacheTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.ForwardingLoadingCacheTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.LocalCacheMapComputeTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.LocalCacheTest": [
+      10309,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.LocalLoadingCacheTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.NullCacheTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.PopulatedCachesTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.RemovalNotificationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.AbstractBiMapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.AbstractIteratorTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.AbstractMapEntryTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.AbstractSequentialIteratorTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayListMultimapTest": [
+      6066,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CollectSpliteratorsTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.Collections2FilterArrayListTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.Collections2Test": [
+      1300,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactHashMapFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactHashMapTest": [
+      3880,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactHashSetFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactHashSetTest": [
+      1569,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactLinkedHashMapFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactLinkedHashMapTest": [
+      4086,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactLinkedHashSetFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactLinkedHashSetTest": [
+      1110,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ComparatorsTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ComparisonChainTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ConcurrentHashMultisetBasherTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ConcurrentHashMultisetTest": [
+      3442,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ContiguousSetTest": [
+      26,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ContiguousSetTest$BuiltTests": [
+      915,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CountTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.DiscreteDomainTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EmptyImmutableTableTest": [
+      25,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EnumBiMapTest": [
+      4112,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EnumHashBiMapTest": [
+      4308,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EnumMultisetTest": [
+      894,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EvictingQueueTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FauxveridesTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FilteredBiMapTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FilteredMapTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FilteredMultimapTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FilteredSortedMapTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FluentIterableTest": [
+      105,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForMapMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingCollectionTest": [
+      377,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingConcurrentMapTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingDequeTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingListIteratorTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingListMultimapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingListTest": [
+      729,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingMapTest": [
+      1740,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingMultimapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingMultisetTest": [
+      1732,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingNavigableMapTest": [
+      32453,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingNavigableSetTest": [
+      507,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingObjectTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingQueueTest": [
+      228,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSetMultimapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSetTest": [
+      439,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedMapImplementsMapTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedMapTest": [
+      11098,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedMultisetTest": [
+      24780,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedSetMultimapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedSetTest": [
+      982,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingTableTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.GeneralRangeTest": [
+      19,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableTest": [
+      29,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBiMapTest": [
+      4565,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashMultimapTest": [
+      5737,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashMultisetTest": [
+      1867,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashingTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableBiMapFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableBiMapInverseMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableBiMapMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableBiMapTest": [
+      12551,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableClassToInstanceMapTest": [
+      1442,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableCollectionTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableEnumMapTest": [
+      1333,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableListCopyOfConcurrentlyModifiedInputTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableListMultimapTest": [
+      8999,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableListTest": [
+      4374,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMapFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMapTest": [
+      12549,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMapWithBadHashesMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMultimapTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMultisetFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMultisetTest": [
+      4755,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableRangeMapTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableRangeSetTest": [
+      766,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSetFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSetMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSetMultimapTest": [
+      8677,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSetTest": [
+      3151,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapHeadMapInclusiveMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapHeadMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapSubMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapTailMapExclusiveMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapTailMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapTest": [
+      67161,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMultisetTest": [
+      20973,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedSetTest": [
+      17272,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableTableTest": [
+      45,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.InternersTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.IterablesFilterArrayListTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.IterablesTest": [
+      131,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.IteratorsTest": [
+      583,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.LinkedHashMultimapTest": [
+      6084,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.LinkedHashMultisetTest": [
+      1969,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.LinkedListMultimapTest": [
+      6304,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ListsImplTest": [
+      42,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ListsTest": [
+      6006,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapMakerInternalMapTest": [
+      29,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapMakerTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsCollectionTest": [
+      235865,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsSortedTransformValuesTest": [
+      66,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsTest": [
+      97,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsTransformValuesTest": [
+      66,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsTransformValuesUnmodifiableIteratorTest": [
+      66,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MinMaxPriorityQueueTest": [
+      253,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MoreCollectorsTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapBuilderTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapsCollectionTest": [
+      38106,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapsFilterEntriesAsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapsTest": [
+      58,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapsTransformValuesAsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultisetsCollectionTest": [
+      23723,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultisetsImmutableEntryTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultisetsTest": [
+      34,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MutableClassToInstanceMapTest": [
+      1813,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.NewCustomTableTest": [
+      25,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ObjectArraysTest": [
+      26,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.OrderingTest": [
+      70,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.PeekingIteratorTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.QueuesTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RangeNonGwtTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RangeTest": [
+      37,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableAsListTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableMapMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableMapWithUnhashableValuesMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableSortedMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableTableTest": [
+      22,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ReserializedImmutableMapMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ReserializedImmutableSortedMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetViewTest": [
+      2736,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetsFilterHashSetTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetsFilterNavigableSetTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetsFilterSortedSetTest": [
+      16,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetsTest": [
+      1749,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SimpleAbstractMultisetTest": [
+      701,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SingletonImmutableMapMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SingletonImmutableMapWithUnhashableValueMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SingletonImmutableSortedMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SingletonImmutableTableTest": [
+      25,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SortedIterablesTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SortedListsTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.StreamsTest": [
+      50,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SubMapMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedBiMapTest": [
+      6933,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedDequeTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedMapTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedMultimapTest": [
+      5668,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedNavigableMapTest": [
+      32643,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedNavigableSetTest": [
+      8953,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedQueueTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedSetTest": [
+      506,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedTableTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TableCollectionTestSuite": [
+      5918,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TableCollectorsTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransposeColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransposeRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TopKSelectorTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TransposedTableTest": [
+      27,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapHeadMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapInterfaceTest": [
+      60,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapSubMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapTailMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableTest": [
+      3835,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeMultimapExplicitTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeMultimapNaturalTest": [
+      40300,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeMultisetTest": [
+      104503,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeRangeMapTest": [
+      3321,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeRangeSetTest": [
+      45,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeTraverserTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableIteratorTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableListIteratorTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.WriteReplaceOverridesTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.ArrayBasedCharEscaperTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.ArrayBasedEscaperMapTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.ArrayBasedUnicodeEscaperTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.CharEscaperBuilderTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.EscapersTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.UnicodeEscaperTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.AsyncEventBusTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.DispatcherTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.EventBusTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.ReentrantEventsTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.SubscriberRegistryTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.SubscriberTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.AbstractNotAnnotatedInSuperclassTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.AnnotatedAndAbstractInSuperclassTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.AnnotatedNotAbstractInSuperclassTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.BaseSubscriberFinderTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.DeepInterfaceTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.NeitherAbstractNorAnnotatedInSuperclassTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.OutsideEventBusTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.DefaultNetworkImplementationsTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ElementOrderTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.EndpointPairTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.GraphEquivalenceTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.GraphMutationTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.GraphPropertiesTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.GraphsTest": [
+      39,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ImmutableNetworkTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ImmutableValueGraphTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.InvalidatableSetTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.MapCacheTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.NetworkEquivalenceTest": [
+      16,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.NetworkMutationTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.StandardImmutableDirectedGraphTest": [
+      134,
+      0,
+      0,
+      62
+    ],
+    "com.m3.collections.guava.graph.StandardImmutableDirectedNetworkTest": [
+      392,
+      0,
+      0,
+      187
+    ],
+    "com.m3.collections.guava.graph.StandardImmutableGraphAdditionalTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.StandardImmutableUndirectedGraphTest": [
+      128,
+      0,
+      0,
+      58
+    ],
+    "com.m3.collections.guava.graph.StandardMutableDirectedGraphTest": [
+      268,
+      0,
+      0,
+      37
+    ],
+    "com.m3.collections.guava.graph.StandardMutableDirectedNetworkTest": [
+      392,
+      0,
+      0,
+      71
+    ],
+    "com.m3.collections.guava.graph.StandardMutableUndirectedGraphTest": [
+      256,
+      0,
+      0,
+      37
+    ],
+    "com.m3.collections.guava.graph.StandardMutableUndirectedNetworkTest": [
+      368,
+      0,
+      0,
+      67
+    ],
+    "com.m3.collections.guava.graph.TraverserTest": [
+      112,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ValueGraphTest": [
+      35,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.AbstractByteHasherTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.AbstractNonStreamingHashFunctionTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.AbstractStreamingHasherTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.BloomFilterTest": [
+      33,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.ChecksumHashFunctionTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.Crc32cHashFunctionTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.FarmHashFingerprint64Test": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.Fingerprint2011Test": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.FunnelsTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.HashCodeTest": [
+      31,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.HashingInputStreamTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.HashingOutputStreamTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.HashingTest": [
+      40,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.MacHashFunctionTest": [
+      28,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.MessageDigestHashFunctionTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.Murmur3Hash128Test": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.Murmur3Hash32Test": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.SipHashFunctionTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.html.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.html.HtmlEscapersTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.AppendableWriterTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.BaseEncodingTest": [
+      41,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ByteSinkTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ByteSourceTest": [
+      2223,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ByteStreamsTest": [
+      58,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CharSequenceReaderTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CharSinkTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CharSourceTest": [
+      1539,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CharStreamsTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CloseablesTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CloserTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CountingInputStreamTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CountingOutputStreamTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.FileBackedOutputStreamTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.FilesCreateTempDirTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.FilesFileTraverserTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.FilesSimplifyPathTest": [
+      34,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.FilesTest": [
+      1160,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.FlushablesTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.LineBufferTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.LittleEndianDataInputStreamTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.LittleEndianDataOutputStreamTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.MoreFilesFileTraverserTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.MoreFilesTest": [
+      1151,
+      1,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.MultiInputStreamTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.MultiReaderTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.PatternFilenameFilterTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ResourcesTest": [
+      773,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.BigDecimalMathTest": [
+      33,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.BigIntegerMathTest": [
+      63,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.DoubleMathTest": [
+      68,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.DoubleUtilsTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.IntMathTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.LinearTransformationTest": [
+      25,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.LongMathTest": [
+      72,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.MathPreconditionsTest": [
+      45,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.PairedStatsAccumulatorTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.PairedStatsTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.QuantilesAlgorithmTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.QuantilesTest": [
+      58,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.StatsAccumulatorTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.StatsTest": [
+      24,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.HostAndPortTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.HostSpecifierTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.HttpHeadersTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.InetAddressesTest": [
+      46,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.InternetDomainNameTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.MediaTypeTest": [
+      51,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.PercentEscaperTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.UrlEscapersTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.BooleansTest": [
+      34,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ByteArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.BytesTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.CharArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.CharsTest": [
+      40,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.DoubleArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.DoublesTest": [
+      50,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.FloatArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.FloatsTest": [
+      49,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ImmutableDoubleArrayTest": [
+      2399,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ImmutableIntArrayTest": [
+      2398,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ImmutableLongArrayTest": [
+      2398,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.IntArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.IntsTest": [
+      52,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.LongArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.LongsTest": [
+      50,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.PrimitivesTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ShortArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ShortsTest": [
+      47,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.SignedBytesTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedBytesTest": [
+      24,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedIntegerTest": [
+      21,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedIntsTest": [
+      26,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedLongTest": [
+      21,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedLongsTest": [
+      24,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.AbstractInvocationHandlerTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ClassPathTest": [
+      43,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ImmutableTypeToInstanceMapTest": [
+      722,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.InvokableTest": [
+      62,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.MutableTypeToInstanceMapTest": [
+      840,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ParameterTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ReflectionTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeParameterTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeResolverTest": [
+      27,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeTokenResolutionTest": [
+      36,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeTokenSubtypeTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeTokenTest": [
+      172,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeVisitorTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypesTest": [
+      27,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixTrieTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractExecutionThreadServiceTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractFutureCancellationCauseTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractFutureDefaultAtomicHelperTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractFutureFallbackAtomicHelperTest": [
+      45,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractFutureTest": [
+      45,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractIdleServiceTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractListeningExecutorServiceTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractScheduledServiceTest": [
+      20,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractServiceTest": [
+      38,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AggregateFutureStatePreliminaryTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AtomicDoubleArrayTest": [
+      27,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AtomicDoubleTest": [
+      25,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AtomicLongMapBasherTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AtomicLongMapTest": [
+      31,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AtomicsTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.CallablesTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ClosingFutureFinishToFutureTest": [
+      69,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ClosingFutureFinishToValueAndCloserTest": [
+      64,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ClosingFutureLeakTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.CycleDetectingLockFactoryTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ExecutionListTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ExecutionSequencerTest": [
+      16,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.FakeTimeLimiterTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.FluentFutureTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ForwardingBlockingDequeTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ForwardingBlockingQueueTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ForwardingExecutorServiceTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ForwardingFutureTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ForwardingListenableFutureTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ForwardingListeningExecutorServiceTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ForwardingObjectTesterTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.FutureCallbackTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.FuturesGetCheckedTest": [
+      33,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.FuturesGetDoneTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.FuturesGetUncheckedTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.FuturesTest": [
+      160,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.FuturesTransformAsyncTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.FuturesTransformTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.GeneratedMonitorTest": [
+      980,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.InterruptibleMonitorTest": [
+      16,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.InterruptibleTaskTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.JdkFutureAdaptersTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ListenableFutureTaskTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ListenableFutureTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ListenerCallQueueTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ListeningExecutorServiceTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ListeningScheduledExecutorServiceTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.MoreExecutorsTest": [
+      34,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.RateLimiterTest": [
+      30,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.RunnablesTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.SequentialExecutorTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ServiceManagerTest": [
+      21,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ServiceTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.SettableFutureTest": [
+      16,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.SimpleTimeLimiterTest": [
+      16,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.StripedTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.SupplementalMonitorTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.ThreadFactoryBuilderTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.TrustedInputFutureTest": [
+      35,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.TrustedListenableFutureTaskTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.UncaughtExceptionHandlersTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.UninterruptibleFutureTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.UninterruptibleMonitorTest": [
+      16,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.UninterruptiblesTest": [
+      60,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.UntrustedInputFutureTest": [
+      35,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.WrappingExecutorServiceTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.WrappingScheduledExecutorServiceTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.xml.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.xml.XmlEscapersTest": [
+      2,
+      0,
+      0,
+      0
+    ]
+  },
+  "completed_suites": {
+    "com.m3.collections.guava.annotations.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.AbstractIteratorTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.AsciiTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.CaseFormatTest": [
+      32,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.CharMatcherTest": [
+      21,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.CharsetsTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ConverterTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.DefaultsTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.EnumsTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.EquivalenceTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.FinalizableReferenceQueueClassLoaderUnloadingTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.FinalizableReferenceQueueTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.FunctionsTest": [
+      26,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.JoinerTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.MoreObjectsTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ObjectsTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.OptionalTest": [
+      44,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.PreconditionsTest": [
+      47,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.PredicatesTest": [
+      87,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.SplitterTest": [
+      104,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.StandardSystemPropertyTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.StopwatchTest": [
+      17,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.StringsTest": [
+      21,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.SuppliersTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ThrowablesTest": [
+      40,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.ToStringHelperTest": [
+      52,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.Utf8Test": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.base.VerifyTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.AbstractCacheTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.AbstractLoadingCacheTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheBuilderGwtTest": [
+      19,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheBuilderSpecTest": [
+      43,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheBuilderTest": [
+      47,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheEvictionTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheExpirationTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheLoaderTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheLoadingTest": [
+      46,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheManualTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheReferencesTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheRefreshTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.CacheStatsTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.EmptyCachesTest": [
+      22,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.ForwardingCacheTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.ForwardingLoadingCacheTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.LocalCacheMapComputeTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.LocalCacheTest": [
+      10309,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.LocalLoadingCacheTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.NullCacheTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.PopulatedCachesTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.cache.RemovalNotificationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.AbstractBiMapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.AbstractIteratorTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.AbstractMapEntryTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.AbstractSequentialIteratorTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayListMultimapTest": [
+      6066,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ArrayTableTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CollectSpliteratorsTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.Collections2FilterArrayListTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.Collections2Test": [
+      1300,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactHashMapFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactHashMapTest": [
+      3880,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactHashSetFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactHashSetTest": [
+      1569,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactLinkedHashMapFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactLinkedHashMapTest": [
+      4086,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactLinkedHashSetFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CompactLinkedHashSetTest": [
+      1110,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ComparatorsTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ComparisonChainTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ConcurrentHashMultisetBasherTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ConcurrentHashMultisetTest": [
+      3442,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ContiguousSetTest": [
+      26,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ContiguousSetTest$BuiltTests": [
+      915,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.CountTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.DiscreteDomainTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EmptyImmutableTableTest": [
+      25,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EnumBiMapTest": [
+      4112,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EnumHashBiMapTest": [
+      4308,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EnumMultisetTest": [
+      894,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.EvictingQueueTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FauxveridesTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FilteredBiMapTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FilteredMapTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FilteredMultimapTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FilteredSortedMapTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.FluentIterableTest": [
+      105,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForMapMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingCollectionTest": [
+      377,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingConcurrentMapTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingDequeTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingListIteratorTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingListMultimapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingListTest": [
+      729,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingMapTest": [
+      1740,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingMultimapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingMultisetTest": [
+      1732,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingNavigableMapTest": [
+      32453,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingNavigableSetTest": [
+      507,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingObjectTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingQueueTest": [
+      228,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSetMultimapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSetTest": [
+      439,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedMapImplementsMapTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedMapTest": [
+      11098,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedMultisetTest": [
+      24780,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedSetMultimapTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingSortedSetTest": [
+      982,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ForwardingTableTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.GeneralRangeTest": [
+      19,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBasedTableTest": [
+      29,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashBiMapTest": [
+      4565,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashMultimapTest": [
+      5737,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashMultisetTest": [
+      1867,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.HashingTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableBiMapFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableBiMapInverseMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableBiMapMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableBiMapTest": [
+      12551,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableClassToInstanceMapTest": [
+      1442,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableCollectionTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableEnumMapTest": [
+      1333,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableListCopyOfConcurrentlyModifiedInputTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableListMultimapTest": [
+      8999,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableListTest": [
+      4374,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMapFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMapTest": [
+      12549,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMapWithBadHashesMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMultimapTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMultisetFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableMultisetTest": [
+      4755,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableRangeMapTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableRangeSetTest": [
+      766,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSetFloodingTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSetMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSetMultimapTest": [
+      8677,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSetTest": [
+      3151,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapHeadMapInclusiveMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapHeadMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapSubMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapTailMapExclusiveMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapTailMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMapTest": [
+      67161,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedMultisetTest": [
+      20973,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableSortedSetTest": [
+      17272,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ImmutableTableTest": [
+      45,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.InternersTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.IterablesFilterArrayListTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.IterablesTest": [
+      131,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.IteratorsTest": [
+      583,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.LinkedHashMultimapTest": [
+      6084,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.LinkedHashMultisetTest": [
+      1969,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.LinkedListMultimapTest": [
+      6304,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ListsImplTest": [
+      42,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ListsTest": [
+      6006,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapMakerInternalMapTest": [
+      29,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapMakerTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsCollectionTest": [
+      235865,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsSortedTransformValuesTest": [
+      66,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsTest": [
+      97,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsTransformValuesTest": [
+      66,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MapsTransformValuesUnmodifiableIteratorTest": [
+      66,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MinMaxPriorityQueueTest": [
+      253,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MoreCollectorsTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapBuilderTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapsCollectionTest": [
+      38106,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapsFilterEntriesAsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapsTest": [
+      58,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultimapsTransformValuesAsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultisetsCollectionTest": [
+      23723,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultisetsImmutableEntryTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MultisetsTest": [
+      34,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.MutableClassToInstanceMapTest": [
+      1813,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.NewCustomTableTest": [
+      25,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ObjectArraysTest": [
+      26,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.OrderingTest": [
+      70,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.PeekingIteratorTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.QueuesTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RangeNonGwtTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RangeTest": [
+      37,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableAsListTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableMapMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableMapWithUnhashableValuesMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableSortedMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.RegularImmutableTableTest": [
+      22,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ReserializedImmutableMapMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.ReserializedImmutableSortedMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetViewTest": [
+      2736,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetsFilterHashSetTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetsFilterNavigableSetTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetsFilterSortedSetTest": [
+      16,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SetsTest": [
+      1749,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SimpleAbstractMultisetTest": [
+      701,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SingletonImmutableMapMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SingletonImmutableMapWithUnhashableValueMapInterfaceTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SingletonImmutableSortedMapMapInterfaceTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SingletonImmutableTableTest": [
+      25,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SortedIterablesTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SortedListsTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.StreamsTest": [
+      50,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SubMapMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedBiMapTest": [
+      6933,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedDequeTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedMapTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedMultimapTest": [
+      5668,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedNavigableMapTest": [
+      32643,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedNavigableSetTest": [
+      8953,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedQueueTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedSetTest": [
+      506,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.SynchronizedTableTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TableCollectionTestSuite": [
+      5918,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TableCollectorsTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransformValuesTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransposeColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TablesTransposeRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TopKSelectorTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TransposedTableTest": [
+      27,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapHeadMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapInterfaceTest": [
+      60,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapSubMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapTailMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeBasedTableTest": [
+      3835,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeMultimapExplicitTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeMultimapNaturalTest": [
+      40300,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeMultisetTest": [
+      104503,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeRangeMapTest": [
+      3321,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeRangeSetTest": [
+      45,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.TreeTraverserTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableIteratorTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableListIteratorTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableMultimapAsMapImplementsMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableRowSortedTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableRowSortedTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableTableColumnMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableTableColumnTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableTableRowMapTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.UnmodifiableTableRowTest": [
+      56,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.collect.WriteReplaceOverridesTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.ArrayBasedCharEscaperTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.ArrayBasedEscaperMapTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.ArrayBasedUnicodeEscaperTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.CharEscaperBuilderTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.EscapersTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.escape.UnicodeEscaperTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.AsyncEventBusTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.DispatcherTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.EventBusTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.ReentrantEventsTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.SubscriberRegistryTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.SubscriberTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.AbstractNotAnnotatedInSuperclassTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.AnnotatedAndAbstractInSuperclassTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.AnnotatedNotAbstractInSuperclassTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.BaseSubscriberFinderTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.DeepInterfaceTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.NeitherAbstractNorAnnotatedInSuperclassTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.eventbus.outside.OutsideEventBusTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.DefaultNetworkImplementationsTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ElementOrderTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.EndpointPairTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.GraphEquivalenceTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.GraphMutationTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.GraphPropertiesTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.GraphsTest": [
+      39,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ImmutableNetworkTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ImmutableValueGraphTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.InvalidatableSetTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.MapCacheTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.NetworkEquivalenceTest": [
+      16,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.NetworkMutationTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.StandardImmutableDirectedGraphTest": [
+      134,
+      0,
+      0,
+      62
+    ],
+    "com.m3.collections.guava.graph.StandardImmutableDirectedNetworkTest": [
+      392,
+      0,
+      0,
+      187
+    ],
+    "com.m3.collections.guava.graph.StandardImmutableGraphAdditionalTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.StandardImmutableUndirectedGraphTest": [
+      128,
+      0,
+      0,
+      58
+    ],
+    "com.m3.collections.guava.graph.StandardMutableDirectedGraphTest": [
+      268,
+      0,
+      0,
+      37
+    ],
+    "com.m3.collections.guava.graph.StandardMutableDirectedNetworkTest": [
+      392,
+      0,
+      0,
+      71
+    ],
+    "com.m3.collections.guava.graph.StandardMutableUndirectedGraphTest": [
+      256,
+      0,
+      0,
+      37
+    ],
+    "com.m3.collections.guava.graph.StandardMutableUndirectedNetworkTest": [
+      368,
+      0,
+      0,
+      67
+    ],
+    "com.m3.collections.guava.graph.TraverserTest": [
+      112,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.graph.ValueGraphTest": [
+      35,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.AbstractByteHasherTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.AbstractNonStreamingHashFunctionTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.AbstractStreamingHasherTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.BloomFilterTest": [
+      33,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.ChecksumHashFunctionTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.Crc32cHashFunctionTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.FarmHashFingerprint64Test": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.Fingerprint2011Test": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.FunnelsTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.HashCodeTest": [
+      31,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.HashingInputStreamTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.HashingOutputStreamTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.HashingTest": [
+      40,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.MacHashFunctionTest": [
+      28,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.MessageDigestHashFunctionTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.Murmur3Hash128Test": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.Murmur3Hash32Test": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.hash.SipHashFunctionTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.html.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.html.HtmlEscapersTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.AppendableWriterTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.BaseEncodingTest": [
+      41,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ByteSinkTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ByteSourceTest": [
+      2223,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ByteStreamsTest": [
+      58,
+      0,
+      2,
+      0
+    ],
+    "com.m3.collections.guava.io.CharSequenceReaderTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CharSinkTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CharSourceTest": [
+      1539,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CharStreamsTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CloseablesTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CloserTest": [
+      11,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CountingInputStreamTest": [
+      9,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.CountingOutputStreamTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.FileBackedOutputStreamTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.FilesCreateTempDirTest": [
+      2,
+      0,
+      1,
+      0
+    ],
+    "com.m3.collections.guava.io.FilesFileTraverserTest": [
+      8,
+      0,
+      8,
+      0
+    ],
+    "com.m3.collections.guava.io.FilesSimplifyPathTest": [
+      34,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.FilesTest": [
+      1160,
+      0,
+      24,
+      0
+    ],
+    "com.m3.collections.guava.io.FlushablesTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.LineBufferTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.LittleEndianDataInputStreamTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.LittleEndianDataOutputStreamTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.MoreFilesFileTraverserTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.MoreFilesTest": [
+      1151,
+      0,
+      30,
+      0
+    ],
+    "com.m3.collections.guava.io.MultiInputStreamTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.MultiReaderTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.PatternFilenameFilterTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.io.ResourcesTest": [
+      773,
+      0,
+      1,
+      0
+    ],
+    "com.m3.collections.guava.math.BigDecimalMathTest": [
+      33,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.BigIntegerMathTest": [
+      63,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.DoubleMathTest": [
+      68,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.DoubleUtilsTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.IntMathTest": [
+      59,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.LinearTransformationTest": [
+      25,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.LongMathTest": [
+      72,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.MathPreconditionsTest": [
+      45,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.PairedStatsAccumulatorTest": [
+      8,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.PairedStatsTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.QuantilesAlgorithmTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.QuantilesTest": [
+      58,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.StatsAccumulatorTest": [
+      14,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.math.StatsTest": [
+      24,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.HostAndPortTest": [
+      15,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.HostSpecifierTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.HttpHeadersTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.InetAddressesTest": [
+      46,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.InternetDomainNameTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.MediaTypeTest": [
+      51,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.PercentEscaperTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.net.UrlEscapersTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.BooleansTest": [
+      34,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ByteArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.BytesTest": [
+      23,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.CharArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.CharsTest": [
+      40,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.DoubleArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.DoublesTest": [
+      50,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.FloatArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.FloatsTest": [
+      49,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ImmutableDoubleArrayTest": [
+      2399,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ImmutableIntArrayTest": [
+      2398,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ImmutableLongArrayTest": [
+      2398,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.IntArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.IntsTest": [
+      52,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.LongArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.LongsTest": [
+      50,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.PrimitivesTest": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ShortArrayAsListTest": [
+      896,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.ShortsTest": [
+      47,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.SignedBytesTest": [
+      13,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedBytesTest": [
+      24,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedIntegerTest": [
+      21,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedIntsTest": [
+      26,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedLongTest": [
+      21,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.primitives.UnsignedLongsTest": [
+      24,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.AbstractInvocationHandlerTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ClassInitializationTest": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ClassPathTest": [
+      43,
+      0,
+      3,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ImmutableTypeToInstanceMapTest": [
+      722,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.InvokableTest": [
+      62,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.MutableTypeToInstanceMapTest": [
+      840,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ParameterTest": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.ReflectionTest": [
+      5,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeParameterTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeResolverTest": [
+      27,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeTokenResolutionTest": [
+      36,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeTokenSubtypeTest": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeTokenTest": [
+      172,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypeVisitorTest": [
+      7,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.reflect.TypesTest": [
+      27,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.thirdparty.publicsuffix.PublicSuffixTrieTest": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractExecutionThreadServiceTest": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractFutureCancellationCauseTest": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "com.m3.collections.guava.util.concurrent.AbstractFutureDefaultAtomicHelperTest": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  "report_archive": {
+    "path": "/dev/shm/m3-package-rename-39a960e13a39/guava-unprivileged-jre-main-interrupted-reports.tar.gz",
+    "sha256": "8eb3b0bdec261b9c255ac371dc3fd83722b60ede168b8516e65a37fa4fab585a",
+    "bytes": 3918562
+  },
+  "retained_log": "proof/NATIVE_JRE_MAIN_INTERRUPTED.log",
+  "temporary_environment": "TEMP_FILESYSTEM_DIAGNOSIS.json; all69 errors are temporary-directory creation failures",
+  "no_complete_main_pass_claim": true
+}

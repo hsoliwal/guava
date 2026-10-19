@@ -1,0 +1,52 @@
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - CompactHashMapFloodingTest.java:27: error: cannot find symbol
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser - public class CompactHashMapFloodingTest extends AbstractHashFloodingTest<Map<Object, Object>> {
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -                                                 ^
+[main] WARN org.openrewrite.java.isolated.ReloadableJava21Parser -   symbol: class AbstractHashFloodingTest
+java.lang.IllegalStateException: Failed to parse CompactHashMapFloodingTest.java because of parse-to-print idempotence on: /*
+ * Copyright (C) 2012 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.google.common.collect;
+
+import static java.lang.Math.log;
+
+import com.google.common.annotations.GwtIncompatible;
+import java.util.Map;
+import org.jspecify.annotations.NullUnmarked;
+
+@GwtIncompatible
+@NullUnmarked
+public class CompactHashMapFloodingTest extends AbstractHashFloodingTest<Map<Object, Object>> {
+  public CompactHashMapFloodingTest() {
+    super(
+        ImmutableList.of(Construction.mapFromKeys(CompactHashMap::create)),
+        n -> n * log(n),
+        ImmutableList.of(QueryOp.MAP_GET));
+  }
+}
+
+	at org.openrewrite.tree.ParseError.toException(ParseError.java:117)
+	at GuavaParserCurrentProbe.main(GuavaParserCurrentProbe.java:2)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.execute(Main.java:484)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.run(Main.java:208)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.main(Main.java:135)
+METHOD CompactHashMapFloodingTest
+STATEMENT class org.openrewrite.java.tree.J$MethodInvocation super(
+        ImmutableList.of(Construction.mapFromKeys(CompactHashMap::create)),
+        var> n-> n *log(n),
+        ImmutableList.of(QueryOp.MAP_GET))
+parsed=1 errors=0 kind=class org.openrewrite.tree.ParseError

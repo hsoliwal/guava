@@ -1,0 +1,146 @@
+/*
+ * Copyright (C) 2011 The Guava Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+package com.m3.collections.guava.collect;
+
+import static com.m3.collections.guava.base.Preconditions.checkNotNull;
+
+import com.m3.collections.guava.annotations.GwtCompatible;
+import com.google.errorprone.annotations.concurrent.LazyInit;
+import com.google.j2objc.annotations.WeakOuter;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.NavigableSet;
+import org.jspecify.annotations.Nullable;
+
+/**
+ * This class provides a skeletal implementation of the {@link SortedMultiset} interface.
+ *
+ * <p>The {@link #count} and {@link #size} implementations all iterate across the set returned by
+ * {@link Multiset#entrySet()}, as do many methods acting on the set returned by {@link
+ * #elementSet()}. Override those methods for better performance.
+ *
+ * @author Louis Wasserman
+ */
+@GwtCompatible
+abstract class AbstractSortedMultiset<E extends @Nullable Object> extends AbstractMultiset<E>
+    implements SortedMultiset<E> {
+  private final Comparator<? super E> comparator;
+
+  // needed for serialization
+  @SuppressWarnings("unchecked")
+  AbstractSortedMultiset() {
+    this((Comparator) Ordering.natural());
+  }
+
+  AbstractSortedMultiset(Comparator<? super E> comparator) {
+    this.comparator = checkNotNull(comparator);
+  }
+
+  @Override
+  public final NavigableSet<E> elementSet() {
+    return new SortedMultisets.NavigableElementSet<>(this);
+  }
+
+  @Override
+  public final Comparator<? super E> comparator() {
+    return comparator;
+  }
+
+  @Override
+  public final @Nullable Entry<E> firstEntry() {
+    Iterator<Entry<E>> entryIterator = internalEntryIterator();
+    return entryIterator.hasNext() ? entryIterator.next() : null;
+  }
+
+  @Override
+  public final @Nullable Entry<E> lastEntry() {
+    Iterator<Entry<E>> entryIterator = descendingEntryIterator();
+    return entryIterator.hasNext() ? entryIterator.next() : null;
+  }
+
+  @Override
+  public final @Nullable Entry<E> pollFirstEntry() {
+    Iterator<Entry<E>> entryIterator = internalEntryIterator();
+    if (entryIterator.hasNext()) {
+      Entry<E> result = entryIterator.next();
+      result = Multisets.immutableEntry(result.getElement(), result.getCount());
+      entryIterator.remove();
+      return result;
+    }
+    return null;
+  }
+
+  @Override
+  public final @Nullable Entry<E> pollLastEntry() {
+    Iterator<Entry<E>> entryIterator = descendingEntryIterator();
+    if (entryIterator.hasNext()) {
+      Entry<E> result = entryIterator.next();
+      result = Multisets.immutableEntry(result.getElement(), result.getCount());
+      entryIterator.remove();
+      return result;
+    }
+    return null;
+  }
+
+  @Override
+  public final SortedMultiset<E> subMultiset(
+      @ParametricNullness E fromElement,
+      BoundType fromBoundType,
+      @ParametricNullness E toElement,
+      BoundType toBoundType) {
+    // These are checked elsewhere, but NullPointerTester wants them checked eagerly.
+    checkNotNull(fromBoundType);
+    checkNotNull(toBoundType);
+    return tailMultiset(fromElement, fromBoundType).headMultiset(toElement, toBoundType);
+  }
+
+  abstract Iterator<Entry<E>> descendingEntryIterator();
+
+  final Iterator<E> descendingIterator() {
+    return Multisets.iteratorImpl(descendingMultiset());
+  }
+
+  @LazyInit private transient @Nullable SortedMultiset<E> descendingMultiset;
+
+  @Override
+  public final SortedMultiset<E> descendingMultiset() {
+    SortedMultiset<E> result = descendingMultiset;
+    if (result == null) {
+      result = descendingMultiset = createDescendingMultiset();
+    }
+    return result;
+  }
+
+  final SortedMultiset<E> createDescendingMultiset() {
+    @WeakOuter
+    final class DescendingMultisetImpl extends DescendingMultiset<E> {
+      @Override
+      SortedMultiset<E> forwardMultiset() {
+        return AbstractSortedMultiset.this;
+      }
+
+      @Override
+      Iterator<Entry<E>> entryIterator() {
+        return descendingEntryIterator();
+      }
+
+      @Override
+      public Iterator<E> iterator() {
+        return descendingIterator();
+      }
+    }
+    return new DescendingMultisetImpl();
+  }
+}

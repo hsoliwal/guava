@@ -1,0 +1,7 @@
+{
+  "native_original_differential_checks": 22321,
+  "working_original_differential_checks": 22321,
+  "active_same_class_refusal": "PASS_EXACT_MESSAGE",
+  "fixture_strict_compile": "PASS --release21 -Xlint:all -Werror",
+  "upstream_working_queue_compile": "PASS ordinary -Xlint:all; retained inherited serial warning, not strict fixture claim"
+}

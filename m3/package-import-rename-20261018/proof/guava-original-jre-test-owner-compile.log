@@ -1,0 +1,161 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 4 modules
+[INFO] Installing Central Publishing features
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Guava Maven Parent                                                 [pom]
+[INFO] Guava: Google Core Libraries for Java                           [bundle]
+[INFO] Guava Testing Library                                              [jar]
+[INFO] Guava Unit Tests                                                   [jar]
+[INFO] 
+[INFO] -------------------< com.google.guava:guava-parent >--------------------
+[INFO] Building Guava Maven Parent 999.0.0-HEAD-jre-SNAPSHOT              [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] -----------------------< com.google.guava:guava >-----------------------
+[INFO] Building Guava: Google Core Libraries for Java 999.0.0-HEAD-jre-SNAPSHOT [2/4]
+[INFO]   from guava/pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- toolchains:4.5.0:toolchain (download-27-and-surefire-version) @ guava ---
+[INFO] Required toolchain: jdk [ vendor='temurin' version='27' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Required toolchain: jdk [ vendor='temurin' version='21' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] 
+[INFO] --- toolchains:3.3.0:toolchain (default) @ guava ---
+[INFO] Required toolchain: jdk [ version='27' ]
+[INFO] Found matching toolchain for type jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ guava ---
+[INFO] Copying 7 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ guava ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (compile-java9) @ guava ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:copy-resources (gradle-module-metadata) @ guava ---
+[INFO] Copying 1 resource from . to target/publish
+[INFO] 
+[INFO] --- bundle:6.2.0:manifest (bundle-manifest) @ guava ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[INFO] Writing manifest: /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ guava ---
+[INFO] skip non existing resourceDirectory /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava/test
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ guava ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] No sources to compile
+[INFO] 
+[INFO] -------------------< com.google.guava:guava-testlib >-------------------
+[INFO] Building Guava Testing Library 999.0.0-HEAD-jre-SNAPSHOT           [3/4]
+[INFO]   from guava-testlib/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava-testlib ---
+[INFO] 
+[INFO] --- toolchains:4.5.0:toolchain (download-27-and-surefire-version) @ guava-testlib ---
+[INFO] Required toolchain: jdk [ vendor='temurin' version='27' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Required toolchain: jdk [ vendor='temurin' version='21' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] 
+[INFO] --- toolchains:3.3.0:toolchain (default) @ guava-testlib ---
+[INFO] Required toolchain: jdk [ version='27' ]
+[INFO] Found matching toolchain for type jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ guava-testlib ---
+[INFO] Copying 1 resource from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ guava-testlib ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (compile-java9) @ guava-testlib ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 298 source files with javac [forked debug parameters release 9 module-path] to target/classes/META-INF/versions/9
+[INFO] JDK-8318913 workaround: patched module-info.class requires version from [9] to [9] on 2 JDK modules [java.base, java.logging]
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-testlib/src/module-info.java:[19,23] [requires-transitive-automatic] requires transitive directive for an automatic module
+[INFO] Some input files use or override a deprecated API.
+[INFO] Recompile with -Xlint:deprecation for details.
+[INFO] Some input files use unchecked or unsafe operations.
+[INFO] Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ guava-testlib ---
+[INFO] Copying 0 resource from test to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ guava-testlib ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 38 source files with javac [forked debug parameters target 1.8] to target/test-classes
+[INFO] 
+[INFO] --------------------< com.google.guava:guava-tests >--------------------
+[INFO] Building Guava Unit Tests 999.0.0-HEAD-jre-SNAPSHOT                [4/4]
+[INFO]   from guava-tests/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-versions) @ guava-tests ---
+[INFO] 
+[INFO] --- toolchains:4.5.0:toolchain (download-27-and-surefire-version) @ guava-tests ---
+[INFO] Required toolchain: jdk [ vendor='temurin' version='27' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Required toolchain: jdk [ vendor='temurin' version='21' ]
+[INFO] Found matching toolchain for toolchainType jdk: JDK[/workspace/scratch/39a960e13a39/toolchain/jdk-21.0.12.1+1]
+[INFO] 
+[INFO] --- toolchains:3.3.0:toolchain (default) @ guava-tests ---
+[INFO] Required toolchain: jdk [ version='27' ]
+[INFO] Found matching toolchain for type jdk: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ guava-tests ---
+[INFO] Copying 1 resource from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ guava-tests ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- build-helper:3.6.2:add-test-source (add-benchmark-sources) @ guava-tests ---
+[INFO] Test Source directory: /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/benchmark added.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ guava-tests ---
+[INFO] Copying 6 resources from test to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ guava-tests ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/dev/shm/m3-package-rename-39a960e13a39/toolchain/jdk-27.0.2+0]
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 671 source files with javac [forked debug parameters target 1.8] to target/test-classes
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[41,24] ProviderList is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[42,24] Providers is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[95,5] ProviderList is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[95,30] Providers is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[96,5] Providers is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[96,31] ProviderList is internal proprietary API and may be removed in a future release
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/guava-tests/test/com/google/common/hash/MacHashFunctionTest.java:[100,7] Providers is internal proprietary API and may be removed in a future release
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Guava Maven Parent 999.0.0-HEAD-jre-SNAPSHOT:
+[INFO] 
+[INFO] Guava Maven Parent ................................. SUCCESS [  0.420 s]
+[INFO] Guava: Google Core Libraries for Java .............. SUCCESS [  6.085 s]
+[INFO] Guava Testing Library .............................. SUCCESS [ 24.154 s]
+[INFO] Guava Unit Tests ................................... SUCCESS [01:05 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:38 min
+[INFO] Finished at: 2026-10-18T02:17:59-07:00
+[INFO] ------------------------------------------------------------------------

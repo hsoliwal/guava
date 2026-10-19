@@ -1,0 +1,61 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.google.guava:failureaccess >-------------------
+[INFO] Building Exact source receiver for relocated failureaccess 1.0.3-m3-relocated-20261018
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.5.0/maven-jar-plugin-3.5.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.5.0/maven-jar-plugin-3.5.0.pom (7.6 kB at 11 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.5.0/maven-jar-plugin-3.5.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/3.5.0/maven-jar-plugin-3.5.0.jar (35 kB at 494 kB/s)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ failureaccess ---
+[INFO] Copying 1 resource from ../../../.. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ failureaccess ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 2 source files with javac [forked debug release 8] to target/classes
+[WARNING] [options] source value 8 is obsolete and will be removed in a future release
+[WARNING] [options] target value 8 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (compile-module) @ failureaccess ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [forked debug release 9] to target/classes/META-INF/versions/9
+[WARNING] /dev/shm/m3-package-rename-39a960e13a39/repos/guava/m3/package-import-rename-20261018/verification-dependencies/failureaccess/../../../../futures/failureaccess/src/module-info.java:[16,11] [module] module name component m3 should avoid terminal digits
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ failureaccess ---
+[INFO] skip non existing resourceDirectory /dev/shm/m3-package-rename-39a960e13a39/repos/guava/m3/package-import-rename-20261018/verification-dependencies/failureaccess/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ failureaccess ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ failureaccess ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ failureaccess ---
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.6.5/maven-archiver-3.6.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.6.5/maven-archiver-3.6.5.pom (4.7 kB at 50 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.10.2/plexus-archiver-4.10.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.10.2/plexus-archiver-4.10.2.pom (7.0 kB at 80 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/23/plexus-23.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/23/plexus-23.pom (31 kB at 345 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.7-4/zstd-jni-1.5.7-4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.7-4/zstd-jni-1.5.7-4.pom (2.0 kB at 8.5 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.6.5/maven-archiver-3.6.5.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.6.5/maven-archiver-3.6.5.jar (28 kB at 497 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.10/xz-1.10.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.7-6/zstd-jni-1.5.7-6.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.10/xz-1.10.jar (169 kB at 1.8 MB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.7-6/zstd-jni-1.5.7-6.jar (7.4 MB at 11 MB/s)
+[INFO] Building jar: /dev/shm/m3-package-rename-39a960e13a39/repos/guava/m3/package-import-rename-20261018/verification-dependencies/failureaccess/target/failureaccess-1.0.3-m3-relocated-20261018.jar
+[INFO] 
+[INFO] --- install:3.1.2:install (default-install) @ failureaccess ---
+[INFO] Installing /dev/shm/m3-package-rename-39a960e13a39/repos/guava/m3/package-import-rename-20261018/verification-dependencies/failureaccess/pom.xml to /dev/shm/m3-package-rename-39a960e13a39/m2/com/google/guava/failureaccess/1.0.3-m3-relocated-20261018/failureaccess-1.0.3-m3-relocated-20261018.pom
+[INFO] Installing /dev/shm/m3-package-rename-39a960e13a39/repos/guava/m3/package-import-rename-20261018/verification-dependencies/failureaccess/target/failureaccess-1.0.3-m3-relocated-20261018.jar to /dev/shm/m3-package-rename-39a960e13a39/m2/com/google/guava/failureaccess/1.0.3-m3-relocated-20261018/failureaccess-1.0.3-m3-relocated-20261018.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.551 s
+[INFO] Finished at: 2026-10-18T02:49:35-07:00
+[INFO] ------------------------------------------------------------------------

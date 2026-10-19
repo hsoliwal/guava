@@ -1,0 +1,147 @@
+[
+  {
+    "path": "futures/failureaccess/src/module-info.java",
+    "old": "  exports com.google.common.util.concurrent.internal;",
+    "new": "  exports com.m3.collections.guava.util.concurrent.internal;"
+  },
+  {
+    "path": "futures/failureaccess/src/module-info.java",
+    "old": "module com.google.common.util.concurrent.internal {",
+    "new": "module com.m3.collections.guava.util.concurrent.internal {"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "  exports com.google.common.collect.testing.features;",
+    "new": "  exports com.m3.collections.guava.collect.testing.features;"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "  exports com.google.common.collect.testing.google;",
+    "new": "  exports com.m3.collections.guava.collect.testing.google;"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "  exports com.google.common.collect.testing.testers;",
+    "new": "  exports com.m3.collections.guava.collect.testing.testers;"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "  exports com.google.common.collect.testing;",
+    "new": "  exports com.m3.collections.guava.collect.testing;"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "  exports com.google.common.escape.testing;",
+    "new": "  exports com.m3.collections.guava.escape.testing;"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "  exports com.google.common.testing;",
+    "new": "  exports com.m3.collections.guava.testing;"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "  exports com.google.common.util.concurrent.testing;",
+    "new": "  exports com.m3.collections.guava.util.concurrent.testing;"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "  requires transitive com.google.common;",
+    "new": "  requires transitive com.m3.collections.guava;"
+  },
+  {
+    "path": "guava-testlib/src/module-info.java",
+    "old": "module com.google.common.testlib {",
+    "new": "module com.m3.collections.guava.testlib {"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.annotations;",
+    "new": "  exports com.m3.collections.guava.annotations;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.base;",
+    "new": "  exports com.m3.collections.guava.base;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.cache;",
+    "new": "  exports com.m3.collections.guava.cache;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.collect;",
+    "new": "  exports com.m3.collections.guava.collect;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.escape;",
+    "new": "  exports com.m3.collections.guava.escape;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.eventbus;",
+    "new": "  exports com.m3.collections.guava.eventbus;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.graph;",
+    "new": "  exports com.m3.collections.guava.graph;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.hash;",
+    "new": "  exports com.m3.collections.guava.hash;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.html;",
+    "new": "  exports com.m3.collections.guava.html;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.io;",
+    "new": "  exports com.m3.collections.guava.io;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.math;",
+    "new": "  exports com.m3.collections.guava.math;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.net;",
+    "new": "  exports com.m3.collections.guava.net;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.primitives;",
+    "new": "  exports com.m3.collections.guava.primitives;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.reflect;",
+    "new": "  exports com.m3.collections.guava.reflect;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.util.concurrent;",
+    "new": "  exports com.m3.collections.guava.util.concurrent;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  exports com.google.common.xml;",
+    "new": "  exports com.m3.collections.guava.xml;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "  requires transitive com.google.common.util.concurrent.internal;",
+    "new": "  requires transitive com.m3.collections.guava.util.concurrent.internal;"
+  },
+  {
+    "path": "guava/src/module-info.java",
+    "old": "module com.google.common {",
+    "new": "module com.m3.collections.guava {"
+  }
+]

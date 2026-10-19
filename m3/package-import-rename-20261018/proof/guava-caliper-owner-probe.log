@@ -1,0 +1,3 @@
+PASS instrumenter owned field EXACT entries=9143
+PASS instrumenter owned field UNDER entries=64
+PASS instrumenter owned field EXCLUDED entries=8

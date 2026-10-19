@@ -1,0 +1,49 @@
+{
+  "schema": "M3_GUAVA_QUALIFIED_PARSER_EXECUTION_V2",
+  "qualification_log": "proof/SDK_QUALIFICATION_FINAL_42.log",
+  "task_fixture_strict_compile": "PASS -Xlint:all -Werror",
+  "upstream_provider_compile": "PASS; existing unchecked diagnostics retained, not strict Werror",
+  "tests": 42,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suite_reports": [
+    "TEST-com.synexia.rewrite.M3CollectionsPackageRenameImportOrderTest.xml",
+    "TEST-com.synexia.rewrite.M3CollectionsPackageRenameMetadataReplayTest.xml",
+    "TEST-com.synexia.rewrite.M3CollectionsPackageRenameMetadataTest.xml",
+    "TEST-com.synexia.rewrite.M3CollectionsPackageRenameModulesTest.xml",
+    "TEST-com.synexia.rewrite.M3CollectionsPackageRenameResourcesTest.xml",
+    "TEST-com.synexia.rewrite.M3CollectionsPackageRenameSnippetTest.xml",
+    "TEST-com.synexia.rewrite.M3CollectionsPackageRenameTest.xml"
+  ],
+  "source_gate": "Full licensed IteratorTester, EqualsTester, CharMatcher counterexamples; annotated varargs/array variants; actual typed double-hash link namespace transform; retained-LST metadata replay admission and fixedpoint controls.",
+  "artifacts": [
+    {
+      "filename": "rewrite-java-8.90.4.jar",
+      "sha256": "c18f5b86a2401f64d82d036460e15937dfd87d41e3b9772757cadee89b89c5bb",
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/m2/org/openrewrite/rewrite-java/8.90.4/rewrite-java-8.90.4.jar"
+    },
+    {
+      "filename": "rewrite-java-21-8.90.4-m3-varargs-doc-anchors-20261018.jar",
+      "sha256": "0c2fa9f1eb36263c81c98e76c31984f53b981f4527ea3438e199feeffdd45a2c",
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/m2/org/openrewrite/rewrite-java-21/8.90.4-m3-varargs-doc-anchors-20261018/rewrite-java-21-8.90.4-m3-varargs-doc-anchors-20261018.jar"
+    }
+  ],
+  "stage_receipts": [
+    "SDK_EXECUTION_ANDROID.tsv",
+    "SDK_EXECUTION_JRE.tsv"
+  ],
+  "source_counts": {
+    "android": 1595,
+    "jre": 1679,
+    "union": 3274
+  },
+  "historical_qualification": "proof/HISTORICAL_PROVIDER_QUALIFICATION_VARARGS_ONLY.json",
+  "historical_qualifications": [
+    "proof/HISTORICAL_PROVIDER_QUALIFICATION_VARARGS_ONLY.json",
+    "proof/HISTORICAL_PROVIDER_QUALIFICATION_REPLAY_36.json",
+    "proof/HISTORICAL_PROVIDER_QUALIFICATION_OUTPUT_ADMISSION_40.json"
+  ],
+  "output_admission_regressions": "PASS_SYMLINK_AND_HARDLINK_RECEIPT_CANDIDATE_CURRENT_PREIMAGE_STAGE_ISOLATION",
+  "qualification_log_sha256": "c2f91e6ff67dc8de8f8811e27baecbeff7d35ed3c4860cab3f9ee8c639205290"
+}

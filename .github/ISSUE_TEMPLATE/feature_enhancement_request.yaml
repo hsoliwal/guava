@@ -18,7 +18,7 @@ body:
     attributes:
       label: API(s)
       description: Which existing classes or methods do you want to improve?
-      placeholder: e.g., `com.google.common.collect.ImmutableList::of`
+      placeholder: e.g., `com.m3.collections.guava.collect.ImmutableList::of`
       render: java
     validations:
       required: true

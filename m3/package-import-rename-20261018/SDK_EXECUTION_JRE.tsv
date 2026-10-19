@@ -1,0 +1,11 @@
+key	value
+recipe	com.synexia.rewrite.M3CollectionsPackageRenameRecipe
+family	guava
+provider	rewrite-java-8.90.4.jar;sha256=c18f5b86a2401f64d82d036460e15937dfd87d41e3b9772757cadee89b89c5bb
+parser_implementation	rewrite-java-21-8.90.4-m3-varargs-doc-anchors-20261018.jar;sha256=0c2fa9f1eb36263c81c98e76c31984f53b981f4527ea3438e199feeffdd45a2c
+java	21.0.12.1
+inputs	1679
+changed	1679
+batch_size	32
+fixed_point	PASS
+production_compile	NOT_CLAIMED

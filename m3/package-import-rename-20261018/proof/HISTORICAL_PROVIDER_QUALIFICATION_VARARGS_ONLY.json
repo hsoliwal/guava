@@ -1,0 +1,29 @@
+{
+  "schema": "M3_GUAVA_QUALIFIED_PARSER_EXECUTION_V1",
+  "stage_directory": "/dev/shm/m3-package-rename-39a960e13a39/guava-sdk-candidates-8.90.4-varargs",
+  "qualification_log": "/dev/shm/m3-package-rename-39a960e13a39/guava-provider-8.90.4-varargs-qualification.log",
+  "strict_compile": "PASS",
+  "tests": 26,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_gate": "Exact full licensed IteratorTester and EqualsTester preserved; diagnostic fixtures supplement them.",
+  "artifacts": [
+    {
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/m2/org/openrewrite/rewrite-java/8.90.4/rewrite-java-8.90.4.jar",
+      "filename": "rewrite-java-8.90.4.jar",
+      "sha256": "c18f5b86a2401f64d82d036460e15937dfd87d41e3b9772757cadee89b89c5bb"
+    },
+    {
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/m2/org/openrewrite/rewrite-java-21/8.90.4-m3-annotated-varargs-20261018/rewrite-java-21-8.90.4-m3-annotated-varargs-20261018.jar",
+      "filename": "rewrite-java-21-8.90.4-m3-annotated-varargs-20261018.jar",
+      "sha256": "d8d782aea007986928373d5dd7956120bbcd703c06b7c5f634ae8742da34e212"
+    },
+    {
+      "path": "/dev/shm/m3-package-rename-39a960e13a39/m2/org/openrewrite/rewrite-java-21/8.90.4/rewrite-java-21-8.90.4.jar",
+      "filename": "rewrite-java-21-8.90.4.jar",
+      "sha256": "099c9ba2ce7248b34482e33885ce7cf7154c717748f1e909c26fa32a48feae9a"
+    }
+  ],
+  "stage_disposition": "IN_PROGRESS; no production compilation or target mutation claimed"
+}

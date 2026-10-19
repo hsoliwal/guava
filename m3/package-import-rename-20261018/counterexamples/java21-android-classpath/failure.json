@@ -1,0 +1,7 @@
+{
+  "path": "android/guava-tests/test/com/google/common/collect/CollectSpliteratorsTest.java",
+  "sha256": "a19c0ca4627576c628a547a6bd8da546a3474c03ad223509ff753d2d675984dc",
+  "parsed_before_refusal": 480,
+  "scope": "Wrong JRE API used for Android attribution. Android map(Spliterator, Function) and JRE map(Spliterator,int,Function) differ. No provider change made.",
+  "disposition": "Original Android native owner classes compiled and hashed separately; full input inventory split without omissions."
+}

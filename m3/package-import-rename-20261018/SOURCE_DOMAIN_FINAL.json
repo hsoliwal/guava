@@ -1,0 +1,29 @@
+{
+  "schema": "M3_GUAVA_COMPLETE_ORIGINAL_DOMAIN_V1",
+  "immutable_original_commit": "dfd9dca629d44faf71846b1f85acd38556f4854d",
+  "original_tracked_files": 3377,
+  "admitted_current_original_domain_files": 3377,
+  "missing": 0,
+  "collisions": 0,
+  "java_namespace_inputs": 3274,
+  "exact_move_receipt_rows": 87,
+  "same_path_files": 72,
+  "source_domain_manifest_sha256": "b18ad25c6761c32d633ab47e816d6cfbd1fc9601c8c74311fd28705af8e5221a",
+  "scope": "Entire original tracked domain; generated task evidence/dependency receivers and subsequently added remote M3 inventory files are additional explicitly owned inputs, not silently omitted donor originals.",
+  "prior_manifest_sha256": "fdd5bee826dd83b0aab27f17951a4ee417922671b75e746da444ad2e0f2fa165",
+  "post_test_metadata_lineage": [
+    {
+      "path": "android/guava/pom.xml",
+      "previous_sha256": "bc4abe281a076a0acb07e3b4d7e7898bb3d079385fcbdf11b77b790c55b745af",
+      "sha256": "b51a54bcd61176ef47c6675af8ad79d91f69244a599a5f69feffcbb4c2d69f93"
+    },
+    {
+      "path": "guava/pom.xml",
+      "previous_sha256": "1eca593174591a199b5c1f48685fd652b8f1559f19c7763bcc055f9b73b3003a",
+      "sha256": "f5c1aaf9a72f9f56e77db1fb3965a5eb16694565452c19a2422b96941e90169f"
+    }
+  ],
+  "post_test_metadata_receipts": [
+    "OSGI_PRIVATE_SCOPE_LINEAGE.json"
+  ]
+}

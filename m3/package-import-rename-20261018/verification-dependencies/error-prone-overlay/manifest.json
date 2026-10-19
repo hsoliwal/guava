@@ -1,0 +1,31 @@
+{
+  "schema": "M3_PINNED_ERROR_PRONE_CLASS_OVERLAY_V1",
+  "canonical_owner": "hsoliwal/com.synexia/synexia-openrewrite-recipes/recipes/collections-package-import-rename-20261018/tool-corrections/error-prone-2.50.0",
+  "canonical_source_pins": {
+    "src/main/java/com/google/errorprone/bugpatterns/threadsafety/HeldLockAnalyzer.java": "647a180a7652b8e0130c940e19b6014207be3d16faa63253e95c4216d2b7befc",
+    "src/main/java/com/google/errorprone/bugpatterns/threadsafety/WellKnownMutability.java": "8fbf991868dd770f4d5575fcb0b8bc5d07968bf183bd25d2e592f8fed2370a40"
+  },
+  "canonical_build_script_sha256": "fd80b011066b7a9dd64c6950731a8b58cbb2447da6dcdb1ccf1f9158f3a4b210",
+  "upstream_source_git_blobs": {
+    "WellKnownMutability.java": "164ecebd27ce4ae6efec701f3094511626cb2f4a",
+    "HeldLockAnalyzer.java": "bb92c37309376d2368a60ad78a2f3bfe3b0f36d6"
+  },
+  "original_jar_sha256": "40a88d3ea732fac3a57ae0e2b27f1729ce76cc41857bcd63d5845e79eae5f72e",
+  "original_pom_sha256": "88230678dca735cc2dc10d6331bcaf7428d2bd108d621d4dc69178224297e1f6",
+  "receiver_version": "2.50.0-m3-guava-namespace-20261018",
+  "receiver_jar_sha256": "00bfd0a01639209649f20bf7bd957a34dab4981006203a72d88cdbd35b055f8b",
+  "receiver_pom_sha256": "c056a3826a745355290eb9aaec70c74cf5cc1474a423adf2a9c1e1114272b227",
+  "overlay_sha256": "9f35fb7d9d9eefcb61caeb53eb78e1780d251758f496d919be5325b80ded457c",
+  "reconstructor_sha256": "7ac5334abf9e8553f31e33998b1ccd80c536c1aa9deb76476977074f48c6b74e",
+  "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "entries": {
+    "com/google/errorprone/bugpatterns/threadsafety/HeldLockAnalyzer$1.class": "796395d06d7a293aad761fa4785b54ee71a4bcfb6f1fd2adcc339409e52d3312",
+    "com/google/errorprone/bugpatterns/threadsafety/HeldLockAnalyzer$ExpectedLockCalculator.class": "f3bafa98d726fc54ed5fb6cb35feb16f8b26bf7f26066cbec064234a6af29a4a",
+    "com/google/errorprone/bugpatterns/threadsafety/HeldLockAnalyzer$LockOperationFinder.class": "2f5b5ab091aaae08d7d378d92a6bdd39b451ec8c975d9edce5f675d39034a250",
+    "com/google/errorprone/bugpatterns/threadsafety/HeldLockAnalyzer.class": "43ec24160296ba3cc5c713780680c74c8f57c43d51dd3fe1c2f6b97623a410d7",
+    "com/google/errorprone/bugpatterns/threadsafety/WellKnownMutability.class": "d71fb3f3f8a06a2b3475861ba78413091a8889a15653554d9e9bb2012f5f3b46",
+    "com/google/errorprone/bugpatterns/threadsafety/HeldLockAnalyzer$LockScanner.class": "de3ec8f7c01327a8413762fcf9fe45d3acc856d8c7d545cf7a05c08c6f5843d8",
+    "com/google/errorprone/bugpatterns/threadsafety/HeldLockAnalyzer$LockResource.class": "6aba58677ff218c650b9aebba50b395b6108da355e677f4212bd73a1d8c6c6b6",
+    "com/google/errorprone/bugpatterns/threadsafety/HeldLockAnalyzer$ReleasedLockFinder.class": "ee9fb5ba5955f9c920fa3f8b36adcd8e6a04f213610af9e30cb9c4af7bfe90a3"
+  }
+}

@@ -1,0 +1,2 @@
+path	before_sha256	after_sha256	fixedpoint	refusals
+.github/workflows/m3-guava-evicting-package-first-20261018.yml	66cbe736b65ad02d6ee422c5e839b6db68d0c9762af5f2d437b8c26e37120a3a	9cce7699a573bc7f475514b0b3ca4ff5ecc77d8c21c826d3520a4a5cd46beb28	PASS	DRIFT_MISSING_DUPLICATE_PASS
