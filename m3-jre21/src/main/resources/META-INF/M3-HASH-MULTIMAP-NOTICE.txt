@@ -1,0 +1,11 @@
+SPDX-FileCopyrightText: 2026 Hitesh Soliwal and Contributors to the Synexia Project
+SPDX-License-Identifier: Apache-2.0
+
+HashMultimap adapts Guava33.4.8 Apache-2.0 APIs onto existing M3LinkedHashMap array/index tables.
+The primitive API projection LFU derives from M3jdk21@6ae20943e2295e6120c9666a04dc1f2be29f4873,
+M3LFUCache.java blob315fad8a68c1af45d7e23bdded687bea3d6537e8, and qualified HashBiMap v7.
+Only immutable pair projections are cached; exact reference checks protect canonical representatives.
+Primitive cache bookkeeping is bounded128; upstream temporary entries may still be allocated on hits.
+Inherited live asMap/count-entry management remains a separate open proof surface.
+Detached private ValueSet result streams require same-provider qualification;
+stock-provider readability remains UNQUALIFIED. No peak or universal allocation claim.

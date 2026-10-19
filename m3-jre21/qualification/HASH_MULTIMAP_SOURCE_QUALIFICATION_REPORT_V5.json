@@ -1,0 +1,2386 @@
+{
+  "K_free_observed": 1421254656,
+  "all_107_families_completed": false,
+  "configured_autoreview": "NO_VERDICT_PRESERVED_NO_RETRY_SWITCH_OR_BYPASS",
+  "cross_provider_stream_byte_identity": "NOT_CLAIMED",
+  "detached_result_stock_readability": "UNQUALIFIED_PRIVATE_VALUESET_DESCRIPTOR",
+  "detached_results": "SAME_NATIVE_PROVIDER_SERIALIZATION_MUTABILITY_ALIASES_AND_INDEPENDENCE_PASSED",
+  "final_artifact_qualification": "PENDING_COMPLETE_JAR_MODULE_SINGLE_PROVIDER_AND_PRODUCT_POM_SDK",
+  "full_collection_goal": "ACTIVE_UNFINISHED",
+  "history": {
+    "ABI_failed_attempt_history": [
+      {
+        "compiler_exit": 0,
+        "log": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-stock-1.log",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum_physical": 1283977216,
+        "original_outputs_not_admitted": [
+          {
+            "bytes": 2214,
+            "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\abi-v5-client\\stock\\classes\\com\\synexia\\bench\\M3HashMultimapForEachSourceClient.class",
+            "sha256": "f860759a12298af6e5f494229a5cc2826931fa13f88041a2b93e6c93bd5d72ad"
+          }
+        ],
+        "passed": false,
+        "receipt": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-stock-1.json",
+        "receipt_sha256": "fd33050c30cdf55ad257a6267419b0413afae8f6be6e81d2b1dbb48bdfcad71b",
+        "replacement_attempt": "hash-multimap-v5-abi-source-stock-2",
+        "retained_unchanged": true,
+        "status": "FAILED",
+        "stop_reason": "after terminal: physical1.5GiB"
+      }
+    ],
+    "exploratory_rejection": {
+      "bytes": 75101,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\CHALLENGE_OPTIMIZATION_REPORT_V1.json",
+      "sha256": "f1907eea06b07cf6d549ba843573bab2980744be558b0f06937b36c639e3073c"
+    },
+    "exploratory_status": "REJECTED_PREREGISTERED_PERFORMANCE_GATE_KEEP_BASELINE",
+    "rejected_variants": {
+      "after": "direct primitive ValueSet.forEach rejected at first latency screen, one JVM retained",
+      "singleton": "singleton-only override rejected after all three JVMs, all evidence retained"
+    },
+    "resource_interruptions_retained": [
+      {
+        "log": {
+          "bytes": 22052,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-2.log",
+          "sha256": "8537716d2a1794c0d03b077a51b792dffb5e7a08df4d6fd66f02b30e3891a53a"
+        },
+        "partial_result": {
+          "bytes": 0,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\outer-2.json",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "reason": "physical1.5GiB",
+        "status": "NOT_ADMITTED_RESOURCE_INTERRUPTION",
+        "terminal": {
+          "bytes": 7119,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-2.json",
+          "sha256": "069ea70e95e754721d67b9d4e144fa4c7359b97b0d0dc2bd592d07160ec204f9"
+        },
+        "trial": 2
+      }
+    ],
+    "stream_V1_observer_correction": {
+      "correction": "V2 allows Collections$EmptySet only in detached stream scope, requires add rejection, checks empty clear/remove no-ops. Logical owner descriptor allowlist remains strict.",
+      "executed": false,
+      "issue": "Optional empty detached result is Collections.emptySet; empty clear may no-op and remove(absent) may return false. V1 incorrectly required clear rejection and omitted its descriptor.",
+      "original_packet": {
+        "bytes": 3792,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v1\\PREPARED_PROOF_V1.json",
+        "sha256": "e29d46cc320f6d9eefd48481539bb2410bfc54b82e114d6f7ddc424bc9b91f9c"
+      },
+      "original_sources_preserved": [
+        {
+          "bytes": 15244,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v1\\M3HashMultimapStreamProtocol.java",
+          "sha256": "5ac3477a54e794d9d5327a453e8f97cb2a668d358861918f2444e9a90c61a8ed"
+        },
+        {
+          "bytes": 7278,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_stream_v1.py",
+          "sha256": "19064c2977ca1f8486376f6ea44df9963c747c03ad4dc7409084b619a7196f32"
+        }
+      ],
+      "production_change": false
+    }
+  },
+  "immutable_pair_cache_bound": 128,
+  "immutable_pair_cache_scope_only": true,
+  "inherited_live_API_entry_cache_coverage": "OPEN",
+  "inputs": [
+    {
+      "bytes": 19936,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\com\\google\\code\\findbugs\\jsr305\\3.0.2\\jsr305-3.0.2.jar",
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+    },
+    {
+      "bytes": 19401,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\com\\google\\errorprone\\error_prone_annotations\\2.36.0\\error_prone_annotations-2.36.0.jar",
+      "sha256": "77440e270b0bc9a249903c5a076c36a722c4886ca4f42675f2903a1c53ed61a5"
+    },
+    {
+      "bytes": 10763,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\com\\google\\guava\\failureaccess\\1.0.3\\failureaccess-1.0.3.jar",
+      "sha256": "cbfc3906b19b8f55dd7cfd6dfe0aa4532e834250d7f080bd8d211a3e246b59cb"
+    },
+    {
+      "bytes": 1861124,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\com\\google\\guava\\guava\\32.0.0-jre\\guava-32.0.0-jre-sources.jar",
+      "sha256": "e8c6bdd4c859768a59dd85b704a25275dd69dee23100b90c78e5e1215fa0336f"
+    },
+    {
+      "bytes": 12467,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\com\\google\\j2objc\\j2objc-annotations\\3.0.0\\j2objc-annotations-3.0.0.jar",
+      "sha256": "88241573467ddca44ffd4d74aa04c2bbfd11bf7c17e0c342c94c9de7a70a7c64"
+    },
+    {
+      "bytes": 78146,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\net\\sf\\jopt-simple\\jopt-simple\\5.0.4\\jopt-simple-5.0.4.jar",
+      "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+    },
+    {
+      "bytes": 13968,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\net\\sf\\jopt-simple\\jopt-simple\\5.0.4\\jopt-simple-5.0.4.pom",
+      "sha256": "6a67763b76afcd9c80b95e5c5e24782d18cc1b0e3d9b454ad3f8754c76b76815"
+    },
+    {
+      "bytes": 2213560,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\apache\\commons\\commons-math3\\3.6.1\\commons-math3-3.6.1.jar",
+      "sha256": "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308"
+    },
+    {
+      "bytes": 28697,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\apache\\commons\\commons-math3\\3.6.1\\commons-math3-3.6.1.pom",
+      "sha256": "fad72336ea7d7dd06da103144e3740db508fa4b17d9c54d7847737edc24a7e60"
+    },
+    {
+      "bytes": 6806,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\apiguardian\\apiguardian-api\\1.1.2\\apiguardian-api-1.1.2.jar",
+      "sha256": "b509448ac506d607319f182537f0b35d71007582ec741832a1f111e5b5b70b38"
+    },
+    {
+      "bytes": 1789461,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\eclipse\\collections\\eclipse-collections-api\\11.1.0\\eclipse-collections-api-11.1.0.jar",
+      "sha256": "1b8608ecf4e681f031c29a28c403f71476fe5df3a8f0c0dd8c7ad33b91984212"
+    },
+    {
+      "bytes": 10475509,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\eclipse\\collections\\eclipse-collections\\11.1.0\\eclipse-collections-11.1.0.jar",
+      "sha256": "8881749de791c28c6ccea621314a3a154cfe76ef77c30054b6e714c3dc76969d"
+    },
+    {
+      "bytes": 3819,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\jspecify\\jspecify\\1.0.0\\jspecify-1.0.0.jar",
+      "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab"
+    },
+    {
+      "bytes": 210956,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\junit\\jupiter\\junit-jupiter-api\\5.10.2\\junit-jupiter-api-5.10.2.jar",
+      "sha256": "afff77c186cd317275803872fa5133aa801fd6ac40bd91c78a6cf8009b4b17cc"
+    },
+    {
+      "bytes": 244690,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\junit\\jupiter\\junit-jupiter-engine\\5.10.2\\junit-jupiter-engine-5.10.2.jar",
+      "sha256": "b6df35da750a546ae932376f11b3c0df841f0c90c7cb2944cd39adb432886e4b"
+    },
+    {
+      "bytes": 586027,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\junit\\jupiter\\junit-jupiter-params\\5.10.2\\junit-jupiter-params-5.10.2.jar",
+      "sha256": "edb1e43ff0b8067626ffb55e5e9eeca1d9ab2478141a7c7f253d115b29cc7cf2"
+    },
+    {
+      "bytes": 6359,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\junit\\jupiter\\junit-jupiter\\5.10.2\\junit-jupiter-5.10.2.jar",
+      "sha256": "263e43447f4b40f126ad6b1dcbd7df379448413bdedb8e0d240c5bcbba7c7a4f"
+    },
+    {
+      "bytes": 106232,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\junit\\platform\\junit-platform-commons\\1.10.2\\junit-platform-commons-1.10.2.jar",
+      "sha256": "b56a5ec000a479df4973b18bba24c98fe0db8faa14c8907d3ef451d8c71fd8ae"
+    },
+    {
+      "bytes": 204821,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\junit\\platform\\junit-platform-engine\\1.10.2\\junit-platform-engine-1.10.2.jar",
+      "sha256": "905cba9b4998ccc29d1239085a7fb1fe0e28024d7526152356d810edec0a49a3"
+    },
+    {
+      "bytes": 183814,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\junit\\platform\\junit-platform-launcher\\1.10.2\\junit-platform-launcher-1.10.2.jar",
+      "sha256": "aed4f42fb90ada9b347c231f13656fc09121ba20dab6dc646a6bd9d4da31e4aa"
+    },
+    {
+      "bytes": 552986,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\openjdk\\jmh\\jmh-core\\1.37\\jmh-core-1.37.jar",
+      "sha256": "dc0eaf2bbf0036a70b60798c785d6e03a9daf06b68b8edb0f1ba9eb3421baeb3"
+    },
+    {
+      "bytes": 9293,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\openjdk\\jmh\\jmh-core\\1.37\\jmh-core-1.37.pom",
+      "sha256": "04453be006f06f86d7c43f3c492f7b4eb3362680cae4f1ee80ba65db23373f5a"
+    },
+    {
+      "bytes": 30881,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\openjdk\\jmh\\jmh-generator-annprocess\\1.37\\jmh-generator-annprocess-1.37.jar",
+      "sha256": "6a5604b5b804e0daca1145df1077609321687734a8b49387e49f10557c186c77"
+    },
+    {
+      "bytes": 3697,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\openjdk\\jmh\\jmh-generator-annprocess\\1.37\\jmh-generator-annprocess-1.37.pom",
+      "sha256": "e4240265b5425c39f1cf2733afda3aec3b139dd193e794d55137bec9240ff476"
+    },
+    {
+      "bytes": 14304,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\opentest4j\\opentest4j\\1.3.0\\opentest4j-1.3.0.jar",
+      "sha256": "48e2df636cab6563ced64dcdff8abb2355627cb236ef0bf37598682ddf742f1b"
+    },
+    {
+      "bytes": 1954386,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\springframework\\spring-core\\6.2.0\\spring-core-6.2.0.jar",
+      "sha256": "3b82629da38717dd616a70ec1055f9a8e208d58132071a6314a32159f8bce162"
+    },
+    {
+      "bytes": 24534,
+      "path": "C:\\Users\\hsoliwal\\.m2\\repository\\org\\springframework\\spring-jcl\\6.2.0\\spring-jcl-6.2.0.jar",
+      "sha256": "2b59288f030ce77a89ec88aa426f32eb9a309056f3646dd5157f9f31f0204fd7"
+    },
+    {
+      "bytes": 681,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\TASK_AUTHORIZATION_96_MIB.json",
+      "sha256": "1359beca294564f01fa3558de436d08242ca4bed234c8dbd47bd08820508c6b1"
+    },
+    {
+      "bytes": 1007,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-1-attempt.json",
+      "sha256": "f4450313d1a7e3929829d89aa26bc52fd83a89f8bed2f340aef442f6a2d2cca4"
+    },
+    {
+      "bytes": 5866,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-1-owned-start.json",
+      "sha256": "0c89bdebcd7e44dcb7b68e1275a7263015723c87bb682b6e2581b39a21e6fa8d"
+    },
+    {
+      "bytes": 7565,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-1.json",
+      "sha256": "a0b86c83d8d870c503f423e7feaf4557a18bc70eac6744aaa287a343ae45da71"
+    },
+    {
+      "bytes": 41845,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-1.log",
+      "sha256": "e2e22a6189b691621fab37a549bb5b05b002f461ed83549a0c72d6e6f9175ed3"
+    },
+    {
+      "bytes": 1007,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-2-attempt.json",
+      "sha256": "c36accece1d1a268151dcaa4c5dbcf39fa7e78d2c1dee4e0f6dee90209bfed23"
+    },
+    {
+      "bytes": 5866,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-2-owned-start.json",
+      "sha256": "23996f536dd59207aea2eb509987e55439511e12640dc7fbcead9c5267fb45ba"
+    },
+    {
+      "bytes": 7565,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-2.json",
+      "sha256": "39bac3ee72998c14fde8d77d02f8ec45ca122c3ea18cf7b049b4c45e83f0803c"
+    },
+    {
+      "bytes": 41842,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-2.log",
+      "sha256": "f33b0e8e690279b793cfbdd98d67739ef87a5df66f8816ca5282f4d9af8422a5"
+    },
+    {
+      "bytes": 1007,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-3-attempt.json",
+      "sha256": "bd40d96fc79842e9cca172f186272504b86aace885bae6b68cc3e7ca9e476784"
+    },
+    {
+      "bytes": 5866,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-3-owned-start.json",
+      "sha256": "672a042984fffda575746051168e151ca54181f9e7b1c1136719926238c1f411"
+    },
+    {
+      "bytes": 7565,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-3.json",
+      "sha256": "5bb27eeb62ac955b9020c74b1b6ca49c17383152c5cc79887c0fa18ac15108f2"
+    },
+    {
+      "bytes": 41324,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-3.log",
+      "sha256": "c92cfb105774558ded716cea6801f44a4ab5bad00c0585ae55f4fa56d27634e3"
+    },
+    {
+      "bytes": 1005,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-1-attempt.json",
+      "sha256": "b6d7ff40cda8cb9876cff8c0cd982e8fcb40f53eafb6cb234ccfe705f62e4ec1"
+    },
+    {
+      "bytes": 5863,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-1-owned-start.json",
+      "sha256": "2270700116705407d7592411a88bb388c99e4cd8ac8366a934efd66e30da59a6"
+    },
+    {
+      "bytes": 7562,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-1.json",
+      "sha256": "ebb2f6ad05e1f407daf97a1235394e9eed39191e13a5a1b31ab5bf53621b92dd"
+    },
+    {
+      "bytes": 41137,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-1.log",
+      "sha256": "61722a70827bc4cd7070366c024cf7f21c4f6653b668f5f4459c0d8f50eee2da"
+    },
+    {
+      "bytes": 1005,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-2-attempt.json",
+      "sha256": "f3b47564c19ab6e6f913d90e5db58b51329296af5d4a113442ce31adb56aacb0"
+    },
+    {
+      "bytes": 5863,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-2-owned-start.json",
+      "sha256": "ea191cd375e2eebefe82096adc361b067587d790618cd4ae9f8817e65da8419f"
+    },
+    {
+      "bytes": 7562,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-2.json",
+      "sha256": "9d08338d186d4866ed1ca9f3129313f3be3a3f8d0d25ec1bb31f8436a5240ee4"
+    },
+    {
+      "bytes": 40612,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-2.log",
+      "sha256": "fe30b7777c96ec1946ef895ae57b45a592d898dc84f8a26e2304ce68128d1249"
+    },
+    {
+      "bytes": 1005,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-3-attempt.json",
+      "sha256": "5cc92574192b427c709f647c698108b6bd36a531e730fbbcee42a164dcd66866"
+    },
+    {
+      "bytes": 5863,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-3-owned-start.json",
+      "sha256": "f78146042508e54fa87fa338f74e938eaf8a1c7df2b1f18b771d2aac2232d59a"
+    },
+    {
+      "bytes": 7562,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-3.json",
+      "sha256": "6b5e09867f6c0b3357ced85796ba58f6dd724ea14f3721b97bf0a960b87e5560"
+    },
+    {
+      "bytes": 40607,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-3.log",
+      "sha256": "aab680d75619825a1f3767dfbd833bc6c569f22e8e17a268312440ca5b435e9f"
+    },
+    {
+      "bytes": 6583,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-foreach-before-1.json",
+      "sha256": "9421261a13c2b13185abf31a8c2ff9d2420b6f19c567991763006e13c7201b13"
+    },
+    {
+      "bytes": 717,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-foreach-before-1.log",
+      "sha256": "736e00d2523c10d08beeb14c0891bd7fa6e4117e84bf64a4f9b2de6dc26a3175"
+    },
+    {
+      "bytes": 7119,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-after-1.json",
+      "sha256": "8069ed8b9d0a503fa065b8defd28b496dd559b18455c5bb0ff7eba6303468e94"
+    },
+    {
+      "bytes": 39023,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-after-1.log",
+      "sha256": "e77e5dace39c7282867783242f5a3ed3a0ca1065deabd44c145794a43d9ab587"
+    },
+    {
+      "bytes": 7111,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-before-1.json",
+      "sha256": "08baaa8613c9105cff3f8afd1b9b15fec250d270c68dbe8f659aec30273375bb"
+    },
+    {
+      "bytes": 41283,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-before-1.log",
+      "sha256": "6a4305c7b211ae4eb3e1b5d90eba4f327d37d757c80c14f1331d7e9704aa3ffe"
+    },
+    {
+      "bytes": 7115,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-before-2.json",
+      "sha256": "fad3c8798feeb45daac6e4218b531447f744bb842684703ad2203a38ecbc9f4d"
+    },
+    {
+      "bytes": 41288,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-before-2.log",
+      "sha256": "10d8549cd43c4a397ff0920f85461b88ef9d30c564720c89e3a6826481f66f5d"
+    },
+    {
+      "bytes": 7115,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-before-3.json",
+      "sha256": "489a821915b88ecdea34687e27ff79f8446ba399336618f7fce8e4d1b8e28195"
+    },
+    {
+      "bytes": 41288,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-before-3.log",
+      "sha256": "4ebef5c98de9dd09e7a37c162defd274c7097758a702ff35f05c9e6b7bde03ac"
+    },
+    {
+      "bytes": 7119,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-1.json",
+      "sha256": "c25df58cf01aee0095c0c26e8f8e4906d1463f425a7869ba81a9fbda52f0ceb5"
+    },
+    {
+      "bytes": 41146,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-1.log",
+      "sha256": "402f2bff6201f1efa3b94fb9bce2bd8c497828353be1f482fde7ffab15d2c40d"
+    },
+    {
+      "bytes": 7119,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-2.json",
+      "sha256": "069ea70e95e754721d67b9d4e144fa4c7359b97b0d0dc2bd592d07160ec204f9"
+    },
+    {
+      "bytes": 22052,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-2.log",
+      "sha256": "8537716d2a1794c0d03b077a51b792dffb5e7a08df4d6fd66f02b30e3891a53a"
+    },
+    {
+      "bytes": 7120,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-3.json",
+      "sha256": "409cd7d1d1649feb92906caa2fd07d508640273f122aedd153e129311dba5c54"
+    },
+    {
+      "bytes": 40620,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-3.log",
+      "sha256": "1551e5f3c71b606507324e82573f0701cedfe836b7979d54326df99047eab9d4"
+    },
+    {
+      "bytes": 7367,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-4.json",
+      "sha256": "ff7802e9e750a9582a50cc6e1f01ffef9dfcb6d7f131a146ee9caf9ec3a6cbb9"
+    },
+    {
+      "bytes": 40618,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-outer-4.log",
+      "sha256": "26278808b1df29a8696cb67503215e5d66aab1f7f8e70e6779d275f7f303d031"
+    },
+    {
+      "bytes": 7138,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-singleton-1.json",
+      "sha256": "50fa7da6028f8af3c9280a5af42d11cee742016419f1de68a42bb1112e89c039"
+    },
+    {
+      "bytes": 39064,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-singleton-1.log",
+      "sha256": "a107e7b8808c6eb6e3232f550a9155fe36a5d9f50b3e90470091d6c964fa1f6e"
+    },
+    {
+      "bytes": 7137,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-singleton-2.json",
+      "sha256": "34ad85275391fa5053d9b1f1b02891a8fea83d2cd1cb59f7c758109d41386816"
+    },
+    {
+      "bytes": 39062,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-singleton-2.log",
+      "sha256": "585f97670aab75521d39594de07d3e2b18bc3ecefdff31c873b5590bf43b1356"
+    },
+    {
+      "bytes": 7137,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-singleton-3.json",
+      "sha256": "978abf28a46dae45e7fba69361620898f7a3005bca581b97392952556062c4d0"
+    },
+    {
+      "bytes": 39683,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-jmh-singleton-3.log",
+      "sha256": "13d14f21420b01316eaf34e5770e868a4165e0baabc0decbb11f31d315940a28"
+    },
+    {
+      "bytes": 6493,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-outer-general-contract-v1.json",
+      "sha256": "518fc5f591833a43a76a9fa66d36a5a370ddba6c660585a8d2cf3c30f204d924"
+    },
+    {
+      "bytes": 717,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-outer-general-contract-v1.log",
+      "sha256": "736e00d2523c10d08beeb14c0891bd7fa6e4117e84bf64a4f9b2de6dc26a3175"
+    },
+    {
+      "bytes": 6541,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-outer-singleton-contract-v1.json",
+      "sha256": "c83af7dc0bf9edf61a51c3760b521d5f2aaa48327b935a58e0599afa9148d56a"
+    },
+    {
+      "bytes": 6314,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-outer-singleton-contract-v1.log",
+      "sha256": "5b20dd3b9c6d4d37880ff41407ccdcda1aea275edf2ebb0bc2c80deb27143fed"
+    },
+    {
+      "bytes": 6793,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-singleton-contract-before-v1.json",
+      "sha256": "e0573af6d83129a887253bd3eba56f8eec7618dc8331b82f0cd76298cb1b4bca"
+    },
+    {
+      "bytes": 6314,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-singleton-contract-before-v1.log",
+      "sha256": "5b20dd3b9c6d4d37880ff41407ccdcda1aea275edf2ebb0bc2c80deb27143fed"
+    },
+    {
+      "bytes": 3245,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-native-1.json",
+      "sha256": "9163975651bd5f571020aee955f7f46614c1142d96eb0f08f47ec908a0d06a12"
+    },
+    {
+      "bytes": 2767,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-native-1.log",
+      "sha256": "562cd0637ff5dc7cb49eca55a5adcbb8835dea252c2621820030afeea5eef1e2"
+    },
+    {
+      "bytes": 6580,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-native-1.json",
+      "sha256": "d987b90c4c5df2a877f19c176931a6d1708982158d14da8d3178fe6926cf25d8"
+    },
+    {
+      "bytes": 0,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-native-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 6412,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-stock-1.json",
+      "sha256": "fd33050c30cdf55ad257a6267419b0413afae8f6be6e81d2b1dbb48bdfcad71b"
+    },
+    {
+      "bytes": 0,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-stock-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 6679,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-stock-2.json",
+      "sha256": "8b16efcbc8ddbf59cff7c8909cbaae1a2e0753522cc3e8fa84e444c3afe046a6"
+    },
+    {
+      "bytes": 0,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-stock-2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 3064,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-stock-1.json",
+      "sha256": "97ac1d2ce51edbb423df5bd000bd529850d43c247995a6f2282c75d6034508ba"
+    },
+    {
+      "bytes": 2745,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-stock-1.log",
+      "sha256": "51aa34825eff8ff450f688ba5344b76a7c9da9d9ca20ef213b6d8da3e2358c5d"
+    },
+    {
+      "bytes": 3350,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-stock-ancestor-1.json",
+      "sha256": "e2a4f469c7901c287ef57df696fa56673cfe7c73b27fd02599870b179bfd0452"
+    },
+    {
+      "bytes": 1356,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-stock-ancestor-1.log",
+      "sha256": "4177ed60e80dbf017fc5ef5947e6454157d8a6fbf7727458b0a2529d59717bea"
+    },
+    {
+      "bytes": 6013,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-compile-1.json",
+      "sha256": "eb615ca0d8c9cec86cd374f4844449130fc9437f1293f73774ea29504d934ff9"
+    },
+    {
+      "bytes": 0,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-compile-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 4468,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-sdk-1.json",
+      "sha256": "fa0485a5fb97df72c02c58dadec7d8a58abae1b2c9799399221a54d0a31b33cb"
+    },
+    {
+      "bytes": 3041,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-sdk-1.log",
+      "sha256": "754cc4f500605b0a76943ec9bb87759d0dd21a4079793f9d612cc9c924d519ef"
+    },
+    {
+      "bytes": 6097,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-storage-cache-compile-1.json",
+      "sha256": "4f8ebc0d09c84bc941d1173381edfb89f15b78ff81b126a08a30b29088d6463d"
+    },
+    {
+      "bytes": 0,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-storage-cache-compile-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 6377,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-storage-cache-run-1.json",
+      "sha256": "69a74a952dca02fdc2c9701184a01d64ff1a052d983a71f5b0dc354d316b52eb"
+    },
+    {
+      "bytes": 236,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-storage-cache-run-1.log",
+      "sha256": "f23c1ffd83baa843089cd299372dd27f54be6fb89589ff7d1199be510186f673"
+    },
+    {
+      "bytes": 5941,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-compile-1.json",
+      "sha256": "a114421ac17b9cbf7dfec3e65f119a87b1e529adcbf0fec5180703f89088581d"
+    },
+    {
+      "bytes": 0,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-compile-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 6574,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-read-detached-native-1.json",
+      "sha256": "18c44e0eb09a203bbdc79735ad91a60a748b435b787ac32bdee902f8edd35557"
+    },
+    {
+      "bytes": 1088,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-read-detached-native-1.log",
+      "sha256": "cbf6a1357baa95cd220f01ed725d3786bc34332500edf418b1c061ecdc135f00"
+    },
+    {
+      "bytes": 6549,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-read-native-1.json",
+      "sha256": "09f930fd30a2b8b79ab47b234ab95635028185d7af57ffe4944a8a25609fbe76"
+    },
+    {
+      "bytes": 791,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-read-native-1.log",
+      "sha256": "8047b7647b66d9fe3676101567258bc0379c2cd7a3b27b99b579d7ad11cc2945"
+    },
+    {
+      "bytes": 6523,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-read-stock-1.json",
+      "sha256": "acb22e003c22762008d3ee396df99757f8699c4d6249418077c6bc7e89189c76"
+    },
+    {
+      "bytes": 790,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-read-stock-1.log",
+      "sha256": "c819ca8a0fe47cf8e9ecf83bb4837b5d71775394a7990ace07a167280d9d291e"
+    },
+    {
+      "bytes": 6578,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-write-detached-native-1.json",
+      "sha256": "3a47ab5d8ca95c197619d58e4c24352abb5b4c3ec33ba3cb5c7baf30dc2270e1"
+    },
+    {
+      "bytes": 1089,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-write-detached-native-1.log",
+      "sha256": "0b13e491d981467e3ab0940ac4617d7feaa5a2dff081a01475138a81eea03bae"
+    },
+    {
+      "bytes": 6555,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-write-native-1.json",
+      "sha256": "b722ab4968e20ecb7621cead4513346f4e56c1e551900e177f00f73af06d70e5"
+    },
+    {
+      "bytes": 792,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-write-native-1.log",
+      "sha256": "bf9684efd66471d5015ababf181c5004b7c8458919c29872dc93b81bf17dbbf8"
+    },
+    {
+      "bytes": 6526,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-write-stock-1.json",
+      "sha256": "869109633f38fd82288e456fb09d26c1053595dc23f4846b19864fb5900a9d26"
+    },
+    {
+      "bytes": 791,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-write-stock-1.log",
+      "sha256": "9abdb91893c46991f0ac20167aac8675873b98a75f493c38eb62f46049567643"
+    },
+    {
+      "bytes": 6500,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-suite-1.json",
+      "sha256": "b3a2e7785ea23b371451defbf432c8303441852cab5c6c4a9ac46e0ec07fc119"
+    },
+    {
+      "bytes": 3328,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-suite-1.log",
+      "sha256": "32f1ac910e95474144ad579f3dc7b73240b740ad4fa6923979449ee8abb3f43d"
+    },
+    {
+      "bytes": 1052,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\build\\engine-qualified\\synexia-openrewrite-recipes\\src\\main\\java\\com\\synexia\\rewrite\\M3EditScope.java",
+      "sha256": "962d37d62d740c3e8055c365a048ae7ee0479c26a9f6bbfe741e540d6c1134ab"
+    },
+    {
+      "bytes": 31441,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\build\\engine-qualified\\synexia-openrewrite-recipes\\src\\main\\java\\com\\synexia\\rewrite\\M3HashPinnedJavaSnapshotRecipe.java",
+      "sha256": "97e26cb16231425fb1c01ec03c127f52e263c2ba849f8103d7754839f5a8894f"
+    },
+    {
+      "bytes": 7917,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\build\\engine-qualified\\synexia-openrewrite-recipes\\src\\main\\java\\com\\synexia\\rewrite\\M3ScopeInference.java",
+      "sha256": "76c6258ac10e8a8b53d3990deeb1f36feb2eef20302dbd358da0c6893deea090"
+    },
+    {
+      "bytes": 19260,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\build\\hash-multimap-v2-qualified\\m3-jre21\\src\\main\\java\\com\\google\\common\\collect\\HashMultimap.java",
+      "sha256": "fbc83cfd766e99fdfa3ac413b8aefbc31ec5d3a8b1563152dfb5d772b3155788"
+    },
+    {
+      "bytes": 19497,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\build\\hash-multimap-v5-qualified\\m3-jre21\\src\\main\\java\\com\\google\\common\\collect\\HashMultimap.java",
+      "sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8"
+    },
+    {
+      "bytes": 16167,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\build\\hash-multimap-v5-recipe-proof\\surefire-reports\\TEST-com.synexia.rewrite.M3GuavaHashMultimapRecipeTest.xml",
+      "sha256": "b98b3bc6dfe179fbb1eb214f577b9678efcb3309eaffbb306b27e56dcb16bd09"
+    },
+    {
+      "bytes": 4726,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\build_challenge_perf_v1.py",
+      "sha256": "37ec1ecd3aa3ee82cdd80df44dd7f219474b79508fc7199696e335f9c25c7954"
+    },
+    {
+      "bytes": 3515,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\finish_challenge_perf_build_v2.py",
+      "sha256": "e8bdbe5a556355d410b2e537a166acda3a957bf23266aad50ffc469b4a3e7789"
+    },
+    {
+      "bytes": 5629,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-bimap-tests\\src\\test\\java\\com\\google\\common\\collect\\M3HashBiMapUpstreamSuiteLauncher.java",
+      "sha256": "970ed38f87b9a1c1de200fc1b0f82b085c171b6c493a712055027b9ade2abc60"
+    },
+    {
+      "bytes": 1710,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\ACTUAL_SDK_RESULT_V2.json",
+      "sha256": "0769ec28d1c3c88e86a5248a55639a4f520716dd46c38023a19043ab88e2123e"
+    },
+    {
+      "bytes": 1710,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\ACTUAL_SDK_RESULT_V5.json",
+      "sha256": "7179509d188b49df3dc59d288a6cff0bb4151210f890c63dde6ac990895567b2"
+    },
+    {
+      "bytes": 3605,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\BORROW_FIRST_INVENTORY_V1.json",
+      "sha256": "1cc3175fa3862cbdb7cfdc8ea6e276786cd9268ee9ae09bbf48f5bf5c700ea00"
+    },
+    {
+      "bytes": 749,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\CANDIDATE_SUITE_RESULT_V5.json",
+      "sha256": "a24d3533bd31f6aee4ae573d0927d7b2335f3387197ac26486534a78c0e58729"
+    },
+    {
+      "bytes": 2236,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\FOSS_REUSE_DECISION.tsv",
+      "sha256": "a0d25a7681d22a4a65933b34d2ed23ad1d543e66759fac25f7dcddcda2df5a4d"
+    },
+    {
+      "bytes": 2935,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\FOSS_REUSE_DECISION_V2.tsv",
+      "sha256": "f6026b3673f290c58dbc80f107198fbfe67b42c0e2c56f1e75b7db5cb271ffd4"
+    },
+    {
+      "bytes": 3413,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\FOSS_REUSE_DECISION_V3.tsv",
+      "sha256": "cd65f8c244e6f7476625b52f134ec727fd668fbe2d5bd76c72fc5a8ae919e155"
+    },
+    {
+      "bytes": 993,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\IMPLEMENTATION_DESIGN_AUDIT_V1.json",
+      "sha256": "6f299d80d0d7e3425891f9ce3ebbd558da9092db5255ca26b4ee429a0e3f7130"
+    },
+    {
+      "bytes": 5101,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\PUBLIC_ABI_RESULT_V5.json",
+      "sha256": "fc677d662fdb61ede40262da546cdfd1284f4df9d7c7e0a26d0e846f45cead6a"
+    },
+    {
+      "bytes": 2214,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\abi-v5-client\\native\\classes\\com\\synexia\\bench\\M3HashMultimapForEachSourceClient.class",
+      "sha256": "f860759a12298af6e5f494229a5cc2826931fa13f88041a2b93e6c93bd5d72ad"
+    },
+    {
+      "bytes": 2214,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\abi-v5-client\\stock-retry-v1\\classes\\com\\synexia\\bench\\M3HashMultimapForEachSourceClient.class",
+      "sha256": "f860759a12298af6e5f494229a5cc2826931fa13f88041a2b93e6c93bd5d72ad"
+    },
+    {
+      "bytes": 2214,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\abi-v5-client\\stock\\classes\\com\\synexia\\bench\\M3HashMultimapForEachSourceClient.class",
+      "sha256": "f860759a12298af6e5f494229a5cc2826931fa13f88041a2b93e6c93bd5d72ad"
+    },
+    {
+      "bytes": 700,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\BASELINE_CASE_COUNT_V1.json",
+      "sha256": "f83d87f57aa8472cbf660987c4aec15c739925c2c50332ca2adae90d2011634b"
+    },
+    {
+      "bytes": 23117,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\PREPARED_BASELINE_V1.json",
+      "sha256": "897d2dcf8e47a48a7359f94a636cb64b1a44b413ab58c5aa046f6e52bb20e594"
+    },
+    {
+      "bytes": 6925,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\classes\\com\\google\\common\\collect\\M3HashMultimapUpstreamSuiteLauncher.class",
+      "sha256": "a496a65e4b4bdbbb2a84f29e0860d55aa680dcb451192aa0330000c326d31ae1"
+    },
+    {
+      "bytes": 572,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\AndroidIncompatible.class",
+      "sha256": "0e152274be7e5adfe395e569afee6c84cd419f2ec068945dc4393f6093365791"
+    },
+    {
+      "bytes": 1228,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\HashMultimapTest$1.class",
+      "sha256": "96156863f022aebf35f52b29e5bb215db246e037ae67fd486225665b41aa64ea"
+    },
+    {
+      "bytes": 5089,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\HashMultimapTest.class",
+      "sha256": "c7399651a00498c23668a7429d9cfa27c7b8ea3e77cfb64bfe8e6e57fd9f88cd"
+    },
+    {
+      "bytes": 1964,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\ReflectionFreeAssertThrows$PlatformSpecificExceptionBatch$1.class",
+      "sha256": "ea962441088e0ac42f79d68e1b1d4f5b183385545ddb699fdf0533552f5ab4a2"
+    },
+    {
+      "bytes": 1879,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\ReflectionFreeAssertThrows$PlatformSpecificExceptionBatch.class",
+      "sha256": "2581f69699370ce3fdb1fd140af67b98c97af2542350a8fc7982f7c6ab40b399"
+    },
+    {
+      "bytes": 371,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\ReflectionFreeAssertThrows$ThrowingRunnable.class",
+      "sha256": "9b3fb540dc28d47b978e6653b8212a378aaecaaff142bade9765954a9a237f2a"
+    },
+    {
+      "bytes": 472,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\ReflectionFreeAssertThrows$ThrowingSupplier.class",
+      "sha256": "5a4f9acbdc5a2a1474a714cf8efc5932e6b9d979b54b2724de961e89863cfaac"
+    },
+    {
+      "bytes": 9006,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\ReflectionFreeAssertThrows.class",
+      "sha256": "dcb65cbf35168fac3e4970fd6548cf132d9e4eb85cf487c9bd4cf45da20f4a23"
+    },
+    {
+      "bytes": 406,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\TestExceptions$SomeChainingException.class",
+      "sha256": "2da2d6e19a51e4a55940e201de1338eee8395891c6d791c120a8d583042fc1c5"
+    },
+    {
+      "bytes": 371,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\TestExceptions$SomeCheckedException.class",
+      "sha256": "1613c6d9f20cd50ecf16126517e66643d9f3758b8ac24d5b23c79351dd9d72d3"
+    },
+    {
+      "bytes": 345,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\TestExceptions$SomeError.class",
+      "sha256": "220a922e0027ce1268d40993fcdd431001023980cf7f43f532d2c91fc644aa75"
+    },
+    {
+      "bytes": 381,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\TestExceptions$SomeOtherCheckedException.class",
+      "sha256": "b41524a3a5ace6d2c8b8bb508a89739e6bf656689dd90fb994b07f52270100e1"
+    },
+    {
+      "bytes": 382,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\TestExceptions$SomeUncheckedException.class",
+      "sha256": "060fda15e5f4c2a0f9d04796fc73686af84560ae6565b08ce6dc876476a512ba"
+    },
+    {
+      "bytes": 383,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\TestExceptions$YetAnotherCheckedException.class",
+      "sha256": "ee4fe5514b9dc0e7d7a75ea8836b18ce3d5c24c93d63d0f97730966c725d1d9e"
+    },
+    {
+      "bytes": 1051,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\build\\donor-classes\\com\\google\\common\\collect\\TestExceptions.class",
+      "sha256": "7e622db0b77eb351f2279eab88c5281f3f3389aeb6ceaf5dedebdd2ccefd6c2e"
+    },
+    {
+      "bytes": 1617,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\fixtures\\com\\google\\common\\collect\\AndroidIncompatible.java",
+      "sha256": "a91cb445659acf4e87ae5e5d990d87e0c4a710aaa01963697d45402e3bddf43c"
+    },
+    {
+      "bytes": 4496,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\fixtures\\com\\google\\common\\collect\\HashMultimapTest.java",
+      "sha256": "6fea2f2a52ee2c31e64b7a1eea12f134dd325ca6fd673bddcf1cb0b579e6c545"
+    },
+    {
+      "bytes": 7133,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\fixtures\\com\\google\\common\\collect\\ReflectionFreeAssertThrows.java",
+      "sha256": "929fc7350d541bb4446832d1055fb41122b538999cbf866ff83d366662328aa4"
+    },
+    {
+      "bytes": 1312,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\fixtures\\com\\google\\common\\collect\\TestExceptions.java",
+      "sha256": "e8c9ead99dec8f6cbe95035fdf53c2d6ea867e4d4d74dd51d478fe6df3017bd4"
+    },
+    {
+      "bytes": 5579,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\baseline\\src\\test\\java\\com\\google\\common\\collect\\M3HashMultimapUpstreamSuiteLauncher.java",
+      "sha256": "c95c229291c3dce607d0815bed961438360180d813dd70c4f38f12b3850ce29b"
+    },
+    {
+      "bytes": 19260,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\candidate-v3\\src\\main\\java\\com\\google\\common\\collect\\HashMultimap.java",
+      "sha256": "fbc83cfd766e99fdfa3ac413b8aefbc31ec5d3a8b1563152dfb5d772b3155788"
+    },
+    {
+      "bytes": 3859,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\candidate-v6\\PREPARED_CANDIDATE_V6.json",
+      "sha256": "f00a82c02e962a02fc27d8f4768ee6552db438b7f11e9724e19ab62c87b8620b"
+    },
+    {
+      "bytes": 19497,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\candidate-v6\\src\\main\\java\\com\\google\\common\\collect\\HashMultimap.java",
+      "sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8"
+    },
+    {
+      "bytes": 5478,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\BUILD_RESULT_V1.json",
+      "sha256": "04488968891aac00695c580e79140013cff5b814953ee253affaaeae7d028a8c"
+    },
+    {
+      "bytes": 75101,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\CHALLENGE_OPTIMIZATION_REPORT_V1.json",
+      "sha256": "f1907eea06b07cf6d549ba843573bab2980744be558b0f06937b36c639e3073c"
+    },
+    {
+      "bytes": 1506,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\FOSS_REUSE_DECISION.tsv",
+      "sha256": "d8a475e11a330a6ba6fe87b68557cc13a2ef39836567430a9e1477a6426ba57e"
+    },
+    {
+      "bytes": 683,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\FOSS_REUSE_DECISION_V2.tsv",
+      "sha256": "a34fe31bef970602f01c9ec665b46f97cd2e1ef81c6781ee0bc293f1ff8a2730"
+    },
+    {
+      "bytes": 659,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\FOSS_REUSE_DECISION_V3.tsv",
+      "sha256": "bf8baeb1fbba7b3babf4a977ac3a4a4352d73b352598c80302bf2989eea3f49f"
+    },
+    {
+      "bytes": 1356,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\FOSS_REUSE_DECISION_V4.tsv",
+      "sha256": "531cd2c92c63a3fa8d412d84cf658baff98514639bcd29d3fb712e5b2e8b59df"
+    },
+    {
+      "bytes": 5999,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\INTAKE_AND_CONTRACT_V1.json",
+      "sha256": "fe04a165ebd729b9f9de47e6b8bee5114738d857b42a3c9df08b97d6c873d6d2"
+    },
+    {
+      "bytes": 2383,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\INTAKE_AND_CONTRACT_V2.json",
+      "sha256": "800b1617d65d1cf4e0ef78787c719fdb889aeba1ded5bad146b78225a9a71e32"
+    },
+    {
+      "bytes": 21911,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\INTAKE_AND_CONTRACT_V3.json",
+      "sha256": "8ce3d517d39fdc5b703df5e300b48ca5a50fbe6e5f9c0206b2967d0d4353fe11"
+    },
+    {
+      "bytes": 5573,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\INTAKE_AND_CONTRACT_V4.json",
+      "sha256": "accd5d90713f37a285b0d8b3c21a4f2273afe79798bf66f8309e4650df69126b"
+    },
+    {
+      "bytes": 809,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\OUTER_GENERAL_CONTRACT_RESULT_V1.json",
+      "sha256": "67099f6b0048c7da928915a24107bf54f58de7a7fca81ec52577e70f6b2c8b30"
+    },
+    {
+      "bytes": 811,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\OUTER_SINGLETON_CONTRACT_RESULT_V1.json",
+      "sha256": "46a57005dea1b6a538f198b6951c8118fb135368e8c694af971bce756166d74a"
+    },
+    {
+      "bytes": 12745,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\TARGET_BYTECODE_INVENTORY_V1.json",
+      "sha256": "09904333e980466a9a6be62d1e859d9ec570ae50368dbb582c0dc36a2b3245f9"
+    },
+    {
+      "bytes": 412,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\THIRD_PARTY_NOTICES.md",
+      "sha256": "1220b75408a93ccfe15a21344b50bce26d28d00a924f2217dc95b3f9c36dc9d4"
+    },
+    {
+      "bytes": 3236,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\TRIAL_INTERRUPTION_AMENDMENT_V1.json",
+      "sha256": "b4f699d564146d5ee0f07079b1de7590d65631095173c95ee485d7a223fef700"
+    },
+    {
+      "bytes": 7835,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\GraphWorkload.class",
+      "sha256": "c978a7fbb005689b3621c689945a0c3bcfb94ef344c027b3cd187f05b4ada08b"
+    },
+    {
+      "bytes": 422,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\M3ForEachContractProbe$Marker.class",
+      "sha256": "37459a833ea144244edc96480e674fcde0e38a4f16e66bc0d92de15e393cb62a"
+    },
+    {
+      "bytes": 1102,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\M3ForEachContractProbe$State.class",
+      "sha256": "964dad3cb356e71d4cbed675f24a26a923440ed614eb6f5823d6a380033e99df"
+    },
+    {
+      "bytes": 7105,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\M3ForEachContractProbe.class",
+      "sha256": "11646b76a3c9149f04bf333c524cca302c0bf943406bd011c627017fe98edc9f"
+    },
+    {
+      "bytes": 1007,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\M3GraphCollectionBench$Data.class",
+      "sha256": "dc93dc9187837ac4cdd74f9a38d2db2b173bea03adcee044752cb90f4e4033f5"
+    },
+    {
+      "bytes": 1110,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\M3GraphCollectionBench.class",
+      "sha256": "9baca4c6e2ff42e610b1babcda46fc0122b6ecc15707933700ab2a945ab28cbf"
+    },
+    {
+      "bytes": 330,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_Data_jmhType.class",
+      "sha256": "287bd59f36b4b5d597584d14ab214734224b7ddd9c23dc1524c6e41e6d065c43"
+    },
+    {
+      "bytes": 4751,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_Data_jmhType_B1.class",
+      "sha256": "fe4c5979a7040d20ec438af609a4c37f44e35bfa4fe7da73f8a95bd0158ac266"
+    },
+    {
+      "bytes": 1359,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_Data_jmhType_B2.class",
+      "sha256": "f75374c8f1acde3e1b244cae985c700955d406491a1d060993ca730859f4e2d2"
+    },
+    {
+      "bytes": 4692,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_Data_jmhType_B3.class",
+      "sha256": "64c40b1536374d06f30005fd666c37e6d8fb7aaeff7e26a7063099f75681d1d6"
+    },
+    {
+      "bytes": 13595,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_courseSchedule_jmhTest.class",
+      "sha256": "7486febd876a9c44172665aa3389d5e7a0f0de18cd2d2db43c3c346a490005ae"
+    },
+    {
+      "bytes": 13529,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_edgeScan_jmhTest.class",
+      "sha256": "e48f85cdfbddf32853bb3e242d64f90eccab043d14baa1bd4927728cfa82a125"
+    },
+    {
+      "bytes": 315,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_jmhType.class",
+      "sha256": "1d21533efe97c003d5a9da1bb8b513a4f495c8ad956c6433648a74eede815695"
+    },
+    {
+      "bytes": 4652,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_jmhType_B1.class",
+      "sha256": "e23dd24677aa0fa31f628fabedfd458243eafdb4c4ab181696bc8c15d0f82633"
+    },
+    {
+      "bytes": 1339,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_jmhType_B2.class",
+      "sha256": "0c038abdb6755bf876ca21f1b2589da505849935907562ed1d845600da3dbe67"
+    },
+    {
+      "bytes": 4677,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_jmhType_B3.class",
+      "sha256": "fe2e9c0b718e6eaf142f8ad02918e5f60c11026b42c8df833d5b28d78da8b52a"
+    },
+    {
+      "bytes": 13584,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\classes\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_shortestReach_jmhTest.class",
+      "sha256": "554868705525facbab6227463eab337ea5c2b2498f869819576facb3674fa86b"
+    },
+    {
+      "bytes": 146,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_Data_jmhType.java",
+      "sha256": "4336156b4d9069bc3b787aa186a1db87e1f57b4a3826bb638d778f3e7be7024b"
+    },
+    {
+      "bytes": 2417,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_Data_jmhType_B1.java",
+      "sha256": "d19d3827f5ae838d69b8559b48d6a30a22fed298927d33fd467330f932bb1e3d"
+    },
+    {
+      "bytes": 1827,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_Data_jmhType_B2.java",
+      "sha256": "22d64313e2167ab4deb2fe5f928e9c5d9a0d489b0765dccca779d407856e9021"
+    },
+    {
+      "bytes": 2357,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_Data_jmhType_B3.java",
+      "sha256": "138c0a48e4243819d72e2d64708bc848f7bc100f64f6be23ce9bdafdd9fb118c"
+    },
+    {
+      "bytes": 19723,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_courseSchedule_jmhTest.java",
+      "sha256": "2ef8808d4dc86083ded280d1aa449a4cd0ff411ee3347b617b13433f69709ed6"
+    },
+    {
+      "bytes": 19561,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_edgeScan_jmhTest.java",
+      "sha256": "5204b13a49393a5db49864419173bc121099053ebe7ce3697cd855ac3eafeea4"
+    },
+    {
+      "bytes": 136,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_jmhType.java",
+      "sha256": "c2d31a3f8e6f6ca8672446a6dc5d8412fe957d3d1401d37c8ebaded7bb6cc32c"
+    },
+    {
+      "bytes": 2402,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_jmhType_B1.java",
+      "sha256": "644a314712b60dd393909f9ab01b2a638437d391d42df9008686fb5dd96b3ae6"
+    },
+    {
+      "bytes": 1757,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_jmhType_B2.java",
+      "sha256": "30b78415efd7956f53844326e6982ff6791d27fce6bf7224597a8e886cf1abd1"
+    },
+    {
+      "bytes": 2347,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_jmhType_B3.java",
+      "sha256": "6f5415a9ebfd8b10e8a5506b3fa3dd870ea799ddc2ddf6f4c6727d690c25dd35"
+    },
+    {
+      "bytes": 19696,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\generated\\com\\synexia\\bench\\jmh_generated\\M3GraphCollectionBench_shortestReach_jmhTest.java",
+      "sha256": "06b312139aa854d95848000f4b7ac1721cf9fe25bfb92b13a99aec6dd8accfda"
+    },
+    {
+      "bytes": 543,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\parent-compiler-hints.txt",
+      "sha256": "c4eb1dd8b6fa8095b1e0665750a42d57d17d7a9915329cbb42d81c0e1e761f1e"
+    },
+    {
+      "bytes": 870,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\resources\\META-INF\\BenchmarkList",
+      "sha256": "d7a9eebab513546c0e6fd49f65f5240eb1574b02373e68ea89c9cfa8c4bacb49"
+    },
+    {
+      "bytes": 390,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\resources\\META-INF\\CompilerHints",
+      "sha256": "992dfa79750ea3c49fd7c7911eaa65b92700573b6a2d0905d492c1cac0275137"
+    },
+    {
+      "bytes": 431,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\singleton-contract-v1-classes\\com\\synexia\\bench\\M3SingletonAndDegreeProbe$Marker.class",
+      "sha256": "8b170c9f696a0ea9a8adf512d2bc46aad08fa3ce796c63b28cd43226269a52fb"
+    },
+    {
+      "bytes": 1184,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\singleton-contract-v1-classes\\com\\synexia\\bench\\M3SingletonAndDegreeProbe$State.class",
+      "sha256": "6c3460d6f9f0e4357fad135cfbef8b7bff2c25f3d3b97d04d884241aaf5bac5b"
+    },
+    {
+      "bytes": 13028,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\build\\singleton-contract-v1-classes\\com\\synexia\\bench\\M3SingletonAndDegreeProbe.class",
+      "sha256": "f8cd05a156681f5834027945c25805363046246a2da3baf66fa64283004b215d"
+    },
+    {
+      "bytes": 127218,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\CONFIRMATION_REPORT_V1.json",
+      "sha256": "713a7dababeab9d8de4d742bcbc5d81b3480786cb759a20e1b8979bcd9fcccb9"
+    },
+    {
+      "bytes": 3275,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\before-1-receipt.json",
+      "sha256": "ff9624dfc09d38d69cb47b9da4dbfa39e05a21d1f478502887caef549727314c"
+    },
+    {
+      "bytes": 61732,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\before-1.json",
+      "sha256": "c715156ee8050d01cbdf6c4d24d2532c5bae5d6cb4d4cce5a8719bacd92ce8a5"
+    },
+    {
+      "bytes": 3287,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\before-2-receipt.json",
+      "sha256": "b6262428ee749e03b44ea94023e59c40c3dee782479c3590890d52720aa12fc3"
+    },
+    {
+      "bytes": 61781,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\before-2.json",
+      "sha256": "bc3b61e2fbef0c5a1a3361bb2dc67590a6895238051e2c9865190a0ead034242"
+    },
+    {
+      "bytes": 3291,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\before-3-receipt.json",
+      "sha256": "34cae799384a31882c0b1ae66f2518e53854b01b4be99166e84e7111ced1b50e"
+    },
+    {
+      "bytes": 61053,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\before-3.json",
+      "sha256": "12c7bfc17a1145d73442f8eb4d7fbe8a9438c5ad3873546e9755941c466675d3"
+    },
+    {
+      "bytes": 3277,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\outer-1-receipt.json",
+      "sha256": "2021532aa37b50c5433fd39d2dfb3b69ede409bdb0972a9309bab8eed371088c"
+    },
+    {
+      "bytes": 60926,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\outer-1.json",
+      "sha256": "5cbe3cc80dda02b83ef90957aba5f6a28e0acafd510d36aeb03ca117472e67e1"
+    },
+    {
+      "bytes": 3285,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\outer-2-receipt.json",
+      "sha256": "e167b41a6e17efe68cb83a93f524ef89edafcc06ea2d59ec3a5f38bb3e2ff02d"
+    },
+    {
+      "bytes": 60169,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\outer-2.json",
+      "sha256": "caf164a4b21168204cc4ce482c879437e6dc850f10e850629eb77281114948f8"
+    },
+    {
+      "bytes": 3293,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\outer-3-receipt.json",
+      "sha256": "75d0d4782bfa823b12eed59935defd81e07434bd9022804c74f6e65f75b2ba15"
+    },
+    {
+      "bytes": 60152,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\results\\outer-3.json",
+      "sha256": "759d88bf33c1572f51e139b29722693d5c4f49ded798df34070c8b9c824649b9"
+    },
+    {
+      "bytes": 10152,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\read_target_bytecode_v1.py",
+      "sha256": "dd554d98f84a6f915cccae3afdcc0e0d75f825c25cf1eb6c186131a63df512e9"
+    },
+    {
+      "bytes": 2107,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\after-1-receipt.json",
+      "sha256": "b169e785964a59e3cd22092abef026f4cfb536ef9fe71fc11924c405a4831db0"
+    },
+    {
+      "bytes": 58405,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\after-1.json",
+      "sha256": "6ae87ff8b0bdfa6dd5c7b5f2df510a1acd0e3ede956a8dc62ec7fa38d4b89819"
+    },
+    {
+      "bytes": 2106,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\before-1-receipt.json",
+      "sha256": "04cbe9337ad3770be2bccf085b889668d6eaf32c18dd84901d1e5b2af0f10335"
+    },
+    {
+      "bytes": 60941,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\before-1.json",
+      "sha256": "aa5ec487d5b985b1e2740b4169f44833daedda6e299b9f0d0ca26bccad9e6788"
+    },
+    {
+      "bytes": 2108,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\before-2-receipt.json",
+      "sha256": "c44b9933dcebdb72a068872aeb1da1db7653f8ba7f7d63cf09a0ceab194582bc"
+    },
+    {
+      "bytes": 60954,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\before-2.json",
+      "sha256": "71c4ac4c8898db6777438c678dd755d6f86f9fabc26ca573d0254796e1c2b5a2"
+    },
+    {
+      "bytes": 2103,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\before-3-receipt.json",
+      "sha256": "2288cdbe29ab0a5eeba2a1565b79cd156675458069de6450955f5865f19548a6"
+    },
+    {
+      "bytes": 60895,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\before-3.json",
+      "sha256": "b8a4cf35202716e4e689fe06442dc5c4abd884a4b2f73b1341e1cddd6e5f9ee7"
+    },
+    {
+      "bytes": 2105,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\outer-1-receipt.json",
+      "sha256": "dc1868526fc3a276255ab4602685c0438ac20e1f3463a811b2f1ce4a39599424"
+    },
+    {
+      "bytes": 60922,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\outer-1.json",
+      "sha256": "b9b325558938be684277640e96f4a2da05076986c986129e20711a08dcd95968"
+    },
+    {
+      "bytes": 0,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\outer-2.json",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 2105,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\outer-3-receipt.json",
+      "sha256": "760061a7927f0b6193697a4a08db84f1de80f4f4a2c05aca49afdd20985b2233"
+    },
+    {
+      "bytes": 60160,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\outer-3.json",
+      "sha256": "dd9a490ca9585e98682a1e4243f8b92536c3aeb1fc0df3009eb367f5805f6556"
+    },
+    {
+      "bytes": 2842,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\outer-4-receipt.json",
+      "sha256": "a297d320c9a42044a68ebd3ee510c14c8945eff8d46d2dd797a8db123848edd8"
+    },
+    {
+      "bytes": 60147,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\outer-4.json",
+      "sha256": "ed3dc4793daa91ab9a30a0c7feeef86c8ab13720f3d1537c1cf77a0f0cf1d3e6"
+    },
+    {
+      "bytes": 2108,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\singleton-1-receipt.json",
+      "sha256": "64992fbfc02fb48c094ca76fa1286ccdc0a1b93c2acfca6444c29f7d8a29bb3d"
+    },
+    {
+      "bytes": 58298,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\singleton-1.json",
+      "sha256": "5954b8d6debe74e2b91a5b2413eba9357ef7b2e6d5bab18bb8787f9d60d2593d"
+    },
+    {
+      "bytes": 2110,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\singleton-2-receipt.json",
+      "sha256": "0717377fee7fb082ba8a2655f9ec1e42253b9708b2edc2829e5d999cbdec1f4c"
+    },
+    {
+      "bytes": 58259,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\singleton-2.json",
+      "sha256": "44ecadad85e04e4e79e7b52fcb4ef0931bd7cf45cee693cd1af946c532e71fb4"
+    },
+    {
+      "bytes": 2108,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\singleton-3-receipt.json",
+      "sha256": "828a0e1f20845c87cc02e933ca1c74a57ef15a2c1f6abea256be6bb5349e3855"
+    },
+    {
+      "bytes": 59140,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\results\\singleton-3.json",
+      "sha256": "3f275368d3526c52395ff4cc03d242b14032fc7ad7ec161c015930eaad962a3c"
+    },
+    {
+      "bytes": 7624,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\src\\main\\java\\com\\synexia\\bench\\GraphWorkload.java",
+      "sha256": "9f8d7377a9ba50231954f0615c20941b3b290e16a32104c7766c4b589a1c50cc"
+    },
+    {
+      "bytes": 4659,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\src\\main\\java\\com\\synexia\\bench\\M3ForEachContractProbe.java",
+      "sha256": "fb3b8502e240f56427af9be9d1fbf587cb5d0f72d4bd38a1534241398c5878dd"
+    },
+    {
+      "bytes": 1307,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\src\\main\\java\\com\\synexia\\bench\\M3GraphCollectionBench.java",
+      "sha256": "14c41c4bce03a297d228d83b11343ae2c7ec5bfa04d7aae3e28923d2a48ef9ad"
+    },
+    {
+      "bytes": 10550,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\src\\main\\java\\com\\synexia\\bench\\M3SingletonAndDegreeProbe.java",
+      "sha256": "873fde858e1eb1aa1e871427cf4cf2a549f83fb9e68faa6b6483ecc55d5411db"
+    },
+    {
+      "bytes": 8997,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v1\\PREPARED_QUALIFICATION.json",
+      "sha256": "3191766b6f04016215fa0ea7e7a53f14ff3a10e51f33a1709b497e7bf87580af"
+    },
+    {
+      "bytes": 8797,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v2\\PREPARED_QUALIFICATION.json",
+      "sha256": "d3970540ee5cb07388ce1a905db82fd20ebe9d280a29a4705e80e02b0c050ee6"
+    },
+    {
+      "bytes": 3288,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v2\\pom.xml",
+      "sha256": "5009b7a7423bfbc58c38f6c6656fcc5929ff1cf34922dbc766c4203941fead91"
+    },
+    {
+      "bytes": 19260,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v2\\src\\main\\resources\\com\\synexia\\rewrite\\hash-pinned-java\\guava-native-hash-multimap-v2-20261018\\HashMultimap.java.txt",
+      "sha256": "fbc83cfd766e99fdfa3ac413b8aefbc31ec5d3a8b1563152dfb5d772b3155788"
+    },
+    {
+      "bytes": 6130,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v2\\src\\main\\resources\\com\\synexia\\rewrite\\hash-pinned-java\\guava-native-hash-multimap-v2-20261018\\before-HashMultimap.java.txt",
+      "sha256": "8c5b05d4965cbecdbd99468ea93bae3b4d41bfd69665e0e7dc473510f6d9e1fb"
+    },
+    {
+      "bytes": 161,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v2\\src\\main\\resources\\com\\synexia\\rewrite\\hash-pinned-java\\guava-native-hash-multimap-v2-20261018\\manifest.tsv",
+      "sha256": "29c3d0c51d8e8b19e1c5e9a4af1def5bd5e7757a54221785380600c563a38b33"
+    },
+    {
+      "bytes": 10782,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v2\\src\\test\\java\\com\\synexia\\rewrite\\M3GuavaHashMultimapRecipeTest.java",
+      "sha256": "b00267b87c90a1a4696b88fd6b3aa4462f4dd10ddd7a11875c82d8bafa7b2127"
+    },
+    {
+      "bytes": 20687,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v5\\PREPARED_QUALIFICATION.json",
+      "sha256": "9003c750b0301081b3c7a86764f9b1e8f32b9f0761ef7dd0ec4b48f25a859003"
+    },
+    {
+      "bytes": 3288,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v5\\pom.xml",
+      "sha256": "f8da90834dc2c4fec88229aaf0ddb6f5862bbbe41d6b59e0b27ca7e4a173cc89"
+    },
+    {
+      "bytes": 19497,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v5\\src\\main\\resources\\com\\synexia\\rewrite\\hash-pinned-java\\guava-native-hash-multimap-v5-20261018\\HashMultimap.java.txt",
+      "sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8"
+    },
+    {
+      "bytes": 6130,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v5\\src\\main\\resources\\com\\synexia\\rewrite\\hash-pinned-java\\guava-native-hash-multimap-v5-20261018\\before-HashMultimap.java.txt",
+      "sha256": "8c5b05d4965cbecdbd99468ea93bae3b4d41bfd69665e0e7dc473510f6d9e1fb"
+    },
+    {
+      "bytes": 161,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v5\\src\\main\\resources\\com\\synexia\\rewrite\\hash-pinned-java\\guava-native-hash-multimap-v5-20261018\\manifest.tsv",
+      "sha256": "47ef6228e03cfedd3e902a6ac0fe9e6b9e42b099e77a1c0b71a76ab66f62dac6"
+    },
+    {
+      "bytes": 820,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v5\\src\\test-client\\java\\com\\synexia\\bench\\M3HashMultimapForEachSourceClient.java",
+      "sha256": "29a94519c1f74abf220383ed225bcb9c720f600424a939020a1c04f6cb0fdf40"
+    },
+    {
+      "bytes": 10782,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\recipe-v5\\src\\test\\java\\com\\synexia\\rewrite\\M3GuavaHashMultimapRecipeTest.java",
+      "sha256": "adab4604d523d4d596fc9bf85874eb8b7d25817b13fc23fc5e75d53bdee3f723"
+    },
+    {
+      "bytes": 1239,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v2\\classes\\com\\google\\common\\collect\\HashMultimap$1.class",
+      "sha256": "2ead65bf2feb12468625cca6d29231cd22771814fd5755706e27c73e59cb8181"
+    },
+    {
+      "bytes": 4809,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v2\\classes\\com\\google\\common\\collect\\HashMultimap$M3LFUCache.class",
+      "sha256": "243e95df0ea818d5c8bbed946c4fa72b8651c44b14b1bac24bb97d0305512141"
+    },
+    {
+      "bytes": 3038,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v2\\classes\\com\\google\\common\\collect\\HashMultimap$ProjectionSpliterator.class",
+      "sha256": "5b0ac15bf45706054df0546a6869f4d6eada66530308757227834fa36b979ac8"
+    },
+    {
+      "bytes": 2448,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v2\\classes\\com\\google\\common\\collect\\HashMultimap$ValueSet.class",
+      "sha256": "47c6704ff1db45e71f727143c7bfb95af8d4afa52d7fbd82cf42bd6572bd1f46"
+    },
+    {
+      "bytes": 7555,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v2\\classes\\com\\google\\common\\collect\\HashMultimap.class",
+      "sha256": "606b25049c50a2d0200eeb541d8cc1f10c717efba54e2f5e426ff9b3c4735e65"
+    },
+    {
+      "bytes": 1239,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes\\com\\google\\common\\collect\\HashMultimap$1.class",
+      "sha256": "a876f4a255922adeb8ee304a72e11cb5945d047f9a9b722fc622c4163d2e4b48"
+    },
+    {
+      "bytes": 4809,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes\\com\\google\\common\\collect\\HashMultimap$M3LFUCache.class",
+      "sha256": "051f9395516fbadfa5513cd068c4489237a1708f6f1d1fd00975c7eab852cac9"
+    },
+    {
+      "bytes": 3038,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes\\com\\google\\common\\collect\\HashMultimap$ProjectionSpliterator.class",
+      "sha256": "18e83795e7bb52bdfa7efa22b947e337022b93e9abbdd311432fac716878534a"
+    },
+    {
+      "bytes": 2448,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes\\com\\google\\common\\collect\\HashMultimap$ValueSet.class",
+      "sha256": "7b73d71a9b10a9f4edf604166b3db3ba080bac6026a73694a65d3d8e8121ffb3"
+    },
+    {
+      "bytes": 8683,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes\\com\\google\\common\\collect\\HashMultimap.class",
+      "sha256": "5d4d91d2d7e6a63447e9d88a471135898c38b2e6ce61e79cf6666a34b3483873"
+    },
+    {
+      "bytes": 22854,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\storage-cache-proof-v1\\M3HashMultimapStorageCacheProbe.java",
+      "sha256": "b14b5ed6e5cc31372d364ee8cd2ad76e9507f29a7fbab73189152b9ef1e13cc0"
+    },
+    {
+      "bytes": 3970,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\storage-cache-proof-v1\\PREPARED_PROOF_V1.json",
+      "sha256": "01cc40699e83f957d29516f3806bcac27d3fa115db135e73c0d8651d7dceb773"
+    },
+    {
+      "bytes": 1355,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\storage-cache-proof-v1\\PROBE_RESULT_V1.json",
+      "sha256": "2a712603197b24eb90549159ac9726439ec3548d3aef78e973c7b8320ff13ce6"
+    },
+    {
+      "bytes": 639,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\storage-cache-proof-v1\\classes\\com\\google\\common\\collect\\M3HashMultimapStorageCacheProbe$Representative.class",
+      "sha256": "7e8216236c74d0d75ce5086912e28d470909cf99241896a5be3226d0213a6e8d"
+    },
+    {
+      "bytes": 1895,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\storage-cache-proof-v1\\classes\\com\\google\\common\\collect\\M3HashMultimapStorageCacheProbe$Table.class",
+      "sha256": "13febaf344cf9ac2cb3fa0d009a45bedf0ba5a398b0d7b6900229627f9955dbb"
+    },
+    {
+      "bytes": 20468,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\storage-cache-proof-v1\\classes\\com\\google\\common\\collect\\M3HashMultimapStorageCacheProbe.class",
+      "sha256": "e442170269fa6ccc561459ae3c48d3fbaccad2ae1b32a3b627e6411760cf788c"
+    },
+    {
+      "bytes": 15549,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\M3HashMultimapStreamProtocol.java",
+      "sha256": "27353b21b6c0c43aababf13b43ad1dd27f53f84e33bdef1dd302dfba30328de1"
+    },
+    {
+      "bytes": 5314,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\PREPARED_PROOF_V2.json",
+      "sha256": "d4a949a0eeec5bd7a77e72caa9543836d2aa0fa6a8c97fd5313908293a499108"
+    },
+    {
+      "bytes": 897,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\classes\\com\\google\\common\\collect\\M3HashMultimapStreamProtocol$1.class",
+      "sha256": "9c53a31fd7bac763aeddd94771eb2ff93c4f55771f1297a3cdbdac21887a4222"
+    },
+    {
+      "bytes": 929,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\classes\\com\\google\\common\\collect\\M3HashMultimapStreamProtocol$2.class",
+      "sha256": "f1daa4143e5e4e61d12a45e2ab42719b190bf893423cd3380789be4656a70795"
+    },
+    {
+      "bytes": 16466,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\classes\\com\\google\\common\\collect\\M3HashMultimapStreamProtocol.class",
+      "sha256": "99d51b8523bdcb26688ffe96470bb54635667e806e7fa6ac8ec3863901fc2258"
+    },
+    {
+      "bytes": 1503,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\read-detached-native-RESULT_V2.json",
+      "sha256": "e31abf15f22a612bbf62a8ceea8b959319864ffa1cf3ebb1aadc0dfedec63a80"
+    },
+    {
+      "bytes": 1490,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\read-native-RESULT_V2.json",
+      "sha256": "02db9465c7a45f77645271809a7c793fd3fc1243c17df9237df439326adb5999"
+    },
+    {
+      "bytes": 1573,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\read-stock-RESULT_V2.json",
+      "sha256": "b05ff75dfc0431c3ef3b5c81e72b231f8ec764a1ee22b4936645b35aa95fd8ff"
+    },
+    {
+      "bytes": 781,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\native-detached-v2.ser",
+      "sha256": "b0559bddd84180740deb41b347cdcaf1901a99f637dc184e5cf641c6e25d3bdc"
+    },
+    {
+      "bytes": 568,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\native-writer-v2.ser",
+      "sha256": "9932017649bcd629e4165a865bf4f7477e42c2badf298b09bed8d27cb0caf880"
+    },
+    {
+      "bytes": 568,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\stock-writer-v2.ser",
+      "sha256": "2d19951effb85a9a8876c8b5538c8636c0ef3e1317b8369d56a26caf8e6e5cb6"
+    },
+    {
+      "bytes": 1505,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\write-detached-native-RESULT_V2.json",
+      "sha256": "58df50e11e2ba126c436e56d40a4d6ba03198b3b078a667b4fcc3cb3ddf03474"
+    },
+    {
+      "bytes": 1493,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\write-native-RESULT_V2.json",
+      "sha256": "0ae41225765a528c631ec2a2bb10aaaae866fc4f4ea52120eb1d5b02971145d3"
+    },
+    {
+      "bytes": 1574,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\write-stock-RESULT_V2.json",
+      "sha256": "286d82902a860bc55552dd85aa3221bb052260a1849691ddff1b69b9437b30ad"
+    },
+    {
+      "bytes": 6067,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\prepare_hash_multimap_baseline_v1.py",
+      "sha256": "3d16d10c87b4d7fcb06fe7dc1fabe0d24e668ae63b79217071a11a0c08e6040d"
+    },
+    {
+      "bytes": 7291,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\prepare_hash_multimap_recipe_v2.py",
+      "sha256": "8aa90f651198a1b0ea75935dcbbececb473e645662872eeb7148093d23cf9746"
+    },
+    {
+      "bytes": 19577,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\prepare_hash_multimap_recipe_v4.py",
+      "sha256": "c3b39391f1e013e4eb95a018e5bb45f6bbc70733b76645199f9c1925e1a8fc77"
+    },
+    {
+      "bytes": 27753,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\prepare_hash_multimap_recipe_v5.py",
+      "sha256": "2cf969bbcae10ac100b6e16aff9645e67bdc3907501c033488546e4513d5680d"
+    },
+    {
+      "bytes": 10870,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\src\\main\\java\\com\\m3\\collections\\M3SlotMap.java",
+      "sha256": "0499cb1f5825429fcf7434665c6785bcffa59ed4a975974a29856ad60317e806"
+    },
+    {
+      "bytes": 3074809,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\target-hash-bimap-stream-qualified-v4\\guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar",
+      "sha256": "0d1f77f56a15a9c6c91e3faca6b598e8bff5b17ecb76c323feff9c427351539a"
+    },
+    {
+      "bytes": 28557,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\record_challenge_confirmation_v1.py",
+      "sha256": "47b70352ae7b6d8dfe248f44907e25b219b9d33173fcd36b1a3efbedacf63c23"
+    },
+    {
+      "bytes": 15923,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\record_challenge_optimization_v1.py",
+      "sha256": "cb8bbaab0c0f6da56ba69b82d195378cca56a7c07748c1b5fab526413cfc21cc"
+    },
+    {
+      "bytes": 15264,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\record_hash_multimap_source_v5.py",
+      "sha256": "38fd1f8150a934c8232ecb6dd8b1e42b21a2623034e9e5aefc17aed790772f68"
+    },
+    {
+      "bytes": 3802,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_challenge_foreach_probe_v1.py",
+      "sha256": "db9cc17bbea14a0941fb2d0c2ebd1173dffb2a81d44133d8ac63c383148b6a8f"
+    },
+    {
+      "bytes": 4163,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_challenge_outer_contract_v1.py",
+      "sha256": "885a48249bcfac44d9713f901631a430dc6d3e552999c816a01f5e96e7c3ab88"
+    },
+    {
+      "bytes": 14355,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_challenge_perf_confirm_v1.py",
+      "sha256": "ebbb5c8ad8deaf4dc33464617022b5d1cefb1a68e6975a042dc478ddf56c22c2"
+    },
+    {
+      "bytes": 4515,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_challenge_perf_outer_v1.py",
+      "sha256": "d1c48c86f85ff046843e39bee8b809f2bf016902460736fd66ca473e4f14b558"
+    },
+    {
+      "bytes": 11357,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_challenge_singleton_contract_v1.py",
+      "sha256": "55b4c9f360e83e74589c5e34a8cb153ea4598265467ee4cd2c9d5c8573cc3376"
+    },
+    {
+      "bytes": 2068,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_abi_v2.py",
+      "sha256": "18318be57ad3c757d70fdd5b193da0c3c425ca5ee1738704d2d096a36151c2b9"
+    },
+    {
+      "bytes": 6467,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_abi_v5.py",
+      "sha256": "f6cf09849176c674bf478ab8a22d7698521b36bc79ded16bf822288da5c3405f"
+    },
+    {
+      "bytes": 12143,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_abi_v5_resume_v1.py",
+      "sha256": "ad2d85e7794ab37026e555f4c286f8560306e892051ff90f95aa06d1ddc73a07"
+    },
+    {
+      "bytes": 3820,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_baseline_v1.py",
+      "sha256": "d786d7a39e9407449e4332776c9cce3acdfb5d191d6655c32d4e62638f1a6653"
+    },
+    {
+      "bytes": 4080,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_candidate_v2.py",
+      "sha256": "b3036c0389c2a73b1e6be68d1cc18610654eba59c98c1242e808c6a172d254ca"
+    },
+    {
+      "bytes": 4080,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_candidate_v5.py",
+      "sha256": "b2c626b636fdadc89dd42fd02ace17c6ceef7798d7b16d1ae2521e2f304c9ef0"
+    },
+    {
+      "bytes": 2658,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_recipe_v2.py",
+      "sha256": "06503f43de0e2f818e9e73fd18a217e0cdb982f5efbf286c9045c9ef0dd4576a"
+    },
+    {
+      "bytes": 2658,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_recipe_v5.py",
+      "sha256": "8132d5f306e4f74bb6360afb4e1b7b3461098a47d83c32c3923d9706f3571e41"
+    },
+    {
+      "bytes": 5555,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_storage_cache_v1.py",
+      "sha256": "0d925263813ee32520022c919a4ee51894c477881bcadeff8e061388c3da3b74"
+    },
+    {
+      "bytes": 7278,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\run_hash_multimap_stream_v2.py",
+      "sha256": "721d42312bdc8c10876ac9c10e14bb5e841c02cb23d8952cea297e9c94f916e9"
+    },
+    {
+      "bytes": 74464,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-confirm-before-1-inputs-v1.json",
+      "sha256": "a70307cb3d6138bdbb3f3a86906b1b954328f2d4b652d558bd560357e604b023"
+    },
+    {
+      "bytes": 79697,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-confirm-before-2-inputs-v1.json",
+      "sha256": "435a69ab4d3f2d1dc066d72214ad94decd0ea02ae475c98656238032b29ccd19"
+    },
+    {
+      "bytes": 81446,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-confirm-before-3-inputs-v1.json",
+      "sha256": "30e919bab951d729d4fa54e30171d54b7bf244f0b82b4f1a5f245f601ea3977e"
+    },
+    {
+      "bytes": 76213,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-confirm-outer-1-inputs-v1.json",
+      "sha256": "2353d6bb0913413795c70f783d713cbd4ed81a538eb2b307b1d8d657f7bfca9a"
+    },
+    {
+      "bytes": 77955,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-confirm-outer-2-inputs-v1.json",
+      "sha256": "012811d33ab3bd85999cd82d776a8c9da102c71078818b888f824ef251ffdb5a"
+    },
+    {
+      "bytes": 83195,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-confirm-outer-3-inputs-v1.json",
+      "sha256": "c05ae79749d30026f37b1294f2aa715f1436d22eb11380af53b511fa671da730"
+    },
+    {
+      "bytes": 36688,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-foreach-probe-binaries-v1.json",
+      "sha256": "40502c75913ffb8c9372580c7e5a81b837c174e9928e38365531650ff6231117"
+    },
+    {
+      "bytes": 51533,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-outer-general-contract-inputs-v1.json",
+      "sha256": "31b8da1b0273889cf8acd3de0eeaa2dde1a3c4a82aa85160c8bef9f372ce45c8"
+    },
+    {
+      "bytes": 51558,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-outer-singleton-contract-inputs-v1.json",
+      "sha256": "85b27c5da1290134db341a7a231224abf820c48d38363048b6f17a65aa266ff7"
+    },
+    {
+      "bytes": 34950,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-perf-binaries-v1.json",
+      "sha256": "3a59e176abfb7b25f6b36411482d07ad12d2532eaf8bb15c4d7c95dee88b53e5"
+    },
+    {
+      "bytes": 40912,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-perf-optimized-inputs-v1.json",
+      "sha256": "4ad92adb93811eea4ac9e4affb44989c91ec518ea87d1df845b461af180f2849"
+    },
+    {
+      "bytes": 47277,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-perf-outer-inputs-v1.json",
+      "sha256": "b241bf53a361d5b8fa07ed7243b15a03ebe4beee3e7200ab3c3f958a19bc6ad8"
+    },
+    {
+      "bytes": 52384,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-perf-outer-replacement-4-inputs-v1.json",
+      "sha256": "e46689b9ccec9e5be1de63ceb8a68ad5817c25daf11addd0675303bb52540f8d"
+    },
+    {
+      "bytes": 41696,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-perf-singleton-inputs-v1.json",
+      "sha256": "fd69c7b0d3a834ae51b00f3e97ade4813c96953e563d16c053fda9bbdf8a5733"
+    },
+    {
+      "bytes": 37806,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-singleton-contract-binaries-v1.json",
+      "sha256": "d3539f8f8c5b8738eb0f076a4000cf3416bde147262dd2e80f868046efb86e09"
+    },
+    {
+      "bytes": 36543,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\challenge-singleton-contract-inputs-v1.json",
+      "sha256": "94893164d6e81e5cbdea113b26d5301b50cfc0f54e14cdcd10c81594271378fa"
+    },
+    {
+      "bytes": 33272,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-abi-v5-resume-inputs-v1.json",
+      "sha256": "695344bb5f4b44dd0dc938be2720dd140dc99b00767283d75f73184854fb37a4"
+    },
+    {
+      "bytes": 31533,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-candidate-binaries-v5.json",
+      "sha256": "7819c96faa44cf40c271b6e81da1d90f5ac64070d39a2aec24e25f42b0bca53d"
+    },
+    {
+      "bytes": 30029,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-candidate-inputs-v5.json",
+      "sha256": "4bd13bee902f567eef7437a1b5ff163d07d2a227d95efe5a1f3ab5e5fea2c466"
+    },
+    {
+      "bytes": 15158,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-recipe-inputs-v5.json",
+      "sha256": "2e3ba44e3a5e292ef3a35412049ab81b8d4f8a99844329fffb7a025fa8ed1b0d"
+    },
+    {
+      "bytes": 33567,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-storage-cache-binaries-v1.json",
+      "sha256": "3181828725203366c157d39fa00f1a51a0a2a7f05efeba2ca5f0943f23616b89"
+    },
+    {
+      "bytes": 32577,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-storage-cache-inputs-v1.json",
+      "sha256": "25de578830cf752413a774e1f06d868d3f163d07529bd4c95e0b1839db4961b6"
+    },
+    {
+      "bytes": 33495,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-stream-binaries-v2.json",
+      "sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a"
+    },
+    {
+      "bytes": 32553,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-stream-inputs-v2.json",
+      "sha256": "1a34432eb0c98634f2e128bc09249aa21deb71d48b6a39a5c314fc2994082aac"
+    },
+    {
+      "bytes": 34041,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-stream-read-detached-native-v2.json",
+      "sha256": "acb94cb3d094c22b6f04a16ecdb54f39120fb9c16c9a36b6cc1fe6d122c5dbd2"
+    },
+    {
+      "bytes": 34028,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-stream-read-native-v2.json",
+      "sha256": "bcc608b75f76873434a95f366b91ba04a08c1ab623b22da42034d83723554090"
+    },
+    {
+      "bytes": 34030,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-stream-read-stock-v2.json",
+      "sha256": "045bb52386776870c74e7ad233e6a027d52627879695bf7e7f87426084d44faa"
+    },
+    {
+      "bytes": 33495,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-stream-write-detached-native-v2.json",
+      "sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a"
+    },
+    {
+      "bytes": 33495,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-stream-write-native-v2.json",
+      "sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a"
+    },
+    {
+      "bytes": 33495,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\seals\\hash-multimap-stream-write-stock-v2.json",
+      "sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a"
+    },
+    {
+      "bytes": 12887,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\supervisor_budget96_v3.py",
+      "sha256": "d1d8afa6cd9e825a4931a70b8706d4b7ab6f73d4ec53662dc0abdbf4ba617f01"
+    },
+    {
+      "bytes": 125428,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\upstream\\lib\\asm-9.7.jar",
+      "sha256": "adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d"
+    },
+    {
+      "bytes": 7491,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\upstream\\lib\\auto-value-annotations-1.11.0.jar",
+      "sha256": "5a055ce4255333b3346e1a8703da5bf8ff049532286fdcd31712d624abe111dd"
+    },
+    {
+      "bytes": 3023797,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\upstream\\lib\\guava-33.4.8-jre.jar",
+      "sha256": "f3d7f57f67fd622f4d468dfdd692b3a5e3909246c28017ac3263405f0fe617ed"
+    },
+    {
+      "bytes": 932857,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\upstream\\lib\\guava-testlib-33.4.8-jre.jar",
+      "sha256": "a58a38746f97e02ae3d067b74a25ad2b136650227baa7124ce03fa3bce4e8576"
+    },
+    {
+      "bytes": 45024,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\upstream\\lib\\hamcrest-core-1.3.jar",
+      "sha256": "66fdef91e9739348df7a096aa384a5685f4e875584cce89386a7a47251c4d8e9"
+    },
+    {
+      "bytes": 384581,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\upstream\\lib\\junit-4.13.2.jar",
+      "sha256": "8e495b634469d64fb8acfa3495a065cbacc8a0fff55ce1e31007be4c16dc57d3"
+    },
+    {
+      "bytes": 2199,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\upstream\\lib\\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+    },
+    {
+      "bytes": 274574,
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\upstream\\lib\\truth-1.4.4.jar",
+      "sha256": "52c86cddadc31bc8457c1e15689fc6b75e2e97ce2a83d8b54b795d556d489f8c"
+    }
+  ],
+  "logical_owner_stock_native": "BOTH_DIRECTIONS_PASSED_WITH_ALIASES_NULLS_LIVE_VIEWS_AND_SHARED_PAYLOADS",
+  "measured_increment_admitted": true,
+  "performance_confirmation": {
+    "bytes": 127218,
+    "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\challenge-perf-v1\\confirm-v1\\CONFIRMATION_REPORT_V1.json",
+    "sha256": "713a7dababeab9d8de4d742bcbc5d81b3480786cb759a20e1b8979bcd9fcccb9"
+  },
+  "performance_scope": "LOCAL_REGISTERED_COURSE_SCHEDULE_WIDE_ALLOCATION_WITH_ALL_NINE_LATENCY_GUARD",
+  "receipts": {
+    "challenge-confirm-before-1": {
+      "log_sha256": "e2e22a6189b691621fab37a549bb5b05b002f461ed83549a0c72d6e6f9175ed3",
+      "receipt": {
+        "bytes": 7565,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-1.json",
+        "sha256": "a0b86c83d8d870c503f423e7feaf4557a18bc70eac6744aaa287a343ae45da71"
+      }
+    },
+    "challenge-confirm-before-2": {
+      "log_sha256": "f33b0e8e690279b793cfbdd98d67739ef87a5df66f8816ca5282f4d9af8422a5",
+      "receipt": {
+        "bytes": 7565,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-2.json",
+        "sha256": "39bac3ee72998c14fde8d77d02f8ec45ca122c3ea18cf7b049b4c45e83f0803c"
+      }
+    },
+    "challenge-confirm-before-3": {
+      "log_sha256": "c92cfb105774558ded716cea6801f44a4ab5bad00c0585ae55f4fa56d27634e3",
+      "receipt": {
+        "bytes": 7565,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-before-3.json",
+        "sha256": "5bb27eeb62ac955b9020c74b1b6ca49c17383152c5cc79887c0fa18ac15108f2"
+      }
+    },
+    "challenge-confirm-outer-1": {
+      "log_sha256": "61722a70827bc4cd7070366c024cf7f21c4f6653b668f5f4459c0d8f50eee2da",
+      "receipt": {
+        "bytes": 7562,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-1.json",
+        "sha256": "ebb2f6ad05e1f407daf97a1235394e9eed39191e13a5a1b31ab5bf53621b92dd"
+      }
+    },
+    "challenge-confirm-outer-2": {
+      "log_sha256": "fe30b7777c96ec1946ef895ae57b45a592d898dc84f8a26e2304ce68128d1249",
+      "receipt": {
+        "bytes": 7562,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-2.json",
+        "sha256": "9d08338d186d4866ed1ca9f3129313f3be3a3f8d0d25ec1bb31f8436a5240ee4"
+      }
+    },
+    "challenge-confirm-outer-3": {
+      "log_sha256": "aab680d75619825a1f3767dfbd833bc6c569f22e8e17a268312440ca5b435e9f",
+      "receipt": {
+        "bytes": 7562,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-confirm-outer-3.json",
+        "sha256": "6b5e09867f6c0b3357ced85796ba58f6dd724ea14f3721b97bf0a960b87e5560"
+      }
+    },
+    "challenge-foreach-before-1": {
+      "log_sha256": "736e00d2523c10d08beeb14c0891bd7fa6e4117e84bf64a4f9b2de6dc26a3175",
+      "receipt": {
+        "bytes": 6583,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-foreach-before-1.json",
+        "sha256": "9421261a13c2b13185abf31a8c2ff9d2420b6f19c567991763006e13c7201b13"
+      }
+    },
+    "challenge-outer-general-contract-v1": {
+      "log_sha256": "736e00d2523c10d08beeb14c0891bd7fa6e4117e84bf64a4f9b2de6dc26a3175",
+      "receipt": {
+        "bytes": 6493,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-outer-general-contract-v1.json",
+        "sha256": "518fc5f591833a43a76a9fa66d36a5a370ddba6c660585a8d2cf3c30f204d924"
+      }
+    },
+    "challenge-outer-singleton-contract-v1": {
+      "log_sha256": "5b20dd3b9c6d4d37880ff41407ccdcda1aea275edf2ebb0bc2c80deb27143fed",
+      "receipt": {
+        "bytes": 6541,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-outer-singleton-contract-v1.json",
+        "sha256": "c83af7dc0bf9edf61a51c3760b521d5f2aaa48327b935a58e0599afa9148d56a"
+      }
+    },
+    "challenge-singleton-contract-before-v1": {
+      "log_sha256": "5b20dd3b9c6d4d37880ff41407ccdcda1aea275edf2ebb0bc2c80deb27143fed",
+      "receipt": {
+        "bytes": 6793,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\challenge-singleton-contract-before-v1.json",
+        "sha256": "e0573af6d83129a887253bd3eba56f8eec7618dc8331b82f0cd76298cb1b4bca"
+      }
+    },
+    "hash-multimap-v5-abi-native-1": {
+      "log_sha256": "562cd0637ff5dc7cb49eca55a5adcbb8835dea252c2621820030afeea5eef1e2",
+      "receipt": {
+        "bytes": 3245,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-native-1.json",
+        "sha256": "9163975651bd5f571020aee955f7f46614c1142d96eb0f08f47ec908a0d06a12"
+      }
+    },
+    "hash-multimap-v5-abi-source-native-1": {
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "receipt": {
+        "bytes": 6580,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-native-1.json",
+        "sha256": "d987b90c4c5df2a877f19c176931a6d1708982158d14da8d3178fe6926cf25d8"
+      }
+    },
+    "hash-multimap-v5-abi-source-stock-2": {
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "receipt": {
+        "bytes": 6679,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-source-stock-2.json",
+        "sha256": "8b16efcbc8ddbf59cff7c8909cbaae1a2e0753522cc3e8fa84e444c3afe046a6"
+      }
+    },
+    "hash-multimap-v5-abi-stock-1": {
+      "log_sha256": "51aa34825eff8ff450f688ba5344b76a7c9da9d9ca20ef213b6d8da3e2358c5d",
+      "receipt": {
+        "bytes": 3064,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-stock-1.json",
+        "sha256": "97ac1d2ce51edbb423df5bd000bd529850d43c247995a6f2282c75d6034508ba"
+      }
+    },
+    "hash-multimap-v5-abi-stock-ancestor-1": {
+      "log_sha256": "4177ed60e80dbf017fc5ef5947e6454157d8a6fbf7727458b0a2529d59717bea",
+      "receipt": {
+        "bytes": 3350,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-abi-stock-ancestor-1.json",
+        "sha256": "e2a4f469c7901c287ef57df696fa56673cfe7c73b27fd02599870b179bfd0452"
+      }
+    },
+    "hash-multimap-v5-compile-1": {
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "receipt": {
+        "bytes": 6013,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-compile-1.json",
+        "sha256": "eb615ca0d8c9cec86cd374f4844449130fc9437f1293f73774ea29504d934ff9"
+      }
+    },
+    "hash-multimap-v5-sdk-1": {
+      "log_sha256": "754cc4f500605b0a76943ec9bb87759d0dd21a4079793f9d612cc9c924d519ef",
+      "receipt": {
+        "bytes": 4468,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-sdk-1.json",
+        "sha256": "fa0485a5fb97df72c02c58dadec7d8a58abae1b2c9799399221a54d0a31b33cb"
+      }
+    },
+    "hash-multimap-v5-storage-cache-compile-1": {
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "receipt": {
+        "bytes": 6097,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-storage-cache-compile-1.json",
+        "sha256": "4f8ebc0d09c84bc941d1173381edfb89f15b78ff81b126a08a30b29088d6463d"
+      }
+    },
+    "hash-multimap-v5-storage-cache-run-1": {
+      "log_sha256": "f23c1ffd83baa843089cd299372dd27f54be6fb89589ff7d1199be510186f673",
+      "receipt": {
+        "bytes": 6377,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-storage-cache-run-1.json",
+        "sha256": "69a74a952dca02fdc2c9701184a01d64ff1a052d983a71f5b0dc354d316b52eb"
+      }
+    },
+    "hash-multimap-v5-stream-compile-1": {
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "receipt": {
+        "bytes": 5941,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-compile-1.json",
+        "sha256": "a114421ac17b9cbf7dfec3e65f119a87b1e529adcbf0fec5180703f89088581d"
+      }
+    },
+    "hash-multimap-v5-stream-read-detached-native-1": {
+      "log_sha256": "cbf6a1357baa95cd220f01ed725d3786bc34332500edf418b1c061ecdc135f00",
+      "receipt": {
+        "bytes": 6574,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-read-detached-native-1.json",
+        "sha256": "18c44e0eb09a203bbdc79735ad91a60a748b435b787ac32bdee902f8edd35557"
+      }
+    },
+    "hash-multimap-v5-stream-read-native-1": {
+      "log_sha256": "8047b7647b66d9fe3676101567258bc0379c2cd7a3b27b99b579d7ad11cc2945",
+      "receipt": {
+        "bytes": 6549,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-read-native-1.json",
+        "sha256": "09f930fd30a2b8b79ab47b234ab95635028185d7af57ffe4944a8a25609fbe76"
+      }
+    },
+    "hash-multimap-v5-stream-read-stock-1": {
+      "log_sha256": "c819ca8a0fe47cf8e9ecf83bb4837b5d71775394a7990ace07a167280d9d291e",
+      "receipt": {
+        "bytes": 6523,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-read-stock-1.json",
+        "sha256": "acb22e003c22762008d3ee396df99757f8699c4d6249418077c6bc7e89189c76"
+      }
+    },
+    "hash-multimap-v5-stream-write-detached-native-1": {
+      "log_sha256": "0b13e491d981467e3ab0940ac4617d7feaa5a2dff081a01475138a81eea03bae",
+      "receipt": {
+        "bytes": 6578,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-write-detached-native-1.json",
+        "sha256": "3a47ab5d8ca95c197619d58e4c24352abb5b4c3ec33ba3cb5c7baf30dc2270e1"
+      }
+    },
+    "hash-multimap-v5-stream-write-native-1": {
+      "log_sha256": "bf9684efd66471d5015ababf181c5004b7c8458919c29872dc93b81bf17dbbf8",
+      "receipt": {
+        "bytes": 6555,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-write-native-1.json",
+        "sha256": "b722ab4968e20ecb7621cead4513346f4e56c1e551900e177f00f73af06d70e5"
+      }
+    },
+    "hash-multimap-v5-stream-write-stock-1": {
+      "log_sha256": "9abdb91893c46991f0ac20167aac8675873b98a75f493c38eb62f46049567643",
+      "receipt": {
+        "bytes": 6526,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-stream-write-stock-1.json",
+        "sha256": "869109633f38fd82288e456fb09d26c1053595dc23f4846b19864fb5900a9d26"
+      }
+    },
+    "hash-multimap-v5-suite-1": {
+      "log_sha256": "32f1ac910e95474144ad579f3dc7b73240b740ad4fa6923979449ee8abb3f43d",
+      "receipt": {
+        "bytes": 6500,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\hash-multimap-v5-suite-1.json",
+        "sha256": "b3a2e7785ea23b371451defbf432c8303441852cab5c6c4a9ac46e0ec07fc119"
+      }
+    }
+  },
+  "reflection_delta": "Raw public synthetic bridge becomes explicit public typed override; bridge/synthetic flags and generic Signature observations may change.",
+  "reflective_metadata_identity_claimed": false,
+  "runtime_classes": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes",
+  "schema": "M3_HASH_MULTIMAP_SOURCE_QUALIFICATION_V5",
+  "scope": "ONE_HASH_MULTIMAP_SOURCE_OWNER",
+  "source": {
+    "bytes": 19497,
+    "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\build\\hash-multimap-v5-qualified\\m3-jre21\\src\\main\\java\\com\\google\\common\\collect\\HashMultimap.java",
+    "sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8"
+  },
+  "source_properties": {
+    "SDK_methods": 5,
+    "UID": 0,
+    "churn_rounds": 10000,
+    "declared_serial_fields": 0,
+    "effective_ABI": "PRESERVED_WITH_EXPLICIT_INHERITED_OVERRIDE",
+    "elementwise_degree_checks": 3072,
+    "general_callback_cases": 10,
+    "oracle_operations": 10000,
+    "private_api_cache": "TRANSIENT_WARM_BEFORE_WRITE_LAZY_AFTER_READ_PROTOCOL_PASSED",
+    "reader_rounds": 200,
+    "readers": 4,
+    "singleton_callback_cases": 20,
+    "stream_compile_and_independent_process_steps": 7,
+    "typed_source_clients": "STOCK_AND_NATIVE_PASSED",
+    "unchanged_upstream_cases": 5735
+  },
+  "source_sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8",
+  "status": "SOURCE_PROPERTIES_PASSED_FINAL_ARTIFACT_PENDING",
+  "storage": {
+    "K_free": 1421254656,
+    "S_free": 25486835712,
+    "commit_available": 18056097792,
+    "native_temp": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\build\\tmp\\",
+    "output_bytes": 83765947,
+    "physical_available": 7990231040
+  },
+  "stream_pairs": [
+    {
+      "descriptor_sha256": "e0d9d19f4b6c7513aa410bc4d60daa2e97abb68021e8e79796f69f5ad38dfd2a",
+      "reader": "read-native",
+      "stream": {
+        "bytes": 568,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\stock-writer-v2.ser",
+        "sha256": "2d19951effb85a9a8876c8b5538c8636c0ef3e1317b8369d56a26caf8e6e5cb6"
+      },
+      "writer": "write-stock",
+      "writer_reader_identity": "PASS"
+    },
+    {
+      "descriptor_sha256": "e0d9d19f4b6c7513aa410bc4d60daa2e97abb68021e8e79796f69f5ad38dfd2a",
+      "reader": "read-stock",
+      "stream": {
+        "bytes": 568,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\native-writer-v2.ser",
+        "sha256": "9932017649bcd629e4165a865bf4f7477e42c2badf298b09bed8d27cb0caf880"
+      },
+      "writer": "write-native",
+      "writer_reader_identity": "PASS"
+    },
+    {
+      "descriptor_sha256": "b059d83ca7f45e41dea1409174ecc1b674e01c412b7fde8eefe239bf3f8d1943",
+      "reader": "read-detached-native",
+      "stream": {
+        "bytes": 781,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\native-detached-v2.ser",
+        "sha256": "b0559bddd84180740deb41b347cdcaf1901a99f637dc184e5cf641c6e25d3bdc"
+      },
+      "writer": "write-detached-native",
+      "writer_reader_identity": "PASS"
+    }
+  ],
+  "stream_proofs": {
+    "read-detached-native": {
+      "record": {
+        "action": "read",
+        "binary_seal_sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a",
+        "configured_autoreview": "NO_VERDICT_UNCHANGED",
+        "descriptor_sha256": "b059d83ca7f45e41dea1409174ecc1b674e01c412b7fde8eefe239bf3f8d1943",
+        "detached_stock_readability": "OPEN_UNQUALIFIED_NOT_ATTEMPTED",
+        "full_collection_goal": "ACTIVE_UNFINISHED",
+        "independent_parent_owned_JVM": true,
+        "lane": "native",
+        "owner_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes",
+        "schema": "M3_HASH_MULTIMAP_STREAM_STEP_V2",
+        "scope": "detached",
+        "shared_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\target-hash-bimap-stream-qualified-v4\\guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar",
+        "source_sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8",
+        "status": "PASS",
+        "step": "read-detached-native",
+        "step_seal_sha256": "acb94cb3d094c22b6f04a16ecdb54f39120fb9c16c9a36b6cc1fe6d122c5dbd2",
+        "stream": {
+          "bytes": 781,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\native-detached-v2.ser",
+          "sha256": "b0559bddd84180740deb41b347cdcaf1901a99f637dc184e5cf641c6e25d3bdc"
+        },
+        "stream_byte_identity_across_providers": "NOT_CLAIMED",
+        "terminal_receipt_sha256": "18c44e0eb09a203bbdc79735ad91a60a748b435b787ac32bdee902f8edd35557"
+      },
+      "result": {
+        "bytes": 1503,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\read-detached-native-RESULT_V2.json",
+        "sha256": "e31abf15f22a612bbf62a8ceea8b959319864ffa1cf3ebb1aadc0dfedec63a80"
+      }
+    },
+    "read-native": {
+      "record": {
+        "action": "read",
+        "binary_seal_sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a",
+        "configured_autoreview": "NO_VERDICT_UNCHANGED",
+        "descriptor_sha256": "e0d9d19f4b6c7513aa410bc4d60daa2e97abb68021e8e79796f69f5ad38dfd2a",
+        "detached_stock_readability": "OPEN_UNQUALIFIED_NOT_ATTEMPTED",
+        "full_collection_goal": "ACTIVE_UNFINISHED",
+        "independent_parent_owned_JVM": true,
+        "lane": "native",
+        "owner_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes",
+        "schema": "M3_HASH_MULTIMAP_STREAM_STEP_V2",
+        "scope": "logical",
+        "shared_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\target-hash-bimap-stream-qualified-v4\\guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar",
+        "source_sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8",
+        "status": "PASS",
+        "step": "read-native",
+        "step_seal_sha256": "bcc608b75f76873434a95f366b91ba04a08c1ab623b22da42034d83723554090",
+        "stream": {
+          "bytes": 568,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\stock-writer-v2.ser",
+          "sha256": "2d19951effb85a9a8876c8b5538c8636c0ef3e1317b8369d56a26caf8e6e5cb6"
+        },
+        "stream_byte_identity_across_providers": "NOT_CLAIMED",
+        "terminal_receipt_sha256": "09f930fd30a2b8b79ab47b234ab95635028185d7af57ffe4944a8a25609fbe76"
+      },
+      "result": {
+        "bytes": 1490,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\read-native-RESULT_V2.json",
+        "sha256": "02db9465c7a45f77645271809a7c793fd3fc1243c17df9237df439326adb5999"
+      }
+    },
+    "read-stock": {
+      "record": {
+        "action": "read",
+        "binary_seal_sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a",
+        "configured_autoreview": "NO_VERDICT_UNCHANGED",
+        "descriptor_sha256": "e0d9d19f4b6c7513aa410bc4d60daa2e97abb68021e8e79796f69f5ad38dfd2a",
+        "detached_stock_readability": "OPEN_UNQUALIFIED_NOT_ATTEMPTED",
+        "full_collection_goal": "ACTIVE_UNFINISHED",
+        "independent_parent_owned_JVM": true,
+        "lane": "stock",
+        "owner_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\target-hash-bimap-stream-qualified-v4\\guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar",
+        "schema": "M3_HASH_MULTIMAP_STREAM_STEP_V2",
+        "scope": "logical",
+        "shared_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\target-hash-bimap-stream-qualified-v4\\guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar",
+        "source_sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8",
+        "status": "PASS",
+        "step": "read-stock",
+        "step_seal_sha256": "045bb52386776870c74e7ad233e6a027d52627879695bf7e7f87426084d44faa",
+        "stream": {
+          "bytes": 568,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\native-writer-v2.ser",
+          "sha256": "9932017649bcd629e4165a865bf4f7477e42c2badf298b09bed8d27cb0caf880"
+        },
+        "stream_byte_identity_across_providers": "NOT_CLAIMED",
+        "terminal_receipt_sha256": "acb22e003c22762008d3ee396df99757f8699c4d6249418077c6bc7e89189c76"
+      },
+      "result": {
+        "bytes": 1573,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\read-stock-RESULT_V2.json",
+        "sha256": "b05ff75dfc0431c3ef3b5c81e72b231f8ec764a1ee22b4936645b35aa95fd8ff"
+      }
+    },
+    "write-detached-native": {
+      "record": {
+        "action": "write",
+        "binary_seal_sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a",
+        "configured_autoreview": "NO_VERDICT_UNCHANGED",
+        "descriptor_sha256": "b059d83ca7f45e41dea1409174ecc1b674e01c412b7fde8eefe239bf3f8d1943",
+        "detached_stock_readability": "OPEN_UNQUALIFIED_NOT_ATTEMPTED",
+        "full_collection_goal": "ACTIVE_UNFINISHED",
+        "independent_parent_owned_JVM": true,
+        "lane": "native",
+        "owner_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes",
+        "schema": "M3_HASH_MULTIMAP_STREAM_STEP_V2",
+        "scope": "detached",
+        "shared_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\target-hash-bimap-stream-qualified-v4\\guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar",
+        "source_sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8",
+        "status": "PASS",
+        "step": "write-detached-native",
+        "step_seal_sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a",
+        "stream": {
+          "bytes": 781,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\native-detached-v2.ser",
+          "sha256": "b0559bddd84180740deb41b347cdcaf1901a99f637dc184e5cf641c6e25d3bdc"
+        },
+        "stream_byte_identity_across_providers": "NOT_CLAIMED",
+        "terminal_receipt_sha256": "3a47ab5d8ca95c197619d58e4c24352abb5b4c3ec33ba3cb5c7baf30dc2270e1"
+      },
+      "result": {
+        "bytes": 1505,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\write-detached-native-RESULT_V2.json",
+        "sha256": "58df50e11e2ba126c436e56d40a4d6ba03198b3b078a667b4fcc3cb3ddf03474"
+      }
+    },
+    "write-native": {
+      "record": {
+        "action": "write",
+        "binary_seal_sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a",
+        "configured_autoreview": "NO_VERDICT_UNCHANGED",
+        "descriptor_sha256": "e0d9d19f4b6c7513aa410bc4d60daa2e97abb68021e8e79796f69f5ad38dfd2a",
+        "detached_stock_readability": "OPEN_UNQUALIFIED_NOT_ATTEMPTED",
+        "full_collection_goal": "ACTIVE_UNFINISHED",
+        "independent_parent_owned_JVM": true,
+        "lane": "native",
+        "owner_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\runtime-v5\\classes",
+        "schema": "M3_HASH_MULTIMAP_STREAM_STEP_V2",
+        "scope": "logical",
+        "shared_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\target-hash-bimap-stream-qualified-v4\\guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar",
+        "source_sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8",
+        "status": "PASS",
+        "step": "write-native",
+        "step_seal_sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a",
+        "stream": {
+          "bytes": 568,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\native-writer-v2.ser",
+          "sha256": "9932017649bcd629e4165a865bf4f7477e42c2badf298b09bed8d27cb0caf880"
+        },
+        "stream_byte_identity_across_providers": "NOT_CLAIMED",
+        "terminal_receipt_sha256": "b722ab4968e20ecb7621cead4513346f4e56c1e551900e177f00f73af06d70e5"
+      },
+      "result": {
+        "bytes": 1493,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\write-native-RESULT_V2.json",
+        "sha256": "0ae41225765a528c631ec2a2bb10aaaae866fc4f4ea52120eb1d5b02971145d3"
+      }
+    },
+    "write-stock": {
+      "record": {
+        "action": "write",
+        "binary_seal_sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a",
+        "configured_autoreview": "NO_VERDICT_UNCHANGED",
+        "descriptor_sha256": "e0d9d19f4b6c7513aa410bc4d60daa2e97abb68021e8e79796f69f5ad38dfd2a",
+        "detached_stock_readability": "OPEN_UNQUALIFIED_NOT_ATTEMPTED",
+        "full_collection_goal": "ACTIVE_UNFINISHED",
+        "independent_parent_owned_JVM": true,
+        "lane": "stock",
+        "owner_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\target-hash-bimap-stream-qualified-v4\\guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar",
+        "schema": "M3_HASH_MULTIMAP_STREAM_STEP_V2",
+        "scope": "logical",
+        "shared_provider": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work-v9\\m3-jre21\\target-hash-bimap-stream-qualified-v4\\guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4.jar",
+        "source_sha256": "e7e5c5c0be849c73292e638053dd924402f5a8f124317812c907913f84b499a8",
+        "status": "PASS",
+        "step": "write-stock",
+        "step_seal_sha256": "a9be1ba06755e99900e09fb4a8985ad492fd6c877cd77cbbd47ea2b07b9f472a",
+        "stream": {
+          "bytes": 568,
+          "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\streams\\stock-writer-v2.ser",
+          "sha256": "2d19951effb85a9a8876c8b5538c8636c0ef3e1317b8369d56a26caf8e6e5cb6"
+        },
+        "stream_byte_identity_across_providers": "NOT_CLAIMED",
+        "terminal_receipt_sha256": "869109633f38fd82288e456fb09d26c1053595dc23f4846b19864fb5900a9d26"
+      },
+      "result": {
+        "bytes": 1574,
+        "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\hash-multimap-next\\stream-proof-v2\\write-stock-RESULT_V2.json",
+        "sha256": "286d82902a860bc55552dd85aa3221bb052260a1849691ddff1b69b9437b30ad"
+      }
+    }
+  }
+}
