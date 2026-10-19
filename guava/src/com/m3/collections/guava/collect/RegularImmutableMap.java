@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// M3 immutable map index adaptation; provenance: m3/immutable-index-arrays-20261019/CONTRACT.md
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.base.Preconditions.checkNotNull;
@@ -23,13 +24,13 @@ import static com.m3.collections.guava.collect.Hashing.closedTableSize;
 import static com.m3.collections.guava.collect.ImmutableMapEntry.createEntryArray;
 import static java.util.Objects.requireNonNull;
 
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.annotations.VisibleForTesting;
-import com.m3.collections.guava.collect.ImmutableMapEntry.NonTerminalImmutableMapEntry;
-import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.IdentityHashMap;
 import java.util.function.BiConsumer;
 import org.jspecify.annotations.Nullable;
@@ -48,7 +49,8 @@ import org.jspecify.annotations.Nullable;
 final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
   @SuppressWarnings("unchecked")
   static final ImmutableMap<Object, Object> EMPTY =
-      new RegularImmutableMap<>((Entry<Object, Object>[]) ImmutableMap.EMPTY_ENTRY_ARRAY, null, 0);
+      new RegularImmutableMap<>(
+          (Entry<Object, Object>[]) ImmutableMap.EMPTY_ENTRY_ARRAY, null, new int[0], 0);
 
   /**
    * Closed addressing tends to perform well even with high load factors. Being conservative here
@@ -71,10 +73,20 @@ final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
   // entries in insertion order
   @VisibleForTesting final transient Entry<K, V>[] entries;
-  // array of linked lists of entries
-  private final transient @Nullable ImmutableMapEntry<K, V> @Nullable [] table;
+  // Primitive bucket heads and links address the existing insertion-ordered entry payload.
+  private final transient int @Nullable [] table;
+  private final transient int[] nextInKeyBucket;
   // 'and' with an int to get a table index
   private final transient int mask;
+
+  static final int ABSENT = -1;
+
+  /** Creates an empty primitive index column shared by immutable map and bimap topology. */
+  static int[] createIndexArray(int size) {
+    int[] indexes = new int[size];
+    Arrays.fill(indexes, ABSENT);
+    return indexes;
+  }
 
   static <K, V> ImmutableMap<K, V> fromEntries(Entry<K, V>... entries) {
     return fromEntryArray(entries.length, entries, /* throwIfDuplicateKeys= */ true);
@@ -113,7 +125,8 @@ final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     @SuppressWarnings("nullness")
     Entry<K, V>[] entries = (n == entryArray.length) ? entryArray : createEntryArray(n);
     int tableSize = closedTableSize(n, MAX_LOAD_FACTOR);
-    @Nullable ImmutableMapEntry<K, V>[] table = createEntryArray(tableSize);
+    int[] table = createIndexArray(tableSize);
+    int[] nextInKeyBucket = createIndexArray(n);
     int mask = tableSize - 1;
     // If duplicates are allowed, this IdentityHashMap will record the final Entry for each
     // duplicated key. We will use this final Entry to overwrite earlier slots in the entries array
@@ -129,17 +142,17 @@ final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
       V value = entry.getValue();
       checkEntryNotNull(key, value);
       int tableIndex = Hashing.smear(key.hashCode()) & mask;
-      ImmutableMapEntry<K, V> keyBucketHead = table[tableIndex];
-      ImmutableMapEntry<K, V> effectiveEntry =
-          checkNoConflictInKeyBucket(key, value, keyBucketHead, throwIfDuplicateKeys);
-      if (effectiveEntry == null) {
-        // prepend, not append, so the entries can be immutable
-        effectiveEntry =
-            (keyBucketHead == null)
-                ? makeImmutable(entry, key, value)
-                : new NonTerminalImmutableMapEntry<K, V>(key, value, keyBucketHead);
-        table[tableIndex] = effectiveEntry;
+      int keyBucketHead = table[tableIndex];
+      int existingIndex =
+          checkNoConflictInKeyBucket(
+              key, value, keyBucketHead, entries, nextInKeyBucket, throwIfDuplicateKeys);
+      Entry<K, V> effectiveEntry;
+      if (existingIndex == ABSENT) {
+        effectiveEntry = makeImmutable(entry, key, value);
+        nextInKeyBucket[entryIndex] = keyBucketHead;
+        table[tableIndex] = entryIndex;
       } else {
+        effectiveEntry = entries[existingIndex];
         // We already saw this key, and the first value we saw (going backwards) is the one we are
         // keeping. So we won't touch table[], but we do still want to add the existing entry that
         // we found to entries[] so that we will see this key in the right place when iterating.
@@ -161,13 +174,11 @@ final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     }
     if (duplicates != null) {
       entries = removeDuplicates(entries, n, n - dupCount, duplicates);
-      int newTableSize = closedTableSize(entries.length, MAX_LOAD_FACTOR);
-      if (newTableSize != tableSize) {
-        return fromEntryArrayCheckingBucketOverflow(
-            entries.length, entries, /* throwIfDuplicateKeys= */ true);
-      }
+      // Slot compaction invalidates primitive indexes even when the bucket capacity is unchanged.
+      return fromEntryArrayCheckingBucketOverflow(
+          entries.length, entries, /* throwIfDuplicateKeys= */ true);
     }
-    return new RegularImmutableMap<>(entries, table, mask);
+    return new RegularImmutableMap<>(entries, table, nextInKeyBucket, mask);
   }
 
   /**
@@ -214,17 +225,17 @@ final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
   }
 
   private RegularImmutableMap(
-      Entry<K, V>[] entries, @Nullable ImmutableMapEntry<K, V> @Nullable [] table, int mask) {
+      Entry<K, V>[] entries, int @Nullable [] table, int[] nextInKeyBucket, int mask) {
     this.entries = entries;
     this.table = table;
+    this.nextInKeyBucket = nextInKeyBucket;
     this.mask = mask;
   }
 
   /**
-   * Checks if the given key already appears in the hash chain starting at {@code keyBucketHead}. If
-   * it does not, then null is returned. If it does, then if {@code throwIfDuplicateKeys} is true an
-   * {@code IllegalArgumentException} is thrown, and otherwise the existing {@link Entry} is
-   * returned.
+   * Checks the primitive hash chain starting at {@code keyBucketHead}. Returns {@link #ABSENT} if
+   * the key is not present. Otherwise throws when duplicates are forbidden, or returns the existing
+   * entry's payload index.
    *
    * @throws IllegalArgumentException if another entry in the bucket has the same key and {@code
    *     throwIfDuplicateKeys} is true
@@ -232,44 +243,50 @@ final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
    *     flooding attack
    */
   @CanIgnoreReturnValue
-  static <K, V> @Nullable ImmutableMapEntry<K, V> checkNoConflictInKeyBucket(
+  static <K, V> int checkNoConflictInKeyBucket(
       Object key,
       Object newValue,
-      @Nullable ImmutableMapEntry<K, V> keyBucketHead,
+      int keyBucketHead,
+      Entry<K, V>[] entries,
+      int[] nextInKeyBucket,
       boolean throwIfDuplicateKeys)
       throws BucketOverflowException {
     int bucketSize = 0;
-    for (; keyBucketHead != null; keyBucketHead = keyBucketHead.getNextInKeyBucket()) {
-      if (keyBucketHead.getKey().equals(key)) {
+    for (int index = keyBucketHead; index != ABSENT; index = nextInKeyBucket[index]) {
+      Entry<K, V> candidate = entries[index];
+      if (candidate.getKey().equals(key)) {
         if (throwIfDuplicateKeys) {
-          checkNoConflict(/* safe= */ false, "key", keyBucketHead, key + "=" + newValue);
+          checkNoConflict(/* safe= */ false, "key", candidate, key + "=" + newValue);
         } else {
-          return keyBucketHead;
+          return index;
         }
       }
       if (++bucketSize > MAX_HASH_BUCKET_LENGTH) {
         throw new BucketOverflowException();
       }
     }
-    return null;
+    return ABSENT;
   }
 
   static final class BucketOverflowException extends Exception {}
 
   @Override
   public @Nullable V get(@Nullable Object key) {
-    return get(key, table, mask);
+    return get(key, table, entries, nextInKeyBucket, mask);
   }
 
   static <V> @Nullable V get(
-      @Nullable Object key, @Nullable ImmutableMapEntry<?, V> @Nullable [] keyTable, int mask) {
+      @Nullable Object key,
+      int @Nullable [] keyTable,
+      Entry<?, V>[] entries,
+      int[] nextInKeyBucket,
+      int mask) {
     if (key == null || keyTable == null) {
       return null;
     }
-    int index = Hashing.smear(key.hashCode()) & mask;
-    for (ImmutableMapEntry<?, V> entry = keyTable[index];
-        entry != null;
-        entry = entry.getNextInKeyBucket()) {
+    int bucket = Hashing.smear(key.hashCode()) & mask;
+    for (int index = keyTable[bucket]; index != ABSENT; index = nextInKeyBucket[index]) {
+      Entry<?, V> entry = entries[index];
       Object candidateKey = entry.getKey();
 
       /*
@@ -345,7 +362,7 @@ final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     @Override
     @J2ktIncompatible
     @GwtIncompatible
-        Object writeReplace() {
+    Object writeReplace() {
       return super.writeReplace();
     }
 
@@ -411,7 +428,7 @@ final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     @Override
     @J2ktIncompatible
     @GwtIncompatible
-        Object writeReplace() {
+    Object writeReplace() {
       return super.writeReplace();
     }
 
@@ -439,7 +456,7 @@ final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
   @Override
   @J2ktIncompatible
   @GwtIncompatible
-    Object writeReplace() {
+  Object writeReplace() {
     return super.writeReplace();
   }
 
