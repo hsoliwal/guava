@@ -36,8 +36,8 @@
     <dependency><groupId>junit</groupId><artifactId>junit</artifactId><version>4.13.2</version><scope>test</scope></dependency>
   </dependencies>
   <build>
-    <directory>${project.basedir}/target-hash-bimap-stream-qualified-v4</directory>
-    <finalName>guava-33.4.8-m3-java21-hash-bimap-stream-qualified-v4</finalName>
+    <directory>${project.basedir}/target-hash-multimap-stream-qualified-v1</directory>
+    <finalName>guava-33.4.8-m3-java21-hash-multimap-stream-qualified-v1</finalName>
     <!-- The five donor sources remain byte-for-byte unchanged in the fork. -->
     <testSourceDirectory>${project.basedir}/..</testSourceDirectory>
     <plugins>
@@ -52,6 +52,7 @@
             <testInclude>guava-tests/test/com/google/common/collect/AndroidIncompatible.java</testInclude>
             <testInclude>guava-tests/test/com/google/common/collect/ArrayListMultimapTest.java</testInclude>
             <testInclude>guava-tests/test/com/google/common/collect/HashBiMapTest.java</testInclude>
+            <testInclude>guava-tests/test/com/google/common/collect/HashMultimapTest.java</testInclude>
             <testInclude>guava-tests/test/com/google/common/collect/ReflectionFreeAssertThrows.java</testInclude>
             <testInclude>guava-tests/test/com/google/common/collect/TestExceptions.java</testInclude>
             <testInclude>m3-jre21/src/test/java/com/google/common/collect/M3NativeStorageTest.java</testInclude>
@@ -80,7 +81,7 @@
         <dependencies><dependency><groupId>org.apache.maven.surefire</groupId><artifactId>surefire-junit4</artifactId><version>3.5.2</version></dependency></dependencies>
         <configuration>
           <forkCount>0</forkCount><useModulePath>false</useModulePath><failIfNoTests>true</failIfNoTests>
-          <includes><include>**/ArrayListMultimapTest.java</include><include>**/HashBiMapTest.java</include><include>**/M3NativeStorageTest.java</include></includes>
+          <includes><include>**/ArrayListMultimapTest.java</include><include>**/HashBiMapTest.java</include><include>**/HashMultimapTest.java</include><include>**/M3NativeStorageTest.java</include></includes>
           <systemPropertyVariables><m3.native.outputDirectory>${project.build.outputDirectory}</m3.native.outputDirectory></systemPropertyVariables>
         </configuration>
       </plugin>
@@ -155,6 +156,8 @@
                   <excludes>
                     <exclude>com/google/common/collect/ArrayListMultimap.class</exclude>
                     <exclude>com/google/common/collect/HashBiMap*.class</exclude>
+                    <exclude>com/google/common/collect/HashMultimap.class</exclude>
+                    <exclude>com/google/common/collect/HashMultimap$*.class</exclude>
                     <exclude>META-INF/maven/**</exclude><exclude>META-INF/MANIFEST.MF</exclude>
                   </excludes>
                 </unpackOptions>

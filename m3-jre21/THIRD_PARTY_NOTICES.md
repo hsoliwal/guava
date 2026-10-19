@@ -45,3 +45,12 @@ Canonical recipe/proof custody: https://github.com/hsoliwal/com.synexia/tree/03d
 Assembly 3.8.0, Plexus Archiver 4.10.4 and AntRun 3.2.0/Ant 1.10.15 are
 Apache-2.0 build dependencies; their implementations are not copied here.
 The canonical XML and Java recipe engines are unchanged.
+
+
+## Native HashMultimap array and API-projection cache increment
+
+Retained Guava 33.4.8 HashMultimap, Apache-2.0, source blob 719c0b40f66e87b92060cf074d067912e452e6f6. Original Guava author and license notices are preserved. The private value-set membership pattern adapts M3LinkedHashSet blob e1ac806d1ebe8aac1b9efe7bcfbaa3f675e7d0d6; the unchanged M3LinkedHashMap blob bc998ec2e65e1997de0e95b138818d04308a5105 supplies the existing array/index tables.
+
+The primitive M3LFUCache adaptation derives from hsoliwal/M3jdk21@6ae20943e2295e6120c9666a04dc1f2be29f4873, blob 315fad8a68c1af45d7e23bdded687bea3d6537e8, Apache-2.0, Copyright 2026 Hitesh Soliwal and Contributors. Its use here is limited to immutable pair API projections; live entry/count projections remain open. M3-HASH-MULTIMAP-NOTICE.txt is copied byte-for-byte from the qualified artifact.
+
+Canonical custody: https://github.com/hsoliwal/com.synexia/tree/c7a2de8816d2097c73125bc4b8e95227b3a83605/synexia-openrewrite-recipes/recipe-crates/guava-native-hash-multimap-v5-20261018. Existing Apache-2.0 build dependencies remain external. No challenge-platform submitted solution was copied. JMH/jopt-simple/Commons Math remain external benchmark-only dependencies with their original licenses; no dependency implementation is included in the provider.
