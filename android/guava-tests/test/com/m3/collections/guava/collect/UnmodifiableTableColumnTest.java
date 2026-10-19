@@ -19,6 +19,7 @@ package com.m3.collections.guava.collect;
 import static com.m3.collections.guava.collect.Tables.unmodifiableTable;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
+import com.m3.collections.guava.collect.TableCollectionTest.ColumnTests;
 import java.util.Map;
 import org.jspecify.annotations.NullMarked;
 

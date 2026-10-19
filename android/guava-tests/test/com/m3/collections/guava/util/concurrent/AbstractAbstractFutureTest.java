@@ -31,6 +31,7 @@ import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.util.concurrent.AbstractFutureTest.TimedWaiterThread;
+import com.m3.collections.guava.util.concurrent.SettableAbstractFuture.UntrustedAbstractFuture;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import junit.framework.TestCase;

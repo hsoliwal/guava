@@ -23,6 +23,8 @@ import static org.junit.Assert.assertThrows;
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
+import com.m3.collections.guava.base.TestExceptions.SomeCheckedException;
+import com.m3.collections.guava.base.TestExceptions.SomeUncheckedException;
 import com.m3.collections.guava.testing.GcFinalization;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;

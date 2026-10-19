@@ -18,6 +18,7 @@ package com.m3.collections.guava.graph;
 
 import static com.m3.collections.guava.truth.Truth.assertThat;
 
+import com.m3.collections.guava.graph.TestUtil.EdgeType;
 import com.google.testing.junit.testparameterinjector.TestParameter;
 import com.google.testing.junit.testparameterinjector.TestParameterInjector;
 import org.jspecify.annotations.NullUnmarked;

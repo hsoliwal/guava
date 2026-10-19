@@ -22,6 +22,7 @@ import static com.m3.collections.guava.util.concurrent.MoreExecutors.directExecu
 import static org.junit.Assert.assertThrows;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
+import com.m3.collections.guava.util.concurrent.TestExceptions.SomeError;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.Executor;
 import junit.framework.TestCase;

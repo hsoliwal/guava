@@ -22,6 +22,8 @@ import static java.util.Collections.emptyMap;
 import static java.util.Collections.singletonMap;
 import static org.junit.Assert.assertThrows;
 
+import com.m3.collections.guava.collect.ClassToInstanceMapTesting.Impl;
+import com.m3.collections.guava.collect.ClassToInstanceMapTesting.TestClassToInstanceMapGenerator;
 import com.m3.collections.guava.collect.testing.MapTestSuiteBuilder;
 import com.m3.collections.guava.collect.testing.features.CollectionFeature;
 import com.m3.collections.guava.collect.testing.features.CollectionSize;

@@ -20,6 +20,7 @@ import static com.m3.collections.guava.graph.TestUtil.assertNodeNotInGraphErrorM
 import static com.m3.collections.guava.truth.Truth.assertThat;
 import static org.junit.Assert.assertThrows;
 
+import com.m3.collections.guava.graph.TestUtil.EdgeType;
 import com.google.testing.junit.testparameterinjector.TestParameter;
 import com.google.testing.junit.testparameterinjector.TestParameterInjector;
 import java.util.Set;

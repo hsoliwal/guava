@@ -20,6 +20,7 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
+import com.m3.collections.guava.cache.TestingCacheLoaders.IncrementingLoader;
 import com.m3.collections.guava.testing.FakeTicker;
 import junit.framework.TestCase;
 import org.jspecify.annotations.NullUnmarked;

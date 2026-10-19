@@ -17,6 +17,7 @@
 package com.m3.collections.guava.collect;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
+import com.m3.collections.guava.collect.TableCollectionTest.ColumnMapTests;
 import org.jspecify.annotations.NullMarked;
 
 @GwtCompatible

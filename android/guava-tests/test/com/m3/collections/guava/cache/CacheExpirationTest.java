@@ -26,6 +26,9 @@ import static java.util.concurrent.TimeUnit.MINUTES;
 
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
+import com.m3.collections.guava.cache.TestingCacheLoaders.IdentityLoader;
+import com.m3.collections.guava.cache.TestingRemovalListeners.CountingRemovalListener;
+import com.m3.collections.guava.cache.TestingRemovalListeners.QueuingRemovalListener;
 import com.m3.collections.guava.testing.FakeTicker;
 import com.m3.collections.guava.util.concurrent.Callables;
 import java.util.List;

@@ -20,6 +20,7 @@ import static com.m3.collections.guava.collect.TableCollectionTest.DIVIDE_BY_2;
 import static com.m3.collections.guava.collect.Tables.transformValues;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
+import com.m3.collections.guava.collect.TableCollectionTest.ColumnTests;
 import java.util.Map;
 import org.jspecify.annotations.NullMarked;
 

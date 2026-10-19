@@ -19,6 +19,8 @@ package com.m3.collections.guava.collect;
 import static com.m3.collections.guava.truth.Truth.assertThat;
 import static org.junit.Assert.assertThrows;
 
+import com.m3.collections.guava.collect.ClassToInstanceMapTesting.Impl;
+import com.m3.collections.guava.collect.ClassToInstanceMapTesting.TestClassToInstanceMapGenerator;
 import com.m3.collections.guava.collect.testing.MapTestSuiteBuilder;
 import com.m3.collections.guava.collect.testing.features.CollectionFeature;
 import com.m3.collections.guava.collect.testing.features.CollectionSize;

@@ -22,6 +22,8 @@ import com.google.caliper.BeforeExperiment;
 import com.google.caliper.Param;
 import com.google.caliper.api.Footprint;
 import com.google.caliper.api.SkipThisScenarioException;
+import com.m3.collections.guava.util.concurrent.AbstractFutureBenchmarks.Facade;
+import com.m3.collections.guava.util.concurrent.AbstractFutureBenchmarks.Impl;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.Executor;
