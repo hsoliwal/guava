@@ -1,0 +1,33 @@
+{
+  "all_guava_converted": false,
+  "baseline": "120424a121f1cbda05d2fe0f041779b2344d8ccb",
+  "baseline_source_files": 216,
+  "candidate_source_files": 218,
+  "limits": [
+    "This is a source-owner census, not an allocation measurement or universal runtime proof.",
+    "contract-blocked means no qualified replacement closure exists in this packet; it does not mean impossible.",
+    "Android donor sources are pinned in donor-sources.json; Android/GWT variants and graph/cache/concurrent packages are not counted by this JRE collect census.",
+    "API materialized entries, user payload objects and semantic Range/Cut values are not conflated with retained structural nodes."
+  ],
+  "schema": "M3_GUAVA_JRE_COLLECT_SOURCE_CENSUS_V1",
+  "scope": "guava/src/com/m3/collections/guava/collect/*.java",
+  "status_counts": {
+    "already-array": 18,
+    "already-array-helper": 1,
+    "contract-blocked": 32,
+    "contract-blocked-auxiliary-owner": 2,
+    "contract-blocked-construction-owner": 2,
+    "contract-blocked-fallback": 4,
+    "contract-blocked-polymorphic-owner": 4,
+    "contract-blocked-public-factory": 4,
+    "converted": 6,
+    "converted-via-compact-owner": 2,
+    "dispatch-converted": 1,
+    "existing-array-algorithm": 2,
+    "existing-array-delegate": 1,
+    "existing-enum-delegate": 3,
+    "no-independent-structural-owner": 126,
+    "retired-component": 1,
+    "scalar-or-implicit-owner": 9
+  }
+}

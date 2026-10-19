@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// M3 array-storage adaptation; provenance: m3/array-storage-20261019/CONTRACT.md
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.collect.CollectPreconditions.checkNonnegative;
@@ -27,14 +28,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.jspecify.annotations.Nullable;
 
 /**
  * Implementation of {@code Multimap} that uses an {@code ArrayList} to store the values for a given
- * key. A {@link HashMap} associates each key with an {@link ArrayList} of values.
+ * key. A compact hash map associates each key with an {@link ArrayList} of values.
  *
  * <p>When iterating through the collections supplied by this class, the ordering of values for a
  * given key agrees with the order in which the values were added.
@@ -159,18 +159,18 @@ public final class ArrayListMultimap<K extends @Nullable Object, V extends @Null
    */
   @GwtIncompatible
   @J2ktIncompatible
-    private void writeObject(ObjectOutputStream stream) throws IOException {
+  private void writeObject(ObjectOutputStream stream) throws IOException {
     stream.defaultWriteObject();
     Serialization.writeMultimap(this, stream);
   }
 
   @GwtIncompatible
   @J2ktIncompatible
-    private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
+  private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
     expectedValuesPerKey = DEFAULT_VALUES_PER_KEY;
     int distinctKeys = stream.readInt();
-    Map<K, Collection<V>> map = new HashMap<>();
+    Map<K, Collection<V>> map = Platform.newHashMapWithExpectedSize(12);
     setMap(map);
     Serialization.populateMultimap(this, stream, distinctKeys);
   }

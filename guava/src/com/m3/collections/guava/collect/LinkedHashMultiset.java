@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
+// M3 array-storage adaptation; provenance: m3/array-storage-20261019/CONTRACT.md
 package com.m3.collections.guava.collect;
-
-import static com.m3.collections.guava.collect.Maps.newLinkedHashMapWithExpectedSize;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
@@ -24,7 +23,6 @@ import com.m3.collections.guava.annotations.J2ktIncompatible;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.LinkedHashMap;
 import org.jspecify.annotations.Nullable;
 
 /**
@@ -76,11 +74,11 @@ public final class LinkedHashMultiset<E extends @Nullable Object>
   }
 
   private LinkedHashMultiset() {
-    super(new LinkedHashMap<E, Count>());
+    super(new ObjectCountLinkedHashMap<E>());
   }
 
   private LinkedHashMultiset(int distinctElements) {
-    super(newLinkedHashMapWithExpectedSize(distinctElements));
+    super(new ObjectCountLinkedHashMap<>(distinctElements));
   }
 
   /**
@@ -89,17 +87,17 @@ public final class LinkedHashMultiset<E extends @Nullable Object>
    */
   @GwtIncompatible
   @J2ktIncompatible
-    private void writeObject(ObjectOutputStream stream) throws IOException {
+  private void writeObject(ObjectOutputStream stream) throws IOException {
     stream.defaultWriteObject();
     Serialization.writeMultiset(this, stream);
   }
 
   @GwtIncompatible
   @J2ktIncompatible
-    private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
+  private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
     int distinctElements = stream.readInt();
-    setBackingMap(new LinkedHashMap<E, Count>());
+    setBackingMap(new ObjectCountLinkedHashMap<E>());
     Serialization.populateMultiset(this, stream, distinctElements);
   }
 

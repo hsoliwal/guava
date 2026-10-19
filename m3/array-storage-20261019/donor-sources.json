@@ -1,0 +1,18 @@
+{
+  "commit": "120424a121f1cbda05d2fe0f041779b2344d8ccb",
+  "license": "Apache-2.0",
+  "repository": "hsoliwal/guava",
+  "sources": {
+    "android/guava/src/com/m3/collections/guava/collect/AbstractMapBasedMultiset.java": "0e04feffb02a626e3a5bdeeb939722fcce2472b5ab888c134cb82291ba1fb4e3",
+    "android/guava/src/com/m3/collections/guava/collect/HashBiMap.java": "a770bc8c33a187523251caa313be04b79da44b70868522f81b6c36bba65b8c08",
+    "android/guava/src/com/m3/collections/guava/collect/ObjectCountHashMap.java": "4eac15312cc484e4c61e9e3886317b553b3cbcbc7e0ebc63a5bd251d2bed768c",
+    "android/guava/src/com/m3/collections/guava/collect/ObjectCountLinkedHashMap.java": "986460b196c631e23b65266861717a910180b8bd5aa755f4d104c204865cd7ad",
+    "android/guava/src/com/m3/collections/guava/collect/Platform.java": "7641a47aef0fa329577e73a5bf54d14391d7c61780c7c928e5e45829396fff3d",
+    "guava/src/com/m3/collections/guava/collect/AbstractMapBasedMultiset.java": "2fcee1026b3845e8f81a2c6738bba15fda99b853ad17788b86c37764de694942",
+    "guava/src/com/m3/collections/guava/collect/ArrayListMultimap.java": "697d46f4b9df42696302549c897c8a85968ad88e0356016a350fb789e9db478c",
+    "guava/src/com/m3/collections/guava/collect/HashBiMap.java": "2b114d7404e3b42b39d21dfff4106ff435101e511929c273dd67c9510d7abe30",
+    "guava/src/com/m3/collections/guava/collect/HashMultiset.java": "20862a71dd315ece2a3765f7dbddeba42fdad8c19e451bd7ce46fda6368fe0c7",
+    "guava/src/com/m3/collections/guava/collect/LinkedHashMultiset.java": "38dc459cbab9b6ed0e852be8ff605b9def1d8db28f8e055172c38a67e76314d2",
+    "guava/src/com/m3/collections/guava/collect/Platform.java": "6cabee59566b5bc386578fcea2f9ad60dd70f95443cc624529907f8d7d9c5820"
+  }
+}
