@@ -1,0 +1,6 @@
+owner	status	physical_storage	boundary
+RegularImmutableMultiset	converted	ObjectCountHashMap element/count/hash/index columns; descriptors materialized on access	JdkBackedImmutableMultiset result remains on collision overflow
+ObjectCountHashMap	array-normal-and-jdk-index-fallback	Object[] keys, int[] counts, long[] hash/next and int[] table; fallback key-to-slot index	JDK nodes and boxed slot indexes only after nine-entry collision overflow
+AbstractMapBasedMultiset / HashMultiset / LinkedHashMultiset	qualified-transitive-fallback	Existing shared count owner now preserves count and insertion columns across JDK index fallback	Original iterator and serialization oracles plus new transition and compaction tape
+ImmutableMultiset builder / copy / collector	qualified-array-count-accumulation	Existing LinkedHashMultiset accumulation now inherits bounded normal bucket chains and JDK overflow index	Original ImmutableMultisetFloodingTest construction/query operation-count checks
+RegularImmutableMap / RegularImmutableBiMap	deferred-original-representation-oracle	Original testBuilderExactlySizedReusesArray requires identity with retained builder Entry[]	No redundant compatibility Entry[] added; full flattening unclaimed

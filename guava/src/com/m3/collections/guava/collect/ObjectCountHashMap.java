@@ -15,6 +15,7 @@
  */
 
 // M3 array-storage adaptation; provenance: m3/array-storage-20261019/CONTRACT.md
+// M3 immutable-count successor; provenance: m3/immutable-count-arrays-20261019/CONTRACT.md
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.base.Preconditions.checkElementIndex;
@@ -28,6 +29,8 @@ import com.m3.collections.guava.base.Preconditions;
 import com.m3.collections.guava.collect.Multiset.Entry;
 import com.m3.collections.guava.collect.Multisets.AbstractEntry;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
@@ -63,6 +66,9 @@ class ObjectCountHashMap<K extends @Nullable Object> {
   }
 
   private static final int MAXIMUM_CAPACITY = 1 << 30;
+
+  // Reuse CompactHashMap's collision boundary; keep count and order payloads in primitive columns.
+  private static final int MAX_HASH_BUCKET_LENGTH = 9;
 
   static final float DEFAULT_LOAD_FACTOR = 1.0f;
 
@@ -101,6 +107,9 @@ class ObjectCountHashMap<K extends @Nullable Object> {
    * <p>Its size must be a power of two.
    */
   private transient int[] table;
+
+  // Present only after a collision overflow. Values address the existing dense primitive columns.
+  private transient @Nullable Map<K, Integer> hashFloodingResistantIndex;
 
   /**
    * Contains the logical entries, in the range of [0, size()). The high 32 bits of each long is the
@@ -259,7 +268,7 @@ class ObjectCountHashMap<K extends @Nullable Object> {
     if (minCapacity > entries.length) {
       resizeEntries(minCapacity);
     }
-    if (minCapacity >= threshold) {
+    if (hashFloodingResistantIndex == null && minCapacity >= threshold) {
       int newTableSize = Math.max(2, Integer.highestOneBit(minCapacity - 1) << 1);
       resizeTable(newTableSize);
     }
@@ -273,6 +282,10 @@ class ObjectCountHashMap<K extends @Nullable Object> {
     int[] values = this.values;
 
     int hash = smearedHash(key);
+    Map<K, Integer> index = hashFloodingResistantIndex;
+    if (index != null) {
+      return putInFloodingIndex(key, value, hash, index);
+    }
     int tableIndex = hash & hashTableMask();
     int newEntryIndex = this.size; // current size, and pointer to the entry to be appended
     int next = table[tableIndex];
@@ -281,6 +294,7 @@ class ObjectCountHashMap<K extends @Nullable Object> {
     } else {
       int last;
       long entry;
+      int bucketLength = 0;
       do {
         last = next;
         entry = entries[next];
@@ -291,7 +305,11 @@ class ObjectCountHashMap<K extends @Nullable Object> {
           return oldValue;
         }
         next = getNext(entry);
+        bucketLength++;
       } while (next != UNSET);
+      if (bucketLength >= MAX_HASH_BUCKET_LENGTH) {
+        return putInFloodingIndex(key, value, hash, createFloodingIndex());
+      }
       entries[last] = swapNext(entry, newEntryIndex);
     }
     if (newEntryIndex == Integer.MAX_VALUE) {
@@ -306,6 +324,44 @@ class ObjectCountHashMap<K extends @Nullable Object> {
     }
     modCount++;
     return 0;
+  }
+
+  /**
+   * Moves key lookup to the existing JDK flood-resistant strategy without boxing count payloads.
+   */
+  private Map<K, Integer> createFloodingIndex() {
+    Map<K, Integer> index = new HashMap<>(Math.max(64, size), 1.0f);
+    for (int i = 0; i < size; i++) {
+      index.put(getKey(i), i);
+    }
+    hashFloodingResistantIndex = index;
+    table = newTable(2);
+    threshold = Math.max(1, (int) (2 * loadFactor));
+    return index;
+  }
+
+  /** Stores an existing count or appends one dense slot after the collision transition. */
+  private int putInFloodingIndex(K key, int value, int hash, Map<K, Integer> index) {
+    Integer oldIndex = index.get(key);
+    if (oldIndex != null) {
+      int oldValue = values[oldIndex];
+      values[oldIndex] = value;
+      return oldValue;
+    }
+    int newIndex = size;
+    if (newIndex == Integer.MAX_VALUE) {
+      throw new IllegalStateException("Cannot contain more than Integer.MAX_VALUE elements!");
+    }
+    resizeMeMaybe(newIndex + 1);
+    index.put(key, newIndex);
+    insertEntry(newIndex, key, value, hash);
+    size = newIndex + 1;
+    modCount++;
+    return 0;
+  }
+
+  final boolean usesHashFloodingResistance() {
+    return hashFloodingResistantIndex != null;
   }
 
   /**
@@ -373,6 +429,10 @@ class ObjectCountHashMap<K extends @Nullable Object> {
   }
 
   int indexOf(@Nullable Object key) {
+    Map<K, Integer> index = hashFloodingResistantIndex;
+    if (index != null) {
+      return index.getOrDefault(key, UNSET);
+    }
     int hash = smearedHash(key);
     int next = table[hash & hashTableMask()];
     while (next != UNSET) {
@@ -400,6 +460,18 @@ class ObjectCountHashMap<K extends @Nullable Object> {
   }
 
   private int remove(@Nullable Object key, int hash) {
+    Map<K, Integer> index = hashFloodingResistantIndex;
+    if (index != null) {
+      Integer entryIndex = index.remove(key);
+      if (entryIndex == null) {
+        return 0;
+      }
+      int oldValue = values[entryIndex];
+      moveLastEntry(entryIndex);
+      size--;
+      modCount++;
+      return oldValue;
+    }
     int tableIndex = hash & hashTableMask();
     int next = table[tableIndex];
     if (next == UNSET) { // empty bucket
@@ -453,6 +525,12 @@ class ObjectCountHashMap<K extends @Nullable Object> {
       entries[dstIndex] = lastEntry;
       entries[srcIndex] = UNSET;
 
+      Map<K, Integer> index = hashFloodingResistantIndex;
+      if (index != null) {
+        index.put(getKey(dstIndex), dstIndex);
+        return;
+      }
+
       // also need to update whoever's "next" pointer was pointing to the last entry place
       // reusing "tableIndex" and "next"; these variables were no longer needed
       int tableIndex = getHash(lastEntry) & hashTableMask();
@@ -481,6 +559,7 @@ class ObjectCountHashMap<K extends @Nullable Object> {
 
   public void clear() {
     modCount++;
+    hashFloodingResistantIndex = null;
     Arrays.fill(keys, 0, size, null);
     Arrays.fill(values, 0, size, 0);
     Arrays.fill(table, UNSET);
