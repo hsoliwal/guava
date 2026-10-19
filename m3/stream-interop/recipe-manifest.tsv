@@ -1,0 +1,3 @@
+# path	before-sha256	after-sha256	template
+m3/stream-interop/src/main/java/com/synexia/m3/guava/M3GuavaStreams.java	ABSENT	1531060d9c3f001e531614584c8321b64ddf994024ec5b985fa979f6e1d36ca0	M3GuavaStreams.java.txt
+m3/stream-interop/src/test/java/com/synexia/m3/guava/M3GuavaStreamsTest.java	ABSENT	d0ad365d7b117e060a37ac97b4d86a288765169a8c83cd7fad5e3f2c3451a82d	M3GuavaStreamsTest.java.txt
