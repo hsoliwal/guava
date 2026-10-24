@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Array-operation contribution: Copyright (c) 2026 Hitesh Soliwal and Synexia contributors.
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.base.Preconditions.checkArgument;
@@ -203,6 +204,8 @@ final class TopKSelector<
         threshold = buffer[i];
       }
     }
+    // Discarded candidates must not retain their payload graphs between offers.
+    Arrays.fill(buffer, k, buffer.length, null);
   }
 
   /**
