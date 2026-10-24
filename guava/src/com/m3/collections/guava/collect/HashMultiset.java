@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// M3 array-storage adaptation; provenance: m3/array-storage-20261019/CONTRACT.md
+// Modified 2026 by Hitesh Soliwal and Synexia contributors: array storage.
 package com.m3.collections.guava.collect;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
@@ -22,11 +24,10 @@ import com.m3.collections.guava.annotations.J2ktIncompatible;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.HashMap;
 import org.jspecify.annotations.Nullable;
 
 /**
- * Multiset implementation backed by a {@link HashMap}.
+ * Multiset implementation backed by compact key and integer-count arrays.
  *
  * @author Kevin Bourrillion
  * @author Jared Levy
@@ -66,11 +67,11 @@ public final class HashMultiset<E extends @Nullable Object> extends AbstractMapB
   }
 
   private HashMultiset() {
-    super(new HashMap<E, Count>());
+    super(new ObjectCountHashMap<>());
   }
 
   private HashMultiset(int distinctElements) {
-    super(Maps.<E, Count>newHashMapWithExpectedSize(distinctElements));
+    super(new ObjectCountHashMap<>(distinctElements));
   }
 
   /**
@@ -89,7 +90,7 @@ public final class HashMultiset<E extends @Nullable Object> extends AbstractMapB
   private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
     int distinctElements = Serialization.readCount(stream);
-    setBackingMap(Maps.<E, Count>newHashMap());
+    setBackingMap(new ObjectCountHashMap<>());
     Serialization.populateMultiset(this, stream, distinctElements);
   }
 
