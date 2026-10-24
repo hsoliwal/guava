@@ -1,0 +1,79 @@
+# SPDX-License-Identifier: Apache-2.0
+name: M3 Guava standalone Java21 qualification
+
+on:
+  pull_request:
+    paths:
+      - 'm3-jre21/**'
+      - '.github/workflows/m3-jre21-standalone-java21.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout all source history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          submodules: false
+      - name: Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Check diff and standalone module boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test -f m3-jre21/pom.xml
+          test -f m3-jre21/LICENSE
+          test -f m3-jre21/SOURCE_PROVENANCE.tsv
+          test -f m3-jre21/THIRD_PARTY_NOTICES.md
+          if [ "${{ github.event_name }}" = 'pull_request' ]; then
+            git diff --name-status "${{ github.event.pull_request.base.sha }}" HEAD > /tmp/m3-changes.tsv
+            python3 - <<'PY'
+          from pathlib import Path
+          rows = Path('/tmp/m3-changes.tsv').read_text().splitlines()
+          if not rows:
+              raise SystemExit('NO_CHANGED_FILES')
+          for row in rows:
+              status, *paths = row.split('\t')
+              if status != 'A' or len(paths) != 1:
+                  raise SystemExit('NON_ADDITIVE_PATH: ' + row)
+              if not (paths[0].startswith('m3-jre21/') or
+                      paths[0] == '.github/workflows/m3-jre21-standalone-java21.yml'):
+                  raise SystemExit('OUT_OF_SCOPE_PATH: ' + row)
+          print('ADD_ONLY_SCOPE_PASS', len(rows))
+          PY
+          fi
+      - name: Maven source and test verification on JDK21
+        run: mvn -B -ntp -f m3-jre21/pom.xml -DskipTests=false verify
+      - name: Require real executed JUnit reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports = sorted(Path('m3-jre21/target/surefire-reports').glob('TEST-*.xml'))
+          if not reports:
+              raise SystemExit('NO_EXECUTED_JUNIT_REPORTS')
+          total = failures = errors = skipped = 0
+          for report in reports:
+              root = ET.parse(report).getroot()
+              total += int(root.attrib.get('tests', 0))
+              failures += int(root.attrib.get('failures', 0))
+              errors += int(root.attrib.get('errors', 0))
+              skipped += int(root.attrib.get('skipped', 0))
+          print('M3_GUAVA_JUNIT', total, failures, errors, skipped)
+          if total < 5 or failures or errors:
+              raise SystemExit('JUNIT_GATE_FAILED')
+          PY
