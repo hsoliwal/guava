@@ -1,0 +1,12 @@
+{
+  "actual_successful_attempt": "fg-upstream-compile-3",
+  "original_strict_attempt": "fg-upstream-compile-1",
+  "production_compiler_Werror_unchanged": true,
+  "reason": "Original Guava TestExceptions omits UIDs; ArrayListMultimapTest intentionally tests deprecated trimToSize.",
+  "scope": "UNCHANGED_OFFICIAL_TEST_FIXTURES_ONLY",
+  "source_edited": false,
+  "warnings": {
+    "deprecation": 1,
+    "serial": 6
+  }
+}
