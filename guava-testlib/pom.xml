@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.google.guava</groupId>
     <artifactId>guava-parent</artifactId>
-    <version>33.4.8-jre</version>
+    <version>999.0.0-HEAD-jre-SNAPSHOT</version>
   </parent>
   <artifactId>guava-testlib</artifactId>
   <name>Guava Testing Library</name>
@@ -21,7 +21,7 @@
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
-      <version>3.0.2</version>
+      <version>${jsr305.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -33,7 +33,7 @@
       <artifactId>j2objc-annotations</artifactId>
     </dependency>
     <dependency>
-      <groupId>${project.groupId}</groupId>
+      <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -41,7 +41,13 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <!-- *not* <scope>test</scope>; <scope>compile</scope> is right so that guava-testlib users get junit transitively. -->
-      <version>4.13.2</version>
+      <version>${junit.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.testparameterinjector</groupId>
+      <artifactId>test-parameter-injector</artifactId>
+      <version>${test-parameter-injector.version}</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <!--
@@ -75,7 +81,7 @@
           <execution>
             <id>default-compile</id>
             <configuration>
-              <compilerArgs combine.children="append" combine.self="append">
+              <compilerArgs combine.children="append">
                 <arg>-XDignore.symbol.file</arg>
               </compilerArgs>
             </configuration>
@@ -99,8 +105,8 @@
               <compilerArgs combine.self="override">
                 <arg>-sourcepath</arg>
                 <arg>${project.basedir}/src</arg>
-                <arg>--add-reads=com.google.common=ALL-UNNAMED</arg>
-                <arg>--add-reads=com.google.common.testlib=ALL-UNNAMED</arg>
+                <arg>--add-reads=com.m3.collections.guava=ALL-UNNAMED</arg>
+                <arg>--add-reads=com.m3.collections.guava.testlib=ALL-UNNAMED</arg>
                 <!-- https://errorprone.info/docs/installation#maven -->
                 <arg>-XDcompilePolicy=simple</arg>
                 <arg>-Xlint:-removal</arg>
@@ -116,8 +122,7 @@
         <executions>
           <execution>
             <id>attach-test-sources</id>
-            <phase>post-integration-test</phase>
-            <goals><goal>test-jar</goal></goals>
+            <goals><goal>test-jar-no-fork</goal></goals>
           </execution>
         </executions>
       </plugin>
