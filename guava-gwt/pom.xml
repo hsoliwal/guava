@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.google.guava</groupId>
     <artifactId>guava-parent</artifactId>
-    <version>33.4.8-jre</version>
+    <version>999.0.0-HEAD-jre-SNAPSHOT</version>
   </parent>
   <artifactId>guava-gwt</artifactId>
   <name>Guava GWT compatible libs</name>
@@ -17,35 +17,13 @@
     This project includes GWT-friendly sources.
   </description>
   <properties>
-    <gwt.version>2.12.1</gwt.version>
-    <gwt.plugin.version>2.10.0</gwt.plugin.version>
     <gwt.logLevel>WARN</gwt.logLevel>
   </properties>
-  <repositories>
-    <repository>
-      <id>sonatype-google-snapshots</id>
-      <name>sonatype-google-snapshots</name>
-      <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>sonatype-snapshots</id>
-      <name>sonatype-snapshots</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
   <dependencies>
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>failureaccess</artifactId>
-      <version>1.0.3</version>
+      <version>${failureaccess.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -92,25 +70,11 @@
       <groupId>org.gwtproject</groupId>
       <artifactId>gwt-user</artifactId>
       <version>${gwt.version}</version>
-      <scope>test</scope>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.google.truth</groupId>
       <artifactId>truth</artifactId>
-      <version>${truth.version}</version>
-      <classifier>gwt</classifier>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <!-- use the guava we're building. -->
-          <groupId>com.google.guava</groupId>
-          <artifactId>guava</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>com.google.truth.extensions</groupId>
-      <artifactId>truth-java8-extension</artifactId>
       <version>${truth.version}</version>
       <classifier>gwt</classifier>
       <scope>test</scope>
@@ -203,7 +167,6 @@
               <excludes>META-INF/MANIFEST.MF</excludes>
               <outputDirectory>${project.build.directory}/failureaccess-sources</outputDirectory>
               <type>java-source</type>
-              <silent>false</silent>
             </configuration>
           </execution>
           <execution>
@@ -217,7 +180,6 @@
               <excludes>META-INF/MANIFEST.MF</excludes>
               <outputDirectory>${project.build.directory}/guava-sources</outputDirectory>
               <type>java-source</type>
-              <silent>false</silent>
             </configuration>
           </execution>
           <execution>
@@ -231,7 +193,6 @@
               <excludes>META-INF/MANIFEST.MF</excludes>
               <outputDirectory>${project.build.directory}/guava-test-sources</outputDirectory>
               <type>java-source</type>
-              <silent>false</silent>
             </configuration>
           </execution>
           <execution>
@@ -245,7 +206,6 @@
               <excludes>META-INF/MANIFEST.MF</excludes>
               <outputDirectory>${project.build.directory}/guava-test-sources</outputDirectory>
               <type>java-source</type>
-              <silent>false</silent>
             </configuration>
           </execution>
           <execution>
@@ -259,7 +219,6 @@
               <excludes>META-INF/MANIFEST.MF</excludes>
               <outputDirectory>${project.build.directory}/guava-test-sources</outputDirectory>
               <type>java-source</type>
-              <silent>false</silent>
             </configuration>
           </execution>
         </executions>
@@ -267,7 +226,7 @@
           <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>failureaccess</artifactId>
-            <version>1.0.3</version>
+            <version>${failureaccess.version}</version>
             <classifier>sources</classifier>
           </dependency>
           <dependency>
@@ -343,11 +302,10 @@
           </execution>
         </executions>
       </plugin>
-      <!-- TODO(cpovirk): We really should try tbroyer's plugin instead of this legacy one. -->
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
+        <groupId>net.ltgt.gwt.maven</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
-        <version>${gwt.plugin.version}</version>
+        <version>${gwt-maven-plugin.version}</version>
         <executions>
           <execution>
             <id>gwt-compile</id>
@@ -355,18 +313,22 @@
               <goal>compile</goal>
             </goals>
             <configuration>
-              <module>com.google.common.ForceGuavaCompilation</module>
+              <moduleName>com.m3.collections.guava.ForceGuavaCompilation</moduleName>
               <failOnError>true</failOnError>
               <logLevel>${gwt.logLevel}</logLevel>
-              <generateJsInteropExports>true</generateJsInteropExports>
-              <validateOnly>true</validateOnly>
+              <compilerArgs>
+                <arg>-generateJsInteropExports</arg>
+                <arg>-validateOnly</arg>
+              </compilerArgs>
               <sourceLevel>1.8</sourceLevel>
               <!--
                 To avoid "java.io.IOException: User limit of inotify watches reached" under JDK10.
                 Presumably we don't need inotify, since we don't intend to change files during the
                 build?
                 -->
-              <extraJvmArgs>-Dgwt.watchFileChanges=false</extraJvmArgs>
+              <jvmArgs>
+                <arg>-Dgwt.watchFileChanges=false</arg>
+              </jvmArgs>
             </configuration>
           </execution>
           <!--
@@ -408,20 +370,22 @@
               <goal>test</goal>
             </goals>
             <configuration>
-              <module>com.google.common.GuavaTests</module>
+              <moduleName>com.m3.collections.guava.GuavaTests</moduleName>
               <includes>**/GwtTestSuite.java</includes>
               <logLevel>${gwt.logLevel}</logLevel>
-              <mode>htmlunit</mode>
-              <htmlunit>FF38</htmlunit>
-              <productionMode>true</productionMode>
-              <!-- Fix OutOfMemoryError under Travis. -->
-              <extraJvmArgs>-Xms3500m -Xmx3500m -Xss1024k</extraJvmArgs>
-              <sourceLevel>1.8</sourceLevel>
-              <!-- Keep these timeouts very large because, if we hit the timeout, the tests silently pass :( -->
-              <testTimeOut>86400 <!-- seconds --></testTimeOut>
-              <testMethodTimeout>1440 <!-- minutes --></testMethodTimeout>
+              <testArgs>
+                <arg>-prod</arg>
+                <arg>-runStyle</arg>
+                <arg>HtmlUnit:FF38</arg>
+                <!-- Keep these timeouts very large because, if we hit the timeout, the tests silently pass :( -->
+                <arg>-testTimeOut</arg>
+                <arg>86400 <!-- seconds --></arg>
+                <arg>-testMethodTimeout</arg>
+                <arg>1440 <!-- minutes --></arg>
+              </testArgs>
               <!-- Presumably we want watchFileChanges=false here, since we want it for compile: -->
-              <extraJvmArgs>-Dgwt.watchFileChanges=false</extraJvmArgs>
+              <argLine>-Xms3500m -Xmx3500m -Xss1024k -Dgwt.watchFileChanges=false</argLine>
+              <sourceLevel>1.8</sourceLevel>
             </configuration>
           </execution>
         </executions>
