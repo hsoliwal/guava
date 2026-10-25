@@ -14,33 +14,33 @@
  * limitations under the License.
  */
 
+// M3 array-storage adaptation; provenance: m3/array-storage-20261019/CONTRACT.md
+// Modified 2026 by Hitesh Soliwal and Synexia contributors: array storage.
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.base.Preconditions.checkArgument;
 import static com.m3.collections.guava.base.Preconditions.checkNotNull;
-import static com.m3.collections.guava.base.Preconditions.checkState;
 import static com.m3.collections.guava.collect.CollectPreconditions.checkNonnegative;
 import static com.m3.collections.guava.collect.CollectPreconditions.checkRemove;
-import static com.m3.collections.guava.collect.Maps.safeGet;
-import static java.util.Objects.requireNonNull;
 
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.primitives.Ints;
-import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.io.InvalidObjectException;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.function.ObjIntConsumer;
 import org.jspecify.annotations.Nullable;
 
 /**
- * Basic implementation of {@code Multiset<E>} backed by an instance of {@code Map<E, Count>}.
+ * Basic implementation of {@code Multiset<E>} backed by an instance of {@code
+ * ObjectCountHashMap<E>}.
  *
  * <p>For serialization to work, the subclass must specify explicit {@code readObject} and {@code
  * writeObject} methods.
@@ -50,28 +50,19 @@ import org.jspecify.annotations.Nullable;
 @GwtCompatible(emulated = true)
 abstract class AbstractMapBasedMultiset<E extends @Nullable Object> extends AbstractMultiset<E>
     implements Serializable {
-  // TODO(lowasser): consider overhauling this back to Map<E, Integer>
-  private transient Map<E, Count> backingMap;
 
-  /*
-   * Cache the size for efficiency. Using a long lets us avoid the need for
-   * overflow checking and ensures that size() will function correctly even if
-   * the multiset had once been larger than Integer.MAX_VALUE.
-   */
+  private transient ObjectCountHashMap<E> backingMap;
   private transient long size;
 
-  /** Standard constructor. */
-  protected AbstractMapBasedMultiset(Map<E, Count> backingMap) {
-    checkArgument(backingMap.isEmpty());
+  AbstractMapBasedMultiset(ObjectCountHashMap<E> backingMap) {
+    checkArgument(backingMap.size() == 0);
     this.backingMap = backingMap;
   }
 
   /** Used during deserialization only. The backing map must be empty. */
-  void setBackingMap(Map<E, Count> backingMap) {
+  final void setBackingMap(ObjectCountHashMap<E> backingMap) {
     this.backingMap = backingMap;
   }
-
-  // Required Implementations
 
   /**
    * {@inheritDoc}
@@ -86,171 +77,24 @@ abstract class AbstractMapBasedMultiset<E extends @Nullable Object> extends Abst
   }
 
   @Override
-  Iterator<E> elementIterator() {
-    Iterator<Map.Entry<E, Count>> backingEntries = backingMap.entrySet().iterator();
-    return new Iterator<E>() {
-      Map.@Nullable Entry<E, Count> toRemove;
-
-      @Override
-      public boolean hasNext() {
-        return backingEntries.hasNext();
-      }
-
-      @Override
-      @ParametricNullness
-      public E next() {
-        Map.Entry<E, Count> mapEntry = backingEntries.next();
-        toRemove = mapEntry;
-        return mapEntry.getKey();
-      }
-
-      @Override
-      public void remove() {
-        checkState(toRemove != null, "no calls to next() since the last call to remove()");
-        size -= toRemove.getValue().getAndSet(0);
-        backingEntries.remove();
-        toRemove = null;
-      }
-    };
-  }
-
-  @Override
-  Iterator<Entry<E>> entryIterator() {
-    Iterator<Map.Entry<E, Count>> backingEntries = backingMap.entrySet().iterator();
-    return new Iterator<Multiset.Entry<E>>() {
-      Map.@Nullable Entry<E, Count> toRemove;
-
-      @Override
-      public boolean hasNext() {
-        return backingEntries.hasNext();
-      }
-
-      @Override
-      public Multiset.Entry<E> next() {
-        Map.Entry<E, Count> mapEntry = backingEntries.next();
-        toRemove = mapEntry;
-        return new Multisets.AbstractEntry<E>() {
-          @Override
-          @ParametricNullness
-          public E getElement() {
-            return mapEntry.getKey();
-          }
-
-          @Override
-          public int getCount() {
-            Count count = mapEntry.getValue();
-            if (count == null || count.get() == 0) {
-              Count frequency = backingMap.get(getElement());
-              if (frequency != null) {
-                return frequency.get();
-              }
-            }
-            return (count == null) ? 0 : count.get();
-          }
-        };
-      }
-
-      @Override
-      public void remove() {
-        checkState(toRemove != null, "no calls to next() since the last call to remove()");
-        size -= toRemove.getValue().getAndSet(0);
-        backingEntries.remove();
-        toRemove = null;
-      }
-    };
-  }
-
-  @Override
-  public void forEachEntry(ObjIntConsumer<? super E> action) {
+  public final void forEachEntry(ObjIntConsumer<? super E> action) {
     checkNotNull(action);
-    backingMap.forEach((element, count) -> action.accept(element, count.get()));
-  }
-
-  @Override
-  public void clear() {
-    for (Count frequency : backingMap.values()) {
-      frequency.set(0);
-    }
-    backingMap.clear();
-    size = 0L;
-  }
-
-  @Override
-  int distinctElements() {
-    return backingMap.size();
-  }
-
-  // Optimizations - Query Operations
-
-  @Override
-  public int size() {
-    return Ints.saturatedCast(size);
-  }
-
-  @Override
-  public Iterator<E> iterator() {
-    return new MapBasedMultisetIterator();
-  }
-
-  /*
-   * Not subclassing AbstractMultiset$MultisetIterator because next() needs to
-   * retrieve the Map.Entry<E, Count> entry, which can then be used for
-   * a more efficient remove() call.
-   */
-  private class MapBasedMultisetIterator implements Iterator<E> {
-    final Iterator<Map.Entry<E, Count>> entryIterator;
-    Map.@Nullable Entry<E, Count> currentEntry;
-    int occurrencesLeft;
-    boolean canRemove;
-
-    MapBasedMultisetIterator() {
-      this.entryIterator = backingMap.entrySet().iterator();
-    }
-
-    @Override
-    public boolean hasNext() {
-      return occurrencesLeft > 0 || entryIterator.hasNext();
-    }
-
-    @Override
-    @ParametricNullness
-    public E next() {
-      if (occurrencesLeft == 0) {
-        currentEntry = entryIterator.next();
-        occurrencesLeft = currentEntry.getValue().get();
-      }
-      occurrencesLeft--;
-      canRemove = true;
-      /*
-       * requireNonNull is safe because occurrencesLeft starts at 0, forcing us to initialize
-       * currentEntry above. After that, we never clear it.
-       */
-      return requireNonNull(currentEntry).getKey();
-    }
-
-    @Override
-    public void remove() {
-      checkRemove(canRemove);
-      /*
-       * requireNonNull is safe because canRemove is set to true only after we initialize
-       * currentEntry (which we never subsequently clear).
-       */
-      int frequency = requireNonNull(currentEntry).getValue().get();
-      if (frequency <= 0) {
+    int expectedModCount = backingMap.modCount;
+    for (int index = backingMap.firstIndex(); index >= 0; index = backingMap.nextIndex(index)) {
+      action.accept(backingMap.getKey(index), backingMap.getValue(index));
+      if (backingMap.modCount != expectedModCount) {
         throw new ConcurrentModificationException();
       }
-      if (currentEntry.getValue().addAndGet(-1) == 0) {
-        entryIterator.remove();
-      }
-      size--;
-      canRemove = false;
     }
   }
 
   @Override
-  public int count(@Nullable Object element) {
-    Count frequency = safeGet(backingMap, element);
-    return (frequency == null) ? 0 : frequency.get();
+  public final int count(@Nullable Object element) {
+    try {
+      return backingMap.get(element);
+    } catch (ClassCastException | NullPointerException e) {
+      return 0;
+    }
   }
 
   // Optional Operations - Modification Operations
@@ -268,17 +112,16 @@ abstract class AbstractMapBasedMultiset<E extends @Nullable Object> extends Abst
       return count(element);
     }
     checkArgument(occurrences > 0, "occurrences cannot be negative: %s", occurrences);
-    Count frequency = backingMap.get(element);
-    int oldCount;
-    if (frequency == null) {
-      oldCount = 0;
-      backingMap.put(element, new Count(occurrences));
-    } else {
-      oldCount = frequency.get();
-      long newCount = (long) oldCount + (long) occurrences;
-      checkArgument(newCount <= Integer.MAX_VALUE, "too many occurrences: %s", newCount);
-      frequency.add(occurrences);
+    int entryIndex = backingMap.indexOf(element);
+    if (entryIndex == -1) {
+      backingMap.put(element, occurrences);
+      size += occurrences;
+      return 0;
     }
+    int oldCount = backingMap.getValue(entryIndex);
+    long newCount = (long) oldCount + (long) occurrences;
+    checkArgument(newCount <= Integer.MAX_VALUE, "too many occurrences: %s", newCount);
+    backingMap.setValue(entryIndex, (int) newCount);
     size += occurrences;
     return oldCount;
   }
@@ -290,56 +133,161 @@ abstract class AbstractMapBasedMultiset<E extends @Nullable Object> extends Abst
       return count(element);
     }
     checkArgument(occurrences > 0, "occurrences cannot be negative: %s", occurrences);
-    Count frequency = backingMap.get(element);
-    if (frequency == null) {
+    int entryIndex = backingMap.indexOf(element);
+    if (entryIndex == -1) {
       return 0;
     }
-
-    int oldCount = frequency.get();
-
+    int oldCount = backingMap.getValue(entryIndex);
     int numberRemoved;
     if (oldCount > occurrences) {
       numberRemoved = occurrences;
+      backingMap.setValue(entryIndex, oldCount - occurrences);
     } else {
       numberRemoved = oldCount;
-      backingMap.remove(element);
+      backingMap.removeEntry(entryIndex);
     }
-
-    frequency.add(-numberRemoved);
     size -= numberRemoved;
     return oldCount;
   }
 
-  // Roughly a 33% performance improvement over AbstractMultiset.setCount().
   @CanIgnoreReturnValue
   @Override
   public int setCount(@ParametricNullness E element, int count) {
     checkNonnegative(count, "count");
-
-    Count existingCounter;
-    int oldCount;
-    if (count == 0) {
-      existingCounter = backingMap.remove(element);
-      oldCount = getAndSet(existingCounter, count);
-    } else {
-      existingCounter = backingMap.get(element);
-      oldCount = getAndSet(existingCounter, count);
-
-      if (existingCounter == null) {
-        backingMap.put(element, new Count(count));
-      }
-    }
-
+    int oldCount = (count == 0) ? backingMap.remove(element) : backingMap.put(element, count);
     size += (count - oldCount);
     return oldCount;
   }
 
-  private static int getAndSet(@Nullable Count i, int count) {
-    if (i == null) {
-      return 0;
+  @Override
+  public final void clear() {
+    backingMap.clear();
+    size = 0;
+  }
+
+  /**
+   * Skeleton of per-entry iterators. We could push this down and win a few bytes, but it's complex
+   * enough it's not especially worth it.
+   */
+  abstract class Itr<T extends @Nullable Object> implements Iterator<T> {
+    int entryIndex = backingMap.firstIndex();
+    int toRemove = -1;
+    int expectedModCount = backingMap.modCount;
+
+    @ParametricNullness
+    abstract T result(int entryIndex);
+
+    private void checkForConcurrentModification() {
+      if (backingMap.modCount != expectedModCount) {
+        throw new ConcurrentModificationException();
+      }
     }
 
-    return i.getAndSet(count);
+    @Override
+    public boolean hasNext() {
+      checkForConcurrentModification();
+      return entryIndex >= 0;
+    }
+
+    @Override
+    @ParametricNullness
+    public T next() {
+      if (!hasNext()) {
+        throw new NoSuchElementException();
+      }
+      T result = result(entryIndex);
+      toRemove = entryIndex;
+      entryIndex = backingMap.nextIndex(entryIndex);
+      return result;
+    }
+
+    @Override
+    public void remove() {
+      checkForConcurrentModification();
+      checkRemove(toRemove != -1);
+      size -= backingMap.removeEntry(toRemove);
+      entryIndex = backingMap.nextIndexAfterRemove(entryIndex, toRemove);
+      toRemove = -1;
+      expectedModCount = backingMap.modCount;
+    }
+  }
+
+  @Override
+  final Iterator<E> elementIterator() {
+    return new Itr<E>() {
+      @Override
+      @ParametricNullness
+      E result(int entryIndex) {
+        return backingMap.getKey(entryIndex);
+      }
+    };
+  }
+
+  @Override
+  final Iterator<Entry<E>> entryIterator() {
+    return new Itr<Entry<E>>() {
+      @Override
+      Entry<E> result(int entryIndex) {
+        return backingMap.getEntry(entryIndex);
+      }
+    };
+  }
+
+  @Override
+  final int distinctElements() {
+    return backingMap.size();
+  }
+
+  @Override
+  public final Iterator<E> iterator() {
+    return new MapBasedMultisetIterator();
+  }
+
+  @Override
+  public final int size() {
+    return Ints.saturatedCast(size);
+  }
+
+  /** Occurrence iteration keeps count edits nonstructural and repairs moved slots on removal. */
+  private final class MapBasedMultisetIterator implements Iterator<E> {
+    private final Iterator<Entry<E>> entryIterator = entryIterator();
+    private @Nullable Entry<E> currentEntry;
+    private int occurrencesLeft;
+    private boolean canRemove;
+
+    @Override
+    public boolean hasNext() {
+      return occurrencesLeft > 0 || entryIterator.hasNext();
+    }
+
+    @Override
+    @ParametricNullness
+    public E next() {
+      if (occurrencesLeft == 0) {
+        currentEntry = entryIterator.next();
+        occurrencesLeft = currentEntry.getCount();
+      }
+      occurrencesLeft--;
+      canRemove = true;
+      return java.util.Objects.requireNonNull(currentEntry).getElement();
+    }
+
+    @Override
+    public void remove() {
+      checkRemove(canRemove);
+      Entry<E> entry = java.util.Objects.requireNonNull(currentEntry);
+      int frequency = entry.getCount();
+      if (frequency <= 0) {
+        throw new ConcurrentModificationException();
+      }
+      if (frequency == 1) {
+        entryIterator.remove();
+      } else {
+        backingMap.setValue(backingMap.indexOf(entry.getElement()), frequency - 1);
+        size--;
+      }
+      canRemove = false;
+    }
   }
 
   // Don't allow default serialization.
@@ -349,5 +297,6 @@ abstract class AbstractMapBasedMultiset<E extends @Nullable Object> extends Abst
     throw new InvalidObjectException("Stream data required");
   }
 
-  @GwtIncompatible @J2ktIncompatible   private static final long serialVersionUID = -2250766705698539974L;
+  @GwtIncompatible @J2ktIncompatible
+  private static final long serialVersionUID = -2250766705698539974L;
 }

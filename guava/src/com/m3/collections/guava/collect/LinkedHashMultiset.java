@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// M3 array-storage adaptation; provenance: m3/array-storage-20261019/CONTRACT.md
+// Modified 2026 by Hitesh Soliwal and Synexia contributors: array storage.
 package com.m3.collections.guava.collect;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
@@ -22,7 +24,6 @@ import com.m3.collections.guava.annotations.J2ktIncompatible;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.LinkedHashMap;
 import org.jspecify.annotations.Nullable;
 
 /**
@@ -74,11 +75,11 @@ public final class LinkedHashMultiset<E extends @Nullable Object>
   }
 
   private LinkedHashMultiset() {
-    super(new LinkedHashMap<E, Count>());
+    super(new ObjectCountLinkedHashMap<E>());
   }
 
   private LinkedHashMultiset(int distinctElements) {
-    super(Maps.<E, Count>newLinkedHashMapWithExpectedSize(distinctElements));
+    super(new ObjectCountLinkedHashMap<>(distinctElements));
   }
 
   /**
@@ -97,7 +98,7 @@ public final class LinkedHashMultiset<E extends @Nullable Object>
   private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
     int distinctElements = Serialization.readCount(stream);
-    setBackingMap(new LinkedHashMap<E, Count>());
+    setBackingMap(new ObjectCountLinkedHashMap<E>());
     Serialization.populateMultiset(this, stream, distinctElements);
   }
 

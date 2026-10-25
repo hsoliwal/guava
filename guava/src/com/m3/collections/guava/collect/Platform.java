@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// M3 array-storage adaptation; provenance: m3/array-storage-20261019/CONTRACT.md
+// Modified 2026 by Hitesh Soliwal and Synexia contributors: array storage.
 package com.m3.collections.guava.collect;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
@@ -35,7 +37,7 @@ final class Platform {
   /** Returns the platform preferred implementation of a map based on a hash table. */
   static <K extends @Nullable Object, V extends @Nullable Object>
       Map<K, V> newHashMapWithExpectedSize(int expectedSize) {
-    return Maps.newHashMapWithExpectedSize(expectedSize);
+    return CompactHashMap.createWithExpectedSize(expectedSize);
   }
 
   /**
@@ -44,12 +46,12 @@ final class Platform {
    */
   static <K extends @Nullable Object, V extends @Nullable Object>
       Map<K, V> newLinkedHashMapWithExpectedSize(int expectedSize) {
-    return Maps.newLinkedHashMapWithExpectedSize(expectedSize);
+    return CompactLinkedHashMap.createWithExpectedSize(expectedSize);
   }
 
   /** Returns the platform preferred implementation of a set based on a hash table. */
   static <E extends @Nullable Object> Set<E> newHashSetWithExpectedSize(int expectedSize) {
-    return Sets.newHashSetWithExpectedSize(expectedSize);
+    return CompactHashSet.createWithExpectedSize(expectedSize);
   }
 
   /** Returns the platform preferred implementation of a thread-safe hash set. */
@@ -62,7 +64,7 @@ final class Platform {
    * table.
    */
   static <E extends @Nullable Object> Set<E> newLinkedHashSetWithExpectedSize(int expectedSize) {
-    return Sets.newLinkedHashSetWithExpectedSize(expectedSize);
+    return CompactLinkedHashSet.createWithExpectedSize(expectedSize);
   }
 
   /**
@@ -71,7 +73,7 @@ final class Platform {
    */
   static <K extends @Nullable Object, V extends @Nullable Object>
       Map<K, V> preservesInsertionOrderOnPutsMap() {
-    return Maps.newLinkedHashMap();
+    return CompactHashMap.create();
   }
 
   /**
@@ -80,7 +82,7 @@ final class Platform {
    */
   static <K extends @Nullable Object, V extends @Nullable Object>
       Map<K, V> preservesInsertionOrderOnPutsMapWithExpectedSize(int expectedSize) {
-    return Maps.newLinkedHashMapWithExpectedSize(expectedSize);
+    return CompactLinkedHashMap.createWithExpectedSize(expectedSize);
   }
 
   /**
