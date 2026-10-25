@@ -1,0 +1,39 @@
+{
+  "schema": "M3_NATIVE_GUAVA_MANIFEST_COUNTEREVIDENCE_V1",
+  "status": "PACKAGING_METADATA_NOT_QUALIFIED",
+  "artifacts": [
+    {
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work\\m3-jre21\\target\\guava-33.4.8-m3-java21-qualified.jar",
+      "sha256": "84050590fa79bd8e6c40bb30cdfa33dad96ac96c0f77645f5723088863e066eb",
+      "manifest_sha256": "f31f974fc2fadef4ae4db17feae3d4c44454748387cfee28addb382b0c045c5e",
+      "actual": {
+        "Build-Jdk-Spec": "11",
+        "Java-Version": "21",
+        "Bundle-Name": "Guava: Google Core Libraries for Java",
+        "Bundle-Version": "33.4.8.jre",
+        "Implementation-Version": "33.4.8-m3-java21",
+        "Require-Capability": "osgi.ee;filter:=\"(&(osgi.ee=JavaSE)(version=1.8))\"",
+        "Multi-Release": "true"
+      }
+    },
+    {
+      "path": "S:\\codex-work\\guava-array-multimap-one-file-20261018\\full-guava\\product-work\\m3-jre21\\target-hash-bimap-qualified\\guava-33.4.8-m3-java21-hash-bimap-qualified.jar",
+      "sha256": "3ab952eb6e06c1e42dcb59534d0234cc670696902a6a105aa35f158dd9f46df6",
+      "manifest_sha256": "f31f974fc2fadef4ae4db17feae3d4c44454748387cfee28addb382b0c045c5e",
+      "actual": {
+        "Build-Jdk-Spec": "11",
+        "Java-Version": "21",
+        "Bundle-Name": "Guava: Google Core Libraries for Java",
+        "Bundle-Version": "33.4.8.jre",
+        "Implementation-Version": "33.4.8-m3-java21",
+        "Require-Capability": "osgi.ee;filter:=\"(&(osgi.ee=JavaSE)(version=1.8))\"",
+        "Multi-Release": "true"
+      }
+    }
+  ],
+  "correction": "FULL_QUALIFICATION_REPORT_V2.json overstated the earlier artifact manifest metadata. The actual8405 JAR retains stockBuild-Jdk-Spec11 andJavaSE1.8 OSGi requirement despite classmajor65 and configured POMentries. Current3ab cleanbuild reproduces that precedence defect.",
+  "cause": "archive.manifestFile imports the stock upstream manifest and wins over duplicate configured manifestEntries.",
+  "preserved_evidence": "Strict Java21 source/class checks and original upstream behavior/suite/serialization receipts remain unchanged. The final native packaging claim is withdrawn until the clean corrected POM produces and verifies an actual Java21/variant manifest.",
+  "next": "Versioned actual XML recipe removes externalmanifestFile and sets complete explicit manifestEntries; preserve upstream export/import/license surface and all historical sources/artifacts/reports.",
+  "full_superset_goal": "ACTIVE_UNFINISHED"
+}

@@ -1,0 +1,12 @@
+Guava 33.4.8 M3 Java 21 variant
+
+Guava is Copyright The Guava Authors, licensed under the Apache License, Version 2.0.
+The original Guava LICENSE, AUTHORS and runtime metadata are retained in this artifact.
+Original source: https://github.com/google/guava/commit/f06690fa3e874f65515e8fd338a74d636e2c792f
+Original artifact SHA-256: f3d7f57f67fd622f4d468dfdd692b3a5e3909246c28017ac3263405f0fe617ed
+
+M3 source closure: Copyright 2026 Hitesh Soliwal and Contributors to the Synexia Project.
+SPDX-License-Identifier: Apache-2.0
+The qualified M3 source owners retain their individual notices. The Guava variant
+changes only ArrayListMultimap's private map/list storage and trim invalidation.
+Canonical owners remain in Synexia and the M3jdk21 source catalogue.
