@@ -13,7 +13,7 @@ final class M3SlotArrays {
     private M3SlotArrays() { }
     static int grow(int old) {
         if (old >= Integer.MAX_VALUE - 8) { throw new OutOfMemoryError("collection capacity exhausted"); }
-        return (int) Math.min(Integer.MAX_VALUE - 8L, Math.max(8L, old + (old >> 1) + 1L));
+        return (int) Math.min(Integer.MAX_VALUE - 8L, Math.max(8L, (long) old + (old >> 1) + 1L));
     }
     static int doubled(int old) {
         if (old >= 1 << 30) { throw new OutOfMemoryError("hash index capacity exhausted"); }
