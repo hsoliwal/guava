@@ -56,6 +56,7 @@
             <testInclude>guava-tests/test/com/google/common/collect/ReflectionFreeAssertThrows.java</testInclude>
             <testInclude>guava-tests/test/com/google/common/collect/TestExceptions.java</testInclude>
             <testInclude>m3-jre21/src/test/java/com/google/common/collect/M3NativeStorageTest.java</testInclude>
+            <testInclude>m3-jre21/src/test/java/com/m3/collections/M3SlotArraysCapacityTest.java</testInclude>
           </testIncludes>
         </configuration>
         <executions>
@@ -81,7 +82,7 @@
         <dependencies><dependency><groupId>org.apache.maven.surefire</groupId><artifactId>surefire-junit4</artifactId><version>3.5.2</version></dependency></dependencies>
         <configuration>
           <forkCount>0</forkCount><useModulePath>false</useModulePath><failIfNoTests>true</failIfNoTests>
-          <includes><include>**/ArrayListMultimapTest.java</include><include>**/HashBiMapTest.java</include><include>**/HashMultimapTest.java</include><include>**/M3NativeStorageTest.java</include></includes>
+          <includes><include>**/ArrayListMultimapTest.java</include><include>**/HashBiMapTest.java</include><include>**/HashMultimapTest.java</include><include>**/M3NativeStorageTest.java</include><include>**/M3SlotArraysCapacityTest.java</include></includes>
           <systemPropertyVariables><m3.native.outputDirectory>${project.build.outputDirectory}</m3.native.outputDirectory></systemPropertyVariables>
         </configuration>
       </plugin>
