@@ -588,6 +588,10 @@ public final class LongMath {
   /**
    * Returns the {@code b} to the {@code k}th power, provided it does not overflow.
    *
+   * <p><b>Java 25+ users:</b> Prefer {@link Math#powExact(long, int)}. Note that if {@code b} is an
+   * {@code int} value, writing {@code Math.powExact(b, k)} will call the {@link Math#powExact(int,
+   * int)} overload, not {@link Math#powExact(long, int)}.
+   *
    * @throws ArithmeticException if {@code b} to the {@code k}th power overflows in signed {@code
    *     long} arithmetic
    */
@@ -1105,12 +1109,12 @@ public final class LongMath {
     /** Works for all nonnegative signed longs. */
     LARGE {
       /** Returns (a + b) mod m. Precondition: {@code 0 <= a}, {@code b < m < 2^63}. */
-      private long plusMod(long a, long b, long m) {
+      long plusMod(long a, long b, long m) {
         return (a >= m - b) ? (a + b - m) : (a + b);
       }
 
       /** Returns (a * 2^32) mod m. a may be any unsigned long. */
-      private long times2ToThe32Mod(long a, long m) {
+      long times2ToThe32Mod(long a, long m) {
         int remainingPowersOf2 = 32;
         do {
           int shift = min(remainingPowersOf2, Long.numberOfLeadingZeros(a));

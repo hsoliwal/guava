@@ -16,6 +16,7 @@
 
 package com.m3.collections.guava.collect;
 
+import static com.m3.collections.guava.base.Preconditions.checkNotNull;
 import static com.m3.collections.guava.collect.Collections2.containsAllImpl;
 import static com.m3.collections.guava.collect.Collections2.toStringImpl;
 
@@ -257,5 +258,27 @@ public abstract class ForwardingCollection<E extends @Nullable Object> extends F
    */
   protected <T extends @Nullable Object> T[] standardToArray(T[] array) {
     return ObjectArrays.toArrayImpl(this, array);
+  }
+
+  /**
+   * A simplified version of {@link ForwardingCollection} where subclasses can pass in an already
+   * constructed {@link Collection} as the delegate.
+   *
+   * <p>TODO(b/3417232): Consider making this public, but take into consideration whether it would
+   * then appear as a user-visible supertype for any classes.
+   */
+  abstract static class SimpleForwardingCollection<E extends @Nullable Object>
+      extends ForwardingCollection<E> {
+    private final Collection<E> delegate;
+
+    /** Constructor for use by subclasses. */
+    SimpleForwardingCollection(Collection<E> delegate) {
+      this.delegate = checkNotNull(delegate);
+    }
+
+    @Override
+    protected final Collection<E> delegate() {
+      return delegate;
+    }
   }
 }

@@ -16,7 +16,8 @@
 
 package com.m3.collections.guava.collect;
 
-import static com.m3.collections.guava.collect.Sets.filter;
+import static com.m3.collections.guava.collect.Sets.equalsImpl;
+import static com.m3.collections.guava.collect.Sets.hashCodeImpl;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.base.Predicate;
@@ -59,6 +60,18 @@ final class FilteredEntrySetMultimap<K extends @Nullable Object, V extends @Null
 
   @Override
   public Set<Entry<K, V>> entries() {
-    return filter(unfiltered().entries(), entryPredicate());
+    return new EntrySet();
+  }
+
+  private final class EntrySet extends Entries implements Set<Entry<K, V>> {
+    @Override
+    public int hashCode() {
+      return hashCodeImpl(this);
+    }
+
+    @Override
+    public boolean equals(@Nullable Object o) {
+      return equalsImpl(this, o);
+    }
   }
 }

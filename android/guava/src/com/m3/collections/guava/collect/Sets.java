@@ -39,6 +39,7 @@ import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.base.Predicate;
 import com.m3.collections.guava.collect.Collections2.FilteredCollection;
+import com.m3.collections.guava.collect.ForwardingCollection.SimpleForwardingCollection;
 import com.m3.collections.guava.math.IntMath;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.errorprone.annotations.DoNotCall;
@@ -1495,10 +1496,9 @@ public final class Sets {
     return cartesianProduct(asList(sets));
   }
 
-  private static final class CartesianSet<E> extends ForwardingCollection<List<E>>
+  private static final class CartesianSet<E> extends SimpleForwardingCollection<List<E>>
       implements Set<List<E>> {
     private final transient ImmutableList<ImmutableSet<E>> axes;
-    private final transient CartesianList<E> delegate;
 
     static <E> Set<List<E>> create(List<? extends Set<? extends E>> sets) {
       ImmutableList.Builder<ImmutableSet<E>> axesBuilder = new ImmutableList.Builder<>(sets.size());
@@ -1540,13 +1540,8 @@ public final class Sets {
     }
 
     private CartesianSet(ImmutableList<ImmutableSet<E>> axes, CartesianList<E> delegate) {
+      super(delegate);
       this.axes = axes;
-      this.delegate = delegate;
-    }
-
-    @Override
-    protected Collection<List<E>> delegate() {
-      return delegate;
     }
 
     @Override

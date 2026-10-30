@@ -23,6 +23,7 @@ import static org.junit.Assert.assertThrows;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.util.concurrent.TestExceptions.SomeError;
+import com.google.errorprone.annotations.concurrent.GuardedBy;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.Executor;
 import junit.framework.TestCase;
@@ -66,8 +67,10 @@ public class FutureCallbackTest extends TestCase {
     SettableFuture<String> f = SettableFuture.create();
     FutureCallback<String> callback =
         new FutureCallback<String>() {
-          private final Object monitor = new Object();
-          private boolean called = false;
+          final Object monitor = new Object();
+
+          @GuardedBy("monitor")
+          boolean called = false;
 
           @Override
           public void onSuccess(String result) {
@@ -181,7 +184,10 @@ public class FutureCallbackTest extends TestCase {
   private static final class MockCallback implements FutureCallback<String> {
     @Nullable private String value = null;
     @Nullable private Throwable failure = null;
+
+    @GuardedBy("monitor")
     private boolean wasCalled = false;
+
     private final Object monitor = new Object();
 
     MockCallback(String expectedValue) {

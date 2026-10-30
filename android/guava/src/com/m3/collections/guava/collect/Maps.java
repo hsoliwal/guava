@@ -49,6 +49,7 @@ import com.m3.collections.guava.base.Equivalence;
 import com.m3.collections.guava.base.Function;
 import com.m3.collections.guava.base.Preconditions;
 import com.m3.collections.guava.base.Predicate;
+import com.m3.collections.guava.collect.ForwardingCollection.SimpleForwardingCollection;
 import com.m3.collections.guava.collect.MapDifference.ValueDifference;
 import com.m3.collections.guava.primitives.Ints;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
@@ -1494,21 +1495,14 @@ public final class Maps {
 
   /** The implementation of {@code Multimaps.unmodifiableEntries}. */
   static class UnmodifiableEntries<K extends @Nullable Object, V extends @Nullable Object>
-      extends ForwardingCollection<Entry<K, V>> {
-    private final Collection<Entry<K, V>> entries;
-
+      extends SimpleForwardingCollection<Entry<K, V>> {
     UnmodifiableEntries(Collection<Entry<K, V>> entries) {
-      this.entries = entries;
-    }
-
-    @Override
-    protected Collection<Entry<K, V>> delegate() {
-      return entries;
+      super(entries);
     }
 
     @Override
     public final Iterator<Entry<K, V>> iterator() {
-      return unmodifiableEntryIterator(entries.iterator());
+      return unmodifiableEntryIterator(delegate().iterator());
     }
 
     // See java.util.Collections.UnmodifiableEntrySet for details on attacks.
@@ -2914,6 +2908,20 @@ public final class Maps {
           }
         };
       }
+
+      // See java.util.Collections.CheckedEntrySet for details on attacks.
+
+      @Override
+      public @Nullable Object[] toArray() {
+        // creating an ArrayList so filtering happens once
+        return newArrayList(iterator()).toArray();
+      }
+
+      @Override
+      @SuppressWarnings("nullness") // b/192354773 in our checker affects toArray declarations
+      public <T extends @Nullable Object> T[] toArray(T[] array) {
+        return newArrayList(iterator()).toArray(array);
+      }
     }
 
     @Override
@@ -3335,6 +3343,9 @@ public final class Maps {
    * particular subtype of {@code K}, but promise that it's a {@code Comparator<? super K>}, which
    * must work on any type of {@code K}.
    *
+   * <p>Except for Android users prior to API Level 26, prefer {@link
+   * Collections#unmodifiableNavigableMap} over this method.
+   *
    * @param map the navigable map for which an unmodifiable view is to be returned
    * @return an unmodifiable view of the specified navigable map
    * @since 12.0
@@ -3545,6 +3556,9 @@ public final class Maps {
    *
    * <p>The returned navigable map will be serializable if the specified navigable map is
    * serializable.
+   *
+   * <p>Except for Android users prior to API Level 26, prefer {@link
+   * Collections#synchronizedNavigableMap} over this method.
    *
    * @param navigableMap the navigable map to be "wrapped" in a synchronized navigable map.
    * @return a synchronized view of the specified navigable map.

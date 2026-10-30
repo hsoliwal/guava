@@ -449,7 +449,7 @@ public class DoubleMathTest extends TestCase {
 
   @GwtIncompatible // StrictMath
   @SuppressWarnings("strictfp") // Guava still supports Java 8
-  private strictfp double trueLog2(double d) {
+  private static strictfp double trueLog2(double d) {
     double trueLog2 = StrictMath.log(d) / StrictMath.log(2);
     // increment until it's >= the true value
     while (StrictMath.pow(2.0, trueLog2) < d) {
@@ -517,7 +517,7 @@ public class DoubleMathTest extends TestCase {
   private static final ImmutableList<Double> BAD_TOLERANCE_CANDIDATES =
       ImmutableList.copyOf(
           Doubles.asList(
-              -Double.MIN_VALUE,
+              -Doubles.MIN_POSITIVE_VALUE,
               -Double.MIN_NORMAL,
               -1,
               -20,

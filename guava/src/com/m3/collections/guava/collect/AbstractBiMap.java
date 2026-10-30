@@ -17,9 +17,11 @@
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.base.Preconditions.checkArgument;
+import static com.m3.collections.guava.base.Preconditions.checkNotNull;
 import static com.m3.collections.guava.base.Preconditions.checkState;
 import static com.m3.collections.guava.collect.Maps.containsEntryImpl;
 import static com.m3.collections.guava.collect.Maps.keyIterator;
+import static com.m3.collections.guava.collect.Maps.newLinkedHashMapWithExpectedSize;
 import static com.m3.collections.guava.collect.Maps.valueIterator;
 import static com.m3.collections.guava.collect.NullnessCasts.uncheckedCastNullableTToT;
 import static java.util.Objects.requireNonNull;
@@ -196,25 +198,23 @@ abstract class AbstractBiMap<K extends @Nullable Object, V extends @Nullable Obj
 
   @Override
   public final void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
-    this.delegate.replaceAll(function);
+    checkNotNull(function);
+
+    Map<V, K> newInverse = newLinkedHashMapWithExpectedSize(size());
+    for (Entry<K, V> entry : delegate.entrySet()) {
+      K key = entry.getKey();
+      V value = checkValue(function.apply(key, entry.getValue()));
+      int oldSize = newInverse.size();
+      newInverse.put(value, key);
+      checkArgument(newInverse.size() > oldSize, "value already present: %s", value);
+    }
+
+    Iterator<V> newValues = newInverse.keySet().iterator();
+    for (Entry<K, V> entry : delegate.entrySet()) {
+      entry.setValue(newValues.next());
+    }
     inverse.delegate.clear();
-    Entry<K, V> broken = null;
-    Iterator<Entry<K, V>> itr = this.delegate.entrySet().iterator();
-    while (itr.hasNext()) {
-      Entry<K, V> entry = itr.next();
-      K k = entry.getKey();
-      V v = entry.getValue();
-      K conflict = inverse.delegate.putIfAbsent(v, k);
-      if (conflict != null) {
-        broken = entry;
-        // We're definitely going to throw, but we'll try to keep the BiMap in an internally
-        // consistent state by removing the bad entry.
-        itr.remove();
-      }
-    }
-    if (broken != null) {
-      throw new IllegalArgumentException("value already present: " + broken.getValue());
-    }
+    inverse.delegate.putAll(newInverse);
   }
 
   @Override

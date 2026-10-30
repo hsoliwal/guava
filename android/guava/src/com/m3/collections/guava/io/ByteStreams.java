@@ -27,6 +27,7 @@ import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.math.IntMath;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
+import com.google.errorprone.annotations.concurrent.GuardedBy;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInput;
@@ -714,6 +715,8 @@ public final class ByteStreams {
   @J2ktIncompatible
   private static final class LimitedInputStream extends FilterInputStream {
     private long left;
+
+    @GuardedBy("this")
     private long mark = -1;
 
     LimitedInputStream(InputStream in, long limit) {
@@ -830,8 +833,11 @@ public final class ByteStreams {
    * Discards {@code n} bytes of data from the input stream. This method will block until the full
    * amount has been skipped. Does not close the stream.
    *
+   * <p><b>Java 12+ users:</b> use {@link InputStream#skipNBytes} instead.
+   *
    * @param in the input stream to read from
-   * @param n the number of bytes to skip
+   * @param n the number of bytes to skip. If {@code n} is zero or negative, then no bytes are
+   *     skipped.
    * @throws EOFException if this stream reaches the end before skipping all the bytes
    * @throws IOException if an I/O error occurs, or the stream does not support skipping
    */

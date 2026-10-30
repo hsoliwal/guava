@@ -23,6 +23,7 @@ import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.cache.LocalCache.Strength;
 import com.m3.collections.guava.collect.ImmutableSet;
+import com.google.errorprone.annotations.concurrent.GuardedBy;
 import java.lang.ref.WeakReference;
 import junit.framework.TestCase;
 import org.jspecify.annotations.NullUnmarked;
@@ -47,13 +48,13 @@ public class CacheReferencesTest extends TestCase {
         }
       };
 
-  private CacheBuilderFactory factoryWithAllKeyStrengths() {
+  private static CacheBuilderFactory factoryWithAllKeyStrengths() {
     return new CacheBuilderFactory()
         .withKeyStrengths(ImmutableSet.of(STRONG, Strength.WEAK))
         .withValueStrengths(ImmutableSet.of(STRONG, Strength.WEAK, Strength.SOFT));
   }
 
-  private Iterable<LoadingCache<Key, String>> caches() {
+  private static Iterable<LoadingCache<Key, String>> caches() {
     CacheBuilderFactory factory = factoryWithAllKeyStrengths();
     return transform(
         factory.buildAllPermutations(), builder -> builder.build(KEY_TO_STRING_LOADER));
@@ -124,6 +125,8 @@ public class CacheReferencesTest extends TestCase {
   // a strong reference to that value.
   private static final class Key {
     private final int value;
+
+    @GuardedBy("this")
     private @Nullable WeakReference<String> toString;
 
     Key(int value) {

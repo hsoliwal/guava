@@ -976,6 +976,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     }
   }
 
+  @SuppressWarnings("CatchingUnchecked") // sneaky checked exception
   @Override
   public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
     checkNotNull(function);
@@ -984,8 +985,21 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     int[] oldNext = Arrays.copyOf(nextInInsertionOrder, size);
     int oldFirst = firstInInsertionOrder;
     clear();
+    try {
+      for (int entry = oldFirst; entry != ENDPOINT; entry = oldNext[entry]) {
+        put(oldKeys[entry], function.apply(oldKeys[entry], oldValues[entry]));
+      }
+    } catch (Exception e) { // sneaky checked exception
+      restoreFromSavedEntries(oldKeys, oldValues, oldNext, oldFirst);
+      throw e;
+    }
+  }
+
+  /** Array-storage form of upstream restoreFromSavedNodes: re-inserts the saved entries in order. */
+  private void restoreFromSavedEntries(K[] oldKeys, V[] oldValues, int[] oldNext, int oldFirst) {
+    clear();
     for (int entry = oldFirst; entry != ENDPOINT; entry = oldNext[entry]) {
-      put(oldKeys[entry], function.apply(oldKeys[entry], oldValues[entry]));
+      put(oldKeys[entry], oldValues[entry]);
     }
   }
 
@@ -1085,6 +1099,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
       obverse.forEach((k, v) -> action.accept(v, k));
     }
 
+    @SuppressWarnings("CatchingUnchecked") // sneaky checked exception
     @Override
     public void replaceAll(BiFunction<? super V, ? super K, ? extends K> function) {
       checkNotNull(function);
@@ -1093,8 +1108,13 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
       int[] oldNext = Arrays.copyOf(obverse.nextInInsertionOrder, obverse.size);
       int oldFirst = obverse.firstInInsertionOrder;
       clear();
-      for (int entry = oldFirst; entry != ENDPOINT; entry = oldNext[entry]) {
-        put(oldValues[entry], function.apply(oldValues[entry], oldKeys[entry]));
+      try {
+        for (int entry = oldFirst; entry != ENDPOINT; entry = oldNext[entry]) {
+          put(oldValues[entry], function.apply(oldValues[entry], oldKeys[entry]));
+        }
+      } catch (Exception e) { // sneaky checked exception
+        obverse.restoreFromSavedEntries(oldKeys, oldValues, oldNext, oldFirst);
+        throw e;
       }
     }
 

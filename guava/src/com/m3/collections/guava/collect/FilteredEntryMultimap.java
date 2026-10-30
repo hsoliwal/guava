@@ -16,11 +16,13 @@
 
 package com.m3.collections.guava.collect;
 
+import static com.m3.collections.guava.base.Preconditions.checkArgument;
 import static com.m3.collections.guava.base.Preconditions.checkNotNull;
 import static com.m3.collections.guava.base.Predicates.in;
 import static com.m3.collections.guava.base.Predicates.not;
 import static com.m3.collections.guava.collect.CollectPreconditions.checkNonnegative;
 import static com.m3.collections.guava.collect.Collections2.filter;
+import static com.m3.collections.guava.collect.Lists.newArrayList;
 import static com.m3.collections.guava.collect.Maps.immutableEntry;
 import static com.m3.collections.guava.collect.Maps.keyPredicateOnEntries;
 import static com.m3.collections.guava.collect.Maps.valuePredicateOnEntries;
@@ -33,6 +35,7 @@ import static java.util.Collections.unmodifiableSet;
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.base.MoreObjects;
 import com.m3.collections.guava.base.Predicate;
+import com.m3.collections.guava.collect.ForwardingCollection.SimpleForwardingCollection;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -130,7 +133,49 @@ class FilteredEntryMultimap<K extends @Nullable Object, V extends @Nullable Obje
 
   @Override
   public Collection<Entry<K, V>> entries() {
-    return filterCollection(unfiltered.entries(), predicate);
+    return new Entries();
+  }
+
+  class Entries extends SimpleForwardingCollection<Entry<K, V>> {
+    Entries() {
+      super(filterCollection(unfiltered.entries(), predicate));
+    }
+
+    @Override
+    public final Iterator<Entry<K, V>> iterator() {
+      return new TransformedIterator<Entry<K, V>, Entry<K, V>>(delegate().iterator()) {
+        @Override
+        Entry<K, V> transform(Entry<K, V> entry) {
+          return new ForwardingMapEntry<K, V>() {
+            @Override
+            protected Entry<K, V> delegate() {
+              return entry;
+            }
+
+            @Override
+            @ParametricNullness
+            public V setValue(@ParametricNullness V newValue) {
+              checkArgument(satisfies(getKey(), newValue));
+              return super.setValue(newValue);
+            }
+          };
+        }
+      };
+    }
+
+    // See java.util.Collections.CheckedEntrySet for details on attacks.
+
+    @Override
+    public final @Nullable Object[] toArray() {
+      // creating an ArrayList so filtering happens once
+      return newArrayList(iterator()).toArray();
+    }
+
+    @Override
+    @SuppressWarnings("nullness") // b/192354773 in our checker affects toArray declarations
+    public final <T extends @Nullable Object> T[] toArray(T[] array) {
+      return newArrayList(iterator()).toArray(array);
+    }
   }
 
   @Override
@@ -400,7 +445,7 @@ class FilteredEntryMultimap<K extends @Nullable Object, V extends @Nullable Obje
           return FilteredEntryMultimap.this.keySet().size();
         }
 
-        private boolean removeEntriesIf(Predicate<? super Multiset.Entry<K>> predicate) {
+        boolean removeEntriesIf(Predicate<? super Multiset.Entry<K>> predicate) {
           return FilteredEntryMultimap.this.removeEntriesIf(
               (Map.Entry<K, Collection<V>> entry) ->
                   predicate.apply(

@@ -24,6 +24,7 @@ import static java.lang.Double.isNaN;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.base.MoreObjects;
+import com.m3.collections.guava.primitives.Doubles;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -261,7 +262,7 @@ public final class PairedStats implements Serializable {
     if (value > 0.0) {
       return value;
     } else {
-      return Double.MIN_VALUE;
+      return Doubles.MIN_POSITIVE_VALUE;
     }
   }
 

@@ -502,7 +502,7 @@ public class MultimapsTest extends TestCase {
     IteratorTester<Integer> tester =
         new IteratorTester<Integer>(
             4, MODIFIABLE, newHashSet(1), IteratorTester.KnownOrder.KNOWN_ORDER) {
-          private @Nullable Multimap<String, Integer> multimap;
+          @Nullable Multimap<String, Integer> multimap;
 
           @Override
           protected Iterator<Integer> newTargetIterator() {
@@ -907,11 +907,12 @@ public class MultimapsTest extends TestCase {
   @J2ktIncompatible // Synchronized
   public void testSynchronizedMultimapSampleCodeCompilation() {
     // Extra indirection for J2KT, to avoid error: not enough information to infer type variable K
-    this.<@Nullable Object, @Nullable Object>genericTestSynchronizedMultimapSampleCodeCompilation();
+    MultimapsTest
+        .<@Nullable Object, @Nullable Object>genericTestSynchronizedMultimapSampleCodeCompilation();
   }
 
   @J2ktIncompatible // Synchronized
-  private <K extends @Nullable Object, V extends @Nullable Object>
+  private static <K extends @Nullable Object, V extends @Nullable Object>
       void genericTestSynchronizedMultimapSampleCodeCompilation() {
     K key = null;
 
