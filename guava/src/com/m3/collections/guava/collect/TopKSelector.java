@@ -232,6 +232,9 @@ final class TopKSelector<
   }
 
   private void swap(int i, int j) {
+    if (i == j) {
+      return;
+    }
     T tmp = buffer[i];
     buffer[i] = buffer[j];
     buffer[j] = tmp;

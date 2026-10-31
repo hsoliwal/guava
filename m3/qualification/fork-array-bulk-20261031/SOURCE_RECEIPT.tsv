@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Result-only passive receipt; generated candidate reviewed against private canonical M3HashPinnedJavaSnapshotRecipe.
+# Synexia draft #14954. No public recipe copied; no default-branch/product admission.
+repository	path	before_git_blob_sha1	after_git_blob_sha1	before_sha256	after_sha256	problem_category	recipe	status
+hsoliwal/guava	guava/src/com/m3/collections/guava/collect/ImmutableList.java	6320c4e7cc69d922324b29c87c1d5eeb28f1b3ca	2261f7ead0f160f89c0d4379ed9d984942a828a3	3c2e28695290e743330f2186a8cc5ff32c1eca29b5484a9f7c91388b8fb62a53	d9f3e26eaec8a0ce975c0f1e702df5d05b615ca0967cac53997b0c0e73b35808	ARRAY_AMORTIZED_GROWTH	com.synexia.m3.ForkArrayGuava20261031	DRAFT_UNVERIFIED_FULL_FORK_JUNIT_ABI_SERIALIZATION_JMH_JNI
