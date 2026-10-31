@@ -1,0 +1,3 @@
+source_path	preimage_git_blob	technique	status
+guava/src/com/m3/collections/guava/collect/TopKSelector.java	0df9010c2148df2166e77f3066e0f1c62fb53768	Avoid_partition_self-swap_(JRE)	HELD_NATIVE_GATES
+android/guava/src/com/m3/collections/guava/collect/TopKSelector.java	5058b3072e7fb888bfeccdcd20a9f2978cec7a1c	Avoid_partition_self-swap_(Android)	HELD_NATIVE_GATES
