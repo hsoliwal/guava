@@ -197,19 +197,32 @@ public final class M3ArrayList<E> extends AbstractList<E>
         Objects.requireNonNull(predicate, "predicate");
         int expectedModCount = modCount;
         int oldSize = size;
-        BitSet removed = new BitSet();
+        BitSet removed = null;
+        int firstRemoved = oldSize;
         for (int read = 0; read < oldSize; read++) {
             boolean reject = predicate.test((E) elements[read]);
             if (modCount != expectedModCount) {
                 throw new ConcurrentModificationException("predicate structurally changed owner");
             }
-            if (reject) removed.set(read);
+            if (reject) {
+                if (removed == null) {
+                    removed = new BitSet();
+                    firstRemoved = read;
+                }
+                removed.set(read);
+            }
         }
-        int rejected = removed.cardinality();
-        if (rejected == 0) return false;
-        int write = 0;
-        for (int read = 0; read < oldSize; read++) {
-            if (!removed.get(read)) elements[write++] = elements[read];
+        if (removed == null) return false;
+        // The retained prefix is already in place. Copy each later survivor run
+        // once, using the bitmap's word scans rather than probing every position.
+        int write = firstRemoved;
+        for (int read = removed.nextClearBit(firstRemoved); read < oldSize;) {
+            int end = removed.nextSetBit(read);
+            if (end < 0) end = oldSize;
+            int length = end - read;
+            System.arraycopy(elements, read, elements, write, length);
+            write += length;
+            read = removed.nextClearBit(end);
         }
         Arrays.fill(elements, write, oldSize, null);
         size = write;
