@@ -31,6 +31,7 @@ import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.errorprone.annotations.DoNotCall;
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.util.AbstractCollection;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
@@ -189,6 +190,7 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, @Nullable V>
   private abstract static class ArrayMap<K, V extends @Nullable Object>
       extends IteratorBasedAbstractMap<K, V> {
     private final ImmutableMap<K, Integer> keyIndex;
+    private @Nullable Collection<V> values;
 
     private ArrayMap(ImmutableMap<K, Integer> keyIndex) {
       this.keyIndex = keyIndex;
@@ -253,7 +255,41 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, @Nullable V>
       };
     }
 
-    // TODO(lowasser): consider an optimized values() implementation
+    @Override
+    public final Collection<V> values() {
+      Collection<V> result = values;
+      if (result == null) {
+        result = new AbstractCollection<V>() {
+          @Override
+          public Iterator<V> iterator() {
+            return new AbstractIndexedListIterator<V>(size()) {
+              @Override
+              @ParametricNullness
+              V get(int index) {
+                return ArrayMap.this.getValue(index);
+              }
+            };
+          }
+
+          @Override
+          public int size() {
+            return ArrayMap.this.size();
+          }
+
+          @Override
+          public boolean contains(@Nullable Object value) {
+            return ArrayMap.this.containsValue(value);
+          }
+
+          @Override
+          public void clear() {
+            ArrayMap.this.clear();
+          }
+        };
+        values = result;
+      }
+      return result;
+    }
 
     @Override
     public final boolean containsKey(@Nullable Object key) {
