@@ -532,11 +532,11 @@ public final class TreeMultiset<E extends @Nullable Object> extends AbstractSort
     rootReference.enter();
     try {
       return new Iterator<Entry<E>>() {
-        private int current = descending ? lastNode() : firstNode();
-        private long generation = current == NONE ? 0 : rootReference.generation(current);
-        private @Nullable E currentElement;
-        private @Nullable CursorSnapshot<E> captured;
-        private @Nullable Entry<E> prevEntry;
+        int current = descending ? lastNode() : firstNode();
+        long generation = current == NONE ? 0 : rootReference.generation(current);
+        @Nullable E currentElement;
+        @Nullable CursorSnapshot<E> captured;
+        @Nullable Entry<E> prevEntry;
 
         {
           captureCurrent();

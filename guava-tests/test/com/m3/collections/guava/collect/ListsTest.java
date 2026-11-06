@@ -43,6 +43,7 @@ import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.base.Function;
 import com.m3.collections.guava.base.Functions;
+import com.m3.collections.guava.collect.ForwardingList.SimpleForwardingList;
 import com.m3.collections.guava.collect.testing.IteratorTester;
 import com.m3.collections.guava.collect.testing.ListTestSuiteBuilder;
 import com.m3.collections.guava.collect.testing.TestStringListGenerator;
@@ -471,7 +472,7 @@ public class ListsTest extends TestCase {
     }.test();
   }
 
-  private void checkFooBarBazList(List<String> list) {
+  private static void checkFooBarBazList(List<String> list) {
     assertThat(list).containsExactly("foo", "bar", "baz").inOrder();
     assertEquals(3, list.size());
     assertIndexIsOutOfBounds(list, -1);
@@ -883,17 +884,11 @@ public class ListsTest extends TestCase {
   @J2ktIncompatible
   @GwtIncompatible // CopyOnWriteArrayList, Spliterator
   public void testTransformSpliteratorSequentialPropagatesBackingListCharacteristics() {
-    CopyOnWriteArrayList<Integer> cowal = new CopyOnWriteArrayList<>(SOME_LIST);
     List<Integer> nonRandomAccess =
-        new ForwardingList<Integer>() {
-          @Override
-          protected List<Integer> delegate() {
-            return cowal;
-          }
-
+        new SimpleForwardingList<Integer>(new CopyOnWriteArrayList<>(SOME_LIST)) {
           @Override
           public Spliterator<Integer> spliterator() {
-            return cowal.spliterator();
+            return delegate().spliterator();
           }
         };
     assertFalse(nonRandomAccess instanceof RandomAccess);

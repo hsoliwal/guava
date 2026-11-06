@@ -19,6 +19,7 @@ package com.m3.collections.guava.collect;
 import static java.util.Arrays.asList;
 
 import com.m3.collections.guava.base.Function;
+import com.m3.collections.guava.collect.ForwardingQueue.SimpleForwardingQueue;
 import com.m3.collections.guava.collect.testing.QueueTestSuiteBuilder;
 import com.m3.collections.guava.collect.testing.TestStringQueueGenerator;
 import com.m3.collections.guava.collect.testing.features.CollectionFeature;
@@ -42,16 +43,9 @@ import org.jspecify.annotations.Nullable;
 @NullUnmarked
 public class ForwardingQueueTest extends TestCase {
 
-  static final class StandardImplForwardingQueue<T> extends ForwardingQueue<T> {
-    private final Queue<T> backingQueue;
-
+  static final class StandardImplForwardingQueue<T> extends SimpleForwardingQueue<T> {
     StandardImplForwardingQueue(Queue<T> backingQueue) {
-      this.backingQueue = backingQueue;
-    }
-
-    @Override
-    protected Queue<T> delegate() {
-      return backingQueue;
+      super(backingQueue);
     }
 
     @Override

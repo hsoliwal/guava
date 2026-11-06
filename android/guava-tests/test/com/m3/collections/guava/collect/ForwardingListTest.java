@@ -19,6 +19,7 @@ package com.m3.collections.guava.collect;
 import static com.m3.collections.guava.collect.Lists.newArrayList;
 
 import com.m3.collections.guava.base.Function;
+import com.m3.collections.guava.collect.ForwardingList.SimpleForwardingList;
 import com.m3.collections.guava.collect.testing.ListTestSuiteBuilder;
 import com.m3.collections.guava.collect.testing.TestStringListGenerator;
 import com.m3.collections.guava.collect.testing.features.CollectionFeature;
@@ -44,16 +45,9 @@ import org.jspecify.annotations.Nullable;
  */
 @NullUnmarked
 public class ForwardingListTest extends TestCase {
-  static final class StandardImplForwardingList<T> extends ForwardingList<T> {
-    private final List<T> backingList;
-
+  static final class StandardImplForwardingList<T> extends SimpleForwardingList<T> {
     StandardImplForwardingList(List<T> backingList) {
-      this.backingList = backingList;
-    }
-
-    @Override
-    protected List<T> delegate() {
-      return backingList;
+      super(backingList);
     }
 
     @Override

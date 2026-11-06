@@ -42,6 +42,7 @@ import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.base.Function;
 import com.m3.collections.guava.base.Functions;
 import com.m3.collections.guava.base.Supplier;
+import com.m3.collections.guava.collect.ForwardingSet.SimpleForwardingSet;
 import com.m3.collections.guava.collect.Maps.EntryTransformer;
 import com.m3.collections.guava.collect.testing.IteratorTester;
 import com.m3.collections.guava.collect.testing.google.UnmodifiableCollectionTests;
@@ -502,7 +503,7 @@ public class MultimapsTest extends TestCase {
     IteratorTester<Integer> tester =
         new IteratorTester<Integer>(
             4, MODIFIABLE, newHashSet(1), IteratorTester.KnownOrder.KNOWN_ORDER) {
-          private @Nullable Multimap<String, Integer> multimap;
+          @Nullable Multimap<String, Integer> multimap;
 
           @Override
           protected Iterator<Integer> newTargetIterator() {
@@ -560,13 +561,7 @@ public class MultimapsTest extends TestCase {
         new SetSupplier() {
           @Override
           public Set<Integer> getImpl() {
-            Set<Integer> backing = super.getImpl();
-            return new ForwardingSet<Integer>() {
-              @Override
-              protected Set<Integer> delegate() {
-                return backing;
-              }
-
+            return new SimpleForwardingSet<Integer>(super.getImpl()) {
               @Override
               public boolean add(Integer element) {
                 checkArgument(element >= 0);
@@ -907,11 +902,12 @@ public class MultimapsTest extends TestCase {
   @J2ktIncompatible // Synchronized
   public void testSynchronizedMultimapSampleCodeCompilation() {
     // Extra indirection for J2KT, to avoid error: not enough information to infer type variable K
-    this.<@Nullable Object, @Nullable Object>genericTestSynchronizedMultimapSampleCodeCompilation();
+    MultimapsTest
+        .<@Nullable Object, @Nullable Object>genericTestSynchronizedMultimapSampleCodeCompilation();
   }
 
   @J2ktIncompatible // Synchronized
-  private <K extends @Nullable Object, V extends @Nullable Object>
+  private static <K extends @Nullable Object, V extends @Nullable Object>
       void genericTestSynchronizedMultimapSampleCodeCompilation() {
     K key = null;
 

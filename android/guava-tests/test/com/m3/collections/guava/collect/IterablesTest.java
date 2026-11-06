@@ -51,6 +51,7 @@ import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.base.Function;
 import com.m3.collections.guava.base.Predicate;
+import com.m3.collections.guava.collect.ForwardingQueue.SimpleForwardingQueue;
 import com.m3.collections.guava.collect.testing.IteratorTester;
 import com.m3.collections.guava.testing.ClassSanityTester;
 import com.m3.collections.guava.testing.NullPointerTester;
@@ -701,7 +702,7 @@ public class IterablesTest extends TestCase {
     assertThrows(IllegalArgumentException.class, () -> skip(list, -1));
   }
 
-  private void testGetOnAbc(Iterable<String> iterable) {
+  private static void testGetOnAbc(Iterable<String> iterable) {
     assertThrows(IndexOutOfBoundsException.class, () -> Iterables.get(iterable, -1));
     assertThat(Iterables.get(iterable, 0)).isEqualTo("a");
     assertThat(Iterables.get(iterable, 1)).isEqualTo("b");
@@ -710,7 +711,7 @@ public class IterablesTest extends TestCase {
     assertThrows(IndexOutOfBoundsException.class, () -> Iterables.get(iterable, 4));
   }
 
-  private void testGetOnEmpty(Iterable<String> iterable) {
+  private static void testGetOnEmpty(Iterable<String> iterable) {
     assertThrows(IndexOutOfBoundsException.class, () -> Iterables.get(iterable, 0));
   }
 
@@ -1175,21 +1176,14 @@ public class IterablesTest extends TestCase {
     assertEquals(5, consumingIterator.next().intValue());
   }
 
-  private static class UnIterableQueue<T> extends ForwardingQueue<T> {
-    private final Queue<T> queue;
-
+  private static class UnIterableQueue<T> extends SimpleForwardingQueue<T> {
     UnIterableQueue(Queue<T> queue) {
-      this.queue = queue;
+      super(queue);
     }
 
     @Override
     public Iterator<T> iterator() {
       throw new UnsupportedOperationException();
-    }
-
-    @Override
-    protected Queue<T> delegate() {
-      return queue;
     }
   }
 

@@ -30,6 +30,8 @@ import static java.util.Objects.requireNonNull;
 
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
+import com.m3.collections.guava.collect.ForwardingIterator.SimpleForwardingIterator;
+import com.m3.collections.guava.collect.ForwardingSet.SimpleForwardingSet;
 import com.m3.collections.guava.primitives.Ints;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.io.IOException;
@@ -472,16 +474,10 @@ public final class ConcurrentHashMultiset<E> extends AbstractMultiset<E> impleme
 
   @Override
   public Set<E> elementSet() {
-    Set<E> delegate = countMap.keySet();
-    return new ForwardingSet<E>() {
-      @Override
-      protected Set<E> delegate() {
-        return delegate;
-      }
-
+    return new SimpleForwardingSet<E>(countMap.keySet()) {
       @Override
       public boolean contains(@Nullable Object object) {
-        return object != null && safeContains(delegate, object);
+        return object != null && safeContains(delegate(), object);
       }
 
       @Override
@@ -491,7 +487,7 @@ public final class ConcurrentHashMultiset<E> extends AbstractMultiset<E> impleme
 
       @Override
       public boolean remove(@Nullable Object object) {
-        return object != null && safeRemove(delegate, object);
+        return object != null && safeRemove(delegate(), object);
       }
 
       @Override
@@ -535,8 +531,7 @@ public final class ConcurrentHashMultiset<E> extends AbstractMultiset<E> impleme
     // remove(), we create an AbstractIterator, and then use ForwardingIterator to delegate to it.
     Iterator<Entry<E>> readOnlyIterator =
         new AbstractIterator<Entry<E>>() {
-          private final Iterator<Map.Entry<E, AtomicInteger>> mapEntries =
-              countMap.entrySet().iterator();
+          final Iterator<Map.Entry<E, AtomicInteger>> mapEntries = countMap.entrySet().iterator();
 
           @Override
           protected @Nullable Entry<E> computeNext() {
@@ -553,13 +548,8 @@ public final class ConcurrentHashMultiset<E> extends AbstractMultiset<E> impleme
           }
         };
 
-    return new ForwardingIterator<Entry<E>>() {
-      private @Nullable Entry<E> last;
-
-      @Override
-      protected Iterator<Entry<E>> delegate() {
-        return readOnlyIterator;
-      }
+    return new SimpleForwardingIterator<Entry<E>>(readOnlyIterator) {
+      @Nullable Entry<E> last;
 
       @Override
       public Entry<E> next() {

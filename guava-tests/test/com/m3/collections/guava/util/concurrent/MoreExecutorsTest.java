@@ -57,6 +57,7 @@ import com.m3.collections.guava.base.Suppliers;
 import com.m3.collections.guava.collect.ImmutableList;
 import com.m3.collections.guava.testing.ClassSanityTester;
 import com.m3.collections.guava.util.concurrent.MoreExecutors.Application;
+import com.google.errorprone.annotations.concurrent.GuardedBy;
 import java.lang.Thread.State;
 import java.util.ArrayList;
 import java.util.List;
@@ -633,6 +634,7 @@ public class MoreExecutorsTest extends TestCase {
 
   @J2ktIncompatible
   private static class TestApplication extends Application {
+    @GuardedBy("this")
     private final List<Thread> hooks = new ArrayList<>();
 
     @Override

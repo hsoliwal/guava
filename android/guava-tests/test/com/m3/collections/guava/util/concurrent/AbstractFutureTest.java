@@ -44,6 +44,7 @@ import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.collect.Range;
 import com.m3.collections.guava.primitives.Ints;
+import com.m3.collections.guava.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture;
 import com.m3.collections.guava.util.concurrent.SettableAbstractFuture.TrustedAbstractFuture;
 import com.m3.collections.guava.util.concurrent.SettableAbstractFuture.UntrustedAbstractFuture;
 import com.m3.collections.guava.util.concurrent.internal.InternalFutureFailureAccess;
@@ -295,6 +296,24 @@ public class AbstractFutureTest extends TestCase {
     future2.set(list);
 
     unused = future.toString();
+  }
+
+  @J2ktIncompatible // J2KT TimeoutException lacks message
+  public void testToString_pendingDiamondGraph() {
+    ListenableFuture<?> future = SettableFuture.create();
+    // TODO(b/568352729): Increase depth to 30 once pending toString() formatting is bounded. At
+    // depth 30, this 31-node diamond DAG currently expands to >2^31 chars and throws
+    // OutOfMemoryError (which crashes the test runner's JVM heap monitor).
+    for (int i = 0; i < 12; i++) {
+      future = Futures.allAsList(future, future);
+    }
+    ListenableFuture<?> root = future;
+    // TODO(b/568352729): This 13-future graph should produce a bounded description, not >300K
+    // chars.
+    assertThat(root.toString().length()).isGreaterThan(300_000);
+    TimeoutException expected =
+        assertThrows(TimeoutException.class, () -> root.get(0, NANOSECONDS));
+    assertThat(expected.getMessage().length()).isGreaterThan(300_000);
   }
 
   @J2ktIncompatible // J2KT TimeoutException lacks message
@@ -996,13 +1015,7 @@ public class AbstractFutureTest extends TestCase {
   public void testSetIndirectSelf_toString() {
     SettableFuture<Object> orig = SettableFuture.create();
     // unlike the above this indirection defeats the trivial cycle detection and causes a SOE
-    orig.setFuture(
-        new ForwardingListenableFuture<Object>() {
-          @Override
-          protected ListenableFuture<Object> delegate() {
-            return orig;
-          }
-        });
+    orig.setFuture(new SimpleForwardingListenableFuture<Object>(orig) {});
     assertThat(orig.toString())
         .contains("Exception thrown from implementation: class java.lang.StackOverflowError");
   }
@@ -1196,7 +1209,7 @@ public class AbstractFutureTest extends TestCase {
         "Expected element " + clazz + "." + method + " not found in stack trace", e);
   }
 
-  private ExecutionException getExpectingExecutionException(AbstractFuture<String> future)
+  private static ExecutionException getExpectingExecutionException(AbstractFuture<String> future)
       throws InterruptedException {
     try {
       String got = future.get();

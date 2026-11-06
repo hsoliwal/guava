@@ -19,6 +19,7 @@ package com.m3.collections.guava.collect;
 import static java.util.Arrays.asList;
 
 import com.m3.collections.guava.base.Function;
+import com.m3.collections.guava.collect.ForwardingSet.SimpleForwardingSet;
 import com.m3.collections.guava.collect.testing.MinimalSet;
 import com.m3.collections.guava.collect.testing.SetTestSuiteBuilder;
 import com.m3.collections.guava.collect.testing.TestStringSetGenerator;
@@ -43,16 +44,9 @@ import org.jspecify.annotations.Nullable;
  */
 @NullUnmarked
 public class ForwardingSetTest extends TestCase {
-  static class StandardImplForwardingSet<T> extends ForwardingSet<T> {
-    private final Set<T> backingSet;
-
+  static class StandardImplForwardingSet<T> extends SimpleForwardingSet<T> {
     StandardImplForwardingSet(Set<T> backingSet) {
-      this.backingSet = backingSet;
-    }
-
-    @Override
-    protected Set<T> delegate() {
-      return backingSet;
+      super(backingSet);
     }
 
     @Override

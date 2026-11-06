@@ -16,6 +16,7 @@
 
 package com.m3.collections.guava.collect;
 
+import static com.m3.collections.guava.base.Preconditions.checkNotNull;
 import static com.m3.collections.guava.collect.Maps.containsKeyImpl;
 import static com.m3.collections.guava.collect.Maps.containsValueImpl;
 import static com.m3.collections.guava.collect.Maps.equalsImpl;
@@ -303,5 +304,27 @@ public abstract class ForwardingMap<K extends @Nullable Object, V extends @Nulla
    */
   protected String standardToString() {
     return toStringImpl(this);
+  }
+
+  /**
+   * A simplified version of {@link ForwardingMap} where subclasses can pass in an already
+   * constructed {@link Map} as the delegate.
+   *
+   * <p>TODO(b/3417232): Consider making this public, but take into consideration whether it would
+   * then appear as a user-visible supertype for any classes.
+   */
+  abstract static class SimpleForwardingMap<K extends @Nullable Object, V extends @Nullable Object>
+      extends ForwardingMap<K, V> {
+    private final Map<K, V> delegate;
+
+    /** Constructor for use by subclasses. */
+    SimpleForwardingMap(Map<K, V> delegate) {
+      this.delegate = checkNotNull(delegate);
+    }
+
+    @Override
+    protected final Map<K, V> delegate() {
+      return delegate;
+    }
   }
 }

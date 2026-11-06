@@ -19,6 +19,7 @@ package com.m3.collections.guava.collect;
 import static java.util.Arrays.asList;
 
 import com.m3.collections.guava.base.Function;
+import com.m3.collections.guava.collect.ForwardingMultiset.SimpleForwardingMultiset;
 import com.m3.collections.guava.collect.Multiset.Entry;
 import com.m3.collections.guava.collect.testing.SetTestSuiteBuilder;
 import com.m3.collections.guava.collect.testing.TestStringSetGenerator;
@@ -46,16 +47,9 @@ import org.jspecify.annotations.Nullable;
 @NullUnmarked
 public class ForwardingMultisetTest extends TestCase {
 
-  static final class StandardImplForwardingMultiset<T> extends ForwardingMultiset<T> {
-    private final Multiset<T> backingCollection;
-
+  static final class StandardImplForwardingMultiset<T> extends SimpleForwardingMultiset<T> {
     StandardImplForwardingMultiset(Multiset<T> backingMultiset) {
-      this.backingCollection = backingMultiset;
-    }
-
-    @Override
-    protected Multiset<T> delegate() {
-      return backingCollection;
+      super(backingMultiset);
     }
 
     @Override
@@ -197,8 +191,9 @@ public class ForwardingMultisetTest extends TestCase {
                 new TestStringSetGenerator() {
 
                   /**
-                   * Returns a Multiset that throws an exception on any attempt to use a method not
-                   * specifically authorized by the elementSet() or hashCode() docs.
+                   * Returns the {@link ForwardingMultiset.StandardElementSet} of a {@link Multiset}
+                   * that throws an exception on any attempt to use a method not specifically
+                   * authorized by the {@code StandardElementSet} docs.
                    */
                   @Override
                   protected Set<String> create(String[] elements) {
@@ -206,7 +201,7 @@ public class ForwardingMultisetTest extends TestCase {
                     return new ForwardingMultiset<String>() {
                       @Override
                       protected Multiset<String> delegate() {
-                        return inner;
+                        throw new UnsupportedOperationException();
                       }
 
                       @Override
@@ -215,114 +210,54 @@ public class ForwardingMultisetTest extends TestCase {
                       }
 
                       @Override
-                      public int add(String element, int occurrences) {
-                        throw new UnsupportedOperationException();
+                      public void clear() {
+                        inner.clear();
                       }
 
                       @Override
-                      public boolean add(String element) {
-                        throw new UnsupportedOperationException();
+                      public boolean contains(Object object) {
+                        return inner.contains(object);
+                      }
+
+                      @Override
+                      public boolean containsAll(Collection<?> collection) {
+                        return inner.containsAll(collection);
+                      }
+
+                      @Override
+                      public int count(Object element) {
+                        return inner.count(element);
+                      }
+
+                      @Override
+                      public boolean isEmpty() {
+                        return inner.isEmpty();
                       }
 
                       @Override
                       public Set<Entry<String>> entrySet() {
-                        Set<Entry<String>> backingSet = super.entrySet();
+                        Set<Entry<String>> backingSet = inner.entrySet();
                         return new ForwardingSet<Entry<String>>() {
                           @Override
                           protected Set<Entry<String>> delegate() {
-                            return backingSet;
-                          }
-
-                          @Override
-                          public boolean add(Entry<String> element) {
                             throw new UnsupportedOperationException();
                           }
 
                           @Override
-                          public boolean addAll(Collection<? extends Entry<String>> collection) {
-                            throw new UnsupportedOperationException();
+                          public int size() {
+                            return backingSet.size();
                           }
 
                           @Override
-                          public void clear() {
-                            throw new UnsupportedOperationException();
-                          }
-
-                          @Override
-                          public boolean contains(Object object) {
-                            throw new UnsupportedOperationException();
-                          }
-
-                          @Override
-                          public boolean containsAll(Collection<?> collection) {
-                            throw new UnsupportedOperationException();
-                          }
-
-                          @Override
-                          public boolean isEmpty() {
-                            throw new UnsupportedOperationException();
-                          }
-
-                          @Override
-                          public boolean remove(Object object) {
-                            throw new UnsupportedOperationException();
-                          }
-
-                          @Override
-                          public boolean removeAll(Collection<?> collection) {
-                            throw new UnsupportedOperationException();
-                          }
-
-                          @Override
-                          public boolean retainAll(Collection<?> collection) {
-                            throw new UnsupportedOperationException();
+                          public Iterator<Entry<String>> iterator() {
+                            return backingSet.iterator();
                           }
                         };
                       }
 
                       @Override
-                      public boolean equals(@Nullable Object object) {
-                        throw new UnsupportedOperationException();
-                      }
-
-                      @Override
-                      public boolean remove(Object element) {
-                        throw new UnsupportedOperationException();
-                      }
-
-                      @Override
-                      public boolean setCount(String element, int oldCount, int newCount) {
-                        throw new UnsupportedOperationException();
-                      }
-
-                      @Override
-                      public int setCount(String element, int count) {
-                        throw new UnsupportedOperationException();
-                      }
-
-                      @Override
-                      public boolean addAll(Collection<? extends String> collection) {
-                        throw new UnsupportedOperationException();
-                      }
-
-                      @Override
-                      public Iterator<String> iterator() {
-                        throw new UnsupportedOperationException();
-                      }
-
-                      @Override
-                      public boolean removeAll(Collection<?> collection) {
-                        throw new UnsupportedOperationException();
-                      }
-
-                      @Override
-                      public boolean retainAll(Collection<?> collection) {
-                        throw new UnsupportedOperationException();
-                      }
-
-                      @Override
-                      public int size() {
-                        throw new UnsupportedOperationException();
+                      public int remove(Object element, int occurrences) {
+                        return inner.remove(element, occurrences);
                       }
                     }.elementSet();
                   }

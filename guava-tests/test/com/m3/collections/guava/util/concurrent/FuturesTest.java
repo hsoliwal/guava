@@ -69,6 +69,7 @@ import com.m3.collections.guava.collect.ImmutableSet;
 import com.m3.collections.guava.testing.ClassSanityTester;
 import com.m3.collections.guava.testing.GcFinalization;
 import com.m3.collections.guava.testing.TestLogHandler;
+import com.m3.collections.guava.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture;
 import com.m3.collections.guava.util.concurrent.TestExceptions.SomeError;
 import com.m3.collections.guava.util.concurrent.TestExceptions.SomeUncheckedException;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
@@ -861,7 +862,7 @@ public class FuturesTest extends TestCase {
     runExpectedExceptionCatchingAsyncTest(expectedException, true);
   }
 
-  private void runExpectedExceptionCatchingAsyncTest(
+  private static void runExpectedExceptionCatchingAsyncTest(
       Exception expectedException, boolean wrapInFuture) {
     AsyncFunctionSpy<Throwable, Integer> fallback =
         spy(
@@ -1090,7 +1091,7 @@ public class FuturesTest extends TestCase {
    * or testCatching_fallbackReturnsCheckedException().
    */
 
-  private void runExpectedExceptionCatchingTest(RuntimeException expectedException) {
+  private static void runExpectedExceptionCatchingTest(RuntimeException expectedException) {
     FunctionSpy<Throwable, Integer> fallback =
         spy(
             (Function<Throwable, Integer>)
@@ -1394,11 +1395,11 @@ public class FuturesTest extends TestCase {
     assertThat(expected).hasCauseThat().isInstanceOf(RejectedExecutionException.class);
   }
 
-  private <X extends Throwable> Function<X, Integer> functionReturningOne() {
+  private static <X extends Throwable> Function<X, Integer> functionReturningOne() {
     return unused -> 1;
   }
 
-  private <X extends Throwable> AsyncFunction<X, Integer> asyncFunctionReturningOne() {
+  private static <X extends Throwable> AsyncFunction<X, Integer> asyncFunctionReturningOne() {
     return unused -> immediateFuture(1);
   }
 
@@ -2555,14 +2556,7 @@ public class FuturesTest extends TestCase {
     }
 
     final ListenableFuture<String> doneRuntimeException =
-        new ForwardingListenableFuture<String>() {
-          final ListenableFuture<String> delegate = immediateFuture("Should never be seen");
-
-          @Override
-          protected ListenableFuture<String> delegate() {
-            return delegate;
-          }
-
+        new SimpleForwardingListenableFuture<String>(immediateFuture("Should never be seen")) {
           @Override
           public String get() {
             throw new RuntimeException();
@@ -2580,22 +2574,17 @@ public class FuturesTest extends TestCase {
 
     final SettableFuture<String> delegateForDelayedRuntimeException = SettableFuture.create();
     final ListenableFuture<String> delayedRuntimeException =
-        new ForwardingListenableFuture<String>() {
-          @Override
-          protected ListenableFuture<String> delegate() {
-            return delegateForDelayedRuntimeException;
-          }
-
+        new SimpleForwardingListenableFuture<String>(delegateForDelayedRuntimeException) {
           @Override
           public String get() throws ExecutionException, InterruptedException {
-            delegateForDelayedRuntimeException.get();
+            delegate().get();
             throw new RuntimeException();
           }
 
           @Override
           public String get(long timeout, TimeUnit unit)
               throws ExecutionException, InterruptedException, TimeoutException {
-            delegateForDelayedRuntimeException.get(timeout, unit);
+            delegate().get(timeout, unit);
             throw new RuntimeException();
           }
         };

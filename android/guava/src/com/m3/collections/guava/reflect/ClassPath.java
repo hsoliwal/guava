@@ -53,31 +53,39 @@ import org.jspecify.annotations.Nullable;
 /**
  * Scans the source of a {@link ClassLoader} and finds all loadable classes and resources.
  *
- * <h2>Prefer <a href="https://github.com/classgraph/classgraph/wiki">ClassGraph</a> over {@code
- * ClassPath}</h2>
+ * <h2>Prefer alternatives to classpath scanning</h2>
  *
- * <p>We recommend using <a href="https://github.com/classgraph/classgraph/wiki">ClassGraph</a>
- * instead of {@code ClassPath}. ClassGraph improves upon {@code ClassPath} in several ways,
- * including addressing many of its limitations. Limitations of {@code ClassPath} include:
+ * <p>Runtime classpath scanning is expensive because it traverses the entire transitive classpath,
+ * which can cause performance issues such as startup latency regressions. (It also does not support
+ * Android.) Before scanning the classpath at runtime, consider whether your use case can be solved
+ * with compile-time or static mechanisms:
+ *
+ * <ul>
+ *   <li>Compile-time service registration / annotation processors (e.g., {@code @AutoService})
+ *   <li>Dependency injection (e.g., Dagger, Guice)
+ *   <li>Explicit static registries or configuration
+ *   <li>Compile-time classpath scanning, such as <a
+ *       href="https://github.com/classgraph/classgraph/wiki/Build-Time-Scanning">that of
+ *       ClassGraph</a>, but compile-time scanning is likewise costly, so prefer the other options
+ *       when possible
+ * </ul>
+ *
+ * <h2>Limitations of {@code ClassPath} (for those who do need classpath scanning)</h2>
  *
  * <ul>
  *   <li>It looks only for files and JARs in URLs available from {@link URLClassLoader} instances or
  *       the {@linkplain ClassLoader#getSystemClassLoader() system class loader}. This means it does
- *       not look for classes in the <i>module path</i>.
- *   <li>It understands only {@code file:} URLs. This means that it does not understand <a
- *       href="https://openjdk.java.net/jeps/220">{@code jrt:/} URLs</a>, among <a
- *       href="https://github.com/classgraph/classgraph/wiki/Classpath-specification-mechanisms">others</a>.
- *   <li>It does not know how to look for classes when running under an Android VM. (ClassGraph does
- *       not support this directly, either, but ClassGraph documents how to <a
- *       href="https://github.com/classgraph/classgraph/wiki/Build-Time-Scanning">perform build-time
- *       classpath scanning and make the results available to an Android app</a>.)
- *   <li>Like all of Guava, it is not tested under Windows. We have gotten <a
- *       href="https://github.com/google/guava/issues/2130">a report of a specific bug under
- *       Windows</a>.
+ *       not look for classes in the <i>module path</i> or in <a
+ *       href="https://github.com/classgraph/classgraph/wiki/Classpath-specification-mechanisms">other
+ *       environments</a>. If you need to scan one of those locations, consider <a
+ *       href="https://github.com/classgraph/classgraph/wiki">ClassGraph</a>.
+ *   <li>Like all of Guava, it is less battle-tested under Windows and other non-Linux systems. We
+ *       have gotten <a href="https://github.com/google/guava/issues/2130">a report of a specific
+ *       bug under Windows</a>.
  *   <li>It <a href="https://github.com/google/guava/issues/2712">returns only one resource for a
  *       given path</a>, even if resources with that path appear in multiple jars or directories.
- *   <li>It assumes that <a href="https://github.com/google/guava/issues/3349">any class with a
- *       {@code $} in its name is a nested class</a>.
+ *   <li>It <a href="https://github.com/google/guava/issues/3349">uses heuristics to guess at which
+ *       classes are nested and which are not</a>.
  * </ul>
  *
  * <h2>{@code ClassPath} and symlinks</h2>
@@ -328,7 +336,7 @@ public final class ClassPath {
      * discussion in <a href="https://github.com/google/guava/issues/3349">issue 3349</a>.
      */
     public String getSimpleName() {
-      int lastDollarSign = className.lastIndexOf('$');
+      int lastDollarSign = lastNestedClassSeparator();
       if (lastDollarSign != -1) {
         String innerClassName = className.substring(lastDollarSign + 1);
         // local and anonymous classes are prefixed with number (1,2,3...), anonymous classes are
@@ -356,14 +364,37 @@ public final class ClassPath {
 
     /**
      * Returns true if the class name "looks to be" top level (not nested), that is, it includes no
-     * '$' in the name. This method may return false for a top-level class that's intentionally
-     * named with the '$' character. If this is a concern, you could use {@link #load} and then
-     * check on the loaded {@link Class} object instead.
+     * isolated '$' in the name other than at the beginning or end of the simple name (as in
+     * generated classes like {@code $AutoValue_Foo} or {@code $$AutoValue_Foo}). This method may
+     * return false for a top-level class that's intentionally named with a '$' character elsewhere.
+     * If this is a concern, you could use {@link #load} and then check on the loaded {@link Class}
+     * object instead.
      *
      * @since 30.1
      */
     public boolean isTopLevel() {
-      return className.indexOf('$') == -1;
+      return lastNestedClassSeparator() == -1;
+    }
+
+    /**
+     * Returns the index of the last '$' that "looks to be" a nested-class separator, or -1 if there
+     * is none. Leading, trailing, and repeated '$' characters in the part of the name after the
+     * package are ignored, since they are commonly part of the names of generated top-level
+     * classes.
+     */
+    private int lastNestedClassSeparator() {
+      for (int i = className.length() - 2; i >= 1; i--) {
+        char a = className.charAt(i - 1);
+        char b = className.charAt(i);
+        char c = className.charAt(i + 1);
+        if (a == '.' || b == '.' || c == '.') {
+          return -1;
+        }
+        if (a != '$' && b == '$' && c != '$') {
+          return i;
+        }
+      }
+      return -1;
     }
 
     /**

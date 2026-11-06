@@ -20,8 +20,8 @@ import static com.m3.collections.guava.collect.Sets.newTreeSet;
 
 import com.m3.collections.guava.base.Predicate;
 import com.m3.collections.guava.collect.FilteredCollectionsTestUtil.AbstractFilteredSortedSetTest;
+import com.m3.collections.guava.collect.ForwardingSortedSet.SimpleForwardingSortedSet;
 import java.util.SortedSet;
-import java.util.TreeSet;
 import org.jspecify.annotations.NullUnmarked;
 
 @NullUnmarked
@@ -29,14 +29,8 @@ public final class SetsFilterSortedSetTest
     extends AbstractFilteredSortedSetTest<SortedSet<Integer>> {
   @Override
   SortedSet<Integer> createUnfiltered(Iterable<Integer> contents) {
-    TreeSet<Integer> result = newTreeSet(contents);
     // we have to make the result not Navigable
-    return new ForwardingSortedSet<Integer>() {
-      @Override
-      protected SortedSet<Integer> delegate() {
-        return result;
-      }
-    };
+    return new SimpleForwardingSortedSet<Integer>(newTreeSet(contents)) {};
   }
 
   @Override

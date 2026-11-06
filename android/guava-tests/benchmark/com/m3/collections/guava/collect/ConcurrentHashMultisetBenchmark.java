@@ -25,6 +25,7 @@ import com.google.caliper.BeforeExperiment;
 import com.google.caliper.Benchmark;
 import com.google.caliper.Param;
 import com.m3.collections.guava.annotations.VisibleForTesting;
+import com.m3.collections.guava.collect.ForwardingSet.SimpleForwardingSet;
 import com.m3.collections.guava.primitives.Ints;
 import com.m3.collections.guava.util.concurrent.ThreadFactoryBuilder;
 import java.util.Iterator;
@@ -169,7 +170,7 @@ public class ConcurrentHashMultisetBenchmark {
    */
   private static final class OldConcurrentHashMultiset<E> extends AbstractMultiset<E> {
     /** The number of occurrences of each element. */
-    private final transient ConcurrentMap<E, Integer> countMap;
+    private final ConcurrentMap<E, Integer> countMap;
 
     /**
      * Creates a new, empty {@code OldConcurrentHashMultiset} using the default initial capacity,
@@ -422,17 +423,11 @@ public class ConcurrentHashMultisetBenchmark {
 
     @Override
     public Set<E> elementSet() {
-      Set<E> delegate = countMap.keySet();
-      return new ForwardingSet<E>() {
-        @Override
-        protected Set<E> delegate() {
-          return delegate;
-        }
-
+      return new SimpleForwardingSet<E>(countMap.keySet()) {
         @Override
         public boolean remove(Object object) {
           try {
-            return delegate.remove(object);
+            return delegate().remove(object);
           } catch (NullPointerException | ClassCastException e) {
             return false;
           }
@@ -445,7 +440,7 @@ public class ConcurrentHashMultisetBenchmark {
       throw new AssertionError("should never be called");
     }
 
-    private transient EntrySet entrySet;
+    private EntrySet entrySet;
 
     @Override
     public Set<Multiset.Entry<E>> entrySet() {

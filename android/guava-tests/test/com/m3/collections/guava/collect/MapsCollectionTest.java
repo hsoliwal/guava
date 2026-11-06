@@ -33,6 +33,8 @@ import static java.util.Collections.sort;
 
 import com.m3.collections.guava.base.Function;
 import com.m3.collections.guava.base.Predicate;
+import com.m3.collections.guava.collect.ForwardingSortedMap.SimpleForwardingSortedMap;
+import com.m3.collections.guava.collect.ForwardingSortedSet.SimpleForwardingSortedSet;
 import com.m3.collections.guava.collect.Maps.EntryTransformer;
 import com.m3.collections.guava.collect.testing.MapTestSuiteBuilder;
 import com.m3.collections.guava.collect.testing.NavigableMapTestSuiteBuilder;
@@ -625,23 +627,15 @@ public class MapsCollectionTest extends TestCase {
         }
       };
 
-  private static class NonNavigableSortedSet extends ForwardingSortedSet<String> {
-
-    private final SortedSet<String> delegate = newTreeSet(Ordering.natural());
-
-    @Override
-    protected SortedSet<String> delegate() {
-      return delegate;
+  private static class NonNavigableSortedSet extends SimpleForwardingSortedSet<String> {
+    NonNavigableSortedSet() {
+      super(newTreeSet(Ordering.natural()));
     }
   }
 
-  private static class NonNavigableSortedMap extends ForwardingSortedMap<String, String> {
-
-    private final SortedMap<String, String> delegate = new SafeTreeMap<>(Ordering.natural());
-
-    @Override
-    protected SortedMap<String, String> delegate() {
-      return delegate;
+  private static class NonNavigableSortedMap extends SimpleForwardingSortedMap<String, String> {
+    NonNavigableSortedMap() {
+      super(new SafeTreeMap<>(Ordering.natural()));
     }
   }
 

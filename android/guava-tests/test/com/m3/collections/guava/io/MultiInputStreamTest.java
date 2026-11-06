@@ -54,7 +54,7 @@ public class MultiInputStreamTest extends IoTestCase {
     ByteSource checker =
         new ByteSource() {
 
-          private int counter = 0;
+          int counter = 0;
 
           @Override
           public InputStream openStream() throws IOException {
@@ -74,7 +74,7 @@ public class MultiInputStreamTest extends IoTestCase {
     assertThat(result).hasLength(150);
   }
 
-  private void joinHelper(Integer... spans) throws Exception {
+  private static void joinHelper(Integer... spans) throws Exception {
     List<ByteSource> sources = new ArrayList<>();
     int start = 0;
     for (Integer span : spans) {

@@ -17,9 +17,11 @@
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.base.Preconditions.checkArgument;
+import static com.m3.collections.guava.base.Preconditions.checkNotNull;
 import static com.m3.collections.guava.base.Preconditions.checkState;
 import static com.m3.collections.guava.collect.Maps.containsEntryImpl;
 import static com.m3.collections.guava.collect.Maps.keyIterator;
+import static com.m3.collections.guava.collect.Maps.newLinkedHashMapWithExpectedSize;
 import static com.m3.collections.guava.collect.Maps.valueIterator;
 import static com.m3.collections.guava.collect.NullnessCasts.uncheckedCastNullableTToT;
 import static java.util.Objects.requireNonNull;
@@ -27,6 +29,8 @@ import static java.util.Objects.requireNonNull;
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
+import com.m3.collections.guava.collect.ForwardingMapEntry.SimpleForwardingMapEntry;
+import com.m3.collections.guava.collect.ForwardingSet.SimpleForwardingSet;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.j2objc.annotations.RetainedWith;
 import java.io.IOException;
@@ -196,25 +200,23 @@ abstract class AbstractBiMap<K extends @Nullable Object, V extends @Nullable Obj
 
   @Override
   public final void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
-    this.delegate.replaceAll(function);
+    checkNotNull(function);
+
+    Map<V, K> newInverse = newLinkedHashMapWithExpectedSize(size());
+    for (Entry<K, V> entry : delegate.entrySet()) {
+      K key = entry.getKey();
+      V value = checkValue(function.apply(key, entry.getValue()));
+      int oldSize = newInverse.size();
+      newInverse.put(value, key);
+      checkArgument(newInverse.size() > oldSize, "value already present: %s", value);
+    }
+
+    Iterator<V> newValues = newInverse.keySet().iterator();
+    for (Entry<K, V> entry : delegate.entrySet()) {
+      entry.setValue(newValues.next());
+    }
     inverse.delegate.clear();
-    Entry<K, V> broken = null;
-    Iterator<Entry<K, V>> itr = this.delegate.entrySet().iterator();
-    while (itr.hasNext()) {
-      Entry<K, V> entry = itr.next();
-      K k = entry.getKey();
-      V v = entry.getValue();
-      K conflict = inverse.delegate.putIfAbsent(v, k);
-      if (conflict != null) {
-        broken = entry;
-        // We're definitely going to throw, but we'll try to keep the BiMap in an internally
-        // consistent state by removing the bad entry.
-        itr.remove();
-      }
-    }
-    if (broken != null) {
-      throw new IllegalArgumentException("value already present: " + broken.getValue());
-    }
+    inverse.delegate.putAll(newInverse);
   }
 
   @Override
@@ -235,10 +237,9 @@ abstract class AbstractBiMap<K extends @Nullable Object, V extends @Nullable Obj
     return new KeySet();
   }
 
-  private final class KeySet extends ForwardingSet<K> {
-    @Override
-    protected Set<K> delegate() {
-      return delegate.keySet();
+  private final class KeySet extends SimpleForwardingSet<K> {
+    KeySet() {
+      super(delegate.keySet());
     }
 
     @Override
@@ -280,12 +281,9 @@ abstract class AbstractBiMap<K extends @Nullable Object, V extends @Nullable Obj
     return new ValueSet();
   }
 
-  private final class ValueSet extends ForwardingSet<V> {
-    final Set<V> valuesDelegate = inverse.keySet();
-
-    @Override
-    protected Set<V> delegate() {
-      return valuesDelegate;
+  private final class ValueSet extends SimpleForwardingSet<V> {
+    ValueSet() {
+      super(inverse.keySet());
     }
 
     @Override
@@ -315,16 +313,9 @@ abstract class AbstractBiMap<K extends @Nullable Object, V extends @Nullable Obj
     return new EntrySet();
   }
 
-  private final class BiMapEntry extends ForwardingMapEntry<K, V> {
-    private final Entry<K, V> delegate;
-
+  private final class BiMapEntry extends SimpleForwardingMapEntry<K, V> {
     BiMapEntry(Entry<K, V> delegate) {
-      this.delegate = delegate;
-    }
-
-    @Override
-    protected Entry<K, V> delegate() {
-      return delegate;
+      super(delegate);
     }
 
     @Override
@@ -337,7 +328,7 @@ abstract class AbstractBiMap<K extends @Nullable Object, V extends @Nullable Obj
         return value;
       }
       checkArgument(!containsValue(value), "value already present: %s", value);
-      V oldValue = delegate.setValue(value);
+      V oldValue = delegate().setValue(value);
       checkState(Objects.equals(value, get(getKey())), "entry no longer in map");
       updateInverseMap(getKey(), true, oldValue, value);
       return oldValue;
@@ -373,12 +364,9 @@ abstract class AbstractBiMap<K extends @Nullable Object, V extends @Nullable Obj
     };
   }
 
-  private final class EntrySet extends ForwardingSet<Entry<K, V>> {
-    final Set<Entry<K, V>> esDelegate = delegate.entrySet();
-
-    @Override
-    protected Set<Entry<K, V>> delegate() {
-      return esDelegate;
+  private final class EntrySet extends SimpleForwardingSet<Entry<K, V>> {
+    EntrySet() {
+      super(delegate.entrySet());
     }
 
     @Override
@@ -392,18 +380,18 @@ abstract class AbstractBiMap<K extends @Nullable Object, V extends @Nullable Obj
        * `o instanceof Entry` is guaranteed by `contains`, but we check it here to satisfy our
        * nullness checker.
        */
-      if (!esDelegate.contains(object) || !(object instanceof Entry)) {
+      if (!delegate().contains(object) || !(object instanceof Entry)) {
         return false;
       }
 
       Entry<?, ?> entry = (Entry<?, ?>) object;
       inverse.delegate.remove(entry.getValue());
       /*
-       * Remove the mapping in inverse before removing from esDelegate because
-       * if entry is part of esDelegate, entry might be invalidated after the
-       * mapping is removed from esDelegate.
+       * We remove the mapping in inverse before removing from delegate() because, if entry is part
+       * of delegate(), then entry might be invalidated after the mapping is removed from
+       * delegate().
        */
-      esDelegate.remove(entry);
+      delegate().remove(entry);
       return true;
     }
 

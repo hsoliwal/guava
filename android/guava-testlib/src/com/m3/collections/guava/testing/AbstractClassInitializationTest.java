@@ -56,7 +56,7 @@ import org.jspecify.annotations.NullMarked;
  * <p>This test does <i>not</i> attempt to detect deadlocks that could arise with multithreading,
  * but it might manage to do so in some cases anyway.
  *
- * @since NEXT
+ * @since 33.8.0
  */
 @GwtIncompatible
 @J2ktIncompatible
@@ -84,7 +84,7 @@ public abstract class AbstractClassInitializationTest extends TestCase {
     return getClass().getPackage().getName();
   }
 
-  private boolean isIgnored(ClassInfo classInfo) {
+  private static boolean isIgnored(ClassInfo classInfo) {
     String name = classInfo.getName();
     return name.endsWith("Test")
         || name.endsWith("Tests")
@@ -103,7 +103,7 @@ public abstract class AbstractClassInitializationTest extends TestCase {
   }
 
   @MustBeClosed
-  private IsolatedClassLoader createIsolatedClassLoader() {
+  private static IsolatedClassLoader createIsolatedClassLoader() {
     ClassLoader parent = AbstractClassInitializationTest.class.getClassLoader();
     URLClassLoader urlClassLoader =
         URLClassLoader.newInstance(getClassPathUrls(), /* parent= */ null);
