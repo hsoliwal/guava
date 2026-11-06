@@ -29,6 +29,7 @@ import com.google.j2objc.annotations.RetainedWith;
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
+import com.m3.collections.guava.annotations.VisibleForTesting;
 import com.m3.collections.guava.collect.Maps.IteratorBasedAbstractMap;
 import java.io.IOException;
 import java.io.InvalidObjectException;
@@ -38,6 +39,7 @@ import java.io.Serializable;
 import java.util.AbstractSet;
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -93,6 +95,35 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
 
   private static final int ABSENT = -1;
   private static final int ENDPOINT = -2;
+
+  /**
+   * Maximum allowed false positive probability of detecting a hash flooding attack given random
+   * input.
+   */
+  @VisibleForTesting static final double HASH_FLOODING_FPP = 0.001;
+
+  /**
+   * Maximum allowed length of a hash table bucket before the entry indexes fall back to
+   * j.u.HashMap-based lookup tables. Experimentally determined (upstream 7cd44b350).
+   */
+  private static final int MAX_HASH_BUCKET_LENGTH = 9;
+
+  /**
+   * Hash-flooding fallback: entry indexes by key and by value. While present, the bucket arrays are
+   * unused and every lookup, insertion, removal and slot move goes through these maps.
+   */
+  //FLLDCIM: HPCPOP — cold path; entered only when a bucket reaches MAX_HASH_BUCKET_LENGTH
+  static final class FloodedTables<K extends @Nullable Object, V extends @Nullable Object> {
+    final Map<K, Integer> kToV;
+    final Map<V, Integer> vToK;
+
+    FloodedTables(int tableSize) {
+      this.kToV = new HashMap<>(tableSize, 1.0f);
+      this.vToK = new HashMap<>(tableSize, 1.0f);
+    }
+  }
+
+  private transient @Nullable FloodedTables<K, V> floodedTables;
 
   /** Maps an "entry" to the key of that entry. */
   private transient @Nullable K[] keys;
@@ -150,6 +181,61 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
 
     prevInInsertionOrder = createFilledWithAbsent(expectedSize);
     nextInInsertionOrder = createFilledWithAbsent(expectedSize);
+    floodedTables = null;
+  }
+
+  @VisibleForTesting
+  boolean isUsingHashFloodingResistance() {
+    return floodedTables != null;
+  }
+
+  /**
+   * Switches every entry's key and value index to {@link FloodedTables}. Must be called only while
+   * each entry in {@code [0, size)} is present in both bucket tables (no insertion half-done).
+   */
+  @VisibleForTesting
+  @CanIgnoreReturnValue
+  FloodedTables<K, V> convertToHashFloodingResistantImplementation() {
+    FloodedTables<K, V> tables = floodedTables;
+    if (tables != null) {
+      return tables;
+    }
+    tables = new FloodedTables<>(hashTableKToV.length);
+    for (int entry = 0; entry < size; entry++) {
+      tables.kToV.put(keys[entry], entry);
+      tables.vToK.put(values[entry], entry);
+    }
+    Arrays.fill(hashTableKToV, ABSENT);
+    Arrays.fill(hashTableVToK, ABSENT);
+    Arrays.fill(nextInBucketKToV, ABSENT);
+    Arrays.fill(nextInBucketVToK, ABSENT);
+    this.floodedTables = tables;
+    return tables;
+  }
+
+  /** Number of entries chained in the bucket of {@code hash}; ends at MAX_HASH_BUCKET_LENGTH. */
+  private int bucketLength(int[] hashTable, int[] nextInBucket, int hash) {
+    int length = 0;
+    for (int entry = hashTable[bucket(hash)];
+        entry != ABSENT && length < MAX_HASH_BUCKET_LENGTH;
+        entry = nextInBucket[entry]) {
+      length++;
+    }
+    return length;
+  }
+
+  /**
+   * Converts to the flooding-resistant tables before an insertion whose key bucket or value bucket
+   * already holds MAX_HASH_BUCKET_LENGTH entries (the flags select which side is checked). Called while
+   * the bucket tables are consistent, before the entry is unlinked or linked.
+   */
+  private void convertIfFlooded(int keyHash, boolean checkKey, int valueHash, boolean checkValue) {
+    if (floodedTables == null
+        && ((checkKey && bucketLength(hashTableKToV, nextInBucketKToV, keyHash) >= MAX_HASH_BUCKET_LENGTH)
+            || (checkValue
+                && bucketLength(hashTableVToK, nextInBucketVToK, valueHash) >= MAX_HASH_BUCKET_LENGTH))) {
+      convertToHashFloodingResistantImplementation();
+    }
   }
 
   /** Returns an int array of the specified size, filled with ABSENT. */
@@ -188,7 +274,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
       nextInInsertionOrder = expandAndFillWithAbsent(nextInInsertionOrder, newCapacity);
     }
 
-    if (hashTableKToV.length < minCapacity) {
+    if (floodedTables == null && hashTableKToV.length < minCapacity) {
       int newTableSize = Hashing.closedTableSize(minCapacity, 1.0);
       hashTableKToV = createFilledWithAbsent(newTableSize);
       hashTableVToK = createFilledWithAbsent(newTableSize);
@@ -224,6 +310,11 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
    * Given a key and its hash, returns the index of the entry in the tables, or ABSENT if not found.
    */
   private int findEntryByKey(@Nullable Object key, int keyHash) {
+    FloodedTables<K, V> tables = floodedTables;
+    if (tables != null) {
+      Integer entry = tables.kToV.get(key);
+      return entry == null ? ABSENT : entry;
+    }
     return findEntry(key, keyHash, hashTableKToV, nextInBucketKToV, keys);
   }
 
@@ -237,6 +328,11 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
    * found.
    */
   private int findEntryByValue(@Nullable Object value, int valueHash) {
+    FloodedTables<K, V> tables = floodedTables;
+    if (tables != null) {
+      Integer entry = tables.vToK.get(value);
+      return entry == null ? ABSENT : entry;
+    }
     return findEntry(value, valueHash, hashTableVToK, nextInBucketVToK, values);
   }
 
@@ -315,6 +411,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     }
 
     ensureCapacity(size + 1);
+    convertIfFlooded(keyHash, true, valueHash, true);
     keys[size] = key;
     values[size] = value;
 
@@ -370,6 +467,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     // predecessor, or we didn't delete anything
 
     ensureCapacity(size + 1);
+    convertIfFlooded(keyHash, true, valueHash, true);
     keys[size] = key;
     values[size] = value;
 
@@ -409,6 +507,11 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
    */
   private void insertIntoTableKToV(int entry, int keyHash) {
     checkArgument(entry != ABSENT);
+    FloodedTables<K, V> tables = floodedTables;
+    if (tables != null) {
+      tables.kToV.put(keys[entry], entry);
+      return;
+    }
     int keyBucket = bucket(keyHash);
     nextInBucketKToV[entry] = hashTableKToV[keyBucket];
     hashTableKToV[keyBucket] = entry;
@@ -420,6 +523,11 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
    */
   private void insertIntoTableVToK(int entry, int valueHash) {
     checkArgument(entry != ABSENT);
+    FloodedTables<K, V> tables = floodedTables;
+    if (tables != null) {
+      tables.vToK.put(values[entry], entry);
+      return;
+    }
     int valueBucket = bucket(valueHash);
     nextInBucketVToK[entry] = hashTableVToK[valueBucket];
     hashTableVToK[valueBucket] = entry;
@@ -431,6 +539,11 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
    */
   private void deleteFromTableKToV(int entry, int keyHash) {
     checkArgument(entry != ABSENT);
+    FloodedTables<K, V> tables = floodedTables;
+    if (tables != null) {
+      tables.kToV.remove(keys[entry]);
+      return;
+    }
     int keyBucket = bucket(keyHash);
 
     if (hashTableKToV[keyBucket] == entry) {
@@ -459,6 +572,11 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
    */
   private void deleteFromTableVToK(int entry, int valueHash) {
     checkArgument(entry != ABSENT);
+    FloodedTables<K, V> tables = floodedTables;
+    if (tables != null) {
+      tables.vToK.remove(values[entry]);
+      return;
+    }
     int valueBucket = bucket(valueHash);
 
     if (hashTableVToK[valueBucket] == entry) {
@@ -499,6 +617,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
         throw new IllegalArgumentException("value already present: " + newValue);
       }
     }
+    convertIfFlooded(0, false, newValueHash, true);
     // Retain the JRE replacement epoch while leaving insertion order unchanged.
     deleteFromTableVToK(entry, smearedHash(values[entry]));
     values[entry] = newValue;
@@ -548,6 +667,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     int oldSuccessor = nextInInsertionOrder[entry];
     setSucceeds(oldPredecessor, oldSuccessor); // remove from insertion order linked list
 
+    convertIfFlooded(newKeyHash, true, 0, false);
     deleteFromTableKToV(entry, smearedHash(keys[entry]));
     keys[entry] = newKey;
     insertIntoTableKToV(entry, smearedHash(newKey));
@@ -635,6 +755,13 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     keys[dest] = key;
     values[dest] = value;
 
+    FloodedTables<K, V> tables = floodedTables;
+    if (tables != null) {
+      tables.kToV.put(key, dest);
+      tables.vToK.put(value, dest);
+      return;
+    }
+
     // update pointers in hashTableKToV
     int keyHash = smearedHash(key);
     int keyBucket = bucket(keyHash);
@@ -680,6 +807,11 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
   public void clear() {
     Arrays.fill(keys, 0, size, null);
     Arrays.fill(values, 0, size, null);
+    FloodedTables<K, V> tables = floodedTables;
+    if (tables != null) {
+      tables.kToV.clear();
+      tables.vToK.clear();
+    }
     Arrays.fill(hashTableKToV, ABSENT);
     Arrays.fill(hashTableVToK, ABSENT);
     Arrays.fill(nextInBucketKToV, 0, size, ABSENT);
