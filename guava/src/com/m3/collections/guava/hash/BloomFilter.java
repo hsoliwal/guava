@@ -27,6 +27,7 @@ import com.m3.collections.guava.annotations.VisibleForTesting;
 import com.m3.collections.guava.base.Predicate;
 import com.m3.collections.guava.hash.BloomFilterStrategies.LockFreeBitArray;
 import com.m3.collections.guava.math.DoubleMath;
+import com.m3.collections.guava.primitives.Doubles;
 import com.m3.collections.guava.primitives.SignedBytes;
 import com.m3.collections.guava.primitives.UnsignedBytes;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
@@ -580,7 +581,7 @@ public final class BloomFilter<T extends @Nullable Object> implements Predicate<
   @VisibleForTesting
   static long optimalNumOfBits(long n, double p) {
     if (p == 0) {
-      p = Double.MIN_VALUE;
+      p = Doubles.MIN_POSITIVE_VALUE;
     }
     return (long) (-n * log(p) / SQUARED_LOG_TWO);
   }

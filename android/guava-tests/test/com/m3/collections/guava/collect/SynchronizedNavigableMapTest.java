@@ -46,7 +46,7 @@ import org.jspecify.annotations.Nullable;
 @NullUnmarked
 public class SynchronizedNavigableMapTest extends SynchronizedMapTest {
   @Override
-  protected <K, V> NavigableMap<K, V> create() {
+  <K, V> NavigableMap<K, V> create() {
     @SuppressWarnings("unchecked")
     NavigableMap<K, V> innermost =
         new SafeTreeMap<>((Comparator<? super K>) Ordering.natural().nullsFirst());
@@ -266,7 +266,7 @@ public class SynchronizedNavigableMapTest extends SynchronizedMapTest {
     suite.addTest(
         NavigableMapTestSuiteBuilder.using(
                 new TestStringSortedMapGenerator() {
-                  private final Object mutex = new Object[0]; // something Serializable
+                  final Object mutex = new Object[0]; // something Serializable
 
                   @Override
                   protected SortedMap<String, String> create(Entry<String, String>[] entries) {

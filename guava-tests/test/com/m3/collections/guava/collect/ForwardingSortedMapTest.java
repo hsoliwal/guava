@@ -17,6 +17,7 @@
 package com.m3.collections.guava.collect;
 
 import com.m3.collections.guava.base.Function;
+import com.m3.collections.guava.collect.ForwardingSortedMap.SimpleForwardingSortedMap;
 import com.m3.collections.guava.collect.testing.Helpers.NullsBeforeTwo;
 import com.m3.collections.guava.collect.testing.SafeTreeMap;
 import com.m3.collections.guava.collect.testing.SortedMapTestSuiteBuilder;
@@ -46,16 +47,9 @@ import org.jspecify.annotations.Nullable;
  */
 @NullUnmarked
 public class ForwardingSortedMapTest extends TestCase {
-  static class StandardImplForwardingSortedMap<K, V> extends ForwardingSortedMap<K, V> {
-    private final SortedMap<K, V> backingSortedMap;
-
+  static class StandardImplForwardingSortedMap<K, V> extends SimpleForwardingSortedMap<K, V> {
     StandardImplForwardingSortedMap(SortedMap<K, V> backingSortedMap) {
-      this.backingSortedMap = backingSortedMap;
-    }
-
-    @Override
-    protected SortedMap<K, V> delegate() {
-      return backingSortedMap;
+      super(backingSortedMap);
     }
 
     @Override
@@ -108,7 +102,7 @@ public class ForwardingSortedMapTest extends TestCase {
       return new StandardEntrySet() {
         @Override
         public Iterator<Entry<K, V>> iterator() {
-          return backingSortedMap.entrySet().iterator();
+          return delegate().entrySet().iterator();
         }
       };
     }
@@ -159,7 +153,7 @@ public class ForwardingSortedMapTest extends TestCase {
     suite.addTest(
         SortedMapTestSuiteBuilder.using(
                 new TestStringSortedMapGenerator() {
-                  private final Comparator<String> comparator = NullsBeforeTwo.INSTANCE;
+                  final Comparator<String> comparator = NullsBeforeTwo.INSTANCE;
 
                   @Override
                   protected SortedMap<String, String> create(Entry<String, String>[] entries) {

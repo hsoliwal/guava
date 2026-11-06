@@ -32,7 +32,6 @@ import java.util.Deque;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Queue;
 import java.util.Set;
 import org.jspecify.annotations.Nullable;
 
@@ -121,15 +120,15 @@ public final class Graphs extends GraphsBridgeMethods {
         }
 
         visitedNodes.put(node, NodeVisitState.PENDING);
-        top.remainingSuccessors = new ArrayDeque<>(graph.successors(node));
+        top.remainingSuccessors = graph.successors(node).iterator();
       }
 
-      if (!top.remainingSuccessors.isEmpty()) {
-        N nextNode = top.remainingSuccessors.remove();
+      if (top.remainingSuccessors.hasNext()) {
+        N nextNode = top.remainingSuccessors.next();
         if (canTraverseWithoutReusingEdge(graph, nextNode, previousNode)) {
           stack.addLast(new NodeAndRemainingSuccessors<>(nextNode));
-          continue;
         }
+        continue;
       }
 
       stack.removeLast();
@@ -147,7 +146,7 @@ public final class Graphs extends GraphsBridgeMethods {
      * successors if we determine that we need them after we've performed the initial processing of
      * the node.
      */
-    @Nullable Queue<N> remainingSuccessors;
+    @Nullable Iterator<N> remainingSuccessors;
 
     NodeAndRemainingSuccessors(N node) {
       this.node = node;

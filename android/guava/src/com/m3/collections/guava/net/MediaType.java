@@ -54,8 +54,10 @@ import org.jspecify.annotations.Nullable;
  * type or subtype value. A media type may not have wildcard type with a declared subtype. The
  * {@code *} character has no special meaning as part of a parameter. All values for type, subtype,
  * parameter attributes or parameter values must be valid according to RFCs <a
- * href="https://tools.ietf.org/html/rfc2045">2045</a> and <a
- * href="https://tools.ietf.org/html/rfc2046">2046</a>.
+ * href="https://datatracker.ietf.org/doc/html/rfc2045">2045</a> and <a
+ * href="https://datatracker.ietf.org/doc/html/rfc2046">2046</a>, except that parameter values may
+ * not contain ASCII control characters other than {@code '\t'} (matching HTTP's <a
+ * href="https://datatracker.ietf.org/doc/html/rfc9110#section-5.6.4">RFC 9110</a>).
  *
  * <p>All portions of the media type that are case-insensitive (type, subtype, parameter attributes)
  * are normalized to lowercase. The value of the {@code charset} parameter is normalized to
@@ -559,7 +561,7 @@ public final class MediaType {
    * <p>Prefer this constant over {@link #GZIP}, which uses the legacy {@code application/x-gzip}
    * type.
    *
-   * @since NEXT
+   * @since 33.8.0
    */
   public static final MediaType APPLICATION_GZIP = createConstant(APPLICATION_TYPE, "gzip");
 

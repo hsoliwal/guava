@@ -26,6 +26,9 @@ import static org.junit.Assert.assertThrows;
 import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.base.Function;
 import com.m3.collections.guava.base.Functions;
+import com.m3.collections.guava.collect.ForwardingCollection.SimpleForwardingCollection;
+import com.m3.collections.guava.collect.ForwardingMap.SimpleForwardingMap;
+import com.m3.collections.guava.collect.ForwardingSet.SimpleForwardingSet;
 import com.m3.collections.guava.collect.testing.MapInterfaceTest;
 import java.util.Collection;
 import java.util.HashMap;
@@ -53,89 +56,67 @@ public class MapsTransformValuesUnmodifiableIteratorTest extends MapInterfaceTes
     super(true, true, /* supportsPut= */ false, true, true, false);
   }
 
-  private static class UnmodifiableIteratorMap<K, V> extends ForwardingMap<K, V> {
-    final Map<K, V> delegate;
-
+  private static class UnmodifiableIteratorMap<K, V> extends SimpleForwardingMap<K, V> {
     UnmodifiableIteratorMap(Map<K, V> delegate) {
-      this.delegate = delegate;
-    }
-
-    @Override
-    protected Map<K, V> delegate() {
-      return delegate;
+      super(delegate);
     }
 
     @Override
     public Set<K> keySet() {
-      return new ForwardingSet<K>() {
-        @Override
-        protected Set<K> delegate() {
-          return delegate.keySet();
-        }
-
+      return new SimpleForwardingSet<K>(delegate().keySet()) {
         @Override
         public Iterator<K> iterator() {
-          return unmodifiableIterator(delegate.keySet().iterator());
+          return unmodifiableIterator(delegate().iterator());
         }
 
         @Override
         public boolean removeAll(Collection<?> c) {
-          return delegate.keySet().removeAll(c);
+          return delegate().removeAll(c);
         }
 
         @Override
         public boolean retainAll(Collection<?> c) {
-          return delegate.keySet().retainAll(c);
+          return delegate().retainAll(c);
         }
       };
     }
 
     @Override
     public Collection<V> values() {
-      return new ForwardingCollection<V>() {
-        @Override
-        protected Collection<V> delegate() {
-          return delegate.values();
-        }
-
+      return new SimpleForwardingCollection<V>(delegate().values()) {
         @Override
         public Iterator<V> iterator() {
-          return unmodifiableIterator(delegate.values().iterator());
+          return unmodifiableIterator(delegate().iterator());
         }
 
         @Override
         public boolean removeAll(Collection<?> c) {
-          return delegate.values().removeAll(c);
+          return delegate().removeAll(c);
         }
 
         @Override
         public boolean retainAll(Collection<?> c) {
-          return delegate.values().retainAll(c);
+          return delegate().retainAll(c);
         }
       };
     }
 
     @Override
     public Set<Entry<K, V>> entrySet() {
-      return new ForwardingSet<Entry<K, V>>() {
-        @Override
-        protected Set<Entry<K, V>> delegate() {
-          return delegate.entrySet();
-        }
-
+      return new SimpleForwardingSet<Entry<K, V>>(delegate().entrySet()) {
         @Override
         public Iterator<Entry<K, V>> iterator() {
-          return unmodifiableIterator(delegate.entrySet().iterator());
+          return unmodifiableIterator(delegate().iterator());
         }
 
         @Override
         public boolean removeAll(Collection<?> c) {
-          return delegate.entrySet().removeAll(c);
+          return delegate().removeAll(c);
         }
 
         @Override
         public boolean retainAll(Collection<?> c) {
-          return delegate.entrySet().retainAll(c);
+          return delegate().retainAll(c);
         }
       };
     }
@@ -169,7 +150,7 @@ public class MapsTransformValuesUnmodifiableIteratorTest extends MapInterfaceTes
   }
 
   /** Helper assertion comparing two maps */
-  private void assertMapsEqual(Map<?, ?> expected, Map<?, ?> map) {
+  private static void assertMapsEqual(Map<?, ?> expected, Map<?, ?> map) {
     assertEquals(expected, map);
     assertEquals(expected.hashCode(), map.hashCode());
     assertEquals(expected.entrySet(), map.entrySet());

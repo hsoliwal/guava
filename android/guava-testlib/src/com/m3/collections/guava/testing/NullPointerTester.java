@@ -501,7 +501,7 @@ public final class NullPointerTester {
         return doConvert(convertFromType);
       }
 
-      private /*static*/ <S> S doConvert(TypeToken<S> type) {
+      /*static*/ <S> S doConvert(TypeToken<S> type) {
         return checkNotNull(getDefaultValue(type));
       }
     };
@@ -599,7 +599,7 @@ public final class NullPointerTester {
       return false;
     }
     Method method = (Method) member;
-    if (!method.getName().contentEquals("equals")) {
+    if (!method.getName().equals("equals")) {
       return false;
     }
     Class<?>[] parameters = method.getParameterTypes();

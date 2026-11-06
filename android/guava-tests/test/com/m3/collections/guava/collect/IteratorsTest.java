@@ -53,6 +53,7 @@ import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.base.Function;
 import com.m3.collections.guava.base.Predicate;
 import com.m3.collections.guava.base.Predicates;
+import com.m3.collections.guava.collect.ForwardingList.SimpleForwardingList;
 import com.m3.collections.guava.collect.testing.IteratorFeature;
 import com.m3.collections.guava.collect.testing.IteratorTester;
 import com.m3.collections.guava.collect.testing.ListTestSuiteBuilder;
@@ -1450,13 +1451,7 @@ public class IteratorsTest extends TestCase {
             new TestStringListGenerator() {
               @Override
               protected List<String> create(String[] elements) {
-                List<String> delegate = newArrayList(elements);
-                return new ForwardingList<String>() {
-                  @Override
-                  protected List<String> delegate() {
-                    return delegate;
-                  }
-
+                return new SimpleForwardingList<String>(newArrayList(elements)) {
                   @Override
                   public boolean removeAll(Collection<?> c) {
                     return Iterators.removeAll(iterator(), c);

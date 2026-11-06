@@ -20,6 +20,7 @@ import static com.m3.collections.guava.base.Preconditions.checkNotNull;
 import static com.m3.collections.guava.base.Preconditions.checkPositionIndexes;
 import static com.m3.collections.guava.base.Strings.lenientFormat;
 import static java.lang.Float.parseFloat;
+import static java.lang.Math.floorMod;
 import static java.lang.System.arraycopy;
 import static java.util.Arrays.sort;
 import static java.util.Collections.emptyList;
@@ -60,6 +61,17 @@ public final class Floats extends FloatsMethodsForWeb {
    * @since 10.0
    */
   public static final int BYTES = Float.BYTES;
+
+  /**
+   * Represents the smallest {@code float} value that is strictly greater than zero. This is an
+   * alias for {@link Float#MIN_VALUE}, but has a name that more clearly expresses its meaning.
+   *
+   * <p><b>Note:</b> the most negative finite float value is {@code -Float.MAX_VALUE}.
+   *
+   * @since 33.8.0
+   */
+  @SuppressWarnings("MinPositive")
+  public static final float MIN_POSITIVE_VALUE = Float.MIN_VALUE;
 
   /**
    * Returns a hash code for {@code value}; obsolete alternative to {@link Float#hashCode(float)}.
@@ -504,20 +516,18 @@ public final class Floats extends FloatsMethodsForWeb {
     // See Ints.rotate for more details about possible algorithms here.
     checkNotNull(array);
     checkPositionIndexes(fromIndex, toIndex, array.length);
-    if (array.length <= 1) {
+    int length = toIndex - fromIndex;
+    if (length <= 1) {
       return;
     }
 
-    int length = toIndex - fromIndex;
-    // Obtain m = (-distance mod length), a non-negative value less than "length". This is how many
-    // places left to rotate.
-    int m = -distance % length;
-    m = (m < 0) ? m + length : m;
-    // The current index of what will become the first element of the rotated section.
-    int newFirstIndex = m + fromIndex;
-    if (newFirstIndex == fromIndex) {
+    // Map the given distance to an equivalent, non-negative value less than "length".
+    distance = floorMod(distance, length);
+    if (distance == 0) {
       return;
     }
+    // The current index of what will become the first element of the rotated section.
+    int newFirstIndex = toIndex - distance;
 
     reverse(array, fromIndex, newFirstIndex);
     reverse(array, newFirstIndex, toIndex);

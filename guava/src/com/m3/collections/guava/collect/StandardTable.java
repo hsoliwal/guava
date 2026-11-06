@@ -42,6 +42,7 @@ import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.base.Predicate;
 import com.m3.collections.guava.base.Supplier;
+import com.m3.collections.guava.collect.ForwardingMapEntry.SimpleForwardingMapEntry;
 import com.m3.collections.guava.collect.Maps.IteratorBasedAbstractMap;
 import com.m3.collections.guava.collect.Sets.ImprovedAbstractSet;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
@@ -436,12 +437,7 @@ class StandardTable<R, C, V> extends AbstractTable<R, C, V> implements Serializa
     }
 
     final Entry<C, V> wrapEntry(Entry<C, V> entry) {
-      return new ForwardingMapEntry<C, V>() {
-        @Override
-        protected Entry<C, V> delegate() {
-          return entry;
-        }
-
+      return new SimpleForwardingMapEntry<C, V>(entry) {
         @Override
         public V setValue(V value) {
           return super.setValue(checkNotNull(value));

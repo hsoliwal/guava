@@ -16,6 +16,7 @@
 
 package com.m3.collections.guava.collect;
 
+import static com.m3.collections.guava.base.Preconditions.checkNotNull;
 import static com.m3.collections.guava.collect.Iterators.getNext;
 import static com.m3.collections.guava.collect.Iterators.pollNext;
 
@@ -241,5 +242,27 @@ public abstract class ForwardingNavigableSet<E extends @Nullable Object>
    */
   protected SortedSet<E> standardTailSet(@ParametricNullness E fromElement) {
     return tailSet(fromElement, true);
+  }
+
+  /**
+   * A simplified version of {@link ForwardingNavigableSet} where subclasses can pass in an already
+   * constructed {@link NavigableSet} as the delegate.
+   *
+   * <p>TODO(b/3417232): Consider making this public, but take into consideration whether it would
+   * then appear as a user-visible supertype for any classes.
+   */
+  abstract static class SimpleForwardingNavigableSet<E extends @Nullable Object>
+      extends ForwardingNavigableSet<E> {
+    private final NavigableSet<E> delegate;
+
+    /** Constructor for use by subclasses. */
+    SimpleForwardingNavigableSet(NavigableSet<E> delegate) {
+      this.delegate = checkNotNull(delegate);
+    }
+
+    @Override
+    protected final NavigableSet<E> delegate() {
+      return delegate;
+    }
   }
 }

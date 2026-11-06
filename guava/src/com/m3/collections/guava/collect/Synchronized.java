@@ -27,6 +27,8 @@ import com.m3.collections.guava.annotations.GwtCompatible;
 import com.m3.collections.guava.annotations.GwtIncompatible;
 import com.m3.collections.guava.annotations.J2ktIncompatible;
 import com.m3.collections.guava.annotations.VisibleForTesting;
+import com.m3.collections.guava.collect.ForwardingMapEntry.SimpleForwardingMapEntry;
+import com.google.errorprone.annotations.concurrent.GuardedBy;
 import com.google.j2objc.annotations.RetainedWith;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -504,7 +506,10 @@ final class Synchronized {
 
   static final class SynchronizedMultiset<E extends @Nullable Object>
       extends SynchronizedCollection<E> implements Multiset<E> {
+    @GuardedBy("mutex")
     transient @Nullable Set<E> elementSet;
+
+    @GuardedBy("mutex")
     transient @Nullable Set<Entry<E>> entrySet;
 
     SynchronizedMultiset(Multiset<E> delegate, @Nullable Object mutex) {
@@ -601,10 +606,19 @@ final class Synchronized {
 
   private static class SynchronizedMultimap<K extends @Nullable Object, V extends @Nullable Object>
       extends SynchronizedObject implements Multimap<K, V> {
+    @GuardedBy("mutex")
     transient @Nullable Set<K> keySet;
+
+    @GuardedBy("mutex")
     transient @Nullable Collection<V> valuesCollection;
+
+    @GuardedBy("mutex")
     transient @Nullable Collection<Map.Entry<K, V>> entries;
+
+    @GuardedBy("mutex")
     transient @Nullable Map<K, Collection<V>> asMap;
+
+    @GuardedBy("mutex")
     transient @Nullable Multiset<K> keys;
 
     @SuppressWarnings("unchecked")
@@ -842,6 +856,7 @@ final class Synchronized {
   private static class SynchronizedSetMultimap<
           K extends @Nullable Object, V extends @Nullable Object>
       extends SynchronizedMultimap<K, V> implements SetMultimap<K, V> {
+    @GuardedBy("mutex")
     transient @Nullable Set<Map.Entry<K, V>> entrySet;
 
     SynchronizedSetMultimap(SetMultimap<K, V> delegate, @Nullable Object mutex) {
@@ -976,15 +991,10 @@ final class Synchronized {
           super.iterator()) {
         @Override
         Map.Entry<K, Collection<V>> transform(Map.Entry<K, Collection<V>> entry) {
-          return new ForwardingMapEntry<K, Collection<V>>() {
-            @Override
-            protected Map.Entry<K, Collection<V>> delegate() {
-              return entry;
-            }
-
+          return new SimpleForwardingMapEntry<K, Collection<V>>(entry) {
             @Override
             public Collection<V> getValue() {
-              return typePreservingCollection(entry.getValue(), mutex);
+              return typePreservingCollection(delegate().getValue(), mutex);
             }
           };
         }
@@ -1070,8 +1080,13 @@ final class Synchronized {
 
   private static class SynchronizedMap<K extends @Nullable Object, V extends @Nullable Object>
       extends SynchronizedObject implements Map<K, V> {
+    @GuardedBy("mutex")
     transient @Nullable Set<K> keySet;
+
+    @GuardedBy("mutex")
     transient @Nullable Collection<V> values;
+
+    @GuardedBy("mutex")
     transient @Nullable Set<Entry<K, V>> entrySet;
 
     SynchronizedMap(Map<K, V> delegate, @Nullable Object mutex) {
@@ -1355,8 +1370,12 @@ final class Synchronized {
 
   static final class SynchronizedBiMap<K extends @Nullable Object, V extends @Nullable Object>
       extends SynchronizedMap<K, V> implements BiMap<K, V> {
+    @GuardedBy("mutex")
     private transient @Nullable Set<V> valueSet;
-    @RetainedWith private transient @Nullable BiMap<V, K> inverse;
+
+    @GuardedBy("mutex")
+    @RetainedWith
+    private transient @Nullable BiMap<V, K> inverse;
 
     private SynchronizedBiMap(
         BiMap<K, V> delegate, @Nullable Object mutex, @Nullable BiMap<V, K> inverse) {
@@ -1402,7 +1421,10 @@ final class Synchronized {
   private static final class SynchronizedAsMap<
           K extends @Nullable Object, V extends @Nullable Object>
       extends SynchronizedMap<K, Collection<V>> {
+    @GuardedBy("mutex")
     transient @Nullable Set<Entry<K, Collection<V>>> asMapEntrySet;
+
+    @GuardedBy("mutex")
     transient @Nullable Collection<Collection<V>> asMapValues;
 
     SynchronizedAsMap(Map<K, Collection<V>> delegate, @Nullable Object mutex) {
@@ -1493,6 +1515,7 @@ final class Synchronized {
       return delegate().descendingIterator(); // manually synchronized
     }
 
+    @GuardedBy("mutex")
     transient @Nullable NavigableSet<E> descendingSet;
 
     @Override
@@ -1635,6 +1658,7 @@ final class Synchronized {
       }
     }
 
+    @GuardedBy("mutex")
     transient @Nullable NavigableSet<K> descendingKeySet;
 
     @Override
@@ -1647,6 +1671,7 @@ final class Synchronized {
       }
     }
 
+    @GuardedBy("mutex")
     transient @Nullable NavigableMap<K, V> descendingMap;
 
     @Override
@@ -1732,6 +1757,7 @@ final class Synchronized {
       return navigableKeySet();
     }
 
+    @GuardedBy("mutex")
     transient @Nullable NavigableSet<K> navigableKeySet;
 
     @Override

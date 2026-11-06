@@ -19,6 +19,7 @@ package com.m3.collections.guava.collect;
 import static java.util.Arrays.asList;
 
 import com.m3.collections.guava.base.Function;
+import com.m3.collections.guava.collect.ForwardingCollection.SimpleForwardingCollection;
 import com.m3.collections.guava.collect.testing.CollectionTestSuiteBuilder;
 import com.m3.collections.guava.collect.testing.MinimalCollection;
 import com.m3.collections.guava.collect.testing.TestStringCollectionGenerator;
@@ -41,16 +42,9 @@ import org.jspecify.annotations.NullUnmarked;
  */
 @NullUnmarked
 public class ForwardingCollectionTest extends TestCase {
-  static final class StandardImplForwardingCollection<T> extends ForwardingCollection<T> {
-    private final Collection<T> backingCollection;
-
+  static final class StandardImplForwardingCollection<T> extends SimpleForwardingCollection<T> {
     StandardImplForwardingCollection(Collection<T> backingCollection) {
-      this.backingCollection = backingCollection;
-    }
-
-    @Override
-    protected Collection<T> delegate() {
-      return backingCollection;
+      super(backingCollection);
     }
 
     @Override

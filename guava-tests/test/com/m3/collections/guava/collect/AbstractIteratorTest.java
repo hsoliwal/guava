@@ -49,7 +49,7 @@ public class AbstractIteratorTest extends TestCase {
     // second, then signals that it's reached the end of the data
     Iterator<Integer> iter =
         new AbstractIterator<Integer>() {
-          private int rep;
+          int rep;
 
           @Override
           protected @Nullable Integer computeNext() {
@@ -90,7 +90,7 @@ public class AbstractIteratorTest extends TestCase {
      */
     AbstractIterator<Integer> iter =
         new AbstractIterator<Integer>() {
-          private int rep;
+          int rep;
 
           @Override
           protected @Nullable Integer computeNext() {
@@ -142,7 +142,7 @@ public class AbstractIteratorTest extends TestCase {
   }
 
   @GwtIncompatible // weak references
-  private WeakReference<Object> doNextAndGetWeakReference(Iterator<Object> itr) {
+  private static WeakReference<Object> doNextAndGetWeakReference(Iterator<Object> itr) {
     return new WeakReference<>(itr.next());
   }
 
@@ -150,7 +150,7 @@ public class AbstractIteratorTest extends TestCase {
 
     AbstractIterator<Integer> empty =
         new AbstractIterator<Integer>() {
-          private boolean alreadyCalledEndOfData;
+          boolean alreadyCalledEndOfData;
 
           @Override
           protected @Nullable Integer computeNext() {

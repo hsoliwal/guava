@@ -147,7 +147,7 @@ public abstract class Converter<A, B> implements Function<A, B> {
   private final boolean handleNullAutomatically;
 
   // We lazily cache the reverse view to avoid allocating on every call to reverse().
-  @LazyInit @RetainedWith private transient @Nullable Converter<B, A> reverse;
+  @LazyInit @RetainedWith private @Nullable Converter<B, A> reverse;
 
   /** Constructor for use by subclasses. */
   protected Converter() {
@@ -274,7 +274,7 @@ public abstract class Converter<A, B> implements Function<A, B> {
     checkNotNull(fromIterable, "fromIterable");
     return () ->
         new Iterator<B>() {
-          private final Iterator<? extends A> fromIterator = fromIterable.iterator();
+          final Iterator<? extends A> fromIterator = fromIterable.iterator();
 
           @Override
           public boolean hasNext() {

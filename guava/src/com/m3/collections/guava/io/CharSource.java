@@ -487,6 +487,9 @@ public abstract class CharSource {
    * returned {@code CharSource} and any {@code Reader} instances created by it is unspecified if
    * the {@code charSequence} is mutated while it is being read, so don't do that.
    *
+   * <p><b>Java 24+ users:</b> If you only need a {@link Reader}, prefer {@link
+   * Reader#of(CharSequence)}.
+   *
    * @since 15.0 (since 14.0 as {@code CharStreams.asCharSource(String)})
    */
   public static CharSource wrap(CharSequence charSequence) {
@@ -528,7 +531,7 @@ public abstract class CharSource {
 
     @Override
     public String toString() {
-      return CharSource.this.toString() + ".asByteSource(" + charset + ")";
+      return CharSource.this + ".asByteSource(" + charset + ")";
     }
   }
 

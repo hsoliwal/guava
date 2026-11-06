@@ -18,8 +18,8 @@ package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.truth.Truth.assertThat;
 
+import com.m3.collections.guava.collect.ForwardingConcurrentMap.SimpleForwardingConcurrentMap;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import junit.framework.TestCase;
 import org.jspecify.annotations.NullUnmarked;
 
@@ -31,12 +31,9 @@ import org.jspecify.annotations.NullUnmarked;
 @NullUnmarked
 public class ForwardingConcurrentMapTest extends TestCase {
 
-  private static class TestMap extends ForwardingConcurrentMap<String, Integer> {
-    final ConcurrentMap<String, Integer> delegate = new ConcurrentHashMap<>();
-
-    @Override
-    protected ConcurrentMap<String, Integer> delegate() {
-      return delegate;
+  private static class TestMap extends SimpleForwardingConcurrentMap<String, Integer> {
+    TestMap() {
+      super(new ConcurrentHashMap<>());
     }
   }
 

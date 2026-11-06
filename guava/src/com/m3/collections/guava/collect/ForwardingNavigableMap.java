@@ -16,6 +16,7 @@
 
 package com.m3.collections.guava.collect;
 
+import static com.m3.collections.guava.base.Preconditions.checkNotNull;
 import static com.m3.collections.guava.collect.Maps.keyOrNull;
 import static com.m3.collections.guava.collect.Maps.snapshotFirst;
 
@@ -296,8 +297,8 @@ public abstract class ForwardingNavigableMap<K extends @Nullable Object, V exten
 
     protected Iterator<Entry<K, V>> entryIterator() {
       return new Iterator<Entry<K, V>>() {
-        private @Nullable Entry<K, V> toRemove = null;
-        private @Nullable Entry<K, V> nextOrNull = forward().lastEntry();
+        @Nullable Entry<K, V> toRemove = null;
+        @Nullable Entry<K, V> nextOrNull = forward().lastEntry();
 
         @Override
         public boolean hasNext() {
@@ -411,5 +412,28 @@ public abstract class ForwardingNavigableMap<K extends @Nullable Object, V exten
    */
   protected SortedMap<K, V> standardTailMap(@ParametricNullness K fromKey) {
     return tailMap(fromKey, true);
+  }
+
+  /**
+   * A simplified version of {@link ForwardingNavigableMap} where subclasses can pass in an already
+   * constructed {@link NavigableMap} as the delegate.
+   *
+   * <p>TODO(b/3417232): Consider making this public, but take into consideration whether it would
+   * then appear as a user-visible supertype for any classes.
+   */
+  abstract static class SimpleForwardingNavigableMap<
+          K extends @Nullable Object, V extends @Nullable Object>
+      extends ForwardingNavigableMap<K, V> {
+    private final NavigableMap<K, V> delegate;
+
+    /** Constructor for use by subclasses. */
+    SimpleForwardingNavigableMap(NavigableMap<K, V> delegate) {
+      this.delegate = checkNotNull(delegate);
+    }
+
+    @Override
+    protected final NavigableMap<K, V> delegate() {
+      return delegate;
+    }
   }
 }

@@ -20,6 +20,8 @@ import static com.m3.collections.guava.truth.Truth.assertThat;
 import static org.junit.Assert.assertThrows;
 
 import com.m3.collections.guava.annotations.GwtCompatible;
+import com.m3.collections.guava.primitives.Doubles;
+import com.m3.collections.guava.primitives.Floats;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import junit.framework.TestCase;
@@ -164,7 +166,7 @@ public class MathPreconditionsTest extends TestCase {
   }
 
   public void testCheckNonNegative_minFloat() {
-    MathPreconditions.checkNonNegative("float", Float.MIN_VALUE);
+    MathPreconditions.checkNonNegative("float", Floats.MIN_POSITIVE_VALUE);
   }
 
   public void testCheckNonNegative_positiveFloat() {
@@ -191,7 +193,7 @@ public class MathPreconditionsTest extends TestCase {
   }
 
   public void testCheckNonNegative_minDouble() {
-    MathPreconditions.checkNonNegative("double", Double.MIN_VALUE);
+    MathPreconditions.checkNonNegative("double", Doubles.MIN_POSITIVE_VALUE);
   }
 
   public void testCheckNonNegative_positiveDouble() {
