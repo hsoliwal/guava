@@ -28,3 +28,7 @@ The standalone exact-method family witness compiled under `javac -Xlint:all -Wer
 ## Required receiving gates
 
 Before merge: exact Git blob/SHA-256 for each of the seven full source files; full reverse-diff proving one changed `indexOf(array,target)` per class; actual `guava-tests` native regression and existing primitive suites, JRE/Android/GWT-compatible build, source/ABI compatibility and representative performance. The full Guava dependency closure and Maven/Bazel suites are **NOT_RUN** in this environment. Deliver on a reviewable draft PR only; no default-branch changes, merges or M3JDK receiving without independent verification. Keep an explicit gate ledger and rejected alternatives.
+
+## Android seven-member implementation mirror (same repo, separate compilation)
+
+Inventory confirmed all seven existing **Android** production classes under `android/guava/src/com/m3/collections/guava/primitives/`. Each target's *method* matches the exact historical JRE scalar implementation. **Do not claim whole-file equivalence**: Android `Longs.java` and `Doubles.java` have distinct full Git blobs and unrelated source differences, so patch only the common method independently and retain those bytes. The same Guava primitive-array test should be mirrored under `android/guava-tests/test/com/m3/collections/guava/primitives/`, and both JRE and Android reactors must pass prior to merge. This expands the accepted source footprint to **14 production Java files**, seven JRE and seven Android, each with exactly one edited public method body and unchanged descriptor.
