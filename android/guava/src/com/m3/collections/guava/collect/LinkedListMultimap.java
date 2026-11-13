@@ -336,103 +336,91 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
    * is specified, it MUST be for a node for the same {@code key}!
    */
   @CanIgnoreReturnValue
-  private Node<K, V> addNode(
-      @ParametricNullness K key, @ParametricNullness V value, @Nullable Node<K, V> nextSibling) {
-    Node<K, V> node = new Node<>(key, value);
-    if (head == null) { // empty list
-      head = tail = node;
-      keyToKeyList.put(key, new KeyList<K, V>(node));
+  /** Insert a mapping using physical array indexes, without allocating a Node. */
+  @CanIgnoreReturnValue
+  private int addNode(
+      @ParametricNullness K key, @ParametricNullness V value, int nextSibling) {
+    int slot = freshSlot(key, value);
+    if (head == NONE) {
+      head = tail = slot;
+      keyToKeyList.put(key, new KeyList<K, V>(slot));
       modCount++;
-    } else if (nextSibling == null) { // non-empty list, add to tail
-      // requireNonNull is safe because the list is non-empty.
-      requireNonNull(tail).next = node;
-      node.previous = tail;
-      tail = node;
+    } else if (nextSibling == NONE) {
+      nextAll[tail] = slot;
+      previousAll[slot] = tail;
+      tail = slot;
       KeyList<K, V> keyList = keyToKeyList.get(key);
       if (keyList == null) {
-        keyList = new KeyList<>(node);
-        keyToKeyList.put(key, keyList);
+        keyToKeyList.put(key, new KeyList<>(slot));
         modCount++;
       } else {
         keyList.count++;
-        Node<K, V> keyTail = keyList.tail;
-        keyTail.nextSibling = node;
-        node.previousSibling = keyTail;
-        keyList.tail = node;
+        int last = keyList.tail;
+        nextForKey[last] = slot;
+        previousForKey[slot] = last;
+        keyList.tail = slot;
       }
-    } else { // non-empty list, insert before nextSibling
-      /*
-       * requireNonNull is safe as long as callers pass a nextSibling that (a) has the same key and
-       * (b) is present in the multimap. (And they do, except maybe in case of concurrent
-       * modification, in which case all bets are off.)
-       */
+    } else {
       KeyList<K, V> keyList = requireNonNull(keyToKeyList.get(key));
       keyList.count++;
-      node.previous = nextSibling.previous;
-      node.previousSibling = nextSibling.previousSibling;
-      node.next = nextSibling;
-      node.nextSibling = nextSibling;
-      if (nextSibling.previousSibling == null) { // nextSibling was key head
-        keyList.head = node;
+      previousAll[slot] = previousAll[nextSibling];
+      previousForKey[slot] = previousForKey[nextSibling];
+      nextAll[slot] = nextSibling;
+      nextForKey[slot] = nextSibling;
+      if (previousForKey[nextSibling] == NONE) {
+        keyList.head = slot;
       } else {
-        nextSibling.previousSibling.nextSibling = node;
+        nextForKey[previousForKey[nextSibling]] = slot;
       }
-      if (nextSibling.previous == null) { // nextSibling was head
-        head = node;
+      if (previousAll[nextSibling] == NONE) {
+        head = slot;
       } else {
-        nextSibling.previous.next = node;
+        nextAll[previousAll[nextSibling]] = slot;
       }
-      nextSibling.previous = node;
-      nextSibling.previousSibling = node;
+      previousAll[nextSibling] = slot;
+      previousForKey[nextSibling] = slot;
     }
     size++;
-    return node;
+    return slot;
   }
 
-  /**
-   * Removes the specified node from the linked list. This method is only intended to be used from
-   * the {@code Iterator} classes. See also {@link LinkedListMultimap#removeAllNodes(Object)}.
-   */
-  private void removeNode(Node<K, V> node) {
-    if (node.previous != null) {
-      node.previous.next = node.next;
-    } else { // node was head
-      head = node.next;
+  /** Unlink a mapping, detach escaped entries and recycle its array slot. */
+  private void removeNode(int slot) {
+    int preceding = previousAll[slot];
+    int following = nextAll[slot];
+    if (preceding != NONE) {
+      nextAll[preceding] = following;
+    } else {
+      head = following;
     }
-    if (node.next != null) {
-      node.next.previous = node.previous;
-    } else { // node was tail
-      tail = node.previous;
+    if (following != NONE) {
+      previousAll[following] = preceding;
+    } else {
+      tail = preceding;
     }
-    if (node.previousSibling == null && node.nextSibling == null) {
-      /*
-       * requireNonNull is safe as long as we call removeNode only for nodes that are still in the
-       * Multimap. This should be the case (except in case of concurrent modification, when all bets
-       * are off).
-       */
-      KeyList<K, V> keyList = requireNonNull(keyToKeyList.remove(node.getKey()));
+    int beforeKey = previousForKey[slot];
+    int afterKey = nextForKey[slot];
+    K key = keyAt(slot);
+    if (beforeKey == NONE && afterKey == NONE) {
+      KeyList<K, V> keyList = requireNonNull(keyToKeyList.remove(key));
       keyList.count = 0;
       modCount++;
     } else {
-      // requireNonNull is safe (under the conditions listed in the comment in the branch above).
-      KeyList<K, V> keyList = requireNonNull(keyToKeyList.get(node.getKey()));
+      KeyList<K, V> keyList = requireNonNull(keyToKeyList.get(key));
       keyList.count--;
-
-      if (node.previousSibling == null) {
-        // requireNonNull is safe because we checked that not *both* siblings were null.
-        keyList.head = requireNonNull(node.nextSibling);
+      if (beforeKey == NONE) {
+        keyList.head = afterKey;
       } else {
-        node.previousSibling.nextSibling = node.nextSibling;
+        nextForKey[beforeKey] = afterKey;
       }
-
-      if (node.nextSibling == null) {
-        // requireNonNull is safe because we checked that not *both* siblings were null.
-        keyList.tail = requireNonNull(node.previousSibling);
+      if (afterKey == NONE) {
+        keyList.tail = beforeKey;
       } else {
-        node.nextSibling.previousSibling = node.previousSibling;
+        previousForKey[afterKey] = beforeKey;
       }
     }
     size--;
+    releaseSlot(slot);
   }
 
   /** Removes all nodes for the specified key. */
