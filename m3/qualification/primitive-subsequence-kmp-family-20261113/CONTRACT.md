@@ -20,7 +20,7 @@ This preflight avoids the measured overhead of blindly running KMP for random pa
 ## Executed bounded Java 21 evidence before fork write
 
 The standalone exact-method family witness compiled under `javac -Xlint:all -Werror`. Original vs candidate:
-- **166,726 deterministic checks PASS** in normal JIT execution across all seven types, including randomized inputs, alignment, overlapping prefixes, empty/no-match/last-match, float/double NaN, negative zero, and self-aliasing.
+- **166,565 deterministic checks PASS** in normal JIT execution across all seven types, including randomized inputs, alignment, overlapping prefixes, empty/no-match/last-match, float/double NaN, negative zero, and self-aliasing.
 - A separate bounded subset of **6,930 checks PASS** in both JIT and `-Xint`, with byte-identical transcripts (SHA-256 `b045a20ca8b9fc261d8d6c0a6dc2ed459122194d94d3258ddd76edbf30d5388a`).
 - Full interpreted replay was stopped at the execution limit, not counted as PASS. The first two source variants were rejected after measured random/offset-zero regressions; this branch uses the adaptive prefilter.
 - Bounded period-miss benchmark (Java 21, 65,536 elements and 512-element repeated-prefix needle) measured candidate/baseline ratios around 0.005–0.012 in five samples, while random and offset-zero samples were variable. These are **microbenchmarks of the source algorithm only**, not Guava/JMH/release evidence.
