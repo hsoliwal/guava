@@ -729,7 +729,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @Override
   public boolean isEmpty() {
-    return head == null;
+    return head == NONE;
   }
 
   @Override
@@ -754,7 +754,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   @CanIgnoreReturnValue
   @Override
   public boolean put(@ParametricNullness K key, @ParametricNullness V value) {
-    addNode(key, value, null);
+    addNode(key, value, NONE);
     return true;
   }
 
@@ -821,8 +821,12 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @Override
   public void clear() {
-    head = null;
-    tail = null;
+    for (int slot = head; slot != NONE; slot = nextAll[slot]) {
+      if (entryBoundaries[slot] != null) {
+        entryAt(slot).detach();
+      }
+    }
+    resetSlots();
     keyToKeyList.clear();
     size = 0;
     modCount++;
@@ -904,17 +908,53 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
       @Override
       public ListIterator<V> listIterator(int index) {
-        NodeIterator nodeItr = new NodeIterator(index);
-        return new TransformedListIterator<Entry<K, V>, V>(nodeItr) {
+        NodeIterator slots = new NodeIterator(index);
+        // Traverse raw payload slots. Materialize a Node only when the caller
+        // explicitly asks for a mutable Map.Entry through entries().
+        return new ListIterator<V>() {
           @Override
-          @ParametricNullness
-          V transform(Entry<K, V> entry) {
-            return entry.getValue();
+          public boolean hasNext() {
+            return slots.hasNext();
+          }
+
+          @Override
+          public V next() {
+            return slots.nextValue();
+          }
+
+          @Override
+          public boolean hasPrevious() {
+            return slots.hasPrevious();
+          }
+
+          @Override
+          public V previous() {
+            return slots.previousValue();
+          }
+
+          @Override
+          public int nextIndex() {
+            return slots.nextIndex();
+          }
+
+          @Override
+          public int previousIndex() {
+            return slots.previousIndex();
+          }
+
+          @Override
+          public void remove() {
+            slots.remove();
           }
 
           @Override
           public void set(@ParametricNullness V value) {
-            nodeItr.setValue(value);
+            slots.setValue(value);
+          }
+
+          @Override
+          public void add(V value) {
+            throw new UnsupportedOperationException();
           }
         };
       }
@@ -954,8 +994,8 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
       @Override
       public void forEach(Consumer<? super Entry<K, V>> action) {
         checkNotNull(action);
-        for (Node<K, V> node = head; node != null; node = node.next) {
-          action.accept(node);
+        for (int slot = head; slot != NONE; slot = nextAll[slot]) {
+          action.accept(entryAt(slot));
         }
       }
     }
@@ -993,6 +1033,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
     keyToKeyList = new LinkedHashMap<>();
+    resetSlots();
     int size = stream.readInt();
     for (int i = 0; i < size; i++) {
       @SuppressWarnings("unchecked") // reading data stored by writeObject
