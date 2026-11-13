@@ -217,7 +217,8 @@ final class ArrayKeyDirectory<K extends @Nullable Object, V extends @Nullable Ob
             }
             position = (position + 1) & mask;
         }
-        return firstDeleted;
+        // Even recycled tombstones must not mask an adversarial probe run.
+        return -1;
     }
 
     private void grow() {
