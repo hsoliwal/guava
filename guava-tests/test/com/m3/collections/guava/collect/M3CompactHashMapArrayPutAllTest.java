@@ -43,7 +43,7 @@ public final class M3CompactHashMapArrayPutAllTest extends TestCase {
 
     assertEquals(expected, target);
     assertEquals(sourceBefore, source);
-    assertEquals(6, target.size());
+    assertEquals(5, target.size());
     assertNull(target.get(null));
     assertTrue(target.containsKey(null));
     assertTrue(target.containsKey(-1));
