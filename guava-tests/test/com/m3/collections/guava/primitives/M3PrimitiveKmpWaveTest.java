@@ -181,8 +181,24 @@ public final class M3PrimitiveKmpWaveTest extends TestCase {
       if (type != float.class && type != double.class) {
         assertEquals(0, actualIndexOf(large, large));
       }
+      // Test the actual public overload directly; the generic dispatch helper
+      // intentionally does not accept null arrays.
       try {
-        actualIndexOf(null, single);
+        if (type == byte.class) {
+          Bytes.indexOf(null, new byte[1]);
+        } else if (type == short.class) {
+          Shorts.indexOf(null, new short[1]);
+        } else if (type == char.class) {
+          Chars.indexOf(null, new char[1]);
+        } else if (type == long.class) {
+          Longs.indexOf(null, new long[1]);
+        } else if (type == boolean.class) {
+          Booleans.indexOf(null, new boolean[1]);
+        } else if (type == float.class) {
+          Floats.indexOf(null, new float[1]);
+        } else {
+          Doubles.indexOf(null, new double[1]);
+        }
         fail("Null haystack must fail");
       } catch (NullPointerException expected) {
         assertNotNull(expected);
