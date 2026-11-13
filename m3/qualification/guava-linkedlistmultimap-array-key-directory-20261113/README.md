@@ -12,7 +12,7 @@ The new key directory retains aligned `Object[] keys`, `Object[] values`,
 `int[] hashes`, `int[] freeNext` and `int[] index` arrays. It uses open
 addressing with tombstones, recycled physical slots and a primitive rehash.
 No per-distinct-key `HashMap.Entry` object exists on the ordinary path.
-A bounded hash-flooding fallback uses the original JDK hash-map semantics,
+A bounded hash-flooding fallback is enforced even when tombstones are reusable, using the original JDK hash-map semantics,
 rather than imposing unbounded linear probing in adversarial inputs.
 
 **This is a structural key-directory arrayification, not yet a replacement
@@ -32,7 +32,7 @@ modification epochs are untouched in this slice.
 ## Source and verification
 
 - Add the same internal array owner in JRE and Android source trees
-  (Git blob `bf3b087d4d62466ffc5b8224d86b41e0c3e6147d`).
+  (Git blob `b502bfc3a0aa39033a2b6295b104441400a562c2`).
 - JRE receiver Git blob `c3a43bcb00dd1cbddf1923057a9f1d8cc3e8b00c`.
 - Android receiver Git blob `54a81d72e6a2c4ee6cbbd757e16d7502d3c2d5f8`.
 - Two identical JUnit3 regression sources cover structural slots,
