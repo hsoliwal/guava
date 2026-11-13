@@ -13,3 +13,9 @@ OpenJDK21 `javac -Xlint:all -Werror` passed. The exact bucket-array clear model 
 
 ## Acceptance
 Only one source method and new actual Guava JUnit3 regression test may change on the review branch. Verify empty-map bucket invariants after allocation and final deletion, future put/get/remove, delegate reset and subclass behavior, retained serialization and iterator fail-fast. Full Java/Android/CI build and API verification required prior to merge; exact Git source SHA/UTF-8 SHA256 source records must be updated after code. No default-branch write or integration into M3JDK.
+
+## Source checksum receipt after branch patch
+
+- Original complete source UTF-8 SHA-256 `b942fe8acb9525b4fb5e3480d6e1ad600d88c881fcbee3b0a796b0d7b29bc41b`, original Git blob `7b2bf7deddf92630a908007cdbb3d2f8a5957598`.
+- Candidate complete source UTF-8 SHA-256 `3b3c92a4f2a110510234b025d766e513519c48ccfde31b3c5d6533fae8db21a7`, Git blob `0b613744a011ef431ce90795ca13ad7bce0b0a1f`.
+- Added fork-owned JUnit3 `CompactHashMapEmptyClearTest.java`: allocated 1/256/1024/8192/131072 capacities, empty repeated clears and reinsertion, flood-delegate teardown, and linked subclass fallback. This source is committed but full Guava test execution is **NOT_RUN** locally.
