@@ -71,12 +71,15 @@ final class ArrayKeyDirectory<K extends @Nullable Object, V extends @Nullable Ob
     }
 
     boolean containsKey(@Nullable Object key) {
+        // Custom hashCode/equals callbacks retain JDK HashMap bucket order.
+        useFallbackForUserCallbacks(key);
         Map<K, V> old = fallback;
         return old == null ? bucket(key, hash(key)) >= 0 : old.containsKey(key);
     }
 
     @SuppressWarnings("unchecked")
     @Nullable V get(@Nullable Object key) {
+        useFallbackForUserCallbacks(key);
         Map<K, V> old = fallback;
         if (old != null) {
             return old.get(key);
@@ -88,6 +91,7 @@ final class ArrayKeyDirectory<K extends @Nullable Object, V extends @Nullable Ob
     @SuppressWarnings("unchecked")
     @Nullable V put(K key, V value) {
         Objects.requireNonNull(value, "key-list value");
+        useFallbackForUserCallbacks(key);
         Map<K, V> old = fallback;
         if (old != null) {
             return old.put(key, value);
@@ -146,6 +150,7 @@ final class ArrayKeyDirectory<K extends @Nullable Object, V extends @Nullable Ob
 
     @SuppressWarnings("unchecked")
     @Nullable V remove(@Nullable Object key) {
+        useFallbackForUserCallbacks(key);
         Map<K, V> old = fallback;
         if (old != null) {
             return old.remove(key);
@@ -175,6 +180,25 @@ final class ArrayKeyDirectory<K extends @Nullable Object, V extends @Nullable Ob
         deleted = 0;
         highWater = 0;
         free = -1;
+    }
+
+    /**
+     * Only intrinsically final key types enter the array index. For arbitrary
+     * user key classes, HashMap can invoke observable equals/hashCode callbacks
+     * while traversing and treeifying collision bins. A linear-probe directory
+     * can change those callback histories, so retain JDK bucket behavior.
+     */
+    private static boolean hasStableKeyCallbacks(@Nullable Object key) {
+        return key == null || key instanceof String || key instanceof Integer
+                || key instanceof Long || key instanceof Short || key instanceof Byte
+                || key instanceof Character || key instanceof Boolean
+                || key instanceof Enum<?>;
+    }
+
+    private void useFallbackForUserCallbacks(@Nullable Object key) {
+        if (fallback == null && !hasStableKeyCallbacks(key)) {
+            switchToFallback();
+        }
     }
 
     private static int hash(@Nullable Object key) {
