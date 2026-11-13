@@ -8,7 +8,7 @@ production_diff_scope	PASS	14/14 full sources differ only in one existing indexO
 primitive_nan_semantics	PASS	Float/Double primitive ==; seeded NaN and signed-zero cases match original method	actual native Guava tests
 scratch_bound	PASS	pattern length <=65536 for KMP; <32 and >65536 needles use original scalar loop	allocation profiling
 java21_strict_compiler	PASS	javac -Xlint:all -Werror PrimitiveFamilyOracle.java with seven actual-method semantic witnesses	full Guava Maven build separate
-jit_family_oracle	PASS	166726 deterministic original/candidate comparisons over seven primitive types, SHA256 3ef481ef2682de585d7daecf898691a996f8bfde13262a41547391cbf14f8242	full native JUnit
+jit_family_oracle	PASS	166565 deterministic original/candidate comparisons over seven primitive types, SHA256 2e62892ff3789d37666782905a30803f045a0ccf7b25dec674cb289aad4ecaac	full native JUnit
 interpreted_full_suite	TIMEOUT	full java -Xint oracle exceeded command limit; partial output ignored	bounded subset available
 jit_bounded_oracle	PASS	6930 checked outputs with -Dquick=true, SHA256 b045a20ca8b9fc261d8d6c0a6dc2ed459122194d94d3258ddd76edbf30d5388a	compare interpreted same inputs
 interpreted_bounded_oracle	PASS	6930 outputs under java -Xint -Dquick=true, byte-identical transcript to JIT	whole native test pending
