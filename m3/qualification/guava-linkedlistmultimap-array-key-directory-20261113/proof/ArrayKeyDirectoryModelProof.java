@@ -40,17 +40,22 @@ public final class ArrayKeyDirectoryModelProof {
     }
 
     public static void main(String[] arguments) {
+        // Mode 0 exercises the intrinsic primitive array index for final
+        // JDK key types. Mode 1 exercises the hash-callback preserving
+        // HashMap fallback for user-defined key types.
+        for (int mode = 0; mode < 2; mode++) {
         for (int seed = 0; seed < 24; seed++) {
             Random random = new Random(0x4d334b4559524452L ^ seed);
-            ArrayKeyDirectory<Key, Object> actual = new ArrayKeyDirectory<>(seed % 9);
-            Map<Key, Object> reference = new HashMap<>();
+            ArrayKeyDirectory<Object, Object> actual = new ArrayKeyDirectory<>(seed % 9);
+            Map<Object, Object> reference = new HashMap<>();
             Object[] values = new Object[103];
             for (int index = 0; index < values.length; index++) {
                 values[index] = new Object();
             }
             for (int step = 0; step < 50000; step++) {
-                Key key = random.nextInt(30) == 0 ? null
-                        : new Key(random.nextInt(8192), seed % 2 == 0);
+                Object key = random.nextInt(30) == 0 ? null
+                        : (mode == 0 ? Integer.valueOf(random.nextInt(8192))
+                                : new Key(random.nextInt(8192), seed % 2 == 0));
                 int operation = random.nextInt(10);
                 if (operation < 4) {
                     Object value = values[random.nextInt(values.length)];
@@ -69,13 +74,14 @@ public final class ArrayKeyDirectoryModelProof {
                 }
                 require(actual.size() == reference.size(), "size after operation");
                 if ((step & 31) == 0) {
-                    for (Key candidate : reference.keySet()) {
+                    for (Object candidate : reference.keySet()) {
                         require(actual.containsKey(candidate), "missing key");
                         require(actual.get(candidate) == reference.get(candidate), "wrong value");
                     }
                 }
             }
         }
-        System.out.println("PASS assertions=" + checks);
+        }
+        System.out.println("PASS assertions=" + checks + " modes=2");
     }
 }
