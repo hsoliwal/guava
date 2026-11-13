@@ -117,6 +117,10 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
    */
   static final class Node<K extends @Nullable Object, V extends @Nullable Object>
       extends SimpleEntry<K, V> {
+    // Historical default SUID of the original four-link SimpleEntry subclass.
+    // Retain it explicitly while changing storage internals.
+    private static final long serialVersionUID = -2359543990797351600L;
+
     @Nullable Node<K, V> next;
     @Weak @Nullable Node<K, V> previous;
     @Nullable Node<K, V> nextSibling;
