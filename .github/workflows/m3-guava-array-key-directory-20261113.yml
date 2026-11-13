@@ -39,5 +39,5 @@ jobs:
             java -cp "$out/${flavor//\//_}" \
               com.m3.collections.guava.collect.ArrayKeyDirectoryModelProof \
               | tee "$out/${flavor//\//_}.log"
-            grep -qx 'PASS assertions=2576677' "$out/${flavor//\//_}.log"
+            awk '/^PASS assertions=[0-9]+ modes=2$/ { split($2, a, "="); if (a[2] > 4000000) ok=1 } END { exit !ok }' "$out/${flavor//\//_}.log"
           done
