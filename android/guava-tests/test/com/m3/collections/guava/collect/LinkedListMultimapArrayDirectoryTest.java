@@ -222,6 +222,96 @@ public final class LinkedListMultimapArrayDirectoryTest extends TestCase {
     assertTrue(directory(copy) instanceof ArrayKeyDirectory);
   }
 
+
+  private static final class CallbackKey implements Comparable<CallbackKey> {
+    final int id;
+    final StringBuilder callbacks;
+
+    CallbackKey(int id, StringBuilder callbacks) {
+      this.id = id;
+      this.callbacks = callbacks;
+    }
+
+    @Override
+    public int hashCode() {
+      callbacks.append('h').append(id).append(';');
+      return 7;
+    }
+
+    @Override
+    public boolean equals(Object value) {
+      callbacks.append('e').append(id).append(':');
+      if (value instanceof CallbackKey) {
+        callbacks.append(((CallbackKey) value).id);
+        callbacks.append(';');
+        return id == ((CallbackKey) value).id;
+      }
+      callbacks.append("other;");
+      return false;
+    }
+
+    @Override
+    public int compareTo(CallbackKey other) {
+      callbacks.append('c').append(id).append(':').append(other.id).append(';');
+      return Integer.compare(id, other.id);
+    }
+  }
+
+  public void testUserKeyHashEqualsAndTreeBinCallbacksRemainJdkCompatible()
+      throws Exception {
+    ArrayKeyDirectory<CallbackKey, Object> actual = new ArrayKeyDirectory<>(32);
+    Map<CallbackKey, Object> expected = new HashMap<>();
+    StringBuilder actualTrace = new StringBuilder();
+    StringBuilder expectedTrace = new StringBuilder();
+    Object[] values = new Object[11];
+    for (int i = 0; i < values.length; i++) {
+      values[i] = new Object();
+    }
+    Random random = new Random(0x4d33434f4c4c4953L);
+    for (int step = 0; step < 2000; step++) {
+      int id = random.nextInt(80);
+      CallbackKey actualKey = new CallbackKey(id, actualTrace);
+      CallbackKey expectedKey = new CallbackKey(id, expectedTrace);
+      int operation = random.nextInt(5);
+      if (operation < 2) {
+        Object value = values[random.nextInt(values.length)];
+        assertSame(expected.put(expectedKey, value), actual.put(actualKey, value));
+      } else if (operation == 2) {
+        assertSame(expected.remove(expectedKey), actual.remove(actualKey));
+      } else if (operation == 3) {
+        assertEquals(expected.containsKey(expectedKey), actual.containsKey(actualKey));
+      } else {
+        assertSame(expected.get(expectedKey), actual.get(actualKey));
+      }
+      assertEquals("callback order at step " + step,
+          expectedTrace.toString(), actualTrace.toString());
+      expectedTrace.setLength(0);
+      actualTrace.setLength(0);
+      assertEquals(expected.size(), actual.size());
+    }
+    assertNotNull(privateField(actual, "fallback"));
+  }
+
+  public void testFinalKeyTypesRemainPrimitiveIndexedUntilCustomKeyAccess()
+      throws Exception {
+    ArrayKeyDirectory<Object, Object> directory = new ArrayKeyDirectory<>(32);
+    Object token = new Object();
+    directory.put("string", token);
+    directory.put(Integer.valueOf(17), token);
+    directory.put(Long.valueOf(23), token);
+    directory.put(Boolean.TRUE, token);
+    assertNull(privateField(directory, "fallback"));
+    assertSame(token, directory.get("string"));
+    assertTrue(directory.containsKey(17));
+    assertNull(privateField(directory, "fallback"));
+    StringBuilder callbacks = new StringBuilder();
+    assertNull(directory.get(new CallbackKey(42, callbacks)));
+    assertNotNull(privateField(directory, "fallback"));
+    assertEquals("h42;", callbacks.toString());
+    assertSame(token, directory.get("string"));
+    assertEquals(4, directory.size());
+  }
+
   public void testNegativeExpectedSizeStillRejected() {
     try {
       LinkedListMultimap.create(-1);
