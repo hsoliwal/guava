@@ -432,29 +432,33 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   }
 
   /** An {@code Iterator} over all nodes. */
+  /** Global iterator with an integer cursor over the array-owned links. */
   private final class NodeIterator implements ListIterator<Entry<K, V>> {
     int nextIndex;
-    @Nullable Node<K, V> next;
-    @Nullable Node<K, V> current;
-    @Nullable Node<K, V> previous;
+    int next = NONE;
+    int current = NONE;
+    int previous = NONE;
     int expectedModCount = modCount;
 
     NodeIterator(int index) {
-      int size = size();
-      checkPositionIndex(index, size);
-      if (index >= (size / 2)) {
+      int count = size();
+      checkPositionIndex(index, count);
+      if (index >= count / 2) {
         previous = tail;
-        nextIndex = size;
-        while (index++ < size) {
-          previous();
+        nextIndex = count;
+        while (nextIndex > index) {
+          next = previous;
+          previous = previousAll[previous];
+          nextIndex--;
         }
       } else {
         next = head;
-        while (index-- > 0) {
-          next();
+        while (nextIndex < index) {
+          previous = next;
+          next = nextAll[next];
+          nextIndex++;
         }
       }
-      current = null;
     }
 
     private void checkForConcurrentModification() {
@@ -466,54 +470,55 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     @Override
     public boolean hasNext() {
       checkForConcurrentModification();
-      return next != null;
+      return next != NONE;
+    }
+
+    private int advance() {
+      checkForConcurrentModification();
+      if (next == NONE) {
+        throw new NoSuchElementException();
+      }
+      previous = current = next;
+      next = nextAll[next];
+      nextIndex++;
+      return current;
     }
 
     @CanIgnoreReturnValue
     @Override
     public Node<K, V> next() {
-      checkForConcurrentModification();
-      if (next == null) {
-        throw new NoSuchElementException();
-      }
-      previous = current = next;
-      next = next.next;
-      nextIndex++;
-      return current;
+      return entryAt(advance());
     }
 
-    @Override
-    public void remove() {
-      checkForConcurrentModification();
-      checkState(current != null, "no calls to next() since the last call to remove()");
-      if (current != next) { // after call to next()
-        previous = current.previous;
-        nextIndex--;
-      } else { // after call to previous()
-        next = current.next;
-      }
-      removeNode(current);
-      current = null;
-      expectedModCount = modCount;
+    private V nextValue() {
+      return valueAt(advance());
     }
 
     @Override
     public boolean hasPrevious() {
       checkForConcurrentModification();
-      return previous != null;
+      return previous != NONE;
+    }
+
+    private int retreat() {
+      checkForConcurrentModification();
+      if (previous == NONE) {
+        throw new NoSuchElementException();
+      }
+      next = current = previous;
+      previous = previousAll[previous];
+      nextIndex--;
+      return current;
     }
 
     @CanIgnoreReturnValue
     @Override
     public Node<K, V> previous() {
-      checkForConcurrentModification();
-      if (previous == null) {
-        throw new NoSuchElementException();
-      }
-      next = current = previous;
-      previous = previous.previous;
-      nextIndex--;
-      return current;
+      return entryAt(retreat());
+    }
+
+    private V previousValue() {
+      return valueAt(retreat());
     }
 
     @Override
@@ -527,18 +532,33 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     }
 
     @Override
-    public void set(Entry<K, V> e) {
+    public void remove() {
+      checkForConcurrentModification();
+      checkState(current != NONE, "no calls to next() since the last call to remove()");
+      if (current != next) {
+        previous = previousAll[current];
+        nextIndex--;
+      } else {
+        next = nextAll[current];
+      }
+      removeNode(current);
+      current = NONE;
+      expectedModCount = modCount;
+    }
+
+    @Override
+    public void set(Entry<K, V> entry) {
       throw new UnsupportedOperationException();
     }
 
     @Override
-    public void add(Entry<K, V> e) {
+    public void add(Entry<K, V> entry) {
       throw new UnsupportedOperationException();
     }
 
     void setValue(@ParametricNullness V value) {
-      checkState(current != null);
-      current.setValue(value);
+      checkState(current != NONE);
+      updateValueAt(current, value);
     }
   }
 
