@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# Bounded Java21 original/candidate Longs algorithm oracle; 7 warmed alternating samples, not JMH
+workload	baseline_kind	candidate_kind	median_ratio	min_ratio	max_ratio	judgement
+periodic_miss_65536_512	scalar_nested	bounded_KMP	0.025	0.023	0.027	SAMPLED_IMPROVEMENT
+first_match_65536_512	scalar_nested	offset_zero_fastpath	0.916	0.406	1.161	MIXED_SAMPLES
+random_absent_65536_512	scalar_nested	no_overlap_scalar	0.980	0.938	1.440	MIXED_SAMPLES
+random_absent_4096_64	scalar_nested	no_overlap_scalar	0.924	0.901	1.071	MIXED_SAMPLES
