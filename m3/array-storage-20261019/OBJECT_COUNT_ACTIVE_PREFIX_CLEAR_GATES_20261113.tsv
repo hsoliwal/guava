@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: Apache-2.0
+gate	status	evidence	next
+fork_identity	PASS	hsoliwal/guava master 4ff0f361b83ad95b93b623998f53ade8613273f2	refuse changed base
+source_git_blob_before	PASS	25b08b0332ad2c1bf225dd9b8b2af7404222ab8f	preimage
+source_git_blob_after	PASS	7711906332bcd8f982ee5d4376b57a6bd8e3863b	GitHub full source readback
+source_sha256_before	PASS	d56bd54224ebe51ed7a66875bb0c3063e8b3f95090bc3eaaeadfaa13473c38a1	original UTF-8
+source_sha256_after	PASS	e06dfe849c59eb35d45f675af607f21394a61f0333141adcc19ecbe96cd09da1	candidate UTF-8
+source_delta	PASS	exact one method-local range-aware Arrays.fill for active entries and dense fallback	public API unchanged
+local_java21_compiler	PASS	javac -Xlint:all -Werror on standalone exact array clear oracle	full Guava Maven compile separate
+local_java21_array_oracle	PASS	5327882 checks per JVM; exact full keys/values/entries/table state after clear across sizes and repeats	actual Guava class regression
+sparse_flooded_perf	SAMPLED_IMPROVEMENT	five process ratios 0.0058 0.0076 0.0056 0.0056 0.0075; 262144 capacity 16 live 2 bucket	JMH fork acceptance
+sparse_normal_perf	SAMPLED_IMPROVEMENT	five process ratios 0.3708 0.3605 0.3537 0.3527 0.3366; 262144 table and capacity	JMH fork acceptance
+dense_perf	PERFORMANCE_HOLD	five process ratios 1.0034 1.0060 1.0023 1.0002 0.9877	cross-platform nonregression
+fork_unit_test	NOT_RUN	ObjectCountHashMapActivePrefixClearTest.java committed to Guava fork; dependency graph offline	Guava suite JRE/Android
+fork_build	NOT_RUN	Maven Guava reactor unavailable locally	JRE/Android compile and tests
+license_notice	PASS	original Apache-2.0 header untouched; test first-party Apache-2.0	RAT/NOTICE check
+synexia_maven_openrewrite	NOT_RUN	scratch fork candidate only; no M3JDK promotion receipt	canonical SDK if selected
+m3jdk_receiver	HOLD	No M3JDK runtime changes	donor source/contract qualification
