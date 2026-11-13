@@ -12,6 +12,7 @@
  * the License.
  */
 
+// Copyright 2026 Hitesh Soliwal and Contributors to the Synexia Project.
 package com.m3.collections.guava.primitives;
 
 import static com.m3.collections.guava.base.Preconditions.checkArgument;
@@ -152,6 +153,10 @@ public final class ImmutableIntArray implements Serializable {
 
   /** Returns an immutable array containing the given values, in order. */
   public static ImmutableIntArray copyOf(Collection<Integer> values) {
+    if (values instanceof AsList) {
+      ImmutableIntArray parent = ((AsList) values).parent;
+      return parent.isEmpty() ? EMPTY : new ImmutableIntArray(parent.toArray());
+    }
     return values.isEmpty() ? EMPTY : new ImmutableIntArray(Ints.toArray(values));
   }
 
@@ -264,6 +269,13 @@ public final class ImmutableIntArray implements Serializable {
      */
     @CanIgnoreReturnValue
     public Builder addAll(Collection<Integer> values) {
+      if (values instanceof AsList) {
+        ImmutableIntArray parent = ((AsList) values).parent;
+        // Preserve the scalar failure path if the combined size overflows.
+        if (parent.length() <= Integer.MAX_VALUE - count) {
+          return addAll(parent);
+        }
+      }
       ensureRoomFor(values.size());
       for (Integer value : values) {
         array[count++] = value;
