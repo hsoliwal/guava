@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0
+gate	status	evidence	next
+source_base	PASS	GitHub hsoliwal/guava master 06387d46d087bf79032b51afbd814ad467fffda0	refuse branch drift
+source_pre_blob	PASS	7b2bf7deddf92630a908007cdbb3d2f8a5957598	readback baseline
+source_post_blob	PASS	0b613744a011ef431ce90795ca13ad7bce0b0a1f	readback branch
+source_pre_sha256	PASS	b942fe8acb9525b4fb5e3480d6e1ad600d88c881fcbee3b0a796b0d7b29bc41b	full UTF-8
+source_post_sha256	PASS	3b3c92a4f2a110510234b025d766e513519c48ccfde31b3c5d6533fae8db21a7	full UTF-8
+source_scope	PASS	one branch-only CompactHashMap.clear guard and comment; exact class; delegate/subclass paths unchanged	verify direct diff
+local_jdk21_lint_compile	PASS	javac -Xlint:all -Werror CompactMapEmptyClearProbe.java	actual Guava compile NOT_RUN
+local_state_oracle	PASS	385525750 table slot/mod-count checks across 14 capacities and repeated empty clears	actual Guava unit suite
+capacity_65536_perf	SAMPLED	8 candidate/baseline ratios 0.0047..0.0149; table already empty; not full JMH	profile representative runs
+capacity_262144_perf	SAMPLED	8 candidate/baseline ratios 0.00016..0.00018; table already empty; not full JMH	profile representative runs
+small_512_perf	VARIED	candidate/baseline ratios 0.43..0.98; small table uses original when mask below 512	full perf gate
+fork_unit_test	COMMITTED	Guava JUnit3 CompactHashMapEmptyClearTest.java with 3 test methods	actual JRE/Android suites
+full_fork_compile	NOT_RUN	Maven/Bazel project closure unavailable offline	CI
+binary_serialization	NOT_RUN	static no public signatures; no actual class binary compare	CI release
+default_branch	UNCHANGED	branch-only PR candidate	no automatic merge
