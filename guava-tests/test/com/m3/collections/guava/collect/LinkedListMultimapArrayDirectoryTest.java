@@ -304,10 +304,17 @@ public final class LinkedListMultimapArrayDirectoryTest extends TestCase {
     assertSame(token, directory.get("string"));
     assertTrue(directory.containsKey(17));
     assertNull(privateField(directory, "fallback"));
+    Map<Object, Object> hashMapOracle = new HashMap<>();
+    hashMapOracle.put("string", token);
+    hashMapOracle.put(Integer.valueOf(17), token);
+    hashMapOracle.put(Long.valueOf(23), token);
+    hashMapOracle.put(Boolean.TRUE, token);
     StringBuilder callbacks = new StringBuilder();
+    StringBuilder expectedCallbacks = new StringBuilder();
     assertNull(directory.get(new CallbackKey(42, callbacks)));
+    assertNull(hashMapOracle.get(new CallbackKey(42, expectedCallbacks)));
     assertNotNull(privateField(directory, "fallback"));
-    assertEquals("h42;", callbacks.toString());
+    assertEquals(expectedCallbacks.toString(), callbacks.toString());
     assertSame(token, directory.get("string"));
     assertEquals(4, directory.size());
   }
