@@ -243,7 +243,6 @@ public final class Floats extends FloatsMethodsForWeb {
     return -1;
   }
 
-
   /**
    * Returns the index of the last appearance of the value {@code target} in {@code array}. Note
    * that this always returns {@code -1} when {@code target} is {@code NaN}.
