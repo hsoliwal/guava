@@ -90,11 +90,17 @@ public final class ObjectCountHashMapActivePrefixClearTest extends TestCase {
 
   private static void assertAllEntrySlotsEmpty(ObjectCountHashMap<?> map) {
     for (int i = 0; i < map.entries.length; i++) {
-      assertEquals("entry metadata at " + i, -1L, map.entries[i]);
+      if (map.entries[i] != -1L) {
+        fail("entry metadata at " + i);
+      }
     }
     for (int i = 0; i < map.keys.length; i++) {
-      assertNull("retained key at " + i, map.keys[i]);
-      assertEquals("retained count at " + i, 0, map.values[i]);
+      if (map.keys[i] != null) {
+        fail("retained key at " + i);
+      }
+      if (map.values[i] != 0) {
+        fail("retained count at " + i);
+      }
     }
   }
 }
