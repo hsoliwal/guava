@@ -21,3 +21,13 @@ compact_set_source_pre_sha256	PASS	51ddaf40961bbcbe2a117210861e9085b6afdb65ea90d
 compact_set_source_post_sha256	PASS	cc8b864cdc7af6c6f1a3f90b84360ccad822ebb8f0a660ea175d62a9ef138b70	UTF-8
 compact_set_test_source	COMMITTED	000a88e438aa65beae2d2c196f3a6db0994744d8, three JUnit3 cases	fork CI
 compact_set_native_test	NOT_RUN	project build dependency closure unavailable	Guava JRE/Android suite
+bimap_before_blob	PASS	2b06ea1c5bed2ca8a740576c13252fcc452a081b	exact original Git source
+bimap_after_blob	PASS	dbfbb45c5dd498e378c57540dbcbf7344a28f61d	GitHub full candidate readback
+bimap_before_sha256	PASS	218d47276fa12f7bb01a315b8a85ce80bbcdc796f201c172e04e88a98e119db4	UTF-8 SHA256
+bimap_after_sha256	PASS	4877879dbda68564b2972c4ec8f8854747aa12635cd51e63338d4c7964a47f41	UTF-8 SHA256
+bimap_source_scope	PASS	HashBiMap.clear guarded early return only, all other code unchanged	full binary ABI pending
+bimap_local_java21_compile	PASS	javac -Xlint:all -Werror dual head-table model	full Guava compile pending
+bimap_jit_oracle	PASS	18000 exact array contents/metadata/epoch comparisons	Guava unit test
+bimap_interpreted_oracle	PASS	18000 java -Xint exact comparisons	Guava unit test
+bimap_fork_test_source	COMMITTED	HashBiMapEmptyClearTest.java; 3 real JUnit3 tests	full JRE/Android CI
+bimap_full_fork_unit_tests	NOT_RUN	Maven/Bazel dependencies unavailable offline	CI
