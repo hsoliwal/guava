@@ -1,6 +1,9 @@
 /*
  * Copyright (C) 2012 The Guava Authors
  *
+ * Modified 2026 by Hitesh Soliwal and Contributors to the Synexia Project:
+ * array-backed entry hash traversal.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -633,7 +636,28 @@ class CompactHashMap<K extends @Nullable Object, V extends @Nullable Object>
 
   @Override
   public final int hashCode() {
-    return entrySet().hashCode();
+    // Preserve entrySet overrides in subclasses outside the two array-storage owners.
+    if (getClass() != CompactHashMap.class && getClass() != CompactLinkedHashMap.class) {
+      return entrySet().hashCode();
+    }
+    Map<K, V> delegate = delegateOrNull();
+    if (delegate != null) {
+      return delegate.entrySet().hashCode();
+    }
+    int expectedMetadata = metadata;
+    int hashCode = 0;
+    for (int index = firstEntryIndex(); index >= 0; ) {
+      if (metadata != expectedMetadata) {
+        throw new ConcurrentModificationException();
+      }
+      K key = key(index);
+      V value = value(index);
+      // An entry iterator advances before hashing its output. Capture both payloads
+      // and the successor before callbacks, including on the final entry.
+      index = getSuccessor(index);
+      hashCode += Objects.hashCode(key) ^ Objects.hashCode(value);
+    }
+    return hashCode;
   }
 
   @Override
