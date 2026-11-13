@@ -274,6 +274,29 @@ public final class M3PrimitiveKmpWaveTest extends TestCase {
     assertEquals(-1, Doubles.indexOf(doubles, needleDoubles));
   }
 
+  public void testMaximumAdmittedPrefixBudget() {
+    for (Class<?> type : TYPES) {
+      Object[] values = alphabet(type);
+      Object normal = type == boolean.class ? Boolean.TRUE : values[values.length - 1];
+      Object mismatch = type == boolean.class ? Boolean.FALSE : values[0];
+      if (type == float.class || type == double.class) {
+        normal = values[3]; // 1.0.
+        mismatch = values[2]; // -1.0.
+      }
+      Object haystack = array(type, 65_536);
+      Object needle = array(type, 65_536);
+      for (int i = 0; i < 65_536; i++) {
+        Array.set(haystack, i, normal);
+        Array.set(needle, i, normal);
+      }
+      Array.set(needle, 65_535, mismatch);
+      assertEquals(-1, actualIndexOf(haystack, needle));
+      Array.set(haystack, 65_535, mismatch);
+      assertEquals(0, actualIndexOf(haystack, needle));
+      assertEquals(0, originalIndexOf(haystack, needle));
+    }
+  }
+
   public void testOversizedNeedleUsesOriginalResult() {
     for (Class<?> type : TYPES) {
       Object[] values = alphabet(type);
