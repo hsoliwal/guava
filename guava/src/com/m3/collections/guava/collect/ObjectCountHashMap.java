@@ -563,7 +563,12 @@ class ObjectCountHashMap<K extends @Nullable Object> {
     Arrays.fill(keys, 0, size, null);
     Arrays.fill(values, 0, size, 0);
     Arrays.fill(table, UNSET);
-    Arrays.fill(entries, UNSET);
+    // The unused suffix already holds UNSET; dense storage keeps its original fill.
+    if (size == entries.length) {
+      Arrays.fill(entries, UNSET);
+    } else {
+      Arrays.fill(entries, 0, size, UNSET);
+    }
     this.size = 0;
   }
 }
