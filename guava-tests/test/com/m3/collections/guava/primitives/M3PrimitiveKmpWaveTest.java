@@ -206,6 +206,53 @@ public final class M3PrimitiveKmpWaveTest extends TestCase {
     }
   }
 
+  public void testPeriodTwoFourEightAndFirstOccurrence() {
+    for (Class<?> type : TYPES) {
+      Object[] values = alphabet(type);
+      for (int period : new int[] {2, 4, 8}) {
+        Object[] units = new Object[period];
+        for (int p = 0; p < period; p++) {
+          if (type == boolean.class) {
+            units[p] = (p & 1) == 0;
+          } else if (type == float.class || type == double.class) {
+            units[p] = values[p % 4]; // Excludes NaN.
+          } else {
+            units[p] = values[p % values.length];
+          }
+        }
+        Object haystack = array(type, 16_384);
+        Object needle = array(type, 128);
+        for (int i = 0; i < 16_384; i++) {
+          Array.set(haystack, i, units[i % period]);
+        }
+        for (int i = 0; i < 128; i++) {
+          Array.set(needle, i, units[i % period]);
+        }
+        Object mismatch;
+        if (type == boolean.class) {
+          mismatch = !((Boolean) units[127 % period]);
+        } else if (type == float.class) {
+          mismatch = Float.POSITIVE_INFINITY;
+        } else if (type == double.class) {
+          mismatch = Double.POSITIVE_INFINITY;
+        } else if (type == long.class) {
+          mismatch = 123456789012345678L;
+        } else if (type == char.class) {
+          mismatch = '\u4fff';
+        } else if (type == short.class) {
+          mismatch = (short) 12345;
+        } else {
+          mismatch = (byte) 123;
+        }
+        Array.set(needle, 127, mismatch);
+        assertEquals(-1, actualIndexOf(haystack, needle));
+        Array.set(haystack, 4096 + 127, mismatch);
+        assertEquals(4096, originalIndexOf(haystack, needle));
+        assertEquals(4096, actualIndexOf(haystack, needle));
+      }
+    }
+  }
+
   public void testFloatingNaNAndSignedZeroRetainPrimitiveEquality() {
     float[] floats = new float[4096];
     float[] needleFloats = new float[32];
@@ -249,4 +296,30 @@ public final class M3PrimitiveKmpWaveTest extends TestCase {
       assertEquals(0, originalIndexOf(haystack, needle));
     }
   }
+  public void testNullNeedleRefusedForEveryPrimitiveOwner() {
+    for (Class<?> type : TYPES) {
+      try {
+        if (type == byte.class) {
+          Bytes.indexOf(new byte[0], null);
+        } else if (type == short.class) {
+          Shorts.indexOf(new short[0], null);
+        } else if (type == char.class) {
+          Chars.indexOf(new char[0], null);
+        } else if (type == long.class) {
+          Longs.indexOf(new long[0], null);
+        } else if (type == boolean.class) {
+          Booleans.indexOf(new boolean[0], null);
+        } else if (type == float.class) {
+          Floats.indexOf(new float[0], null);
+        } else {
+          Doubles.indexOf(new double[0], null);
+        }
+        fail("Null target must fail");
+      } catch (NullPointerException expected) {
+        assertNotNull(expected);
+      }
+    }
+  }
+
+
 }
