@@ -15,3 +15,9 @@ fork_unit_test	COMMITTED	Guava JUnit3 CompactHashMapEmptyClearTest.java with 3 t
 full_fork_compile	NOT_RUN	Maven/Bazel project closure unavailable offline	CI
 binary_serialization	NOT_RUN	static no public signatures; no actual class binary compare	CI release
 default_branch	UNCHANGED	branch-only PR candidate	no automatic merge
+compact_set_source_pre_blob	PASS	a8d993d0524ec38ea71ded0c868c0ed72a68ac42	exact preimage
+compact_set_source_post_blob	PASS	77995aab7f0f1c47c5e0859139c60d070610adbd	exact postimage
+compact_set_source_pre_sha256	PASS	51ddaf40961bbcbe2a117210861e9085b6afdb65ea90d0c5082a1cd50f337899	UTF-8
+compact_set_source_post_sha256	PASS	cc8b864cdc7af6c6f1a3f90b84360ccad822ebb8f0a660ea175d62a9ef138b70	UTF-8
+compact_set_test_source	COMMITTED	000a88e438aa65beae2d2c196f3a6db0994744d8, three JUnit3 cases	fork CI
+compact_set_native_test	NOT_RUN	project build dependency closure unavailable	Guava JRE/Android suite
