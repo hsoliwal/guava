@@ -260,7 +260,6 @@ public final class Booleans {
     return -1;
   }
 
-
   /**
    * Returns the index of the last appearance of the value {@code target} in {@code array}.
    *
