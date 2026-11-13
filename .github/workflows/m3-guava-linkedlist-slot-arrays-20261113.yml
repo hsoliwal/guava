@@ -1,6 +1,15 @@
 # SPDX-License-Identifier: Apache-2.0
 name: M3 Guava linked multimap array lanes
 on:
+  push:
+    branches:
+      - 'perf/linkedlistmultimap-array-link-lanes-20261113'
+    paths:
+      - 'guava/src/com/m3/collections/guava/collect/LinkedListMultimap.java'
+      - 'android/guava/src/com/m3/collections/guava/collect/LinkedListMultimap.java'
+      - 'guava-tests/test/com/m3/collections/guava/collect/LinkedListMultimapArrayLinksTest.java'
+      - 'android/guava-tests/test/com/m3/collections/guava/collect/LinkedListMultimapArrayLinksTest.java'
+      - '.github/workflows/m3-guava-linkedlist-slot-arrays-20261113.yml'
   pull_request:
     paths:
       - 'guava/src/com/m3/collections/guava/collect/LinkedListMultimap.java'
