@@ -1,0 +1,83 @@
+{
+  "schema": "M3_COLLECTION_FORK_PASSIVE_RESULT_RECEIPT_V1",
+  "repository": "hsoliwal/guava",
+  "receiving_base": "8b7e019c672e7600f7aceecbb9e290bf00728bd8",
+  "canonical_repository": "hsoliwal/com.synexia",
+  "source_qualification_commit": "2264d3dc3a5581b5aef650ab9827e7b342edb11d",
+  "source_dataset": "guava-primitive-copy-20261113",
+  "recipe_identity": "com.synexia.m3jdk.CollectionsContractRefinement20261017",
+  "sdk_inputs_sha256": "4e4e93091c05dcc3ba81f043bce5723e58e960822d80b8df3057946298c6801f",
+  "sdk_results_sha256": "a534bc9ecf73dcdf25449ee0ef94be1bc2288ec5c3a6211a15f337d0b29292df",
+  "sdk_tests": {
+    "tests": 48,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "fixed_point": "PASS",
+  "drift_refusal": "PASS",
+  "outputs": [
+    {
+      "path": "android/guava-tests/test/com/m3/collections/guava/collect/M3CompactMapHashCodeTest.java",
+      "before_sha256": "c841b9f3508e34c0c50e6d7fa14f3c56e9c56804e983d6b8a727171144dd2d34",
+      "after_sha256": "96aef3a6c2f70a505f96e5f1efc041d1f3b1fb4134e8a1f27ee5a4adc51ae9c0"
+    },
+    {
+      "path": "android/guava-tests/test/com/m3/collections/guava/collect/M3TopKSelectorArrayPassTest.java",
+      "before_sha256": "98ef2b92fcd088d7c0e6d4362393c4b87078c2f4950c8e3cdb4acf0e4d26f356",
+      "after_sha256": "36ae37bd70ae7bea69f47ee124e698147c2bec5f235f145711012b540e39d58a"
+    },
+    {
+      "path": "android/guava-tests/test/com/m3/collections/guava/primitives/M3ImmutablePrimitiveArrayBulkCopyTest.java",
+      "before_sha256": "ABSENT",
+      "after_sha256": "13ef677b8c8e9c656234787e1253f958923da9cb403938344350c4c98362a45c"
+    },
+    {
+      "path": "android/guava/src/com/m3/collections/guava/primitives/ImmutableDoubleArray.java",
+      "before_sha256": "92892cff65457f04f8750ff3a231cb4e822e31ff48a76484b8dede0b75cbef0e",
+      "after_sha256": "ca694044236d8ee0fc0015a86ac5e1edaefea4fc2e338934099b178c18770bb2"
+    },
+    {
+      "path": "android/guava/src/com/m3/collections/guava/primitives/ImmutableIntArray.java",
+      "before_sha256": "2baf5b28b386e55b1277301ca6430b15d6fee27afc05fd649dfd5fedb16a32ea",
+      "after_sha256": "b704c4bfea24a9c1aa9de244a27471cefb57d12e195031a6b3e250c9c6d46536"
+    },
+    {
+      "path": "android/guava/src/com/m3/collections/guava/primitives/ImmutableLongArray.java",
+      "before_sha256": "206f0315d423390e3d390068a2866a4c64f14e20962f978e0a1916467b06eb79",
+      "after_sha256": "ab5a494f812587569ed77f023ef480087300ec5495af2000f220b69972d53e21"
+    },
+    {
+      "path": "guava-tests/test/com/m3/collections/guava/collect/M3CompactMapHashCodeTest.java",
+      "before_sha256": "c841b9f3508e34c0c50e6d7fa14f3c56e9c56804e983d6b8a727171144dd2d34",
+      "after_sha256": "96aef3a6c2f70a505f96e5f1efc041d1f3b1fb4134e8a1f27ee5a4adc51ae9c0"
+    },
+    {
+      "path": "guava-tests/test/com/m3/collections/guava/collect/M3TopKSelectorArrayPassTest.java",
+      "before_sha256": "98ef2b92fcd088d7c0e6d4362393c4b87078c2f4950c8e3cdb4acf0e4d26f356",
+      "after_sha256": "36ae37bd70ae7bea69f47ee124e698147c2bec5f235f145711012b540e39d58a"
+    },
+    {
+      "path": "guava-tests/test/com/m3/collections/guava/primitives/M3ImmutablePrimitiveArrayBulkCopyTest.java",
+      "before_sha256": "ABSENT",
+      "after_sha256": "13ef677b8c8e9c656234787e1253f958923da9cb403938344350c4c98362a45c"
+    },
+    {
+      "path": "guava/src/com/m3/collections/guava/primitives/ImmutableDoubleArray.java",
+      "before_sha256": "c7bb843c326c7bf2bccc730a9b37b3fa894601e7eb130b24034a44fb830b074f",
+      "after_sha256": "ff3dc3be4c683cd3d0456911ca0c6aa0e58b77265bfde38f47b0f34e4f845059"
+    },
+    {
+      "path": "guava/src/com/m3/collections/guava/primitives/ImmutableIntArray.java",
+      "before_sha256": "6ccde3e42690d6815da6e3491a5a7bbbe27457a807cc3f46cbd54449356580e7",
+      "after_sha256": "4a7f0bd3d24dba69222eea5ae8485d737c92ed31c915f4f432a9254fbaeca2cb"
+    },
+    {
+      "path": "guava/src/com/m3/collections/guava/primitives/ImmutableLongArray.java",
+      "before_sha256": "4685ae7ee34c70bb53f59b6394748b115868137cefe6810826834bcf0f4df939",
+      "after_sha256": "1e1ddabcb137458c01a029e44b6b5edb6aed10e3963a9bd03c6bbd77ef989526"
+    }
+  ],
+  "scope": "Passive source/test provenance; target-native gates remain independent.",
+  "license": "Apache-2.0; existing source licenses and attribution remain in their owners."
+}

@@ -12,6 +12,7 @@
  * the License.
  */
 
+// Copyright 2026 Hitesh Soliwal and Contributors to the Synexia Project.
 package com.m3.collections.guava.primitives;
 
 import static com.m3.collections.guava.base.Preconditions.checkArgument;
@@ -155,6 +156,10 @@ public final class ImmutableDoubleArray implements Serializable {
 
   /** Returns an immutable array containing the given values, in order. */
   public static ImmutableDoubleArray copyOf(Collection<Double> values) {
+    if (values instanceof AsList) {
+      ImmutableDoubleArray parent = ((AsList) values).parent;
+      return parent.isEmpty() ? EMPTY : new ImmutableDoubleArray(parent.toArray());
+    }
     return values.isEmpty() ? EMPTY : new ImmutableDoubleArray(Doubles.toArray(values));
   }
 
@@ -267,6 +272,13 @@ public final class ImmutableDoubleArray implements Serializable {
      */
     @CanIgnoreReturnValue
     public Builder addAll(Collection<Double> values) {
+      if (values instanceof AsList) {
+        ImmutableDoubleArray parent = ((AsList) values).parent;
+        // Preserve the scalar failure path if the combined size overflows.
+        if (parent.length() <= Integer.MAX_VALUE - count) {
+          return addAll(parent);
+        }
+      }
       ensureRoomFor(values.size());
       for (Double value : values) {
         array[count++] = value;

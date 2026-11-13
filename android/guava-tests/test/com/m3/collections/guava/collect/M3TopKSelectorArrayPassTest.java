@@ -5,6 +5,7 @@
 package com.m3.collections.guava.collect;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,7 +36,7 @@ public final class M3TopKSelectorArrayPassTest {
         }
       }
       bulk.offerAll(data);
-      left.combine(right);
+      assertSame(left, left.combine(right));
       Collections.sort(data);
       List<Integer> expected = data.subList(0, k);
       assertEquals(expected, sequential.topK());
