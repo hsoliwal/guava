@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+# Java21 exact-array clear oracle. Each process ran nine warmed alternating samples of 64 clears per workload. Times in nanoseconds per whole 64-call batch; not full Guava JMH.
+run	checks	flood_sparse_original_ns	flood_sparse_candidate_ns	flood_ratio	normal_sparse_original_ns	normal_sparse_candidate_ns	normal_ratio	dense_original_ns	dense_candidate_ns	dense_ratio
+1	5327882	1531086	8935	0.0058	2168703	804145	0.3708	513655	515385	1.0034
+2	5327882	1705301	12901	0.0076	2106213	759210	0.3605	508313	511369	1.0060
+3	5327882	1464474	8225	0.0056	2114662	747960	0.3537	502706	503839	1.0023
+4	5327882	1476614	8214	0.0056	2115688	746265	0.3527	503937	504025	1.0002
+5	5327882	1727304	12950	0.0075	2161354	727588	0.3366	510148	503849	0.9877
