@@ -127,8 +127,9 @@ public final class Bytes {
 
     // Large primitive subsequence searches use bounded KMP failure links.
     // Small cases retain the original zero-allocation nested-loop behavior.
-    if (array.length >= 4096 && target.length >= 32 && target.length <= 65536) {
+    if (array.length >= 16384 && target.length >= 32 && target.length <= 65536) {
       int[] prefix = new int[target.length];
+      int longestBorder = 0;
       for (int i = 1, matched = 0; i < target.length; i++) {
         while (matched > 0 && target[i] != target[matched]) {
           matched = prefix[matched - 1];
@@ -137,19 +138,25 @@ public final class Bytes {
           matched++;
         }
         prefix[i] = matched;
-      }
-      for (int i = 0, matched = 0; i < array.length; i++) {
-        while (matched > 0 && array[i] != target[matched]) {
-          matched = prefix[matched - 1];
-        }
-        if (array[i] == target[matched]) {
-          matched++;
-        }
-        if (matched == target.length) {
-          return i - target.length + 1;
+        if (matched > longestBorder) {
+          longestBorder = matched;
         }
       }
-      return -1;
+      // A low-overlap pattern generally favors the original primitive scan.
+      if (longestBorder >= target.length / 4) {
+        for (int i = 0, matched = 0; i < array.length; i++) {
+          while (matched > 0 && array[i] != target[matched]) {
+            matched = prefix[matched - 1];
+          }
+          if (array[i] == target[matched]) {
+            matched++;
+          }
+          if (matched == target.length) {
+            return i - target.length + 1;
+          }
+        }
+        return -1;
+      }
     }
 
     outer:
