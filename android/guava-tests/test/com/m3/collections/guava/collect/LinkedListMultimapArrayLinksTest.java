@@ -240,6 +240,31 @@ public final class LinkedListMultimapArrayLinksTest extends TestCase {
     assertEquals(Arrays.asList(20, 30, 40), map.values());
   }
 
+  public void testEscapedEntryPreservesHistoricalStreamDescriptor()
+      throws Exception {
+    assertEquals(-2359543990797351600L,
+        java.io.ObjectStreamClass.lookup(LinkedListMultimap.Node.class).getSerialVersionUID());
+    LinkedListMultimap<String, Integer> map = LinkedListMultimap.create();
+    map.put("key", 18);
+    Map.Entry<String, Integer> escaped = map.entries().get(0);
+    map.get("key").set(0, 19);
+
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    try (ObjectOutputStream out = new ObjectOutputStream(bytes)) {
+      out.writeObject(escaped);
+    }
+    Object restored;
+    try (ObjectInputStream in = new ObjectInputStream(
+        new ByteArrayInputStream(bytes.toByteArray()))) {
+      restored = in.readObject();
+    }
+    assertEquals(escaped, restored);
+    assertEquals(Integer.valueOf(19), ((Map.Entry<?, ?>) restored).getValue());
+    map.removeAll("key");
+    escaped.setValue(21);
+    assertEquals(Integer.valueOf(21), escaped.getValue());
+  }
+
   public void testRandomizedArraySlotLinksMatchGlobalAndPerKeyReference() {
     Random random = new Random(0x4d334e4f444553L);
     for (int seed = 0; seed < 16; seed++) {
