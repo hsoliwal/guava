@@ -213,6 +213,33 @@ public final class LinkedListMultimapArrayLinksTest extends TestCase {
     }
   }
 
+  public void testEntryIdentityAndValueUpdatesAcrossForwardAndReverseIteration() {
+    LinkedListMultimap<String, Integer> map = LinkedListMultimap.create();
+    map.put("first", 10);
+    map.put("second", 20);
+    map.put("first", 30);
+    ListIterator<Map.Entry<String, Integer>> entries = map.entries().listIterator();
+    Map.Entry<String, Integer> first = entries.next();
+    assertSame(first, entries.previous());
+    assertSame(first, entries.next());
+    assertEquals(Integer.valueOf(10), first.getValue());
+
+    map.values().set(0, 11);
+    assertEquals(Integer.valueOf(11), first.getValue());
+    map.get("first").set(0, 12);
+    assertEquals(Integer.valueOf(12), first.getValue());
+    first.setValue(13);
+    assertEquals(Integer.valueOf(13), map.values().get(0));
+
+    entries.remove();
+    assertEquals(Arrays.asList(20, 30), map.values());
+    assertEquals(Integer.valueOf(13), first.getValue());
+    first.setValue(99);
+    map.put("third", 40);
+    assertEquals(Integer.valueOf(99), first.getValue());
+    assertEquals(Arrays.asList(20, 30, 40), map.values());
+  }
+
   public void testRandomizedArraySlotLinksMatchGlobalAndPerKeyReference() {
     Random random = new Random(0x4d334e4f444553L);
     for (int seed = 0; seed < 16; seed++) {
