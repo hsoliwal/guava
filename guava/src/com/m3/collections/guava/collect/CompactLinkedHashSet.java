@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Modified 2026: skip redundant linked-index lane clears after invalidating first/last.
 package com.m3.collections.guava.collect;
 
 import static java.util.Objects.requireNonNull;
@@ -252,11 +253,11 @@ final class CompactLinkedHashSet<E extends @Nullable Object> extends CompactHash
     }
     this.firstEntry = ENDPOINT;
     this.lastEntry = ENDPOINT;
-    // Either both arrays are null or neither is, but we check both to satisfy the nullness checker.
-    if (predecessor != null && successor != null) {
-      Arrays.fill(predecessor, 0, size(), 0);
-      Arrays.fill(successor, 0, size(), 0);
-    }
+    // Only indexes below size() can be live. Insertion always rebinds both
+    // predecessor and successor for its new index, so clearing their old
+    // primitive values is unnecessary. The owned Object[] payload and hash
+    // table are still cleared by CompactHashSet.clear().
+    // Do not touch the lanes here: this saves two O(size) int-array writes.
     super.clear();
   }
 
