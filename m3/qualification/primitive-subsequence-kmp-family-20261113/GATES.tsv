@@ -23,3 +23,5 @@ android_native_maven	NOT_RUN	Maven and full Android dependency graph unavailable
 abi_binary_compatibility	NOT_RUN	public methods syntactically unchanged; full source classes not compiled	full reactor javap/serialization
 j2kt_gwt_compatibility	NOT_RUN	no additional imports or API, but transpiler tests unavailable	CI
 default_branch_mutation	UNCHANGED	review branch only, no master writes	merge gated on product tests
+float_double_specialized_edge_jit	PASS	1544 Float/Double equality checks after full-source patch; SHA256 f5946342404d341e745811ec59100e62c92247e46c0ac14be6b89cc2f14c484d	full JUnit pending
+float_double_specialized_edge_interpreted	PASS	1544 java -Xint checks, byte-identical transcript to normal JVM	full Android suite pending
