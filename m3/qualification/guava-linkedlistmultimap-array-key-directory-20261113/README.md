@@ -32,7 +32,7 @@ modification epochs are untouched in this slice.
 ## Source and verification
 
 - Add the same internal array owner in JRE and Android source trees
-  (Git blob `b502bfc3a0aa39033a2b6295b104441400a562c2`).
+  (Git blob `1b149e4701188df084ffeb7e925d7107d81db8b9`).
 - JRE receiver Git blob `c3a43bcb00dd1cbddf1923057a9f1d8cc3e8b00c`.
 - Android receiver Git blob `54a81d72e6a2c4ee6cbbd757e16d7502d3c2d5f8`.
 - Two identical JUnit3 regression sources cover structural slots,
@@ -68,3 +68,29 @@ fork-native compiler/behavior/ABI/serialization/heap checks and canonical
 Synexia Maven/OpenRewrite execution may independently qualified outputs
 be received into integrated `hsoliwal/M3jdk21` with JDK formatting, naming
 and installed-image/JNI/JTReg gates. No M3JDK21 product edit is claimed.
+
+
+## 13 November: strict callback compatibility boundary
+
+For all JDK keys with intrinsically final equality/hash behavior
+(`String`, boxed integral primitives, `Boolean`, `Character`,
+`Enum`, or `null`), insertion, lookup and deletion stay in primitive
+`int[]`/object array storage. Any custom user key type switches the
+private directory to `HashMap` **before** invoking its observable
+`hashCode` or `equals` callbacks. This deliberately retains the
+original JDK HashMap collision-bin and treeification callback sequence
+rather than pretending open-addressed probing is perfectly equivalent.
+
+Both JRE and Android own identical Java source blob `1b149e4701188df084ffeb7e925d7107d81db8b9`.
+Their two native regression suites now include original-HashMap
+callback event comparisons across comparable, hash-colliding user
+keys. An additional final-key test compares the callback trace
+even when a custom query collides with an existing `Long` bucket.
+Original `Node` values remain a separate unresolved phase.
+
+A strict Java 8-compatible **algorithm mirror** was compiled and
+executed locally under OpenJDK 21 with `-Xlint:all,-options -Werror`.
+Two search modes with 24 seeds x 50,000 operations each, plus 2,000
+custom-key callback probes, passed **5,159,359 assertions** against
+`java.util.HashMap`. This is not an exact full Guava source compile.
+The new actual-class JUnit and GitHub hosted checks are still pending.
