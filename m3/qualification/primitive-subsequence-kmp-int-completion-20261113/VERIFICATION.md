@@ -39,4 +39,12 @@ These are **method-only** measurements and not JMH/whole-fork throughput. Both o
 
 Two mirrored native Guava JUnit3 six-method regression test files are authored for the JRE and Android source trees; their Git blobs are identical `5f0b7a843bf7606ef5c019906feba9ab864e218d` and both were read back from GitHub. The real Guava Maven/Bazel/JUnit, GWT/J2KT, Android build, JMH, M3JDK21 receiver, JNI, licence and published ABI are **NOT EXECUTED / HOLD**. The stacked parent PR #35 itself also remains draft and unmerged; the existing independent JRE-only `Ints` PR #34 is not modified or silently closed.
 
+## Exact fork JUnit test-body execution — added independent stage
+
+The exact JRE and Android `M3IntSubsequenceKmpCompletionTest.java` Git blobs were read back as **identical** (`5f0b7a843bf7606ef5c019906feba9ab864e218d`). An independent source transport was reconstructed in an approved scratch directory and `git hash-object` verified **the exact original 4,711-byte native test source**. Its six native JUnit3 method bodies were compiled with the exact candidate `Ints` method using `javac --release 21 -proc:none -Xlint:all -Werror` — exit zero, empty diagnostics. Because the full Guava/JUnit dependencies are unavailable locally, a **test-only `junit.framework.TestCase` assertion shim**, not the real JUnit engine, supplied the assertions. A deterministic local reflection runner invoked each of the **six exact test bodies** in mixed, `-Xint`, and `-Xcomp`: **6/6 PASS in each mode**, three byte-identical logs SHA-256 `7b1906f7cd453518ddeb25b0683ebddc5bc751310be4c76f089341b1c5b26060`.
+
+The updated, verified **39-member** proof ZIP `guava_ints_adaptive_jre_android_final_20261113.zip` has SHA-256 `37a25ac49eddfed4290347f7e6454cbfd8e9d4b6a886ae14975e94a2ac85f577`; all 38 included source/class/log hashes and ZIP CRC passed. It preserves both the original 40,593-check/three-mode method proof and the new exact six-test-body proof, with all local shims explicitly labeled. This archive is a conversation artifact, not an imported binary.
+
+**Still HOLD:** actual JRE/Android `mvn test`/Bazel/JUnit engine and complete Guava production dependency closure, GWT/J2KT, M3JDK21 integration and runtime JMH. A test-only assertion shim does not grant a native JUnit pass or release qualification.
+
 **Disposition:** `DRAFT / TWO_SOURCE_INTS_OPTIMIZATION / 16_CLASS_PRIMITIVE_FAMILY_STACK / NO_PRODUCT_PROMOTION`.
