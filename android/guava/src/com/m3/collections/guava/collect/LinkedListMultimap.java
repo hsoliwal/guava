@@ -560,10 +560,11 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   }
 
   /** An {@code Iterator} over distinct keys in key head order. */
+  /** Iterate unique keys by their first global array position. */
   private final class DistinctKeyIterator implements Iterator<K> {
     final Set<K> seenKeys = newHashSetWithExpectedSize(keySet().size());
-    @Nullable Node<K, V> next = head;
-    @Nullable Node<K, V> current;
+    int next = head;
+    int current = NONE;
     int expectedModCount = modCount;
 
     private void checkForConcurrentModification() {
@@ -575,111 +576,108 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     @Override
     public boolean hasNext() {
       checkForConcurrentModification();
-      return next != null;
+      return next != NONE;
     }
 
+    @CanIgnoreReturnValue
     @Override
     @ParametricNullness
     public K next() {
       checkForConcurrentModification();
-      if (next == null) {
+      if (next == NONE) {
         throw new NoSuchElementException();
       }
       current = next;
-      seenKeys.add(current.getKey());
-      do { // skip ahead to next unseen key
-        next = next.next;
-      } while ((next != null) && !seenKeys.add(next.getKey()));
-      return current.getKey();
+      K key = keyAt(current);
+      seenKeys.add(key);
+      do {
+        next = nextAll[next];
+      } while (next != NONE && !seenKeys.add(keyAt(next)));
+      return key;
     }
 
     @Override
     public void remove() {
       checkForConcurrentModification();
-      checkState(current != null, "no calls to next() since the last call to remove()");
-      removeAllNodes(current.getKey());
-      current = null;
+      checkState(current != NONE, "no calls to next() since the last call to remove()");
+      removeAllNodes(keyAt(current));
+      current = NONE;
       expectedModCount = modCount;
     }
   }
 
   /** A {@code ListIterator} over values for a specified key. */
+  /** Iterate one key's sibling links using integer coordinates. */
   private final class ValueForKeyIterator implements ListIterator<V> {
     @ParametricNullness final K key;
     int nextIndex;
-    @Nullable Node<K, V> next;
-    @Nullable Node<K, V> current;
-    @Nullable Node<K, V> previous;
+    int next = NONE;
+    int current = NONE;
+    int previous = NONE;
 
-    /** Constructs a new iterator over all values for the specified key. */
     ValueForKeyIterator(@ParametricNullness K key) {
       this.key = key;
-      KeyList<K, V> keyList = keyToKeyList.get(key);
-      next = (keyList == null) ? null : keyList.head;
+      KeyList<K, V> list = keyToKeyList.get(key);
+      next = list == null ? NONE : list.head;
     }
 
-    /**
-     * Constructs a new iterator over all values for the specified key starting at the specified
-     * index. This constructor is optimized so that it starts at either the head or the tail,
-     * depending on which is closer to the specified index. This allows adds to the tail to be done
-     * in constant time.
-     *
-     * @throws IndexOutOfBoundsException if index is invalid
-     */
     ValueForKeyIterator(@ParametricNullness K key, int index) {
-      KeyList<K, V> keyList = keyToKeyList.get(key);
-      int size = (keyList == null) ? 0 : keyList.count;
-      checkPositionIndex(index, size);
-      if (index >= (size / 2)) {
-        previous = (keyList == null) ? null : keyList.tail;
-        nextIndex = size;
-        while (index++ < size) {
-          previous();
+      KeyList<K, V> list = keyToKeyList.get(key);
+      int count = list == null ? 0 : list.count;
+      checkPositionIndex(index, count);
+      if (index >= count / 2) {
+        previous = list == null ? NONE : list.tail;
+        nextIndex = count;
+        while (nextIndex > index) {
+          next = previous;
+          previous = previousForKey[previous];
+          nextIndex--;
         }
       } else {
-        next = (keyList == null) ? null : keyList.head;
-        while (index-- > 0) {
-          next();
+        next = list == null ? NONE : list.head;
+        while (nextIndex < index) {
+          previous = next;
+          next = nextForKey[next];
+          nextIndex++;
         }
       }
       this.key = key;
-      current = null;
     }
 
     @Override
     public boolean hasNext() {
-      return next != null;
+      return next != NONE;
     }
 
     @CanIgnoreReturnValue
     @Override
     @ParametricNullness
     public V next() {
-      if (next == null) {
+      if (next == NONE) {
         throw new NoSuchElementException();
       }
       previous = current = next;
-      next = next.nextSibling;
+      next = nextForKey[next];
       nextIndex++;
-      return current.getValue();
+      return valueAt(current);
     }
 
     @Override
     public boolean hasPrevious() {
-      return previous != null;
+      return previous != NONE;
     }
 
     @CanIgnoreReturnValue
     @Override
     @ParametricNullness
     public V previous() {
-      if (previous == null) {
+      if (previous == NONE) {
         throw new NoSuchElementException();
       }
       next = current = previous;
-      previous = previous.previousSibling;
+      previous = previousForKey[previous];
       nextIndex--;
-      return current.getValue();
+      return valueAt(current);
     }
 
     @Override
@@ -694,28 +692,28 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
     @Override
     public void remove() {
-      checkState(current != null, "no calls to next() since the last call to remove()");
-      if (current != next) { // after call to next()
-        previous = current.previousSibling;
+      checkState(current != NONE, "no calls to next() since the last call to remove()");
+      if (current != next) {
+        previous = previousForKey[current];
         nextIndex--;
-      } else { // after call to previous()
-        next = current.nextSibling;
+      } else {
+        next = nextForKey[current];
       }
       removeNode(current);
-      current = null;
+      current = NONE;
     }
 
     @Override
     public void set(@ParametricNullness V value) {
-      checkState(current != null);
-      current.setValue(value);
+      checkState(current != NONE);
+      updateValueAt(current, value);
     }
 
     @Override
     public void add(@ParametricNullness V value) {
       previous = addNode(key, value, next);
       nextIndex++;
-      current = null;
+      current = NONE;
     }
   }
 
