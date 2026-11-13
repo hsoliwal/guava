@@ -182,36 +182,9 @@ public final class Doubles extends DoublesMethodsForWeb {
 
     // Large primitive subsequence searches use bounded KMP failure links.
     // Small cases retain the original zero-allocation nested-loop behavior.
-    if (array.length >= 16384 && target.length >= 32 && target.length <= 65536) {
-      int[] prefix = new int[target.length];
-      int longestBorder = 0;
-      for (int i = 1, matched = 0; i < target.length; i++) {
-        while (matched > 0 && target[i] != target[matched]) {
-          matched = prefix[matched - 1];
-        }
-        if (target[i] == target[matched]) {
-          matched++;
-        }
-        prefix[i] = matched;
-        if (matched > longestBorder) {
-          longestBorder = matched;
-        }
-      }
-      // A low-overlap pattern generally favors the original primitive scan.
-      if (longestBorder >= target.length / 4) {
-        for (int i = 0, matched = 0; i < array.length; i++) {
-          while (matched > 0 && array[i] != target[matched]) {
-            matched = prefix[matched - 1];
-          }
-          if (array[i] == target[matched]) {
-            matched++;
-          }
-          if (matched == target.length) {
-            return i - target.length + 1;
-          }
-        }
-        return -1;
-      }
+    if (array.length >= 16384 && target.length >= 32 && target.length <= 65536
+        && hasPeriodicPrefix(target)) {
+      return kmpIndexOf(array, target);
     }
 
     outer:
@@ -222,6 +195,48 @@ public final class Doubles extends DoublesMethodsForWeb {
         }
       }
       return i;
+    }
+    return -1;
+  }
+  /** A cheap allocation-free gate for short-period adversarial prefixes. */
+  private static boolean hasPeriodicPrefix(double[] target) {
+    for (int period = 1; period <= 8; period <<= 1) {
+      boolean repeated = true;
+      for (int i = period; i < 32; i++) {
+        if (target[i] != target[i & (period - 1)]) {
+          repeated = false;
+          break;
+        }
+      }
+      if (repeated) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /** Bounded O(n+m) search for admitted repeating primitive patterns. */
+  private static int kmpIndexOf(double[] array, double[] target) {
+    int[] prefix = new int[target.length];
+    for (int i = 1, matched = 0; i < target.length; i++) {
+      while (matched > 0 && target[i] != target[matched]) {
+        matched = prefix[matched - 1];
+      }
+      if (target[i] == target[matched]) {
+        matched++;
+      }
+      prefix[i] = matched;
+    }
+    for (int i = 0, matched = 0; i < array.length; i++) {
+      while (matched > 0 && array[i] != target[matched]) {
+        matched = prefix[matched - 1];
+      }
+      if (array[i] == target[matched]) {
+        matched++;
+      }
+      if (matched == target.length) {
+        return i - target.length + 1;
+      }
     }
     return -1;
   }
