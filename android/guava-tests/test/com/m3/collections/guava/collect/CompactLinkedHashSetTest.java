@@ -27,6 +27,8 @@ import com.m3.collections.guava.collect.testing.features.CollectionFeature;
 import com.m3.collections.guava.collect.testing.features.CollectionSize;
 import com.m3.collections.guava.collect.testing.features.Feature;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Random;
 import java.util.List;
 import java.util.Set;
 import junit.framework.Test;
@@ -70,6 +72,73 @@ public class CompactLinkedHashSetTest extends TestCase {
             .withFeatures(allFeatures)
             .createTestSuite());
     return suite;
+  }
+
+  /**
+   * Repeated clear must not make stale primitive predecessor/successor entries observable.
+   * The source uses array-backed linked indices rather than retained node objects.
+   */
+  public void testClearRebindsOwnedIndexLanesInInsertionOrder() {
+    Random random = new Random(0x1eed5eedL);
+    for (int capacity : new int[] {0, 1, 2, 7, 8, 31, 32, 64, 256}) {
+      CompactLinkedHashSet<Integer> actual = CompactLinkedHashSet.createWithExpectedSize(capacity);
+      LinkedHashSet<Integer> expected = new LinkedHashSet<>();
+      for (int wave = 0; wave < 128; wave++) {
+        for (int step = 0; step < 36; step++) {
+          Integer value = random.nextInt(16) == 0 ? null : random.nextInt(97) - 48;
+          switch (random.nextInt(4)) {
+            case 0:
+            case 1:
+              assertEquals(expected.add(value), actual.add(value));
+              break;
+            case 2:
+              assertEquals(expected.remove(value), actual.remove(value));
+              break;
+            default:
+              assertEquals(expected.contains(value), actual.contains(value));
+          }
+        }
+        assertEquals(expected, actual);
+        assertTrue(Arrays.equals(expected.toArray(), actual.toArray()));
+        assertTrue(Arrays.equals(expected.toArray(new Integer[0]), actual.toArray(new Integer[0])));
+
+        // Both clear paths must leave an empty iteration and release reference payloads.
+        actual.clear();
+        expected.clear();
+        assertTrue(actual.isEmpty());
+        assertEquals(0, actual.toArray().length);
+
+        // A cleared physical entry is subsequently reused, including after shrinkage.
+        if ((wave & 7) == 0) {
+          actual.trimToSize();
+        }
+        Integer replacement = wave == 0 ? null : Integer.valueOf(wave - 64);
+        assertEquals(expected.add(replacement), actual.add(replacement));
+        assertTrue(Arrays.equals(expected.toArray(), actual.toArray()));
+        actual.clear();
+        expected.clear();
+      }
+    }
+  }
+
+  /** Hash-flooding delegate mode still follows the original super.clear() contract. */
+  public void testClearAfterHashFloodingConversionAndReinsertion() {
+    CompactLinkedHashSet<String> actual = CompactLinkedHashSet.create();
+    LinkedHashSet<String> expected = new LinkedHashSet<>();
+    for (int i = 0; i < 64; i++) {
+      actual.add(Integer.toString(i));
+      expected.add(Integer.toString(i));
+    }
+    actual.convertToHashFloodingResistantImplementation();
+    assertTrue(Arrays.equals(expected.toArray(), actual.toArray()));
+    actual.clear();
+    expected.clear();
+    actual.add(null);
+    expected.add(null);
+    actual.add("again");
+    expected.add("again");
+    assertTrue(Arrays.equals(expected.toArray(), actual.toArray()));
+    assertEquals(expected, actual);
   }
 
   public void testAllocArraysDefault() {
