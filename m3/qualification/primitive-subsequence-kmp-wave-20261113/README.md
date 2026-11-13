@@ -23,9 +23,17 @@ No existing class is moved, deleted, renamed, repackaged, merged into another se
 
 The present source performs a naïve nested scan, worst-case O(n*m) equality comparisons on a periodic-prefix miss (for example 200,000 copies of one value and a pattern of 127 copies of that value followed by a different value). Each owner gets the same bounded **Knuth–Morris–Pratt failure-link algorithm**, with *primitive-specialized comparisons* and a deterministic `int[]` prefix table. No copied competitive-programming solution, reflection, boxing, external library or object allocation per character.
 
-Fast-path gate: `array.length >= 4096 && target.length >= 32 && target.length <= 65536 && target.length <= array.length`. Max prefix storage 65,536 integers = 256 KiB. Preserve old original nested loop literally for short inputs, short needles, and long needles beyond this budget. Added early impossible-length return `-1` follows the original result for `target.length > array.length` after the original ordered null and empty checks. Both paths return the **first** match index, including overlap and self-alias.
+Fast-path candidate gate: `array.length >= 16384 && target.length >= 32 && target.length <= 65536 && target.length <= array.length`. Construct the bounded prefix table once, tracking the maximum proper-prefix overlap. **Only traverse the haystack with KMP when that maximum is at least `target.length / 4`**; otherwise run the unchanged original nested scan. Max prefix storage 65,536 integers = 256 KiB. Preserve old original nested loop literally for short inputs, short needles, and long needles beyond this budget. Added early impossible-length return `-1` follows the original result for `target.length > array.length` after the original ordered null and empty checks. Both paths return the **first** match index, including overlap and self-alias.
 
 The failure-link and haystack comparisons use the type's **primitive `==`**, not `Object.equals`/bitwise equality. Float/double NaN must not match any input, including another NaN; `-0.0` and `+0.0` must match. Those cases are mandatory differential tests. Since a pattern position containing NaN cannot match any text value, KMP must produce no false match. No caller callback or comparison side effects exist for primitives.
+
+## Measured branch admission: refuse common-case regressions
+
+The first seven-family benchmark on exact, GitHub-SHA-256-matched method bodies exposed a **common-case regression**: for n=120,000 and m=128, periodic-prefix misses were 10.5–23.0× faster, but independent random-needle misses were 10–120% slower for the unconditional KMP scan (notably Longs: 76,040 ns → 169,366 ns). That candidate is not accepted for general use.
+
+The corrected recipe keeps the original scan for n below 16,384, *and* for large patterns with insufficient self-overlap. The KMP prefix table is built once as a bounded O(m) array; `longestBorder` tracks the largest observed proper-prefix equality. If `longestBorder < target.length / 4`, retain the original nested loop for the haystack. This is a **performance dispatch only**: both algorithms return the same first-match index; no primitive equality semantics, API, or input bytes change. The extra O(m) preprocessing on large random patterns must be measured explicitly and may still be a modest slowdown; do not claim it is free.
+
+Local Java21 strict compiler, full seven-family differential and mixed/`-Xint`/`-Xcomp` replay must be rerun on the revised methods. Publish periodic and random timings for all seven, including regressions, not only favorable measurements. The earlier unconditional results remain part of the audit history, not final acceptance.
 
 ## Proof and admission order
 
