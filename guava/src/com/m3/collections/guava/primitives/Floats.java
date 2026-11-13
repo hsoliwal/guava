@@ -173,18 +173,76 @@ public final class Floats extends FloatsMethodsForWeb {
     if (target.length == 0) {
       return 0;
     }
-
+    // Small or oversized patterns retain the allocation-free scalar implementation.
+    if (target.length < 32 || target.length > 65536 || array.length < 4096) {
     outer:
-    for (int i = 0; i < array.length - target.length + 1; i++) {
-      for (int j = 0; j < target.length; j++) {
-        if (array[i + j] != target[j]) {
-          continue outer;
+      for (int i = 0; i < array.length - target.length + 1; i++) {
+        for (int j = 0; j < target.length; j++) {
+          if (array[i + j] != target[j]) {
+            continue outer;
+          }
         }
+        return i;
       }
-      return i;
+      return -1;
+    }
+    if (target.length > array.length) {
+      return -1;
+    }
+    // Avoid preprocessing a pattern that already matches at the first position.
+    int first = 0;
+    while (first < target.length && array[first] == target[first]) {
+      first++;
+    }
+    if (first == target.length) {
+      return 0;
+    }
+    // Only repeated pattern prefixes can make the incumbent revisit long runs.
+    boolean repeatedPrefix = false;
+    for (int i = 1; i <= target.length - 4; i++) {
+      if (target[i] == target[0] && target[i + 1] == target[1]
+          && target[i + 2] == target[2] && target[i + 3] == target[3]) {
+        repeatedPrefix = true;
+        break;
+      }
+    }
+    if (!repeatedPrefix) {
+      outer:
+      for (int i = 1; i < array.length - target.length + 1; i++) {
+        for (int j = 0; j < target.length; j++) {
+          if (array[i + j] != target[j]) {
+            continue outer;
+          }
+        }
+        return i;
+      }
+      return -1;
+    }
+    // KMP failure links bound repeated-prefix scans to linear time.
+    final int[] prefix = new int[target.length];
+    for (int i = 1, matched = 0; i < target.length; i++) {
+      while (matched > 0 && target[i] != target[matched]) {
+        matched = prefix[matched - 1];
+      }
+      if (target[i] == target[matched]) {
+        matched++;
+      }
+      prefix[i] = matched;
+    }
+    for (int i = 0, matched = 0; i < array.length; i++) {
+      while (matched > 0 && array[i] != target[matched]) {
+        matched = prefix[matched - 1];
+      }
+      if (array[i] == target[matched]) {
+        matched++;
+      }
+      if (matched == target.length) {
+        return i - matched + 1;
+      }
     }
     return -1;
   }
+
 
   /**
    * Returns the index of the last appearance of the value {@code target} in {@code array}. Note
