@@ -501,6 +501,29 @@ class CompactHashMap<K extends @Nullable Object, V extends @Nullable Object>
 
   @Override
   public final void putAll(Map<? extends K, ? extends V> m) {
+    // This exact owner has parallel key/value lanes. Read them directly when
+    // the source is a distinct non-delegated CompactHashMap: no Map.Entry is
+    // allocated per copied mapping. Subclasses, aliases and flooding delegates
+    // continue through the original iterator path and its observable hooks.
+    if (m != this && m.getClass() == CompactHashMap.class) {
+      @SuppressWarnings("unchecked")
+      CompactHashMap<? extends K, ? extends V> source =
+          (CompactHashMap<? extends K, ? extends V>) m;
+      if (source.delegateOrNull() == null) {
+        int expectedMetadata = source.metadata;
+        for (int index = source.firstEntryIndex(); index >= 0; ) {
+          if (source.metadata != expectedMetadata) {
+            throw new ConcurrentModificationException();
+          }
+          K key = source.key(index);
+          V value = source.value(index);
+          // The original iterator advances before put's hash/equals callbacks.
+          index = source.getSuccessor(index);
+          put(key, value);
+        }
+        return;
+      }
+    }
     for (Entry<? extends K, ? extends V> entry : m.entrySet()) {
       put(entry.getKey(), entry.getValue());
     }
