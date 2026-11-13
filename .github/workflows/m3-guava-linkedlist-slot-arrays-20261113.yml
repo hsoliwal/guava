@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: Apache-2.0
+name: M3 Guava linked multimap array lanes
+on:
+  pull_request:
+    paths:
+      - 'guava/src/com/m3/collections/guava/collect/LinkedListMultimap.java'
+      - 'android/guava/src/com/m3/collections/guava/collect/LinkedListMultimap.java'
+      - 'guava-tests/test/com/m3/collections/guava/collect/LinkedListMultimapArrayLinksTest.java'
+      - 'android/guava-tests/test/com/m3/collections/guava/collect/LinkedListMultimapArrayLinksTest.java'
+      - '.github/workflows/m3-guava-linkedlist-slot-arrays-20261113.yml'
+      - 'm3/array-storage-20261113/linkedlistmultimap/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linked-list-array-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        flavor: [jre, android]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Execute real Guava LinkedListMultimap JRE and Android suites
+        shell: bash
+        env:
+          FLAVOR: ${{ matrix.flavor }}
+        run: |
+          set -euo pipefail
+          pom="pom.xml"
+          if [ "$FLAVOR" = "android" ]; then pom="android/pom.xml"; fi
+          mvn -B -ntp -f "$pom" -P m3-relocated-verification -pl guava-tests -am \
+            -Dtest=LinkedListMultimapTest,LinkedListMultimapArrayLinksTest \
+            -Dsurefire.failIfNoSpecifiedTests=false test
+      - name: Require native executed JUnit results
+        shell: bash
+        env:
+          FLAVOR: ${{ matrix.flavor }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          base = Path('android/guava-tests' if os.environ['FLAVOR'] == 'android' else 'guava-tests')
+          reports = list((base / 'target/surefire-reports').glob('TEST-*LinkedListMultimap*Test*.xml'))
+          if not reports:
+              raise SystemExit('NO_EXECUTED_LINKEDLISTMULTIMAP_JUNIT')
+          total = failures = errors = skips = 0
+          for report in reports:
+              data = ET.parse(report).getroot()
+              total += int(data.attrib.get('tests', 0))
+              failures += int(data.attrib.get('failures', 0))
+              errors += int(data.attrib.get('errors', 0))
+              skips += int(data.attrib.get('skipped', 0))
+          print('NATIVE_LINKEDLIST_ARRAY_TESTS', os.environ['FLAVOR'], total, failures, errors, skips)
+          if total < 10 or failures or errors:
+              raise SystemExit('GATE_FAILED')
+          PY
