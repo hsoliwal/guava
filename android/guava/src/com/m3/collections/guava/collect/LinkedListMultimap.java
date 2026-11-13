@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Modified 2026 by Synexia contributors: primitive array-owned value links.
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.base.Preconditions.checkPositionIndex;
@@ -107,43 +108,184 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
    * ValueForKeyIterator} in constant time.
    */
 
+  private static final int NONE = -1;
+
+  /**
+   * Boundary entry, materialized only when an API entry iterator is used.
+   * Normal insertions and value iteration retain no entry-shaped object.
+   * Detached entries hold their last value even if the slot is recycled.
+   */
   static final class Node<K extends @Nullable Object, V extends @Nullable Object>
       extends SimpleEntry<K, V> {
-    @Nullable Node<K, V> next; // the next node (with any key)
-    @Weak @Nullable Node<K, V> previous; // the previous node (with any key)
-    @Nullable Node<K, V> nextSibling; // the next node with the same key
-    @Weak @Nullable Node<K, V> previousSibling; // the previous node with the same key
+    @Nullable Node<K, V> next;
+    @Weak @Nullable Node<K, V> previous;
+    @Nullable Node<K, V> nextSibling;
+    @Weak @Nullable Node<K, V> previousSibling;
+
+    @Weak private transient @Nullable LinkedListMultimap<K, V> owner;
+    private final int slot;
 
     Node(@ParametricNullness K key, @ParametricNullness V value) {
       super(key, value);
+      owner = null;
+      slot = NONE;
+    }
+
+    Node(LinkedListMultimap<K, V> owner, int slot) {
+      super(owner.keyAt(slot), owner.valueAt(slot));
+      this.owner = owner;
+      this.slot = slot;
+    }
+
+    @Override
+    @CanIgnoreReturnValue
+    public V setValue(V value) {
+      V old = super.setValue(value);
+      LinkedListMultimap<K, V> currentOwner = owner;
+      if (currentOwner != null) {
+        currentOwner.slotValues[slot] = value;
+      }
+      return old;
+    }
+
+    void updateStoredValue(V value) {
+      super.setValue(value);
+    }
+
+    void detach() {
+      owner = null;
     }
   }
 
   private static final class KeyList<K extends @Nullable Object, V extends @Nullable Object> {
-    Node<K, V> head;
-    Node<K, V> tail;
+    int head;
+    int tail;
     int count;
 
+    KeyList(int first) {
+      head = tail = first;
+      count = 1;
+    }
+
     KeyList(Node<K, V> firstNode) {
-      this.head = firstNode;
-      this.tail = firstNode;
-      firstNode.previousSibling = null;
-      firstNode.nextSibling = null;
-      this.count = 1;
+      this(firstNode.slot);
     }
   }
 
-  private transient @Nullable Node<K, V> head; // the head for all keys
-  private transient @Nullable Node<K, V> tail; // the tail for all keys
+  // One physical integer index per mapping; separate global and sibling links.
+  // The existing Platform CompactHashMap remains the distinct-key directory.
+  private transient Object[] slotKeys = new Object[0];
+  private transient Object[] slotValues = new Object[0];
+  private transient Object[] entryBoundaries = new Object[0];
+  private transient int[] nextAll = new int[0];
+  private transient int[] previousAll = new int[0];
+  private transient int[] nextForKey = new int[0];
+  private transient int[] previousForKey = new int[0];
+  private transient int[] freeNext = new int[0];
+  private transient int used;
+  private transient int free = NONE;
+  private transient int head = NONE;
+  private transient int tail = NONE;
   private transient Map<K, KeyList<K, V>> keyToKeyList;
   private transient int size;
 
-  /*
-   * Tracks modifications to keyToKeyList so that addition or removal of keys invalidates
-   * preexisting iterators. This does *not* track simple additions and removals of values
-   * that are not the first to be added or last to be removed for their key.
-   */
+  /** Tracks distinct-key modifications, matching the old iterator contract. */
   private transient int modCount;
+
+  private void resetSlots() {
+    slotKeys = new Object[0];
+    slotValues = new Object[0];
+    entryBoundaries = new Object[0];
+    nextAll = new int[0];
+    previousAll = new int[0];
+    nextForKey = new int[0];
+    previousForKey = new int[0];
+    freeNext = new int[0];
+    used = 0;
+    free = head = tail = NONE;
+  }
+
+  private void growSlots() {
+    int oldCapacity = slotKeys.length;
+    long wanted = oldCapacity < 8 ? 8L : (long) oldCapacity + (oldCapacity >>> 1) + 1L;
+    if (wanted > Integer.MAX_VALUE - 8L) {
+      throw new OutOfMemoryError("LinkedListMultimap slot capacity exhausted");
+    }
+    int capacity = (int) wanted;
+    Object[] keys = java.util.Arrays.copyOf(slotKeys, capacity);
+    Object[] values = java.util.Arrays.copyOf(slotValues, capacity);
+    Object[] boundaries = java.util.Arrays.copyOf(entryBoundaries, capacity);
+    int[] next = java.util.Arrays.copyOf(nextAll, capacity);
+    int[] previous = java.util.Arrays.copyOf(previousAll, capacity);
+    int[] siblingNext = java.util.Arrays.copyOf(nextForKey, capacity);
+    int[] siblingPrevious = java.util.Arrays.copyOf(previousForKey, capacity);
+    int[] recyclable = java.util.Arrays.copyOf(freeNext, capacity);
+    slotKeys = keys;
+    slotValues = values;
+    entryBoundaries = boundaries;
+    nextAll = next;
+    previousAll = previous;
+    nextForKey = siblingNext;
+    previousForKey = siblingPrevious;
+    freeNext = recyclable;
+  }
+
+  private int freshSlot(@ParametricNullness K key, @ParametricNullness V value) {
+    int slot;
+    if (free != NONE) {
+      slot = free;
+      free = freeNext[slot];
+    } else {
+      if (used == slotKeys.length) {
+        growSlots();
+      }
+      slot = used++;
+    }
+    slotKeys[slot] = key;
+    slotValues[slot] = value;
+    nextAll[slot] = previousAll[slot] = NONE;
+    nextForKey[slot] = previousForKey[slot] = NONE;
+    return slot;
+  }
+
+  @SuppressWarnings("unchecked")
+  private K keyAt(int slot) {
+    return (K) slotKeys[slot];
+  }
+
+  @SuppressWarnings("unchecked")
+  private V valueAt(int slot) {
+    return (V) slotValues[slot];
+  }
+
+  @SuppressWarnings("unchecked")
+  private Node<K, V> entryAt(int slot) {
+    Node<K, V> entry = (Node<K, V>) entryBoundaries[slot];
+    if (entry == null) {
+      entry = new Node<>(this, slot);
+      entryBoundaries[slot] = entry;
+    }
+    return entry;
+  }
+
+  private void updateValueAt(int slot, @ParametricNullness V value) {
+    slotValues[slot] = value;
+    if (entryBoundaries[slot] != null) {
+      entryAt(slot).updateStoredValue(value);
+    }
+  }
+
+  private void releaseSlot(int slot) {
+    if (entryBoundaries[slot] != null) {
+      entryAt(slot).detach();
+      entryBoundaries[slot] = null;
+    }
+    slotKeys[slot] = null;
+    slotValues[slot] = null;
+    freeNext[slot] = free;
+    free = slot;
+    // Retain historical next/previous links until this slot is reused.
+  }
 
   /** Creates a new, empty {@code LinkedListMultimap} with the default initial capacity. */
   public static <K extends @Nullable Object, V extends @Nullable Object>
