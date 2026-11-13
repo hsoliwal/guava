@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// Modified 2026 by Hitesh Soliwal and Synexia contributors:
+// array-backed distinct-key directory, retaining ordered value-link contracts.
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.base.Preconditions.checkPositionIndex;
@@ -135,7 +137,9 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   private transient @Nullable Node<K, V> head; // the head for all keys
   private transient @Nullable Node<K, V> tail; // the tail for all keys
-  private transient Map<K, KeyList<K, V>> keyToKeyList;
+  // One array-owned directory replaces retained HashMap entries per distinct key.
+  // Value Node links remain here for mutable entry and sibling-list semantics.
+  private transient ArrayKeyDirectory<K, KeyList<K, V>> keyToKeyList;
   private transient int size;
 
   /*
@@ -180,7 +184,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   }
 
   private LinkedListMultimap(int expectedKeys) {
-    keyToKeyList = Platform.newHashMapWithExpectedSize(expectedKeys);
+    keyToKeyList = new ArrayKeyDirectory<>(expectedKeys);
   }
 
   private LinkedListMultimap(Multimap<? extends K, ? extends V> multimap) {
@@ -833,7 +837,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   @J2ktIncompatible
     private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
-    keyToKeyList = CompactLinkedHashMap.create();
+    keyToKeyList = new ArrayKeyDirectory<>(12);
     int size = stream.readInt();
     for (int i = 0; i < size; i++) {
       @SuppressWarnings("unchecked") // reading data stored by writeObject

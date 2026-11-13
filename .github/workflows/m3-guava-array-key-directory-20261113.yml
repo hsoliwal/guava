@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Guava array-owned linked-list key directory
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/m3-guava-array-key-directory-20261113.yml'
+      - 'guava/src/com/m3/collections/guava/collect/ArrayKeyDirectory.java'
+      - 'android/guava/src/com/m3/collections/guava/collect/ArrayKeyDirectory.java'
+      - 'guava/src/com/m3/collections/guava/collect/LinkedListMultimap.java'
+      - 'android/guava/src/com/m3/collections/guava/collect/LinkedListMultimap.java'
+      - 'guava-tests/test/com/m3/collections/guava/collect/LinkedListMultimapArrayDirectoryTest.java'
+      - 'android/guava-tests/test/com/m3/collections/guava/collect/LinkedListMultimapArrayDirectoryTest.java'
+      - 'm3/qualification/guava-linkedlistmultimap-array-key-directory-20261113/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  direct-array-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Strict Java 8 compiler for both JRE and Android array directors
+        shell: bash
+        run: |
+          set -euo pipefail
+          out="$(mktemp -d)"
+          root="m3/qualification/guava-linkedlistmultimap-array-key-directory-20261113/proof"
+          for flavor in guava android/guava; do
+            mkdir -p "$out/${flavor//\//_}"
+            javac --release 8 -Xlint:all,-options -Werror -d "$out/${flavor//\//_}" \
+              "$flavor/src/com/m3/collections/guava/annotations/GwtCompatible.java" \
+              "$root/org/jspecify/annotations/Nullable.java" \
+              "$flavor/src/com/m3/collections/guava/collect/ArrayKeyDirectory.java" \
+              "$root/ArrayKeyDirectoryModelProof.java"
+            java -cp "$out/${flavor//\//_}" \
+              com.m3.collections.guava.collect.ArrayKeyDirectoryModelProof \
+              | tee "$out/${flavor//\//_}.log"
+            grep -qx 'PASS assertions=2576677' "$out/${flavor//\//_}.log"
+          done
