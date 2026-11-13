@@ -1,0 +1,8 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+# Guava CompactHashSet: inherited compact-bucket array empty clear
+
+**Direct fork owner:** `hsoliwal/guava@06387d46d087bf79032b51afbd814ad467fffda0`, `guava/src/com/m3/collections/guava/collect/CompactHashSet.java`, exact baseline Git blob `a8d993d0524ec38ea71ded0c868c0ed72a68ac42`.
+
+The existing compact set uses the same `CompactHashing.remove()` and `tableClear()` primitive bucket-array family as CompactHashMap. Last legal removal unlinks the bucket head to `UNSET`, so a valid already-empty, allocated table contains no bucket entries. Repeated `clear()` currently increments `modCount` and zero-fills the whole table. For **exact runtime class** `CompactHashSet`, size 0, table allocated, no delegate and hash table mask >=512, preserve the modification epoch but skip the redundant array scan. All nonempty, small, lazy-unallocated, delegated and subclass cases retain the original clear path. `CompactLinkedHashSet.clear` retains its own link-reset and inherited slow-array behavior.
+
+No new storage, iterator, dependency or public/protected signature. Full tests must compare future insertion/removal, zero element and null element, delegated fallback, and CompactLinkedHashSet iteration behavior. Strict standalone Java21 array-header/bucket metadata model shared with the map owner passed **385,525,750** state checks, but it does **not** substitute for compiling the real source. A fork-owned JUnit3 set test is required and must run before merge. All full Guava tests, performance profiling and CI remain NOT_RUN in this session. This is an additional family member in the existing Guava draft PR, not a second map abstraction.
