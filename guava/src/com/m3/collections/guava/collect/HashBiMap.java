@@ -805,6 +805,12 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
 
   @Override
   public void clear() {
+    // Both bucket lanes are already ABSENT after the final ordinary removal.
+    // Preserve the iterator epoch while skipping scans of large empty tables.
+    if (size == 0 && floodedTables == null && hashTableKToV.length >= 1024) {
+      modCount++;
+      return;
+    }
     Arrays.fill(keys, 0, size, null);
     Arrays.fill(values, 0, size, null);
     FloodedTables<K, V> tables = floodedTables;

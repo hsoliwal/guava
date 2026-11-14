@@ -688,6 +688,11 @@ class CompactHashSet<E extends @Nullable Object> extends AbstractSet<E> implemen
       table = null;
       size = 0;
     } else {
+      // Last removal clears the bucket head; a large empty exact set has no table entries.
+      // Preserve incrementModCount above and all delegated/subclass behavior.
+      if (size == 0 && getClass() == CompactHashSet.class && hashTableMask() >= 512) {
+        return;
+      }
       Arrays.fill(requireElements(), 0, size, null);
       CompactHashing.tableClear(requireTable());
       Arrays.fill(requireEntries(), 0, size, 0);

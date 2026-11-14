@@ -1148,6 +1148,11 @@ class CompactHashMap<K extends @Nullable Object, V extends @Nullable Object>
       table = null;
       size = 0;
     } else {
+      // An exact empty CompactHashMap has no occupied bucket heads; preserve the
+      // modification epoch without scanning a large, already-clear table.
+      if (size == 0 && getClass() == CompactHashMap.class && hashTableMask() >= 512) {
+        return;
+      }
       Arrays.fill(requireKeys(), 0, size, null);
       Arrays.fill(requireValues(), 0, size, null);
       CompactHashing.tableClear(requireTable());
