@@ -188,6 +188,37 @@ public final class Ints extends IntsMethodsForWeb {
     if (target.length == 0) {
       return 0;
     }
+    if (target.length > array.length) {
+      return -1;
+    }
+
+    // Large primitive subsequence searches can amortize a bounded KMP
+    // failure-link array. Preserve the original zero-allocation search
+    // for small inputs and needles exceeding the 256 KiB prefix budget.
+    if (array.length >= 4096 && target.length >= 32 && target.length <= 65536) {
+      int[] prefix = new int[target.length];
+      for (int i = 1, matched = 0; i < target.length; i++) {
+        while (matched > 0 && target[i] != target[matched]) {
+          matched = prefix[matched - 1];
+        }
+        if (target[i] == target[matched]) {
+          matched++;
+        }
+        prefix[i] = matched;
+      }
+      for (int i = 0, matched = 0; i < array.length; i++) {
+        while (matched > 0 && array[i] != target[matched]) {
+          matched = prefix[matched - 1];
+        }
+        if (array[i] == target[matched]) {
+          matched++;
+        }
+        if (matched == target.length) {
+          return i - target.length + 1;
+        }
+      }
+      return -1;
+    }
 
     outer:
     for (int i = 0; i < array.length - target.length + 1; i++) {
