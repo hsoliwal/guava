@@ -747,7 +747,35 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @Override
   public boolean containsValue(@Nullable Object value) {
-    return values().contains(value);
+    // User-defined equals can mutate this list while an iterator visits
+    // a detached entry. Keep the historical iterator path for callbacks.
+    if (!hasCallbackFreeEquals(value)) {
+      return values().contains(value);
+    }
+    int expectedModCount = modCount;
+    int slot = head;
+    for (;;) {
+      if (modCount != expectedModCount) {
+        throw new ConcurrentModificationException();
+      }
+      if (slot == NONE) {
+        return false;
+      }
+      int successor = nextAll[slot];
+      Object candidate = slotValues[slot];
+      if (value == null ? candidate == null : value.equals(candidate)) {
+        return true;
+      }
+      slot = successor;
+    }
+  }
+
+  /** Only intrinsically final JDK equals methods can skip iterator callbacks. */
+  private static boolean hasCallbackFreeEquals(@Nullable Object value) {
+    return value == null || value instanceof String || value instanceof Integer
+        || value instanceof Long || value instanceof Short || value instanceof Byte
+        || value instanceof Character || value instanceof Boolean || value instanceof Float
+        || value instanceof Double || value instanceof Enum<?>;
   }
 
   // Modification Operations
