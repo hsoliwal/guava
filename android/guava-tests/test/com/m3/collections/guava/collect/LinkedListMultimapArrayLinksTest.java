@@ -80,6 +80,36 @@ public final class LinkedListMultimapArrayLinksTest extends TestCase {
     assertNoEntryHandles(map);
   }
 
+  public void testSerializationWritesSlotValuesWithoutMaterializingEntryBoundaries()
+      throws Exception {
+    LinkedListMultimap<String, Integer> map = LinkedListMultimap.create();
+    Integer shared = Integer.valueOf(1000);
+    map.put("a", shared);
+    map.put(null, null);
+    map.put("b", shared);
+    map.put("a", 25);
+    assertNull("no entry projection allocated before serialization", entryBoundaries(map));
+    byte[] serialized;
+    try (ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        ObjectOutputStream stream = new ObjectOutputStream(bytes)) {
+      stream.writeObject(map);
+      stream.flush();
+      serialized = bytes.toByteArray();
+    }
+    assertNull("serialization must not create entry boundary array", entryBoundaries(map));
+    LinkedListMultimap<?, ?> restored;
+    try (ObjectInputStream stream = new ObjectInputStream(
+        new ByteArrayInputStream(serialized))) {
+      restored = (LinkedListMultimap<?, ?>) stream.readObject();
+    }
+    assertNull("deserialization must not project public entries", entryBoundaries(restored));
+    assertEquals(Arrays.asList(shared, null, shared, 25), restored.values());
+    assertSame("shared references must remain shared after serialization",
+        restored.values().get(0), restored.values().get(2));
+    assertEquals(Arrays.asList("a", null, "b", "a"),
+        new ArrayList<>(restored.keys()));
+  }
+
   public void testEscapedEntriesTrackUpdatesThenDetachOnSlotRecycling() throws Exception {
     LinkedListMultimap<String, Integer> map = LinkedListMultimap.create();
     map.put("a", 1);
