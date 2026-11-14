@@ -1,8 +1,0 @@
-# SPDX-License-Identifier: Apache-2.0
-# Category crosswalk only. Canonical catalogue: hsoliwal/com.synexia PR 15080.
-# Challenge IDs are problem shapes, not copied algorithms. Tests and relevant licences required.
-fork	owner	category	technique_atom	leetcode	hackerrank	state
-guava	TopKSelector.swap_JRE	SELECTION	QUICKSELECT_PARTITION	LC215	HR_FIND_THE_MEDIAN	DRAFT_NATIVE_JUNIT_PENDING
-guava	TopKSelector.swap_ANDROID	SELECTION	QUICKSELECT_PARTITION	LC215	HR_FIND_THE_MEDIAN	DRAFT_NATIVE_JUNIT_PENDING
-guava	CompactHashMap	HASH	HASH_PROBE_INSERT	LC1	HR_FREQUENCY_QUERIES	INVENTORY_UNPROVEN
-guava	MinMaxPriorityQueue	HEAP	HEAP_SIFT_UP	LC215	HR_JESSE_AND_COOKIES	INVENTORY_UNPROVEN
