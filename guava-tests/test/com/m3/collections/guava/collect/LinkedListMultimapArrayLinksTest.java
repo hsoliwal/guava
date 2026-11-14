@@ -34,17 +34,21 @@ import junit.framework.TestCase;
 /** Contract and parent-owned storage proof for both Guava flavors. */
 public final class LinkedListMultimapArrayLinksTest extends TestCase {
 
-  private static Object[] entryBoundaries(LinkedListMultimap<?, ?> map) throws Exception {
+  private static Object[][] entryBoundaries(LinkedListMultimap<?, ?> map) throws Exception {
     Field field = LinkedListMultimap.class.getDeclaredField("entryBoundaries");
     field.setAccessible(true);
-    return (Object[]) field.get(map);
+    return (Object[][]) field.get(map);
   }
 
   private static void assertNoEntryHandles(LinkedListMultimap<?, ?> map) throws Exception {
-    Object[] boundaries = entryBoundaries(map);
+    Object[][] boundaries = entryBoundaries(map);
     if (boundaries != null) {
-      for (Object boundary : boundaries) {
-        assertNull("read-only value iteration must not materialize Node entries", boundary);
+      for (Object[] page : boundaries) {
+        if (page != null) {
+          for (Object boundary : page) {
+            assertNull("read-only value iteration must not materialize Node entries", boundary);
+          }
+        }
       }
     }
   }
@@ -78,6 +82,51 @@ public final class LinkedListMultimapArrayLinksTest extends TestCase {
     map.clear();
     assertEquals(0, map.size());
     assertNoEntryHandles(map);
+  }
+
+  public void testEscapedEntryCacheUsesOnlyTouchedPages() throws Exception {
+    LinkedListMultimap<Integer, Integer> map = LinkedListMultimap.create();
+    for (int index = 0; index < 12000; index++) {
+      map.put(index % 31, index);
+    }
+    assertNull("a value-only workload must not allocate entry pages", entryBoundaries(map));
+
+    Map.Entry<Integer, Integer> first = map.entries().get(0);
+    Object[][] pages = entryBoundaries(map);
+    assertNotNull(pages);
+    assertTrue("the top-level page index must be smaller than the value storage",
+        pages.length < map.size());
+    int materializedPages = 0;
+    for (Object[] page : pages) {
+      if (page != null) {
+        materializedPages++;
+        assertEquals(64, page.length);
+      }
+    }
+    assertEquals("only the touched page may be allocated", 1, materializedPages);
+    assertSame(first, map.entries().get(0));
+
+    for (int index = 12000; index < 24000; index++) {
+      map.put(index % 31, index);
+    }
+    assertSame("entry identity survives backing-array growth", first, map.entries().get(0));
+    Map.Entry<Integer, Integer> last = map.entries().get(map.size() - 1);
+    assertEquals(Integer.valueOf(23999), last.getValue());
+    int allocatedPages = 0;
+    for (Object[] page : entryBoundaries(map)) {
+      if (page != null) {
+        allocatedPages++;
+      }
+    }
+    assertEquals("only the two accessed pages should be retained", 2, allocatedPages);
+
+    map.get(0).remove(0);
+    assertEquals(Integer.valueOf(0), first.getValue());
+    first.setValue(-1);
+    assertEquals(Integer.valueOf(-1), first.getValue());
+    map.clear();
+    assertNull(entryBoundaries(map));
+    assertEquals(Integer.valueOf(-1), first.getValue());
   }
 
   public void testContainsValueScansPrimitiveSlotsForBuiltinValues() throws Exception {
