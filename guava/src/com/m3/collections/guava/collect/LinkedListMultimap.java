@@ -222,7 +222,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     int capacity = (int) wanted;
     Object[] keys = java.util.Arrays.copyOf(slotKeys, capacity);
     Object[] values = java.util.Arrays.copyOf(slotValues, capacity);
-    Object[] boundaries = entryBoundaries == null ? null
+    @Nullable Object[] boundaries = entryBoundaries == null ? null
         : java.util.Arrays.copyOf(entryBoundaries, capacity);
     int[] next = java.util.Arrays.copyOf(nextAll, capacity);
     int[] previous = java.util.Arrays.copyOf(previousAll, capacity);
@@ -269,7 +269,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @SuppressWarnings("unchecked")
   private Node<K, V> entryAt(int slot) {
-    Object[] boundaries = entryBoundaries;
+    @Nullable Object[] boundaries = entryBoundaries;
     if (boundaries == null) {
       boundaries = new Object[slotKeys.length];
       entryBoundaries = boundaries;
