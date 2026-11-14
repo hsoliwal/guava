@@ -13,10 +13,13 @@ Each logical mapping has a stable physical integer slot; keys and
 values are `Object[]`, global/sibling directions and free slots are
 `int[]`. The public mutable `Map.Entry` boundary remains an existing
 nested `Node` type and is materialized only on explicit `entries()`
-access. A separate nullable `Object[] entryBoundaries` array is allocated
-**only at first escaped entry**, not for `put/get/values/keySet`. The
-entry cache detaches on removal/clear, so a stale escaped entry retains
-its last value when its physical slot is reused.
+access. A nullable `Object[][] entryBoundaries` is allocated
+**only at first escaped entry**; individual 64-slot cache pages appear
+only on demand. A single requested entry in a 12,000-mapping collection
+allocates one 64-reference page and a small page index, not a
+12,000-reference entry cache. The entry cache detaches on removal/clear,
+so a stale escaped entry retains its last value when its physical slot
+is reused.
 
 The original `Node` serialized UID is explicitly preserved as
 `-2359543990797351600L`, independently verified with Java
@@ -43,6 +46,37 @@ It was independently compiled locally using
 This is an algorithm-model proof, **not** a full Guava classpath compile.
 Both real Guava JRE and Android production files are changed by the PR
 with native JUnit3 regression tests and a focused Maven workflow.
+
+## 14 November: in-place value search, streaming and paged public entries
+
+- `writeObject` now writes key/value payloads directly from the global
+  primitive-indexed slots. The old `entries()` route had accidentally
+  materialized an entry boundary for every mapping during serialization.
+  JRE and Android native tests now assert that the cache remains absent
+  throughout an `ObjectOutputStream` round trip with null and repeated
+  reference payloads.
+- `containsValue` uses a direct nonallocating slot scan for builtin
+  final Java equality types and null, retaining `values().contains`
+  for opaque user equality callbacks. It preserves query-before-value
+  equals direction and the normal distinct-key fail-fast epoch.
+  The independent scoped Java proof, exact Git blob
+  `655869e68223c9d4696ada02d43056eb26262380`,
+  compiled with `javac --release 21 -Xlint:all -Werror` and passed
+  **60,000** default and **6,000** interpreted comparisons.
+  A locally warmed model-only miss lookup benchmark at 16/256/4096
+  entries observed direct scan / old iterator wall-time ratios
+  0.505 / 0.450 / 0.478. Not a fork JMH claim.
+- Escaped `Map.Entry` caching uses nullable `Object[][]` 64-slot
+  pages rather than a capacity-sized `Object[]` allocated after one
+  requested entry. The exact Java proof Git blob
+  `b172a8c724a8b003c97b0ebe209fc5097aef8b9c`
+  compiled under Java 21 strict lint and passed **102,885**
+  identity, growth, detach, clear and recycled-slot observations.
+  Native JRE/Android JUnit tests also enforce only touched pages
+  being retained; real Guava Maven compilation is still HOLD.
+
+All three edits are in the original fork's production classes.
+No JNI memcpy or extra map owner was introduced.
 
 ## Further acceptance required (HOLD)
 
