@@ -80,6 +80,49 @@ public final class LinkedListMultimapArrayLinksTest extends TestCase {
     assertNoEntryHandles(map);
   }
 
+  public void testContainsValueScansPrimitiveSlotsForBuiltinValues() throws Exception {
+    LinkedListMultimap<Integer, Object> map = LinkedListMultimap.create();
+    map.put(1, 10);
+    map.put(2, null);
+    map.put(1, "value");
+    map.put(3, Boolean.TRUE);
+    assertNull(entryBoundaries(map));
+    assertTrue(map.containsValue(Integer.valueOf(10)));
+    assertTrue(map.containsValue(null));
+    assertTrue(map.containsValue("value"));
+    assertTrue(map.containsValue(Boolean.TRUE));
+    assertFalse(map.containsValue(Integer.valueOf(44)));
+    assertFalse(map.containsValue("missing"));
+    assertNull("direct containsValue must not allocate entry boundaries",
+        entryBoundaries(map));
+  }
+
+  public void testContainsValueOpaqueEqualityRetainsCallbackOrder() throws Exception {
+    LinkedListMultimap<String, Object> map = LinkedListMultimap.create();
+    Object first = new Object();
+    Object target = new Object();
+    map.put("left", first);
+    map.put("right", target);
+    map.put("left", new Object());
+
+    List<Object> arguments = new ArrayList<>();
+    Object query = new Object() {
+      @Override
+      public boolean equals(Object candidate) {
+        arguments.add(candidate);
+        return candidate == target;
+      }
+      @Override
+      public int hashCode() {
+        return 17;
+      }
+    };
+    assertTrue(map.containsValue(query));
+    assertEquals(Arrays.asList(first, target), arguments);
+    assertNull("opaque equality cannot materialize entry boundaries",
+        entryBoundaries(map));
+  }
+
   public void testSerializationWritesSlotValuesWithoutMaterializingEntryBoundaries()
       throws Exception {
     LinkedListMultimap<String, Integer> map = LinkedListMultimap.create();
