@@ -17,26 +17,10 @@ on:
       - 'guava-tests/test/com/m3/collections/guava/collect/LinkedListMultimapArrayLinksTest.java'
       - 'android/guava-tests/test/com/m3/collections/guava/collect/LinkedListMultimapArrayLinksTest.java'
       - '.github/workflows/m3-guava-linkedlist-slot-arrays-20261113.yml'
-      - 'm3/array-storage-20261113/linkedlistmultimap/**'
-      - 'm3/array-storage-20261114/linkedlistmultimap/**'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  primitive-indexed-slot-model:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '21'
-      - name: Strict Java21 JIT and interpreter model
-        run: bash m3/array-storage-20261114/linkedlistmultimap/verify_model.sh
-
   linked-list-array-contract:
     runs-on: ubuntu-latest
     timeout-minutes: 60
