@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Modified 2026 by Synexia contributors: primitive array-owned value links.
 package com.m3.collections.guava.collect;
 
 import static com.m3.collections.guava.base.Preconditions.checkPositionIndex;
@@ -107,43 +108,223 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
    * ValueForKeyIterator} in constant time.
    */
 
+  private static final int NONE = -1;
+  private static final int ENTRY_PAGE_SHIFT = 6;
+  private static final int ENTRY_PAGE_SIZE = 1 << ENTRY_PAGE_SHIFT;
+  private static final int ENTRY_PAGE_MASK = ENTRY_PAGE_SIZE - 1;
+
+  /**
+   * Boundary entry, materialized only when an API entry iterator is used.
+   * Normal insertions and value iteration retain no entry-shaped object.
+   * Detached entries hold their last value even if the slot is recycled.
+   */
   static final class Node<K extends @Nullable Object, V extends @Nullable Object>
       extends SimpleEntry<K, V> {
-    @Nullable Node<K, V> next; // the next node (with any key)
-    @Weak @Nullable Node<K, V> previous; // the previous node (with any key)
-    @Nullable Node<K, V> nextSibling; // the next node with the same key
-    @Weak @Nullable Node<K, V> previousSibling; // the previous node with the same key
+    // Historical default SUID of the original four-link SimpleEntry subclass.
+    // Retain it explicitly while changing storage internals.
+    private static final long serialVersionUID = -2359543990797351600L;
+
+    @Nullable Node<K, V> next;
+    @Weak @Nullable Node<K, V> previous;
+    @Nullable Node<K, V> nextSibling;
+    @Weak @Nullable Node<K, V> previousSibling;
+
+    @Weak private transient @Nullable LinkedListMultimap<K, V> owner;
+    private final int slot;
 
     Node(@ParametricNullness K key, @ParametricNullness V value) {
       super(key, value);
+      owner = null;
+      slot = NONE;
+    }
+
+    Node(LinkedListMultimap<K, V> owner, int slot) {
+      super(owner.keyAt(slot), owner.valueAt(slot));
+      this.owner = owner;
+      this.slot = slot;
+    }
+
+    @Override
+    @CanIgnoreReturnValue
+    public V setValue(V value) {
+      V old = super.setValue(value);
+      LinkedListMultimap<K, V> currentOwner = owner;
+      if (currentOwner != null) {
+        currentOwner.slotValues[slot] = value;
+      }
+      return old;
+    }
+
+    void updateStoredValue(V value) {
+      super.setValue(value);
+    }
+
+    void detach() {
+      owner = null;
     }
   }
 
   private static final class KeyList<K extends @Nullable Object, V extends @Nullable Object> {
-    Node<K, V> head;
-    Node<K, V> tail;
+    int head;
+    int tail;
     int count;
 
+    KeyList(int first) {
+      head = tail = first;
+      count = 1;
+    }
+
     KeyList(Node<K, V> firstNode) {
-      this.head = firstNode;
-      this.tail = firstNode;
-      firstNode.previousSibling = null;
-      firstNode.nextSibling = null;
-      this.count = 1;
+      this(firstNode.slot);
     }
   }
 
-  private transient @Nullable Node<K, V> head; // the head for all keys
-  private transient @Nullable Node<K, V> tail; // the tail for all keys
+  // One physical integer index per mapping; separate global and sibling links.
+  // The existing Platform CompactHashMap remains the distinct-key directory.
+  private transient Object[] slotKeys = new Object[0];
+  private transient Object[] slotValues = new Object[0];
+  // Lazily materialize this lane only if a Map.Entry escapes.
+  private transient @Nullable Object[][] entryBoundaries;
+  private transient int[] nextAll = new int[0];
+  private transient int[] previousAll = new int[0];
+  private transient int[] nextForKey = new int[0];
+  private transient int[] previousForKey = new int[0];
+  private transient int[] freeNext = new int[0];
+  private transient int used;
+  private transient int free = NONE;
+  private transient int head = NONE;
+  private transient int tail = NONE;
   private transient Map<K, KeyList<K, V>> keyToKeyList;
   private transient int size;
 
-  /*
-   * Tracks modifications to keyToKeyList so that addition or removal of keys invalidates
-   * preexisting iterators. This does *not* track simple additions and removals of values
-   * that are not the first to be added or last to be removed for their key.
-   */
+  /** Tracks distinct-key modifications, matching the old iterator contract. */
   private transient int modCount;
+
+  private void resetSlots() {
+    slotKeys = new Object[0];
+    slotValues = new Object[0];
+    entryBoundaries = null;
+    nextAll = new int[0];
+    previousAll = new int[0];
+    nextForKey = new int[0];
+    previousForKey = new int[0];
+    freeNext = new int[0];
+    used = 0;
+    free = head = tail = NONE;
+  }
+
+  private void growSlots() {
+    int oldCapacity = slotKeys.length;
+    long wanted = oldCapacity < 8 ? 8L : (long) oldCapacity + (oldCapacity >>> 1) + 1L;
+    if (wanted > Integer.MAX_VALUE - 8L) {
+      throw new OutOfMemoryError("LinkedListMultimap slot capacity exhausted");
+    }
+    int capacity = (int) wanted;
+    Object[] keys = java.util.Arrays.copyOf(slotKeys, capacity);
+    Object[] values = java.util.Arrays.copyOf(slotValues, capacity);
+    @Nullable Object[][] boundaries = entryBoundaries == null ? null
+        : java.util.Arrays.copyOf(entryBoundaries, entryPageCount(capacity));
+    int[] next = java.util.Arrays.copyOf(nextAll, capacity);
+    int[] previous = java.util.Arrays.copyOf(previousAll, capacity);
+    int[] siblingNext = java.util.Arrays.copyOf(nextForKey, capacity);
+    int[] siblingPrevious = java.util.Arrays.copyOf(previousForKey, capacity);
+    int[] recyclable = java.util.Arrays.copyOf(freeNext, capacity);
+    slotKeys = keys;
+    slotValues = values;
+    entryBoundaries = boundaries;
+    nextAll = next;
+    previousAll = previous;
+    nextForKey = siblingNext;
+    previousForKey = siblingPrevious;
+    freeNext = recyclable;
+  }
+
+  private int freshSlot(@ParametricNullness K key, @ParametricNullness V value) {
+    int slot;
+    if (free != NONE) {
+      slot = free;
+      free = freeNext[slot];
+    } else {
+      if (used == slotKeys.length) {
+        growSlots();
+      }
+      slot = used++;
+    }
+    slotKeys[slot] = key;
+    slotValues[slot] = value;
+    nextAll[slot] = previousAll[slot] = NONE;
+    nextForKey[slot] = previousForKey[slot] = NONE;
+    return slot;
+  }
+
+  @SuppressWarnings("unchecked")
+  private K keyAt(int slot) {
+    return (K) slotKeys[slot];
+  }
+
+  @SuppressWarnings("unchecked")
+  private V valueAt(int slot) {
+    return (V) slotValues[slot];
+  }
+
+  private static int entryPageCount(int capacity) {
+    return (capacity >>> ENTRY_PAGE_SHIFT)
+        + ((capacity & ENTRY_PAGE_MASK) == 0 ? 0 : 1);
+  }
+
+  @SuppressWarnings("unchecked")
+  private @Nullable Node<K, V> cachedEntryAt(int slot) {
+    @Nullable Object[][] pages = entryBoundaries;
+    if (pages == null) {
+      return null;
+    }
+    @Nullable Object[] page = pages[slot >>> ENTRY_PAGE_SHIFT];
+    return page == null ? null : (Node<K, V>) page[slot & ENTRY_PAGE_MASK];
+  }
+
+  @SuppressWarnings("unchecked")
+  private Node<K, V> entryAt(int slot) {
+    @Nullable Object[][] pages = entryBoundaries;
+    if (pages == null) {
+      pages = new Object[entryPageCount(slotKeys.length)][];
+      entryBoundaries = pages;
+    }
+    int pageNumber = slot >>> ENTRY_PAGE_SHIFT;
+    @Nullable Object[] page = pages[pageNumber];
+    if (page == null) {
+      page = new Object[ENTRY_PAGE_SIZE];
+      pages[pageNumber] = page;
+    }
+    Node<K, V> entry = (Node<K, V>) page[slot & ENTRY_PAGE_MASK];
+    if (entry == null) {
+      entry = new Node<>(this, slot);
+      page[slot & ENTRY_PAGE_MASK] = entry;
+    }
+    return entry;
+  }
+
+  private void updateValueAt(int slot, @ParametricNullness V value) {
+    slotValues[slot] = value;
+    @Nullable Node<K, V> entry = cachedEntryAt(slot);
+    if (entry != null) {
+      entry.updateStoredValue(value);
+    }
+  }
+
+  private void releaseSlot(int slot) {
+    @Nullable Node<K, V> entry = cachedEntryAt(slot);
+    if (entry != null) {
+      entry.detach();
+      Object[][] pages = requireNonNull(entryBoundaries);
+      Object[] page = requireNonNull(pages[slot >>> ENTRY_PAGE_SHIFT]);
+      page[slot & ENTRY_PAGE_MASK] = null;
+    }
+    slotKeys[slot] = null;
+    slotValues[slot] = null;
+    freeNext[slot] = free;
+    free = slot;
+    // Retain historical next/previous links until this slot is reused.
+  }
 
   /** Creates a new, empty {@code LinkedListMultimap} with the default initial capacity. */
   public static <K extends @Nullable Object, V extends @Nullable Object>
@@ -193,104 +374,91 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
    * element, or at the end of the list if {@code nextSibling} is null. Note: if {@code nextSibling}
    * is specified, it MUST be for a node for the same {@code key}!
    */
+  /** Insert a mapping using physical array indexes, without allocating a Node. */
   @CanIgnoreReturnValue
-  private Node<K, V> addNode(
-      @ParametricNullness K key, @ParametricNullness V value, @Nullable Node<K, V> nextSibling) {
-    Node<K, V> node = new Node<>(key, value);
-    if (head == null) { // empty list
-      head = tail = node;
-      keyToKeyList.put(key, new KeyList<K, V>(node));
+  private int addNode(
+      @ParametricNullness K key, @ParametricNullness V value, int nextSibling) {
+    int slot = freshSlot(key, value);
+    if (head == NONE) {
+      head = tail = slot;
+      keyToKeyList.put(key, new KeyList<K, V>(slot));
       modCount++;
-    } else if (nextSibling == null) { // non-empty list, add to tail
-      // requireNonNull is safe because the list is non-empty.
-      requireNonNull(tail).next = node;
-      node.previous = tail;
-      tail = node;
+    } else if (nextSibling == NONE) {
+      nextAll[tail] = slot;
+      previousAll[slot] = tail;
+      tail = slot;
       KeyList<K, V> keyList = keyToKeyList.get(key);
       if (keyList == null) {
-        keyList = new KeyList<>(node);
-        keyToKeyList.put(key, keyList);
+        keyToKeyList.put(key, new KeyList<>(slot));
         modCount++;
       } else {
         keyList.count++;
-        Node<K, V> keyTail = keyList.tail;
-        keyTail.nextSibling = node;
-        node.previousSibling = keyTail;
-        keyList.tail = node;
+        int last = keyList.tail;
+        nextForKey[last] = slot;
+        previousForKey[slot] = last;
+        keyList.tail = slot;
       }
-    } else { // non-empty list, insert before nextSibling
-      /*
-       * requireNonNull is safe as long as callers pass a nextSibling that (a) has the same key and
-       * (b) is present in the multimap. (And they do, except maybe in case of concurrent
-       * modification, in which case all bets are off.)
-       */
+    } else {
       KeyList<K, V> keyList = requireNonNull(keyToKeyList.get(key));
       keyList.count++;
-      node.previous = nextSibling.previous;
-      node.previousSibling = nextSibling.previousSibling;
-      node.next = nextSibling;
-      node.nextSibling = nextSibling;
-      if (nextSibling.previousSibling == null) { // nextSibling was key head
-        keyList.head = node;
+      previousAll[slot] = previousAll[nextSibling];
+      previousForKey[slot] = previousForKey[nextSibling];
+      nextAll[slot] = nextSibling;
+      nextForKey[slot] = nextSibling;
+      if (previousForKey[nextSibling] == NONE) {
+        keyList.head = slot;
       } else {
-        nextSibling.previousSibling.nextSibling = node;
+        nextForKey[previousForKey[nextSibling]] = slot;
       }
-      if (nextSibling.previous == null) { // nextSibling was head
-        head = node;
+      if (previousAll[nextSibling] == NONE) {
+        head = slot;
       } else {
-        nextSibling.previous.next = node;
+        nextAll[previousAll[nextSibling]] = slot;
       }
-      nextSibling.previous = node;
-      nextSibling.previousSibling = node;
+      previousAll[nextSibling] = slot;
+      previousForKey[nextSibling] = slot;
     }
     size++;
-    return node;
+    return slot;
   }
 
-  /**
-   * Removes the specified node from the linked list. This method is only intended to be used from
-   * the {@code Iterator} classes. See also {@link LinkedListMultimap#removeAllNodes(Object)}.
-   */
-  private void removeNode(Node<K, V> node) {
-    if (node.previous != null) {
-      node.previous.next = node.next;
-    } else { // node was head
-      head = node.next;
+  /** Unlink a mapping, detach escaped entries and recycle its array slot. */
+  private void removeNode(int slot) {
+    int preceding = previousAll[slot];
+    int following = nextAll[slot];
+    if (preceding != NONE) {
+      nextAll[preceding] = following;
+    } else {
+      head = following;
     }
-    if (node.next != null) {
-      node.next.previous = node.previous;
-    } else { // node was tail
-      tail = node.previous;
+    if (following != NONE) {
+      previousAll[following] = preceding;
+    } else {
+      tail = preceding;
     }
-    if (node.previousSibling == null && node.nextSibling == null) {
-      /*
-       * requireNonNull is safe as long as we call removeNode only for nodes that are still in the
-       * Multimap. This should be the case (except in case of concurrent modification, when all bets
-       * are off).
-       */
-      KeyList<K, V> keyList = requireNonNull(keyToKeyList.remove(node.getKey()));
+    int beforeKey = previousForKey[slot];
+    int afterKey = nextForKey[slot];
+    K key = keyAt(slot);
+    if (beforeKey == NONE && afterKey == NONE) {
+      KeyList<K, V> keyList = requireNonNull(keyToKeyList.remove(key));
       keyList.count = 0;
       modCount++;
     } else {
-      // requireNonNull is safe (under the conditions listed in the comment in the branch above).
-      KeyList<K, V> keyList = requireNonNull(keyToKeyList.get(node.getKey()));
+      KeyList<K, V> keyList = requireNonNull(keyToKeyList.get(key));
       keyList.count--;
-
-      if (node.previousSibling == null) {
-        // requireNonNull is safe because we checked that not *both* siblings were null.
-        keyList.head = requireNonNull(node.nextSibling);
+      if (beforeKey == NONE) {
+        keyList.head = afterKey;
       } else {
-        node.previousSibling.nextSibling = node.nextSibling;
+        nextForKey[beforeKey] = afterKey;
       }
-
-      if (node.nextSibling == null) {
-        // requireNonNull is safe because we checked that not *both* siblings were null.
-        keyList.tail = requireNonNull(node.previousSibling);
+      if (afterKey == NONE) {
+        keyList.tail = beforeKey;
       } else {
-        node.nextSibling.previousSibling = node.previousSibling;
+        previousForKey[afterKey] = beforeKey;
       }
     }
     size--;
+    releaseSlot(slot);
   }
 
   /** Removes all nodes for the specified key. */
@@ -299,29 +467,33 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   }
 
   /** An {@code Iterator} over all nodes. */
+  /** Global iterator with an integer cursor over the array-owned links. */
   private final class NodeIterator implements ListIterator<Entry<K, V>> {
     int nextIndex;
-    @Nullable Node<K, V> next;
-    @Nullable Node<K, V> current;
-    @Nullable Node<K, V> previous;
+    int next = NONE;
+    int current = NONE;
+    int previous = NONE;
     int expectedModCount = modCount;
 
     NodeIterator(int index) {
-      int size = size();
-      checkPositionIndex(index, size);
-      if (index >= (size / 2)) {
+      int count = size();
+      checkPositionIndex(index, count);
+      if (index >= count / 2) {
         previous = tail;
-        nextIndex = size;
-        while (index++ < size) {
-          previous();
+        nextIndex = count;
+        while (nextIndex > index) {
+          next = previous;
+          previous = previousAll[previous];
+          nextIndex--;
         }
       } else {
         next = head;
-        while (index-- > 0) {
-          next();
+        while (nextIndex < index) {
+          previous = next;
+          next = nextAll[next];
+          nextIndex++;
         }
       }
-      current = null;
     }
 
     private void checkForConcurrentModification() {
@@ -333,54 +505,55 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     @Override
     public boolean hasNext() {
       checkForConcurrentModification();
-      return next != null;
+      return next != NONE;
+    }
+
+    private int advance() {
+      checkForConcurrentModification();
+      if (next == NONE) {
+        throw new NoSuchElementException();
+      }
+      previous = current = next;
+      next = nextAll[next];
+      nextIndex++;
+      return current;
     }
 
     @CanIgnoreReturnValue
     @Override
     public Node<K, V> next() {
-      checkForConcurrentModification();
-      if (next == null) {
-        throw new NoSuchElementException();
-      }
-      previous = current = next;
-      next = next.next;
-      nextIndex++;
-      return current;
+      return entryAt(advance());
     }
 
-    @Override
-    public void remove() {
-      checkForConcurrentModification();
-      checkState(current != null, "no calls to next() since the last call to remove()");
-      if (current != next) { // after call to next()
-        previous = current.previous;
-        nextIndex--;
-      } else { // after call to previous()
-        next = current.next;
-      }
-      removeNode(current);
-      current = null;
-      expectedModCount = modCount;
+    private V nextValue() {
+      return valueAt(advance());
     }
 
     @Override
     public boolean hasPrevious() {
       checkForConcurrentModification();
-      return previous != null;
+      return previous != NONE;
+    }
+
+    private int retreat() {
+      checkForConcurrentModification();
+      if (previous == NONE) {
+        throw new NoSuchElementException();
+      }
+      next = current = previous;
+      previous = previousAll[previous];
+      nextIndex--;
+      return current;
     }
 
     @CanIgnoreReturnValue
     @Override
     public Node<K, V> previous() {
-      checkForConcurrentModification();
-      if (previous == null) {
-        throw new NoSuchElementException();
-      }
-      next = current = previous;
-      previous = previous.previous;
-      nextIndex--;
-      return current;
+      return entryAt(retreat());
+    }
+
+    private V previousValue() {
+      return valueAt(retreat());
     }
 
     @Override
@@ -394,26 +567,42 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     }
 
     @Override
-    public void set(Entry<K, V> e) {
+    public void remove() {
+      checkForConcurrentModification();
+      checkState(current != NONE, "no calls to next() since the last call to remove()");
+      if (current != next) {
+        previous = previousAll[current];
+        nextIndex--;
+      } else {
+        next = nextAll[current];
+      }
+      removeNode(current);
+      current = NONE;
+      expectedModCount = modCount;
+    }
+
+    @Override
+    public void set(Entry<K, V> entry) {
       throw new UnsupportedOperationException();
     }
 
     @Override
-    public void add(Entry<K, V> e) {
+    public void add(Entry<K, V> entry) {
       throw new UnsupportedOperationException();
     }
 
     void setValue(@ParametricNullness V value) {
-      checkState(current != null);
-      current.setValue(value);
+      checkState(current != NONE);
+      updateValueAt(current, value);
     }
   }
 
   /** An {@code Iterator} over distinct keys in key head order. */
+  /** Iterate unique keys by their first global array position. */
   private final class DistinctKeyIterator implements Iterator<K> {
     final Set<K> seenKeys = newHashSetWithExpectedSize(keySet().size());
-    @Nullable Node<K, V> next = head;
-    @Nullable Node<K, V> current;
+    int next = head;
+    int current = NONE;
     int expectedModCount = modCount;
 
     private void checkForConcurrentModification() {
@@ -425,111 +614,108 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     @Override
     public boolean hasNext() {
       checkForConcurrentModification();
-      return next != null;
+      return next != NONE;
     }
 
+    @CanIgnoreReturnValue
     @Override
     @ParametricNullness
     public K next() {
       checkForConcurrentModification();
-      if (next == null) {
+      if (next == NONE) {
         throw new NoSuchElementException();
       }
       current = next;
-      seenKeys.add(current.getKey());
-      do { // skip ahead to next unseen key
-        next = next.next;
-      } while ((next != null) && !seenKeys.add(next.getKey()));
-      return current.getKey();
+      K key = keyAt(current);
+      seenKeys.add(key);
+      do {
+        next = nextAll[next];
+      } while (next != NONE && !seenKeys.add(keyAt(next)));
+      return key;
     }
 
     @Override
     public void remove() {
       checkForConcurrentModification();
-      checkState(current != null, "no calls to next() since the last call to remove()");
-      removeAllNodes(current.getKey());
-      current = null;
+      checkState(current != NONE, "no calls to next() since the last call to remove()");
+      removeAllNodes(keyAt(current));
+      current = NONE;
       expectedModCount = modCount;
     }
   }
 
   /** A {@code ListIterator} over values for a specified key. */
+  /** Iterate one key's sibling links using integer coordinates. */
   private final class ValueForKeyIterator implements ListIterator<V> {
     @ParametricNullness final K key;
     int nextIndex;
-    @Nullable Node<K, V> next;
-    @Nullable Node<K, V> current;
-    @Nullable Node<K, V> previous;
+    int next = NONE;
+    int current = NONE;
+    int previous = NONE;
 
-    /** Constructs a new iterator over all values for the specified key. */
     ValueForKeyIterator(@ParametricNullness K key) {
       this.key = key;
-      KeyList<K, V> keyList = keyToKeyList.get(key);
-      next = (keyList == null) ? null : keyList.head;
+      KeyList<K, V> list = keyToKeyList.get(key);
+      next = list == null ? NONE : list.head;
     }
 
-    /**
-     * Constructs a new iterator over all values for the specified key starting at the specified
-     * index. This constructor is optimized so that it starts at either the head or the tail,
-     * depending on which is closer to the specified index. This allows adds to the tail to be done
-     * in constant time.
-     *
-     * @throws IndexOutOfBoundsException if index is invalid
-     */
     ValueForKeyIterator(@ParametricNullness K key, int index) {
-      KeyList<K, V> keyList = keyToKeyList.get(key);
-      int size = (keyList == null) ? 0 : keyList.count;
-      checkPositionIndex(index, size);
-      if (index >= (size / 2)) {
-        previous = (keyList == null) ? null : keyList.tail;
-        nextIndex = size;
-        while (index++ < size) {
-          previous();
+      KeyList<K, V> list = keyToKeyList.get(key);
+      int count = list == null ? 0 : list.count;
+      checkPositionIndex(index, count);
+      if (index >= count / 2) {
+        previous = list == null ? NONE : list.tail;
+        nextIndex = count;
+        while (nextIndex > index) {
+          next = previous;
+          previous = previousForKey[previous];
+          nextIndex--;
         }
       } else {
-        next = (keyList == null) ? null : keyList.head;
-        while (index-- > 0) {
-          next();
+        next = list == null ? NONE : list.head;
+        while (nextIndex < index) {
+          previous = next;
+          next = nextForKey[next];
+          nextIndex++;
         }
       }
       this.key = key;
-      current = null;
     }
 
     @Override
     public boolean hasNext() {
-      return next != null;
+      return next != NONE;
     }
 
     @CanIgnoreReturnValue
     @Override
     @ParametricNullness
     public V next() {
-      if (next == null) {
+      if (next == NONE) {
         throw new NoSuchElementException();
       }
       previous = current = next;
-      next = next.nextSibling;
+      next = nextForKey[next];
       nextIndex++;
-      return current.getValue();
+      return valueAt(current);
     }
 
     @Override
     public boolean hasPrevious() {
-      return previous != null;
+      return previous != NONE;
     }
 
     @CanIgnoreReturnValue
     @Override
     @ParametricNullness
     public V previous() {
-      if (previous == null) {
+      if (previous == NONE) {
         throw new NoSuchElementException();
       }
       next = current = previous;
-      previous = previous.previousSibling;
+      previous = previousForKey[previous];
       nextIndex--;
-      return current.getValue();
+      return valueAt(current);
     }
 
     @Override
@@ -544,28 +730,28 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
     @Override
     public void remove() {
-      checkState(current != null, "no calls to next() since the last call to remove()");
-      if (current != next) { // after call to next()
-        previous = current.previousSibling;
+      checkState(current != NONE, "no calls to next() since the last call to remove()");
+      if (current != next) {
+        previous = previousForKey[current];
         nextIndex--;
-      } else { // after call to previous()
-        next = current.nextSibling;
+      } else {
+        next = nextForKey[current];
       }
       removeNode(current);
-      current = null;
+      current = NONE;
     }
 
     @Override
     public void set(@ParametricNullness V value) {
-      checkState(current != null);
-      current.setValue(value);
+      checkState(current != NONE);
+      updateValueAt(current, value);
     }
 
     @Override
     public void add(@ParametricNullness V value) {
       previous = addNode(key, value, next);
       nextIndex++;
-      current = null;
+      current = NONE;
     }
   }
 
@@ -578,7 +764,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @Override
   public boolean isEmpty() {
-    return head == null;
+    return head == NONE;
   }
 
   @Override
@@ -588,7 +774,35 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @Override
   public boolean containsValue(@Nullable Object value) {
-    return values().contains(value);
+    // User-defined equals can mutate this list while an iterator visits
+    // a detached entry. Keep the historical iterator path for callbacks.
+    if (!hasCallbackFreeEquals(value)) {
+      return values().contains(value);
+    }
+    int expectedModCount = modCount;
+    int slot = head;
+    for (;;) {
+      if (modCount != expectedModCount) {
+        throw new ConcurrentModificationException();
+      }
+      if (slot == NONE) {
+        return false;
+      }
+      int successor = nextAll[slot];
+      Object candidate = slotValues[slot];
+      if (value == null ? candidate == null : value.equals(candidate)) {
+        return true;
+      }
+      slot = successor;
+    }
+  }
+
+  /** Only intrinsically final JDK equals methods can skip iterator callbacks. */
+  private static boolean hasCallbackFreeEquals(@Nullable Object value) {
+    return value == null || value instanceof String || value instanceof Integer
+        || value instanceof Long || value instanceof Short || value instanceof Byte
+        || value instanceof Character || value instanceof Boolean || value instanceof Float
+        || value instanceof Double || value instanceof Enum<?>;
   }
 
   // Modification Operations
@@ -603,7 +817,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   @CanIgnoreReturnValue
   @Override
   public boolean put(@ParametricNullness K key, @ParametricNullness V value) {
-    addNode(key, value, null);
+    addNode(key, value, NONE);
     return true;
   }
 
@@ -670,8 +884,15 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @Override
   public void clear() {
-    head = null;
-    tail = null;
+    if (entryBoundaries != null) {
+      for (int slot = head; slot != NONE; slot = nextAll[slot]) {
+        @Nullable Node<K, V> entry = cachedEntryAt(slot);
+        if (entry != null) {
+          entry.detach();
+        }
+      }
+    }
+    resetSlots();
     keyToKeyList.clear();
     size = 0;
     modCount++;
@@ -753,17 +974,53 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
       @Override
       public ListIterator<V> listIterator(int index) {
-        NodeIterator nodeItr = new NodeIterator(index);
-        return new TransformedListIterator<Entry<K, V>, V>(nodeItr) {
+        NodeIterator slots = new NodeIterator(index);
+        // Traverse raw payload slots. Materialize a Node only when the caller
+        // explicitly asks for a mutable Map.Entry through entries().
+        return new ListIterator<V>() {
           @Override
-          @ParametricNullness
-          V transform(Entry<K, V> entry) {
-            return entry.getValue();
+          public boolean hasNext() {
+            return slots.hasNext();
+          }
+
+          @Override
+          public V next() {
+            return slots.nextValue();
+          }
+
+          @Override
+          public boolean hasPrevious() {
+            return slots.hasPrevious();
+          }
+
+          @Override
+          public V previous() {
+            return slots.previousValue();
+          }
+
+          @Override
+          public int nextIndex() {
+            return slots.nextIndex();
+          }
+
+          @Override
+          public int previousIndex() {
+            return slots.previousIndex();
+          }
+
+          @Override
+          public void remove() {
+            slots.remove();
           }
 
           @Override
           public void set(@ParametricNullness V value) {
-            nodeItr.setValue(value);
+            slots.setValue(value);
+          }
+
+          @Override
+          public void add(V value) {
+            throw new UnsupportedOperationException();
           }
         };
       }
@@ -823,9 +1080,12 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     private void writeObject(ObjectOutputStream stream) throws IOException {
     stream.defaultWriteObject();
     stream.writeInt(size());
-    for (Entry<K, V> entry : entries()) {
-      stream.writeObject(entry.getKey());
-      stream.writeObject(entry.getValue());
+    // Stream the same key/value pairs in global encounter order directly
+    // from their physical lanes. Serialization must not materialize a
+    // retained mutable-entry object for every mapping.
+    for (int slot = head; slot != NONE; slot = nextAll[slot]) {
+      stream.writeObject(keyAt(slot));
+      stream.writeObject(valueAt(slot));
     }
   }
 
@@ -834,6 +1094,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
     keyToKeyList = CompactLinkedHashMap.create();
+    resetSlots();
     int size = stream.readInt();
     for (int i = 0; i < size; i++) {
       @SuppressWarnings("unchecked") // reading data stored by writeObject
