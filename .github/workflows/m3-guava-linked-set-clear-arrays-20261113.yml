@@ -1,0 +1,87 @@
+# SPDX-License-Identifier: Apache-2.0
+name: M3 Guava linked-set array-lane clear contract
+on:
+  pull_request:
+    paths:
+      - 'guava/src/com/m3/collections/guava/collect/CompactLinkedHashSet.java'
+      - 'android/guava/src/com/m3/collections/guava/collect/CompactLinkedHashSet.java'
+      - 'guava-tests/test/com/m3/collections/guava/collect/CompactLinkedHashSetTest.java'
+      - 'android/guava-tests/test/com/m3/collections/guava/collect/CompactLinkedHashSetTest.java'
+      - '.github/workflows/m3-guava-linked-set-clear-arrays-20261113.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-source-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        flavor: [jre, android]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Source pins and no API/serialization changes
+        shell: bash
+        env:
+          FLAVOR: ${{ matrix.flavor }}
+        run: |
+          set -euo pipefail
+          SRC=guava/src/com/m3/collections/guava/collect/CompactLinkedHashSet.java
+          TEST=guava-tests/test/com/m3/collections/guava/collect/CompactLinkedHashSetTest.java
+          if [ "$FLAVOR" = android ]; then SRC=android/$SRC; TEST=android/$TEST; fi
+          git diff --check
+          test -s "$SRC"
+          test -s "$TEST"
+          grep -Fq 'saves two O(size) int-array writes' "$SRC"
+          ! grep -Fq 'Arrays.fill(predecessor, 0, size(), 0)' "$SRC"
+          ! grep -Fq 'Arrays.fill(successor, 0, size(), 0)' "$SRC"
+          grep -Fq 'testClearRebindsOwnedIndexLanesInInsertionOrder' "$TEST"
+          grep -Fq 'testClearAfterHashFloodingConversionAndReinsertion' "$TEST"
+      - name: Execute real Guava JRE or Android collection test suite
+        shell: bash
+        env:
+          FLAVOR: ${{ matrix.flavor }}
+        run: |
+          set -euo pipefail
+          pom=pom.xml
+          if [ "$FLAVOR" = android ]; then pom=android/pom.xml; fi
+          mvn -B -ntp -f "$pom" -P m3-relocated-verification -pl guava-tests -am \
+            -Dtest=CompactLinkedHashSetTest \
+            -Dsurefire.failIfNoSpecifiedTests=false test
+      - name: Require real JUnit results
+        shell: bash
+        env:
+          FLAVOR: ${{ matrix.flavor }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          base = Path("android/guava-tests" if os.environ["FLAVOR"] == "android" else "guava-tests")
+          reports = list((base/"target/surefire-reports").glob("TEST-*CompactLinkedHashSetTest*.xml"))
+          if not reports:
+              raise SystemExit("NO_NATIVE_COMPACT_LINKED_SET_JUNIT")
+          totals = [0,0,0,0]
+          for report in reports:
+              root = ET.parse(report).getroot()
+              totals = [a+int(root.attrib.get(k,"0")) for a,k in zip(totals,("tests","failures","errors","skipped"))]
+          print("M3_COMPACT_LINKED_CLEAR_JUNIT",os.environ["FLAVOR"],totals)
+          if totals[0] < 4 or totals[1] or totals[2]:
+              raise SystemExit("NATIVE_GUAVA_LINKED_SET_FAILED")
+          PY
+      - name: Upload actual test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m3-guava-linked-clear-${{ matrix.flavor }}
+          path: |
+            guava-tests/target/surefire-reports/
+            android/guava-tests/target/surefire-reports/
+          if-no-files-found: warn
