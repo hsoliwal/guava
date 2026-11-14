@@ -41,8 +41,11 @@ public final class LinkedListMultimapArrayLinksTest extends TestCase {
   }
 
   private static void assertNoEntryHandles(LinkedListMultimap<?, ?> map) throws Exception {
-    for (Object boundary : entryBoundaries(map)) {
-      assertNull("read-only value iteration must not materialize Node entries", boundary);
+    Object[] boundaries = entryBoundaries(map);
+    if (boundaries != null) {
+      for (Object boundary : boundaries) {
+        assertNull("read-only value iteration must not materialize Node entries", boundary);
+      }
     }
   }
 
@@ -53,6 +56,8 @@ public final class LinkedListMultimapArrayLinksTest extends TestCase {
     }
     assertEquals(12000, map.size());
     assertEquals(83, map.keySet().size());
+    assertNull("entry boundary array must remain unallocated on normal paths",
+        entryBoundaries(map));
     assertNoEntryHandles(map);
     int sum = 0;
     for (Integer value : map.values()) {
@@ -61,6 +66,8 @@ public final class LinkedListMultimapArrayLinksTest extends TestCase {
     assertEquals(71994000, sum);
     assertEquals(145, map.get(0).size());
     assertNoEntryHandles(map);
+    assertNull("value iteration must not allocate the entry-boundary array",
+        entryBoundaries(map));
 
     Field linkedNext = LinkedListMultimap.class.getDeclaredField("nextAll");
     Field linkedSibling = LinkedListMultimap.class.getDeclaredField("nextForKey");
@@ -73,12 +80,13 @@ public final class LinkedListMultimapArrayLinksTest extends TestCase {
     assertNoEntryHandles(map);
   }
 
-  public void testEscapedEntriesTrackUpdatesThenDetachOnSlotRecycling() {
+  public void testEscapedEntriesTrackUpdatesThenDetachOnSlotRecycling() throws Exception {
     LinkedListMultimap<String, Integer> map = LinkedListMultimap.create();
     map.put("a", 1);
     map.put("b", 2);
     map.put("a", 3);
     Map.Entry<String, Integer> escaped = map.entries().get(0);
+    assertNotNull(entryBoundaries(map));
     assertEquals(Integer.valueOf(1), escaped.setValue(11));
     assertEquals(Arrays.asList(11, 3), map.get("a"));
     assertEquals(Integer.valueOf(11), map.get("a").set(0, 12));
