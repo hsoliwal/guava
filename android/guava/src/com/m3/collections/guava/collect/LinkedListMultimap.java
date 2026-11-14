@@ -109,6 +109,9 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
    */
 
   private static final int NONE = -1;
+  private static final int ENTRY_PAGE_SHIFT = 6;
+  private static final int ENTRY_PAGE_SIZE = 1 << ENTRY_PAGE_SHIFT;
+  private static final int ENTRY_PAGE_MASK = ENTRY_PAGE_SIZE - 1;
 
   /**
    * Boundary entry, materialized only when an API entry iterator is used.
@@ -181,7 +184,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   private transient Object[] slotKeys = new Object[0];
   private transient Object[] slotValues = new Object[0];
   // Lazily materialize this lane only if a Map.Entry escapes.
-  private transient @Nullable Object[] entryBoundaries;
+  private transient @Nullable Object[][] entryBoundaries;
   private transient int[] nextAll = new int[0];
   private transient int[] previousAll = new int[0];
   private transient int[] nextForKey = new int[0];
@@ -219,8 +222,8 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     int capacity = (int) wanted;
     Object[] keys = java.util.Arrays.copyOf(slotKeys, capacity);
     Object[] values = java.util.Arrays.copyOf(slotValues, capacity);
-    @Nullable Object[] boundaries = entryBoundaries == null ? null
-        : java.util.Arrays.copyOf(entryBoundaries, capacity);
+    @Nullable Object[][] boundaries = entryBoundaries == null ? null
+        : java.util.Arrays.copyOf(entryBoundaries, entryPageCount(capacity));
     int[] next = java.util.Arrays.copyOf(nextAll, capacity);
     int[] previous = java.util.Arrays.copyOf(previousAll, capacity);
     int[] siblingNext = java.util.Arrays.copyOf(nextForKey, capacity);
@@ -264,32 +267,57 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     return (V) slotValues[slot];
   }
 
+  private static int entryPageCount(int capacity) {
+    return (capacity >>> ENTRY_PAGE_SHIFT)
+        + ((capacity & ENTRY_PAGE_MASK) == 0 ? 0 : 1);
+  }
+
+  @SuppressWarnings("unchecked")
+  private @Nullable Node<K, V> cachedEntryAt(int slot) {
+    @Nullable Object[][] pages = entryBoundaries;
+    if (pages == null) {
+      return null;
+    }
+    @Nullable Object[] page = pages[slot >>> ENTRY_PAGE_SHIFT];
+    return page == null ? null : (Node<K, V>) page[slot & ENTRY_PAGE_MASK];
+  }
+
   @SuppressWarnings("unchecked")
   private Node<K, V> entryAt(int slot) {
-    @Nullable Object[] boundaries = entryBoundaries;
-    if (boundaries == null) {
-      boundaries = new Object[slotKeys.length];
-      entryBoundaries = boundaries;
+    @Nullable Object[][] pages = entryBoundaries;
+    if (pages == null) {
+      pages = new Object[entryPageCount(slotKeys.length)][];
+      entryBoundaries = pages;
     }
-    Node<K, V> entry = (Node<K, V>) boundaries[slot];
+    int pageNumber = slot >>> ENTRY_PAGE_SHIFT;
+    @Nullable Object[] page = pages[pageNumber];
+    if (page == null) {
+      page = new Object[ENTRY_PAGE_SIZE];
+      pages[pageNumber] = page;
+    }
+    Node<K, V> entry = (Node<K, V>) page[slot & ENTRY_PAGE_MASK];
     if (entry == null) {
       entry = new Node<>(this, slot);
-      boundaries[slot] = entry;
+      page[slot & ENTRY_PAGE_MASK] = entry;
     }
     return entry;
   }
 
   private void updateValueAt(int slot, @ParametricNullness V value) {
     slotValues[slot] = value;
-    if (entryBoundaries != null && entryBoundaries[slot] != null) {
-      entryAt(slot).updateStoredValue(value);
+    @Nullable Node<K, V> entry = cachedEntryAt(slot);
+    if (entry != null) {
+      entry.updateStoredValue(value);
     }
   }
 
   private void releaseSlot(int slot) {
-    if (entryBoundaries != null && entryBoundaries[slot] != null) {
-      entryAt(slot).detach();
-      entryBoundaries[slot] = null;
+    @Nullable Node<K, V> entry = cachedEntryAt(slot);
+    if (entry != null) {
+      entry.detach();
+      Object[][] pages = requireNonNull(entryBoundaries);
+      Object[] page = requireNonNull(pages[slot >>> ENTRY_PAGE_SHIFT]);
+      page[slot & ENTRY_PAGE_MASK] = null;
     }
     slotKeys[slot] = null;
     slotValues[slot] = null;
@@ -859,8 +887,9 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   public void clear() {
     if (entryBoundaries != null) {
       for (int slot = head; slot != NONE; slot = nextAll[slot]) {
-        if (entryBoundaries[slot] != null) {
-          entryAt(slot).detach();
+        @Nullable Node<K, V> entry = cachedEntryAt(slot);
+        if (entry != null) {
+          entry.detach();
         }
       }
     }
