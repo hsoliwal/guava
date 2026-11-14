@@ -183,7 +183,8 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   // The existing Platform CompactHashMap remains the distinct-key directory.
   private transient Object[] slotKeys = new Object[0];
   private transient Object[] slotValues = new Object[0];
-  private transient Object[] entryBoundaries = new Object[0];
+  // Lazily materialize this lane only if a Map.Entry escapes.
+  private transient @Nullable Object[] entryBoundaries;
   private transient int[] nextAll = new int[0];
   private transient int[] previousAll = new int[0];
   private transient int[] nextForKey = new int[0];
@@ -202,7 +203,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   private void resetSlots() {
     slotKeys = new Object[0];
     slotValues = new Object[0];
-    entryBoundaries = new Object[0];
+    entryBoundaries = null;
     nextAll = new int[0];
     previousAll = new int[0];
     nextForKey = new int[0];
@@ -221,7 +222,8 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     int capacity = (int) wanted;
     Object[] keys = java.util.Arrays.copyOf(slotKeys, capacity);
     Object[] values = java.util.Arrays.copyOf(slotValues, capacity);
-    Object[] boundaries = java.util.Arrays.copyOf(entryBoundaries, capacity);
+    Object[] boundaries = entryBoundaries == null ? null
+        : java.util.Arrays.copyOf(entryBoundaries, capacity);
     int[] next = java.util.Arrays.copyOf(nextAll, capacity);
     int[] previous = java.util.Arrays.copyOf(previousAll, capacity);
     int[] siblingNext = java.util.Arrays.copyOf(nextForKey, capacity);
@@ -267,23 +269,28 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @SuppressWarnings("unchecked")
   private Node<K, V> entryAt(int slot) {
-    Node<K, V> entry = (Node<K, V>) entryBoundaries[slot];
+    Object[] boundaries = entryBoundaries;
+    if (boundaries == null) {
+      boundaries = new Object[slotKeys.length];
+      entryBoundaries = boundaries;
+    }
+    Node<K, V> entry = (Node<K, V>) boundaries[slot];
     if (entry == null) {
       entry = new Node<>(this, slot);
-      entryBoundaries[slot] = entry;
+      boundaries[slot] = entry;
     }
     return entry;
   }
 
   private void updateValueAt(int slot, @ParametricNullness V value) {
     slotValues[slot] = value;
-    if (entryBoundaries[slot] != null) {
+    if (entryBoundaries != null && entryBoundaries[slot] != null) {
       entryAt(slot).updateStoredValue(value);
     }
   }
 
   private void releaseSlot(int slot) {
-    if (entryBoundaries[slot] != null) {
+    if (entryBoundaries != null && entryBoundaries[slot] != null) {
       entryAt(slot).detach();
       entryBoundaries[slot] = null;
     }
@@ -825,9 +832,11 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @Override
   public void clear() {
-    for (int slot = head; slot != NONE; slot = nextAll[slot]) {
-      if (entryBoundaries[slot] != null) {
-        entryAt(slot).detach();
+    if (entryBoundaries != null) {
+      for (int slot = head; slot != NONE; slot = nextAll[slot]) {
+        if (entryBoundaries[slot] != null) {
+          entryAt(slot).detach();
+        }
       }
     }
     resetSlots();
