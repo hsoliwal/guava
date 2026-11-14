@@ -83,15 +83,16 @@ public final class NodeArrayModel<K,V> implements Serializable {
       Random r=new Random(987654321);long checks=0;int seeds=a.length>0?Integer.parseInt(a[0]):20;int steps=a.length>1?Integer.parseInt(a[1]):20000;for(int seed=0;seed<seeds;seed++){
       NodeArrayModel<Integer,Integer> obj=new NodeArrayModel<>();LinkedHashMap<Integer,List<Integer>> ref=new LinkedHashMap<>();List<Map.Entry<Integer,Integer>> escaped=new ArrayList<>();List<Map.Entry<Integer,Integer>> global=new ArrayList<>();
       for(int step=0;step<steps;step++){
-         int k=r.nextInt(30),v=r.nextInt(100),op=r.nextInt(9);List<Integer> list=ref.get(k);
-         if(op<=2){obj.add(k,v,NONE);ref.computeIfAbsent(k,z->new ArrayList<>()).add(v);global.add(Map.entry(k,v));}
-         else if(op==3){int at=list==null?0:r.nextInt(list.size()+1);obj.insert(k,v,at);ref.computeIfAbsent(k,z->new ArrayList<>()).add(at,v);int j=0,where=global.size();if(list!=null)for(int m=0;m<global.size();m++){if(Objects.equals(global.get(m).getKey(),k)&&j++==at){where=m;break;}}global.add(where,Map.entry(k,v));}
+         Integer k=r.nextInt(31)==0?null:r.nextInt(30),v=r.nextInt(17)==0?null:r.nextInt(100);int op=r.nextInt(9);List<Integer> list=ref.get(k);
+         if(op<=2){obj.add(k,v,NONE);ref.computeIfAbsent(k,z->new ArrayList<>()).add(v);global.add(new AbstractMap.SimpleEntry<>(k,v));}
+         else if(op==3){int at=list==null?0:r.nextInt(list.size()+1);obj.insert(k,v,at);ref.computeIfAbsent(k,z->new ArrayList<>()).add(at,v);int j=0,where=global.size();if(list!=null)for(int m=0;m<global.size();m++){if(Objects.equals(global.get(m).getKey(),k)&&j++==at){where=m;break;}}global.add(where,new AbstractMap.SimpleEntry<>(k,v));}
          else if(op==4&&list!=null){int at=r.nextInt(list.size());Integer old=list.remove(at);if(list.isEmpty())ref.remove(k);if(!Objects.equals(old,obj.removeOne(k,at)))throw new Error("removed");int j=0;for(int m=0;m<global.size();m++)if(Objects.equals(global.get(m).getKey(),k)&&j++==at){global.remove(m);break;}}
          else if(op==5&&obj.size()>0){escaped.add(obj.entries().get(r.nextInt(obj.size())));}
          else if(op==6){obj.clear();ref.clear();global.clear();}
          else if(op==7&&obj.size()>0){Map.Entry<Integer,Integer> e=obj.entries().get(r.nextInt(obj.size()));Vunused(e);}
          if(ref.values().stream().mapToInt(List::size).sum()!=obj.size())throw new Error("size");checks++;
          if(ref.size()!=obj.groups())throw new Error("groups");checks++;
+         if(!obj.values(null).equals(ref.getOrDefault(null,List.of())))throw new Error("null key");checks++;
          for(int q=0;q<30;q++){if(!obj.values(q).equals(ref.getOrDefault(q,List.of())))throw new Error("values "+q+" step="+step);checks++;}
          if(step%11==0){List<Integer> keys=new ArrayList<>();for(var e:global)keys.add(e.getKey());
             if(!obj.keySequence().equals(keys))throw new Error("global "+step);checks++;}
