@@ -374,7 +374,6 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
    * element, or at the end of the list if {@code nextSibling} is null. Note: if {@code nextSibling}
    * is specified, it MUST be for a node for the same {@code key}!
    */
-  @CanIgnoreReturnValue
   /** Insert a mapping using physical array indexes, without allocating a Node. */
   @CanIgnoreReturnValue
   private int addNode(
