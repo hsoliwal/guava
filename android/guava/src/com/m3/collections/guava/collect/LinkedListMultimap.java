@@ -1024,9 +1024,12 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     private void writeObject(ObjectOutputStream stream) throws IOException {
     stream.defaultWriteObject();
     stream.writeInt(size());
-    for (Entry<K, V> entry : entries()) {
-      stream.writeObject(entry.getKey());
-      stream.writeObject(entry.getValue());
+    // Stream the same key/value pairs in global encounter order directly
+    // from their physical lanes. Serialization must not materialize a
+    // retained mutable-entry object for every mapping.
+    for (int slot = head; slot != NONE; slot = nextAll[slot]) {
+      stream.writeObject(keyAt(slot));
+      stream.writeObject(valueAt(slot));
     }
   }
 
