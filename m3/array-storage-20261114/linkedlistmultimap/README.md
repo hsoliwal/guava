@@ -30,14 +30,14 @@ bash m3/array-storage-20261114/linkedlistmultimap/verify_model.sh
 ```
 
 The exact checked-in standalone model Git blob is
-`09fcb5ab0185977eccc6c2f5ec856328591633d3`.
+`417bad41aa1679d4d4ba8e4552819ef1452daed0`.
 It was independently compiled locally using
 `javac --release 21 -Xlint:all,-serial -Werror` and executed:
 
-- Default JVM: `PASS 12836380` checks (20 seeds x 20,000 operations)
-- Interpreter `-Xint`: `PASS 240684` checks
+- Default JVM: `PASS 13236380` checks (20 seeds x 20,000 operations)
+- Interpreter `-Xint`: `PASS 248184` checks
   (3 seeds x 2,500 operations)
-- Additional lazy allocation invariants cover untouched entry cache,
+- Additional nullable-key/value and lazy allocation invariants cover untouched entry cache,
   first explicit public entry view, detach and clear.
 
 This is an algorithm-model proof, **not** a full Guava classpath compile.
