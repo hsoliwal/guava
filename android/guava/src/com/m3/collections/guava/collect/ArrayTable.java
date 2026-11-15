@@ -38,6 +38,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 import org.jspecify.annotations.Nullable;
 
 /**
@@ -211,6 +213,7 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, @Nullable V>
     abstract V getValue(int index);
 
     @ParametricNullness
+    @CanIgnoreReturnValue
     abstract V setValue(int index, @ParametricNullness V newValue);
 
     @Override
@@ -221,6 +224,37 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, @Nullable V>
     @Override
     public final boolean isEmpty() {
       return keyIndex.isEmpty();
+    }
+
+    @Override
+    public final boolean containsValue(@Nullable Object value) {
+      for (int i = 0; i < size(); i++) {
+        // AbstractMap invokes the query's equals even when the references are identical.
+        if (value == null ? getValue(i) == null : value.equals(getValue(i))) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    @Override
+    public final void forEach(BiConsumer<? super K, ? super V> action) {
+      checkNotNull(action);
+      // The key indexes are fixed; only explicit entry APIs need entry projections.
+      ImmutableList<K> keys = keyIndex.keySet().asList();
+      for (int i = 0; i < keys.size(); i++) {
+        action.accept(keys.get(i), getValue(i));
+      }
+    }
+
+    @Override
+    public final void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
+      checkNotNull(function);
+      ImmutableList<K> keys = keyIndex.keySet().asList();
+      for (int i = 0; i < keys.size(); i++) {
+        // Read each value just before its callback, and write only after that callback returns.
+        setValue(i, function.apply(keys.get(i), getValue(i)));
+      }
     }
 
     final Entry<K, V> getEntry(int index) {
