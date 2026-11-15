@@ -15,8 +15,10 @@
  */
 
 // Modified 2026 by Synexia contributors: primitive array-owned value links.
+// Modified 2026-11-15: defer and arrayify distinct-key metadata in the same owner.
 package com.m3.collections.guava.collect;
 
+import static com.m3.collections.guava.base.Preconditions.checkArgument;
 import static com.m3.collections.guava.base.Preconditions.checkPositionIndex;
 import static com.m3.collections.guava.base.Preconditions.checkState;
 import static com.m3.collections.guava.collect.Lists.newArrayList;
@@ -164,23 +166,17 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     }
   }
 
-  private static final class KeyList<K extends @Nullable Object, V extends @Nullable Object> {
-    int head;
-    int tail;
-    int count;
-
-    KeyList(int first) {
-      head = tail = first;
-      count = 1;
-    }
-
-    KeyList(Node<K, V> firstNode) {
-      this(firstNode.slot);
-    }
-  }
+  // Per-key heads, tails and counts are parent-owned primitive lanes.
+  // ObjectCountHashMap supplies the existing primitive key-to-group index.
+  // Its positive values encode group + 1; zero continues to mean absent.
+  private transient int[] groupHeads = new int[0];
+  private transient int[] groupTails = new int[0];
+  private transient int[] groupCounts = new int[0];
+  private transient int groupsUsed;
+  private transient int freeGroup = NONE;
+  private transient int expectedKeys;
 
   // One physical integer index per mapping; separate global and sibling links.
-  // The existing Platform CompactHashMap remains the distinct-key directory.
   private transient Object[] slotKeys = new Object[0];
   private transient Object[] slotValues = new Object[0];
   // Lazily materialize this lane only if a Map.Entry escapes.
@@ -194,11 +190,72 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   private transient int free = NONE;
   private transient int head = NONE;
   private transient int tail = NONE;
-  private transient Map<K, KeyList<K, V>> keyToKeyList;
+  private transient @Nullable ObjectCountHashMap<K> keyToKeyList;
   private transient int size;
 
   /** Tracks distinct-key modifications, matching the old iterator contract. */
   private transient int modCount;
+
+  private int keyGroup(@Nullable Object key) {
+    ObjectCountHashMap<K> directory = keyToKeyList;
+    return directory == null ? NONE : directory.get(key) - 1;
+  }
+
+  private int requireKeyGroup(@Nullable Object key) {
+    int group = keyGroup(key);
+    if (group == NONE) {
+      throw new NullPointerException();
+    }
+    return group;
+  }
+
+  private int keyCount() {
+    ObjectCountHashMap<K> directory = keyToKeyList;
+    return directory == null ? 0 : directory.size();
+  }
+
+  private void newKeyGroup(@ParametricNullness K key, int firstSlot) {
+    ObjectCountHashMap<K> directory = keyToKeyList;
+    if (directory == null) {
+      directory = ObjectCountHashMap.createWithExpectedSize(expectedKeys);
+      keyToKeyList = directory;
+    }
+    int group;
+    if (freeGroup != NONE) {
+      group = freeGroup;
+      freeGroup = groupHeads[group];
+    } else {
+      if (groupsUsed == groupHeads.length) {
+        int oldCapacity = groupHeads.length;
+        long wanted = oldCapacity < 8 ? 8L : (long) oldCapacity + (oldCapacity >>> 1) + 1L;
+        if (wanted > Integer.MAX_VALUE - 8L) {
+          throw new OutOfMemoryError("LinkedListMultimap key capacity exhausted");
+        }
+        int capacity = (int) wanted;
+        int[] heads = java.util.Arrays.copyOf(groupHeads, capacity);
+        int[] tails = java.util.Arrays.copyOf(groupTails, capacity);
+        int[] counts = java.util.Arrays.copyOf(groupCounts, capacity);
+        groupHeads = heads;
+        groupTails = tails;
+        groupCounts = counts;
+      }
+      group = groupsUsed++;
+    }
+    groupHeads[group] = groupTails[group] = firstSlot;
+    groupCounts[group] = 1;
+    directory.put(key, group + 1);
+  }
+
+  private void releaseKeyGroup(@ParametricNullness K key) {
+    int group = requireNonNull(keyToKeyList).remove(key) - 1;
+    if (group == NONE) {
+      throw new NullPointerException();
+    }
+    groupCounts[group] = 0;
+    groupTails[group] = NONE;
+    groupHeads[group] = freeGroup;
+    freeGroup = group;
+  }
 
   private void resetSlots() {
     slotKeys = new Object[0];
@@ -211,6 +268,11 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     freeNext = new int[0];
     used = 0;
     free = head = tail = NONE;
+    groupHeads = new int[0];
+    groupTails = new int[0];
+    groupCounts = new int[0];
+    groupsUsed = 0;
+    freeGroup = NONE;
   }
 
   private void growSlots() {
@@ -361,7 +423,8 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   }
 
   private LinkedListMultimap(int expectedKeys) {
-    keyToKeyList = Platform.newHashMapWithExpectedSize(expectedKeys);
+    checkArgument(expectedKeys >= 0, "Expected size must be >= 0");
+    this.expectedKeys = Math.max(1, Math.min(expectedKeys, CompactHashing.MAX_SIZE));
   }
 
   private LinkedListMultimap(Multimap<? extends K, ? extends V> multimap) {
@@ -381,32 +444,32 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     int slot = freshSlot(key, value);
     if (head == NONE) {
       head = tail = slot;
-      keyToKeyList.put(key, new KeyList<K, V>(slot));
+      newKeyGroup(key, slot);
       modCount++;
     } else if (nextSibling == NONE) {
       nextAll[tail] = slot;
       previousAll[slot] = tail;
       tail = slot;
-      KeyList<K, V> keyList = keyToKeyList.get(key);
-      if (keyList == null) {
-        keyToKeyList.put(key, new KeyList<>(slot));
+      int group = keyGroup(key);
+      if (group == NONE) {
+        newKeyGroup(key, slot);
         modCount++;
       } else {
-        keyList.count++;
-        int last = keyList.tail;
+        groupCounts[group]++;
+        int last = groupTails[group];
         nextForKey[last] = slot;
         previousForKey[slot] = last;
-        keyList.tail = slot;
+        groupTails[group] = slot;
       }
     } else {
-      KeyList<K, V> keyList = requireNonNull(keyToKeyList.get(key));
-      keyList.count++;
+      int group = requireKeyGroup(key);
+      groupCounts[group]++;
       previousAll[slot] = previousAll[nextSibling];
       previousForKey[slot] = previousForKey[nextSibling];
       nextAll[slot] = nextSibling;
       nextForKey[slot] = nextSibling;
       if (previousForKey[nextSibling] == NONE) {
-        keyList.head = slot;
+        groupHeads[group] = slot;
       } else {
         nextForKey[previousForKey[nextSibling]] = slot;
       }
@@ -440,19 +503,18 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     int afterKey = nextForKey[slot];
     K key = keyAt(slot);
     if (beforeKey == NONE && afterKey == NONE) {
-      KeyList<K, V> keyList = requireNonNull(keyToKeyList.remove(key));
-      keyList.count = 0;
+      releaseKeyGroup(key);
       modCount++;
     } else {
-      KeyList<K, V> keyList = requireNonNull(keyToKeyList.get(key));
-      keyList.count--;
+      int group = requireKeyGroup(key);
+      groupCounts[group]--;
       if (beforeKey == NONE) {
-        keyList.head = afterKey;
+        groupHeads[group] = afterKey;
       } else {
         nextForKey[beforeKey] = afterKey;
       }
       if (afterKey == NONE) {
-        keyList.tail = beforeKey;
+        groupTails[group] = beforeKey;
       } else {
         previousForKey[afterKey] = beforeKey;
       }
@@ -655,16 +717,16 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
     ValueForKeyIterator(@ParametricNullness K key) {
       this.key = key;
-      KeyList<K, V> list = keyToKeyList.get(key);
-      next = list == null ? NONE : list.head;
+      int group = keyGroup(key);
+      next = group == NONE ? NONE : groupHeads[group];
     }
 
     ValueForKeyIterator(@ParametricNullness K key, int index) {
-      KeyList<K, V> list = keyToKeyList.get(key);
-      int count = list == null ? 0 : list.count;
+      int group = keyGroup(key);
+      int count = group == NONE ? 0 : groupCounts[group];
       checkPositionIndex(index, count);
       if (index >= count / 2) {
-        previous = list == null ? NONE : list.tail;
+        previous = group == NONE ? NONE : groupTails[group];
         nextIndex = count;
         while (nextIndex > index) {
           next = previous;
@@ -672,7 +734,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
           nextIndex--;
         }
       } else {
-        next = list == null ? NONE : list.head;
+        next = group == NONE ? NONE : groupHeads[group];
         while (nextIndex < index) {
           previous = next;
           next = nextForKey[next];
@@ -769,7 +831,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
 
   @Override
   public boolean containsKey(@Nullable Object key) {
-    return keyToKeyList.containsKey(key);
+    return keyGroup(key) != NONE;
   }
 
   @Override
@@ -893,7 +955,9 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
       }
     }
     resetSlots();
-    keyToKeyList.clear();
+    if (keyToKeyList != null) {
+      keyToKeyList.clear();
+    }
     size = 0;
     modCount++;
   }
@@ -914,8 +978,8 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     return new AbstractSequentialList<V>() {
       @Override
       public int size() {
-        KeyList<K, V> keyList = keyToKeyList.get(key);
-        return (keyList == null) ? 0 : keyList.count;
+        int group = keyGroup(key);
+        return group == NONE ? 0 : groupCounts[group];
       }
 
       @Override
@@ -930,7 +994,7 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
     final class KeySetImpl extends Sets.ImprovedAbstractSet<K> {
       @Override
       public int size() {
-        return keyToKeyList.size();
+        return keyCount();
       }
 
       @Override
@@ -1093,7 +1157,8 @@ public final class LinkedListMultimap<K extends @Nullable Object, V extends @Nul
   @J2ktIncompatible
     private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
     stream.defaultReadObject();
-    keyToKeyList = CompactLinkedHashMap.create();
+    expectedKeys = 12;
+    keyToKeyList = null;
     resetSlots();
     int size = stream.readInt();
     for (int i = 0; i < size; i++) {
