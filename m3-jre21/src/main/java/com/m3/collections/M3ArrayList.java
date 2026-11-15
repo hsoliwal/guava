@@ -148,13 +148,22 @@ public final class M3ArrayList<E> extends AbstractList<E>
     @Override public boolean addAll(int index, Collection<? extends E> source) {
         Objects.checkIndex(index, required(size, 1));
         Objects.requireNonNull(source, "source");
-        // Snapshot first: aliasing this list or a view of it remains correct.
-        Object[] incoming = source.toArray();
-        if (incoming.length == 0) return false;
-        int next = required(size, incoming.length);
+        Object[] incoming;
+        int count;
+        // Distinct final owners never share a mutable backing lane. Self and views
+        // still snapshot before shifting; foreign toArray contracts stay unchanged.
+        if (source instanceof M3ArrayList<?> owner && owner != this) {
+            incoming = owner.elements;
+            count = owner.size;
+        } else {
+            incoming = source.toArray();
+            count = incoming.length;
+        }
+        if (count == 0) return false;
+        int next = required(size, count);
         reserve(next);
-        System.arraycopy(elements, index, elements, index + incoming.length, size - index);
-        System.arraycopy(incoming, 0, elements, index, incoming.length);
+        System.arraycopy(elements, index, elements, index + count, size - index);
+        System.arraycopy(incoming, 0, elements, index, count);
         size = next;
         modCount++;
         return true;
@@ -197,32 +206,53 @@ public final class M3ArrayList<E> extends AbstractList<E>
         Objects.requireNonNull(predicate, "predicate");
         int expectedModCount = modCount;
         int oldSize = size;
+        // One authoritative Object[] and unchanged two-pass stable compaction.
+        // Two primitive mask words avoid BitSet allocation for at most 128 slots.
+        // Larger sources retain the incumbent BitSet representation.
+        final boolean inlineMask = oldSize <= 2 * Long.SIZE;
         BitSet removed = null;
         int firstRemoved = oldSize;
+        long removalLow = 0L;
+        long removalHigh = 0L;
         for (int read = 0; read < oldSize; read++) {
             boolean reject = predicate.test((E) elements[read]);
             if (modCount != expectedModCount) {
                 throw new ConcurrentModificationException("predicate structurally changed owner");
             }
             if (reject) {
-                if (removed == null) {
-                    removed = new BitSet();
-                    firstRemoved = read;
+                if (inlineMask) {
+                    if (read < Long.SIZE) removalLow |= 1L << read;
+                    else removalHigh |= 1L << (read - Long.SIZE);
+                } else {
+                    if (removed == null) {
+                        removed = new BitSet();
+                        firstRemoved = read;
+                    }
+                    removed.set(read);
                 }
-                removed.set(read);
             }
         }
-        if (removed == null) return false;
-        // The retained prefix is already in place. Copy each later survivor run
-        // once, using the bitmap's word scans rather than probing every position.
-        int write = firstRemoved;
-        for (int read = removed.nextClearBit(firstRemoved); read < oldSize;) {
-            int end = removed.nextSetBit(read);
-            if (end < 0) end = oldSize;
-            int length = end - read;
-            System.arraycopy(elements, read, elements, write, length);
-            write += length;
-            read = removed.nextClearBit(end);
+        if (inlineMask ? (removalLow | removalHigh) == 0L : removed == null) return false;
+        int write = 0;
+        if (inlineMask) {
+            for (int read = 0; read < oldSize; read++) {
+                boolean reject = read < Long.SIZE
+                        ? (removalLow & (1L << read)) != 0
+                        : (removalHigh & (1L << (read - Long.SIZE))) != 0;
+                if (!reject) elements[write++] = elements[read];
+            }
+        } else {
+            // The retained prefix is already in place. Copy each later survivor
+            // run once, using bitmap word scans rather than probing every slot.
+            write = firstRemoved;
+            for (int read = removed.nextClearBit(firstRemoved); read < oldSize;) {
+                int end = removed.nextSetBit(read);
+                if (end < 0) end = oldSize;
+                int length = end - read;
+                System.arraycopy(elements, read, elements, write, length);
+                write += length;
+                read = removed.nextClearBit(end);
+            }
         }
         Arrays.fill(elements, write, oldSize, null);
         size = write;

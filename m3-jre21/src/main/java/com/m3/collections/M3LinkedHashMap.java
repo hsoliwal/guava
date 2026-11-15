@@ -154,7 +154,17 @@ public final class M3LinkedHashMap<K, V> extends M3OrderedSlotMap<K, V> {
         }
         void clear() {
             if (size == 0) { return; }
-            Arrays.fill(keys, null); Arrays.fill(values, null); Arrays.fill(index, 0);
+            // Free slots already hold null; reuse encounter links when few slots remain.
+            if (size <= (keys.length >>> 6)) {
+                for (int s = first; s >= 0; s = after[s]) {
+                    keys[s] = null;
+                    if (!keyOnly) { values[s] = null; }
+                }
+            } else {
+                Arrays.fill(keys, null); Arrays.fill(values, null);
+            }
+            // Every hash bucket, including tombstones, must still be emptied.
+            Arrays.fill(index, 0);
             first = -1; last = -1; free = -1; used = 0; occupied = 0; size = 0; modifications++;
         }
         void verify() {
