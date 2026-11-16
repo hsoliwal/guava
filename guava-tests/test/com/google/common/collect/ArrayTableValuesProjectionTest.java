@@ -36,7 +36,7 @@ import junit.framework.TestCase;
 
 /** Native JVM contracts for the row, column, and outer array-map values views. */
 @GwtIncompatible
-public class M3ArrayTableValuesProjectionTest extends TestCase {
+public class ArrayTableValuesProjectionTest extends TestCase {
   private static volatile Object observed;
 
   public void testValuesTraversalDoesNotAllocatePerElementEntries() {

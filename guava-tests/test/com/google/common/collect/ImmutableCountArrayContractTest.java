@@ -46,7 +46,7 @@ import java.util.Set;
 import org.junit.Test;
 
 /** Retained-owner, transition, frozen-oracle and serialization discriminators. */
-public final class M3ImmutableCountArrayContractTest {
+public final class ImmutableCountArrayContractTest {
   private static final String PACKAGE = "com.google.common.collect.";
 
   @Test

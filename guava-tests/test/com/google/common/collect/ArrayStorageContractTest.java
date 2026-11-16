@@ -51,7 +51,7 @@ import java.util.Set;
 import org.junit.Test;
 
 /** Physical discriminators and comparisons against separately compiled, unchanged JRE owners. */
-public final class M3ArrayStorageContractTest {
+public final class ArrayStorageContractTest {
   private static final String PACKAGE = "com.google.common.collect.";
 
   @Test

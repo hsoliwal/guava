@@ -9,7 +9,7 @@ import java.util.Random;
 import junit.framework.TestCase;
 
 /** First-match, mutation, and bounded adaptive KMP parity for the existing Ints API. */
-public final class M3IntSubsequenceKmpCompletionTest extends TestCase {
+public final class IntSubsequenceKmpCompletionTest extends TestCase {
   private static int originalIndexOf(int[] array, int[] target) {
     if (target.length == 0) {
       return 0;

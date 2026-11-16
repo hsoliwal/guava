@@ -43,7 +43,7 @@ import java.util.Random;
 import org.junit.Test;
 
 /** Primitive topology discriminators with unchanged original owners as behavioral oracles. */
-public final class M3ImmutableIndexArrayContractTest {
+public final class ImmutableIndexArrayContractTest {
   private static final String PACKAGE = "com.google.common.collect.";
 
   @Test

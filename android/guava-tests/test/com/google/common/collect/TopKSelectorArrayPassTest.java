@@ -15,7 +15,7 @@ import java.util.Random;
 import org.junit.Test;
 
 /** Same deterministic selector proof is used for relocated JRE and Android sources. */
-public final class M3TopKSelectorArrayPassTest {
+public final class TopKSelectorArrayPassTest {
   @Test
   public void quickselectAndCombineMatchSortedOracleWithDuplicates() {
     for (int k = 0; k <= 32; k++) {

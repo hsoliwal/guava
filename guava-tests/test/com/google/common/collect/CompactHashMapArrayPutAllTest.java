@@ -23,7 +23,7 @@ import java.util.Random;
 import junit.framework.TestCase;
 
 /** Contract tests for the exact-owner array-lane source in CompactHashMap.putAll. */
-public final class M3CompactHashMapArrayPutAllTest extends TestCase {
+public final class CompactHashMapArrayPutAllTest extends TestCase {
 
   public void testNullsOverwriteAndDetachment() {
     CompactHashMap<Object, Object> source = CompactHashMap.create();

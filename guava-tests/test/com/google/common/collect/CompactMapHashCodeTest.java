@@ -13,7 +13,7 @@ import java.util.Random;
 import java.util.Set;
 
 /** Independent entry-view oracle, callback contracts and projection allocation guard. */
-public final class M3CompactMapHashCodeTest extends junit.framework.TestCase {
+public final class CompactMapHashCodeTest extends junit.framework.TestCase {
   private static int checks;
 
   private static CompactHashMap<Object, Object> create(int flavor) {

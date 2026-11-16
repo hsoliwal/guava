@@ -34,7 +34,7 @@ import org.jspecify.annotations.NullUnmarked;
 @GwtIncompatible
 @J2ktIncompatible
 @NullUnmarked
-public final class M3ImmutablePrimitiveArrayBulkCopyTest extends TestCase {
+public final class ImmutablePrimitiveArrayBulkCopyTest extends TestCase {
 
   public void testIntViewsCopyExactSliceAndOwnFreshCompactArray() throws Exception {
     int[] values = {Integer.MIN_VALUE, -257, 0, 128, Integer.MAX_VALUE};

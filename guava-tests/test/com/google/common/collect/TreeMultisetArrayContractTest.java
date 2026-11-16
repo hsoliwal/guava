@@ -48,7 +48,7 @@ import org.jspecify.annotations.Nullable;
 import org.junit.Test;
 
 /** Partial AVL topology, exported-count lifetime, frozen-oracle and callback contracts. */
-public final class M3TreeMultisetArrayContractTest {
+public final class TreeMultisetArrayContractTest {
   private static final String PACKAGE = "com.google.common.collect.";
 
   @Test
@@ -472,7 +472,7 @@ public final class M3TreeMultisetArrayContractTest {
       // A later ordinary clear must release the root-only resurrected node too.
       ((Collection<?>) tree).clear();
       assertEquals(3, invoke(held, "Multiset$Entry", "getCount"));
-      if (loader == M3TreeMultisetArrayContractTest.class.getClassLoader()) {
+      if (loader == TreeMultisetArrayContractTest.class.getClassLoader()) {
         Object arena = field(tree, "rootReference");
         assertEquals(0, nonNull((Object[]) field(arena, "elements")));
         assertEquals(0, nonNull((Object[]) field(arena, "exportedCounts")));
@@ -550,7 +550,7 @@ public final class M3TreeMultisetArrayContractTest {
     comparator.callback = () -> ((Collection<?>) tree).clear();
     Object entry = invoke(view, "SortedMultiset", descending ? "lastEntry" : "firstEntry");
     Object snapshot = entrySnapshot(entry);
-    if (loader == M3TreeMultisetArrayContractTest.class.getClassLoader()) {
+    if (loader == TreeMultisetArrayContractTest.class.getClassLoader()) {
       Object arena = field(tree, "rootReference");
       assertEquals(0, nonNull((Object[]) field(arena, "elements")));
       assertEquals(0, nonNull((Object[]) field(arena, "exportedCounts")));
@@ -593,7 +593,7 @@ public final class M3TreeMultisetArrayContractTest {
             });
     result.add("returned");
     result.add(((Collection<?>) tree).size());
-    if (loader == M3TreeMultisetArrayContractTest.class.getClassLoader()) {
+    if (loader == TreeMultisetArrayContractTest.class.getClassLoader()) {
       assertArena((TreeMultiset<?>) tree);
     }
     return result;
@@ -643,7 +643,7 @@ public final class M3TreeMultisetArrayContractTest {
     } catch (RuntimeException failure) {
       result.add(failure.getClass().getName());
     }
-    if (loader == M3TreeMultisetArrayContractTest.class.getClassLoader()) {
+    if (loader == TreeMultisetArrayContractTest.class.getClassLoader()) {
       Object arena = field(tree, "rootReference");
       assertEquals(null, field(arena, "activeCursors"));
       assertEquals(0, field(arena, "activeCursorCount"));
@@ -667,7 +667,7 @@ public final class M3TreeMultisetArrayContractTest {
       result.add(failure.getClass().getName());
     }
     result.add(((Collection<?>) tree).size());
-    if (loader == M3TreeMultisetArrayContractTest.class.getClassLoader()) {
+    if (loader == TreeMultisetArrayContractTest.class.getClassLoader()) {
       assertArena((TreeMultiset<?>) tree);
     }
     return result;
@@ -766,7 +766,7 @@ public final class M3TreeMultisetArrayContractTest {
           }
         };
     Object result = mutate(tree, 0, mode == 4 ? 17 : 8, 1, 0);
-    if (mode >= 3 && loader == M3TreeMultisetArrayContractTest.class.getClassLoader()) {
+    if (mode >= 3 && loader == TreeMultisetArrayContractTest.class.getClassLoader()) {
       assertArena((TreeMultiset<?>) tree);
     }
     return Arrays.asList(
@@ -809,7 +809,7 @@ public final class M3TreeMultisetArrayContractTest {
     } catch (RuntimeException failure) {
       outcome = failure.getClass().getName();
     }
-    if (loader == M3TreeMultisetArrayContractTest.class.getClassLoader()) {
+    if (loader == TreeMultisetArrayContractTest.class.getClassLoader()) {
       assertArena((TreeMultiset<?>) tree);
     }
     return Arrays.asList(outcome, visited, snapshot(tree), ((Collection<?>) tree).size());
