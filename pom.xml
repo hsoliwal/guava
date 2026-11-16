@@ -412,18 +412,18 @@
           </dependencies>
           <configuration>
             <annotations>
-              <annotation>com.m3.collections.guava.base.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.cache.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.collect.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.collect.testing.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.collect.testing.testers.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.hash.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.io.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.math.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.primitives.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.reflect.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.testing.IgnoreJRERequirement</annotation>
-              <annotation>com.m3.collections.guava.util.concurrent.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.base.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.cache.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.collect.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.collect.testing.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.collect.testing.testers.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.hash.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.io.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.math.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.primitives.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.reflect.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.testing.IgnoreJRERequirement</annotation>
+              <annotation>com.google.common.util.concurrent.IgnoreJRERequirement</annotation>
             </annotations>
             <checkTestClasses>true</checkTestClasses>
             <signature>

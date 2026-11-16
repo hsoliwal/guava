@@ -21,17 +21,17 @@
 #
 # (Under Android, we end up using Finalzier non-reflectively, so we could
 # likely rework all this configuration.)
--keepclassmembernames class com.m3.collections.guava.base.internal.Finalizer {
+-keepclassmembernames class com.google.common.base.internal.Finalizer {
   *** startFinalizer(...);
 }
 # However, it cannot "spot" that this method needs to be kept IF the class is.
--keepclassmembers class com.m3.collections.guava.base.internal.Finalizer {
+-keepclassmembers class com.google.common.base.internal.Finalizer {
   *** startFinalizer(...);
 }
 
--keepclassmembernames class com.m3.collections.guava.base.FinalizableReference {
+-keepclassmembernames class com.google.common.base.FinalizableReference {
   void finalizeReferent();
 }
--keepclassmembers class com.m3.collections.guava.base.FinalizableReference {
+-keepclassmembers class com.google.common.base.FinalizableReference {
   void finalizeReferent();
 }
