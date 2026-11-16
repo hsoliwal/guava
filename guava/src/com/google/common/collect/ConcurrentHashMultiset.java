@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -191,28 +192,39 @@ public final class ConcurrentHashMultiset<E> extends AbstractMultiset<E> impleme
 
   @Override
   public Object[] toArray() {
-    return snapshotElementsToList().toArray();
+    return snapshotElements();
   }
 
   @Override
   @SuppressWarnings("nullness") // b/192354773 in our checker affects toArray declarations
   public <T extends @Nullable Object> T[] toArray(T[] array) {
-    return snapshotElementsToList().toArray(array);
+    @Nullable Object[] elements = snapshotElements();
+    return ObjectArrays.toArrayImpl(elements, 0, elements.length, array);
   }
 
   /*
    * We'd love to use 'new ArrayList(this)' or 'list.addAll(this)', but
    * either of these would recurse back to us again!
    */
-  private List<E> snapshotElementsToList() {
-    List<E> list = newArrayListWithExpectedSize(size());
+  private @Nullable Object[] snapshotElements() {
+    // One array of the exact size, filled entry by entry: a count is written as one block, not
+    // one add per occurrence, and the array is the result, not a copy of a list.
+    @Nullable Object[] elements = new Object[size()];
+    int length = 0;
     for (Entry<E> entry : entrySet()) {
-      E element = entry.getElement();
-      for (int i = entry.getCount(); i > 0; i--) {
-        list.add(element);
+      int count = entry.getCount();
+      if (count > elements.length - length) {
+        // Concurrent additions made the multiset larger than its size was at the start.
+        if (count > Integer.MAX_VALUE - length) {
+          throw new OutOfMemoryError("multiset too large for an array");
+        }
+        int grown = elements.length + (elements.length >> 1);
+        elements = Arrays.copyOf(elements, max(length + count, grown));
       }
+      Arrays.fill(elements, length, length + count, entry.getElement());
+      length += count;
     }
-    return list;
+    return length == elements.length ? elements : Arrays.copyOf(elements, length);
   }
 
   // Modification Operations
