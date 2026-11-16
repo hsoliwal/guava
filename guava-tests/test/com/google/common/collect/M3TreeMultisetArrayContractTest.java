@@ -44,6 +44,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.ObjIntConsumer;
+import org.jspecify.annotations.Nullable;
 import org.junit.Test;
 
 /** Partial AVL topology, exported-count lifetime, frozen-oracle and callback contracts. */
@@ -815,7 +816,7 @@ public final class M3TreeMultisetArrayContractTest {
   }
 
   private static Object mutate(
-      Object target, int operation, Object element, int amount, int expectedCount)
+      Object target, int operation, @Nullable Object element, int amount, int expectedCount)
       throws Exception {
     try {
       switch (operation) {
