@@ -17,11 +17,11 @@ package com.google.common.collect;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.collect.CollectPreconditions.checkNonnegative;
 import static com.google.common.collect.CollectPreconditions.checkRemove;
 import static com.google.common.collect.Hashing.smearedHash;
 import static com.google.common.collect.NullnessCasts.uncheckedCastNullableTToT;
-import static com.google.common.collect.NullnessCasts.unsafeNull;
 
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.errorprone.annotations.concurrent.LazyInit;
@@ -131,6 +131,17 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
   /** Maps an "entry" to the value of that entry. */
   private transient @Nullable V[] values;
 
+  /**
+   * Maps an "entry" to the stamp of its current mapping. A mapping gets a fresh stamp when it is
+   * inserted and whenever its key or value is replaced, and keeps it when its slot moves. An API
+   * entry is still in the map only while the slot of its key carries the stamp it captured, which
+   * is what the node identity check {@code seekByKey(node.key) == node} decides upstream.
+   */
+  private transient int[] stamps;
+
+  /** The stamp of the next inserted or replaced mapping. */
+  private transient int nextStamp;
+
   private transient int size;
   private transient int modCount;
 
@@ -170,6 +181,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
 
     keys = (K[]) new Object[expectedSize];
     values = (V[]) new Object[expectedSize];
+    stamps = new int[expectedSize];
 
     hashTableKToV = createFilledWithAbsent(tableSize);
     hashTableVToK = createFilledWithAbsent(tableSize);
@@ -268,6 +280,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
 
       keys = Arrays.copyOf(keys, newCapacity);
       values = Arrays.copyOf(values, newCapacity);
+      stamps = Arrays.copyOf(stamps, newCapacity);
       nextInBucketKToV = expandAndFillWithAbsent(nextInBucketKToV, newCapacity);
       nextInBucketVToK = expandAndFillWithAbsent(nextInBucketVToK, newCapacity);
       prevInInsertionOrder = expandAndFillWithAbsent(prevInInsertionOrder, newCapacity);
@@ -414,6 +427,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     convertIfFlooded(keyHash, true, valueHash, true);
     keys[size] = key;
     values[size] = value;
+    stamps[size] = nextStamp++;
 
     insertIntoTableKToV(size, keyHash);
     insertIntoTableVToK(size, valueHash);
@@ -470,6 +484,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     convertIfFlooded(keyHash, true, valueHash, true);
     keys[size] = key;
     values[size] = value;
+    stamps[size] = nextStamp++;
 
     insertIntoTableKToV(size, keyHash);
     insertIntoTableVToK(size, valueHash);
@@ -621,6 +636,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     // Retain the JRE replacement epoch while leaving insertion order unchanged.
     deleteFromTableVToK(entry, smearedHash(values[entry]));
     values[entry] = newValue;
+    stamps[entry] = nextStamp++;
     insertIntoTableVToK(entry, newValueHash);
     modCount += 2;
   }
@@ -670,6 +686,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     convertIfFlooded(newKeyHash, true, 0, false);
     deleteFromTableKToV(entry, smearedHash(keys[entry]));
     keys[entry] = newKey;
+    stamps[entry] = nextStamp++;
     insertIntoTableKToV(entry, smearedHash(newKey));
 
     // insert into insertion order linked list, usually at the end
@@ -754,6 +771,7 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
 
     keys[dest] = key;
     values[dest] = value;
+    stamps[dest] = stamps[src];
 
     FloodedTables<K, V> tables = floodedTables;
     if (tables != null) {
@@ -1032,27 +1050,32 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
   }
 
   /**
-   * An {@code Entry} implementation that attempts to follow its key around the map -- that is, if
-   * the key is moved, deleted, or reinserted, it will account for that -- while not doing any extra
-   * work if the key has not moved. One quirk: The {@link #getValue()} method can return {@code
-   * null} even for a map which supposedly does not contain null elements, if the key is not present
-   * when {@code getValue()} is called.
+   * An {@code Entry} implementation that follows its mapping around the map -- that is, if the slot
+   * of the key is moved, it will account for that -- while not doing any extra work if the key has
+   * not moved. It holds the key, the value and the stamp of the mapping it was created for, like
+   * the node that the upstream entry holds: {@link #getValue()} returns that value, and {@link
+   * #setValue} throws {@code IllegalStateException} once that mapping was removed or replaced
+   * through another API, even if the key was inserted again.
    */
   private final class EntryForKey extends AbstractMapEntry<K, V> {
     @ParametricNullness final K key;
+    @ParametricNullness V value;
+    int stamp;
     int index;
 
     private final EntryMutationListener listener;
 
     EntryForKey(int index, EntryMutationListener listener) {
       this.listener = listener;
-      // The cast is safe because we call forEntry only for indexes that contain entries.
+      // The casts are safe because we call forEntry only for indexes that contain entries.
       this.key = uncheckedCastNullableTToT(keys[index]);
+      this.value = uncheckedCastNullableTToT(values[index]);
+      this.stamp = stamps[index];
       this.index = index;
     }
 
     void updateIndex() {
-      if (index == ABSENT || index > size || !Objects.equals(keys[index], key)) {
+      if (index == ABSENT || index >= size || !Objects.equals(keys[index], key)) {
         index = findEntryByKey(key);
       }
     }
@@ -1066,39 +1089,22 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     @Override
     @ParametricNullness
     public V getValue() {
-      updateIndex();
-      /*
-       * If the entry has been removed from the map, we return null, even though that might not be a
-       * valid value. That's the best we can do, short of holding a reference to the most recently
-       * seen value. And while we *could* do that, we aren't required to: Map.Entry explicitly says
-       * that behavior is undefined when the backing map is modified through another API. (It even
-       * permits us to throw IllegalStateException. Maybe we should have done that, but we probably
-       * shouldn't change now for fear of breaking people.)
-       *
-       * If the entry is still in the map, then updateIndex ensured that `index` points to the right
-       * element. Because that element is present, uncheckedCastNullableTToT is safe.
-       */
-      return (index == ABSENT) ? unsafeNull() : uncheckedCastNullableTToT(values[index]);
+      return value;
     }
 
     @Override
     @ParametricNullness
     public V setValue(@ParametricNullness V value) {
       updateIndex();
-      if (index == ABSENT) {
-        HashBiMap.this.put(key, value);
-        return unsafeNull(); // See the discussion in getValue().
-      }
-      /*
-       * The cast is safe because updateIndex found the entry for this key. (If it hadn't, then we
-       * would have returned above.) Thus, we know that it and its corresponding value are in
-       * position `index`.
-       */
-      V oldValue = uncheckedCastNullableTToT(values[index]);
+      checkState(index != ABSENT && stamps[index] == stamp, "entry no longer in map");
+      V oldValue = this.value;
       if (Objects.equals(oldValue, value)) {
         return value;
       }
+      // Without force the entry keeps its slot, so `index` stays valid.
       replaceValueInEntry(index, value, false);
+      this.value = value;
+      this.stamp = stamps[index];
       listener.entryReplaced();
       return oldValue;
     }
@@ -1114,16 +1120,37 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     }
   }
 
+  @SuppressWarnings("CatchingUnchecked") // sneaky checked exception
   @Override
   public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
     checkNotNull(function);
     K[] oldKeys = Arrays.copyOf(keys, size);
     V[] oldValues = Arrays.copyOf(values, size);
+    int[] oldStamps = Arrays.copyOf(stamps, size);
     int[] oldNext = Arrays.copyOf(nextInInsertionOrder, size);
     int oldFirst = firstInInsertionOrder;
     clear();
+    try {
+      for (int entry = oldFirst; entry != ENDPOINT; entry = oldNext[entry]) {
+        put(oldKeys[entry], function.apply(oldKeys[entry], oldValues[entry]));
+      }
+    } catch (Exception e) { // sneaky checked exception
+      restoreFromSavedLanes(oldKeys, oldValues, oldStamps, oldNext, oldFirst);
+      throw e;
+    }
+  }
+
+  /**
+   * Puts back the mappings saved by {@code replaceAll}, in their old insertion order and with their
+   * old stamps, so that entries obtained before the failed call are still in the map.
+   */
+  private void restoreFromSavedLanes(
+      @Nullable K[] oldKeys, @Nullable V[] oldValues, int[] oldStamps, int[] oldNext, int oldFirst) {
+    clear();
     for (int entry = oldFirst; entry != ENDPOINT; entry = oldNext[entry]) {
-      put(oldKeys[entry], function.apply(oldKeys[entry], oldValues[entry]));
+      // The casts are safe because the saved lanes hold the mappings of the map before the call.
+      put(uncheckedCastNullableTToT(oldKeys[entry]), uncheckedCastNullableTToT(oldValues[entry]));
+      stamps[size - 1] = oldStamps[entry];
     }
   }
 
@@ -1223,16 +1250,23 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
       obverse.forEach((k, v) -> action.accept(v, k));
     }
 
+    @SuppressWarnings("CatchingUnchecked") // sneaky checked exception
     @Override
     public void replaceAll(BiFunction<? super V, ? super K, ? extends K> function) {
       checkNotNull(function);
       K[] oldKeys = Arrays.copyOf(obverse.keys, obverse.size);
       V[] oldValues = Arrays.copyOf(obverse.values, obverse.size);
+      int[] oldStamps = Arrays.copyOf(obverse.stamps, obverse.size);
       int[] oldNext = Arrays.copyOf(obverse.nextInInsertionOrder, obverse.size);
       int oldFirst = obverse.firstInInsertionOrder;
       clear();
-      for (int entry = oldFirst; entry != ENDPOINT; entry = oldNext[entry]) {
-        put(oldValues[entry], function.apply(oldValues[entry], oldKeys[entry]));
+      try {
+        for (int entry = oldFirst; entry != ENDPOINT; entry = oldNext[entry]) {
+          put(oldValues[entry], function.apply(oldValues[entry], oldKeys[entry]));
+        }
+      } catch (Exception e) { // sneaky checked exception
+        obverse.restoreFromSavedLanes(oldKeys, oldValues, oldStamps, oldNext, oldFirst);
+        throw e;
       }
     }
 
@@ -1290,14 +1324,18 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
   }
 
   /**
-   * An {@code Entry} implementation for {@link InverseEntrySet}, implemented to attempt to follow
-   * its value around the map -- that is, if the value is moved, deleted, or reinserted, it will
-   * account for that -- while not doing any extra work if the value has not moved.
+   * An {@code Entry} implementation for {@link InverseEntrySet} that follows its mapping around the
+   * map -- that is, if the slot of the value is moved, it will account for that -- while not doing
+   * any extra work if the value has not moved. Like {@link EntryForKey}, it holds the key and the
+   * stamp of the mapping it was created for and rejects {@link #setValue} once that mapping was
+   * removed or replaced through another API.
    */
   static final class EntryForValue<K extends @Nullable Object, V extends @Nullable Object>
       extends AbstractMapEntry<V, K> {
     final HashBiMap<K, V> obverse;
     @ParametricNullness final V obverseValue;
+    @ParametricNullness K obverseKey;
+    int stamp;
     int index;
 
     private final EntryMutationListener listener;
@@ -1305,14 +1343,16 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     EntryForValue(HashBiMap<K, V> obverse, int index, EntryMutationListener listener) {
       this.listener = listener;
       this.obverse = obverse;
-      // The cast is safe because we call forEntry only for indexes that contain entries.
+      // The casts are safe because we call forEntry only for indexes that contain entries.
       this.obverseValue = uncheckedCastNullableTToT(obverse.values[index]);
+      this.obverseKey = uncheckedCastNullableTToT(obverse.keys[index]);
+      this.stamp = obverse.stamps[index];
       this.index = index;
     }
 
     private void updateIndex() {
       if (index == ABSENT
-          || index > obverse.size
+          || index >= obverse.size
           || !Objects.equals(obverseValue, obverse.values[index])) {
         index = obverse.findEntryByValue(obverseValue);
       }
@@ -1327,28 +1367,28 @@ public final class HashBiMap<K extends @Nullable Object, V extends @Nullable Obj
     @Override
     @ParametricNullness
     public K getValue() {
-      updateIndex();
-      // For discussion of unsafeNull() and uncheckedCastNullableTToT(), see EntryForKey.getValue().
-      return (index == ABSENT) ? unsafeNull() : uncheckedCastNullableTToT(obverse.keys[index]);
+      // Like EntryForKey.getValue(): the key of the mapping this entry was created for.
+      return obverseKey;
     }
 
     @Override
     @ParametricNullness
     public K setValue(@ParametricNullness K value) {
-      K obverseKey = value;
+      K newObverseKey = value;
       updateIndex();
-      if (index == ABSENT) {
-        obverse.putInverse(obverseValue, obverseKey, false);
-        return unsafeNull(); // see EntryForKey.setValue()
-      }
-      K oldObverseKey =
-          uncheckedCastNullableTToT(obverse.keys[index]); // see EntryForKey.setValue()
-      if (Objects.equals(oldObverseKey, obverseKey)) {
-        return obverseKey;
+      checkState(index != ABSENT && obverse.stamps[index] == stamp, "entry no longer in map");
+      K oldObverseKey = obverseKey;
+      if (Objects.equals(oldObverseKey, newObverseKey)) {
+        return newObverseKey;
       }
       checkArgument(
-          obverse.findEntryByKey(obverseKey) == ABSENT, "value already present: %s", obverseKey);
-      obverse.replaceKeyInEntry(index, obverseKey, false);
+          obverse.findEntryByKey(newObverseKey) == ABSENT,
+          "value already present: %s",
+          newObverseKey);
+      // Without force the entry keeps its slot, so `index` stays valid.
+      obverse.replaceKeyInEntry(index, newObverseKey, false);
+      obverseKey = newObverseKey;
+      stamp = obverse.stamps[index];
       listener.entryReplaced();
       return oldObverseKey;
     }
