@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.Field;
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
@@ -54,8 +55,9 @@ public final class M3ArrayListFilterRunsTest {
     }
 
     @Test public void predicateFailureRetainsOwnerReferencesAndIteratorEpoch() throws Exception {
-        for (int failAt = 0; failAt < 130; failAt++) {
-            M3ArrayList<Integer> list = sequence(130);
+        for (int count : new int[] {1, 63, 64, 65, 127, 128, 129, 130}) {
+          for (int failAt = 0; failAt < count; failAt++) {
+            M3ArrayList<Integer> list = sequence(count);
             Object[] before = list.toArray();
             Object[] backing = storage(list);
             Iterator<Integer> iterator = list.iterator();
@@ -70,12 +72,14 @@ public final class M3ArrayListFilterRunsTest {
             assertArrayEquals(before, list.toArray());
             assertSame(backing, storage(list));
             assertEquals(Integer.valueOf(0), iterator.next());
+          }
         }
     }
 
     @Test public void structuralReentrancyStopsBeforeAnyCompaction() {
-        for (int trigger : new int[] {0, 1, 63, 64, 129}) {
-            M3ArrayList<Integer> list = sequence(130);
+        for (int count : new int[] {1, 63, 64, 65, 127, 128, 129, 130}) {
+          for (int trigger : new int[] {0, count / 2, count - 1}) {
+            M3ArrayList<Integer> list = sequence(count);
             int[] calls = {0};
             ConcurrentModificationException failure = assertThrows(
                     ConcurrentModificationException.class, () -> list.removeIf(value -> {
@@ -85,10 +89,93 @@ public final class M3ArrayListFilterRunsTest {
                     }));
             assertEquals("predicate structurally changed owner", failure.getMessage());
             assertEquals(trigger + 1, calls[0]);
-            assertEquals(131, list.size());
-            for (int i = 0; i < 130; i++) assertEquals(Integer.valueOf(i), list.get(i));
+            assertEquals(count + 1, list.size());
+            for (int i = 0; i < count; i++) assertEquals(Integer.valueOf(i), list.get(i));
             assertEquals(Integer.valueOf(-1), list.getLast());
+          }
         }
+    }
+
+    @Test public void distinctOwnerBulkCopyKeepsNullsOrderAndSourceIndependence() throws Exception {
+        for (int count : new int[] {0, 1, 63, 64, 65, 127, 128, 129}) {
+            for (int index = 0; index <= 4; index++) {
+                M3ArrayList<Integer> source = sequence(count);
+                if (count > 0) source.set(count / 2, null);
+                Object[] before = source.toArray();
+                Iterator<Integer> sourceCursor = source.iterator();
+                M3ArrayList<Integer> target = sequence(4);
+                Iterator<Integer> targetCursor = target.iterator();
+                List<Integer> expected = new ArrayList<>(target);
+                expected.addAll(index, source);
+                assertEquals(count != 0, target.addAll(index, source));
+                assertEquals(expected, target);
+                assertArrayEquals(before, source.toArray());
+                assertNotSame(storage(source), storage(target));
+                if (count > 0) {
+                    assertEquals(before[0], sourceCursor.next());
+                    assertThrows(ConcurrentModificationException.class, targetCursor::next);
+                    source.set(0, -7);
+                    assertEquals(before[0], target.get(index));
+                    target.set(index + count - 1, -8);
+                    assertEquals(count == 1 ? Integer.valueOf(-7) : before[count - 1],
+                            source.get(count - 1));
+                } else {
+                    assertEquals(Integer.valueOf(0), targetCursor.next());
+                }
+            }
+        }
+    }
+
+    @Test public void selfAndBackedViewBulkAddsStillSnapshotBeforeShifting() {
+        for (int index = 0; index <= 5; index++) {
+            M3ArrayList<Integer> self = sequence(5);
+            List<Integer> selfExpected = new ArrayList<>(self);
+            selfExpected.addAll(index, new ArrayList<>(self));
+            assertTrue(self.addAll(index, self));
+            assertEquals(selfExpected, self);
+
+            M3ArrayList<Integer> owner = sequence(5);
+            List<Integer> view = owner.subList(1, 4);
+            List<Integer> expected = new ArrayList<>(owner);
+            expected.addAll(index, new ArrayList<>(view));
+            assertTrue(owner.addAll(index, view));
+            assertEquals(expected, owner);
+            assertThrows(ConcurrentModificationException.class, view::size);
+        }
+    }
+
+    @Test public void foreignBulkSourceKeepsSingleToArrayCallbackAndFailureOrder() {
+        int[] calls = {0};
+        Integer[] incoming = {7, null, 9};
+        AbstractCollection<Integer> source = new AbstractCollection<>() {
+            @Override public int size() { throw new AssertionError("size not demanded"); }
+            @Override public Iterator<Integer> iterator() {
+                throw new AssertionError("iterator not demanded");
+            }
+            @Override public Object[] toArray() { calls[0]++; return incoming.clone(); }
+        };
+        M3ArrayList<Integer> list = sequence(2);
+        assertTrue(list.addAll(1, source));
+        assertEquals(1, calls[0]);
+        assertEquals(Arrays.asList(0, 7, null, 9, 1), list);
+        assertThrows(IndexOutOfBoundsException.class, () -> list.addAll(-1, source));
+        assertEquals(1, calls[0]);
+        assertThrows(IndexOutOfBoundsException.class, () -> list.addAll(-1, null));
+        assertThrows(NullPointerException.class, () -> list.addAll(0, null));
+
+        RuntimeException failure = new RuntimeException("source");
+        AbstractCollection<Integer> failing = new AbstractCollection<>() {
+            @Override public int size() { throw new AssertionError("size not demanded"); }
+            @Override public Iterator<Integer> iterator() {
+                throw new AssertionError("iterator not demanded");
+            }
+            @Override public Object[] toArray() { throw failure; }
+        };
+        Object[] before = list.toArray();
+        Iterator<Integer> iterator = list.iterator();
+        assertSame(failure, assertThrows(RuntimeException.class, () -> list.addAll(2, failing)));
+        assertArrayEquals(before, list.toArray());
+        assertEquals(before[0], iterator.next());
     }
 
     @Test public void nonStructuralPredicateUpdatesRemainVisible() {
