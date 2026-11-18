@@ -232,6 +232,204 @@ public final class M3IndexedListSnapshotCopyTest {
         }
     }
 
+    private static void verifyFilter(M3IndexedListSnapshot<Object> source, boolean[] keep,
+            M3IndexMaskCompactor.Backend backend) {
+        Object[] oldValues = source.toArray();
+        int[] oldPositions = source.physicalIndices();
+        BitSet oldMembership = source.physicalMaskCopy();
+        int[] expected = new int[keep.length];
+        int expectedCount = 0;
+        for (int i = 0; i < keep.length; i++) {
+            if (keep[i]) expected[expectedCount++] = oldPositions[i];
+        }
+        final int[] calls = {0};
+        M3IndexedListSnapshot<Object> selected = source.filtered(value -> {
+            int ordinal = calls[0]++;
+            require(ordinal < oldValues.length, "extra predicate invocation");
+            require(value == oldValues[ordinal], "predicate encounter order changed");
+            return keep[ordinal];
+        }, backend);
+        require(calls[0] == keep.length, "predicate invocation count");
+        require(selected != source, "filter reused observable snapshot identity");
+        require(selected.size() == expectedCount, "filter result cardinality");
+        require(Arrays.equals(selected.physicalIndices(), Arrays.copyOf(expected, expectedCount)),
+                "filter lost occurrence positions or encounter order");
+        for (int i = 0, out = 0; i < keep.length; i++) {
+            if (keep[i]) require(selected.get(out++) == oldValues[i], "filter payload identity");
+        }
+        require(Arrays.equals(source.physicalIndices(), oldPositions), "filter changed source indexes");
+        require(source.physicalMaskCopy().equals(oldMembership), "filter changed source membership");
+        BitSet exported = selected.physicalMaskCopy();
+        exported.flip(0, oldMembership.length() + 1);
+        require(source.physicalMaskCopy().equals(oldMembership), "mutable mask leaked to source");
+    }
+
+    @Test
+    public void filteringPreservesOccurrencesAcrossWordBoundaries() {
+        Object duplicate = new Object();
+        Random random = new Random(0x7061636b65645fL);
+        int[] lengths = {0, 1, 2, 31, 32, 63, 64, 65, 127, 128, 129, 255, 256, 257, 1023};
+        for (int length : lengths) {
+            for (int offset : new int[] {0, 1, 7, 63, 64, 65}) {
+                Object[] values = new Object[length + offset + 3];
+                for (int i = 0; i < values.length; i++) {
+                    values[i] = i % 3 == 0 ? null : i % 3 == 1 ? duplicate : new Object();
+                }
+                M3IndexedListSnapshot<Object> source = M3IndexedListSnapshot.copyOf(values)
+                        .slice(offset, length);
+                for (int mode = 0; mode < 6; mode++) {
+                    boolean[] keep = new boolean[length];
+                    for (int i = 0; i < length; i++) {
+                        keep[i] = switch (mode) {
+                            case 0 -> false;
+                            case 1 -> true;
+                            case 2 -> (i & 1) == 0;
+                            case 3 -> (i & 63) == 63;
+                            case 4 -> (i & 63) == 0;
+                            default -> random.nextBoolean();
+                        };
+                    }
+                    verifyFilter(source, keep, M3IndexMaskCompactor.Backend.JAVA);
+                }
+            }
+        }
+    }
+
+    @Test
+    public void filteringSortedAndNestedSlicesKeepsPhysicalCoordinates() {
+        Random random = new Random(0x696e6465785fL);
+        Comparator<Object> comparator = Comparator.nullsFirst(
+                Comparator.comparingInt(value -> (Integer) value));
+        for (int trial = 0; trial < 400; trial++) {
+            Object[] values = new Object[random.nextInt(514)];
+            for (int i = 0; i < values.length; i++) {
+                values[i] = random.nextInt(8) == 0 ? null : random.nextInt(19) - 9;
+            }
+            M3IndexedListSnapshot<Object> source = M3IndexedListSnapshot.copyOf(values)
+                    .sorted(comparator);
+            int start = random.nextInt(source.size() + 1);
+            source = source.slice(start, random.nextInt(source.size() - start + 1));
+            source = source.filtered(value -> value == null || ((Integer) value & 1) == 0);
+            int nextStart = random.nextInt(source.size() + 1);
+            source = source.slice(nextStart, source.size() - nextStart);
+            boolean[] keep = new boolean[source.size()];
+            for (int i = 0; i < keep.length; i++) keep[i] = random.nextBoolean();
+            verifyFilter(source, keep, M3IndexMaskCompactor.Backend.JAVA);
+        }
+    }
+
+    @Test
+    public void predicateFailureIdentityAndDemandRemainUnchanged() {
+        Object[] values = new Object[130];
+        Arrays.fill(values, new Object());
+        M3IndexedListSnapshot<Object> source = M3IndexedListSnapshot.copyOf(values).slice(1, 128);
+        int[] positions = source.physicalIndices();
+        for (int stop : new int[] {0, 1, 62, 63, 64, 65, 127}) {
+            RuntimeException failure = new IllegalStateException("predicate failure " + stop);
+            int[] calls = {0};
+            try {
+                source.filtered(value -> {
+                    if (calls[0]++ == stop) throw failure;
+                    return true;
+                });
+                throw new AssertionError("predicate failure swallowed");
+            } catch (RuntimeException observed) {
+                require(observed == failure, "predicate exception identity changed");
+                require(calls[0] == stop + 1, "callback demand after exception");
+            }
+            require(Arrays.equals(positions, source.physicalIndices()), "exception mutated owner");
+        }
+    }
+
+    @Test
+    public void reentrantFilteringRetainsIndependentInvocationState() {
+        Object[] values = new Object[129];
+        Object duplicate = new Object();
+        Arrays.fill(values, duplicate);
+        M3IndexedListSnapshot<Object> source = M3IndexedListSnapshot.copyOf(values);
+        int[] outerCalls = {0};
+        int[] innerCalls = {0};
+        M3IndexedListSnapshot<Object> selected = source.filtered(value -> {
+            int ordinal = outerCalls[0]++;
+            if (ordinal == 64) {
+                M3IndexedListSnapshot<Object> inner = source.filtered(ignored -> {
+                    innerCalls[0]++;
+                    return false;
+                });
+                require(inner.isEmpty(), "nested selection leaked outer decisions");
+                require(source.physicalMaskCopy().cardinality() == source.size(),
+                        "nested membership request changed physical owner");
+            }
+            return (ordinal & 1) == 0;
+        });
+        require(outerCalls[0] == 129 && innerCalls[0] == 129, "reentrant callback counts");
+        require(selected.size() == 65, "reentrant selection count");
+        for (int i = 0; i < selected.size(); i++) {
+            require(selected.physicalIndex(i) == i * 2, "reentrant physical order");
+        }
+    }
+
+    @Test
+    public void filteringValidationAndNativeRequirementPrecedeCallbacks() {
+        M3IndexedListSnapshot<Object> source = M3IndexedListSnapshot.copyOf(new Object[] {null});
+        int[] calls = {0};
+        try {
+            source.filtered(null, null);
+            throw new AssertionError("null predicate and backend accepted");
+        } catch (NullPointerException expected) {
+            require("predicate".equals(expected.getMessage()), "predicate validation order");
+        }
+        try {
+            source.filtered(value -> { calls[0]++; return true; }, null);
+            throw new AssertionError("null backend accepted");
+        } catch (NullPointerException expected) {
+            require("backend".equals(expected.getMessage()), "backend validation message");
+        }
+        if (!M3IndexMaskCompactor.nativeAvailable()) {
+            for (M3IndexedListSnapshot<Object> view : Arrays.asList(source, source.slice(0, 0))) {
+                try {
+                    view.filtered(value -> { calls[0]++; return true; },
+                            M3IndexMaskCompactor.Backend.NATIVE_REQUIRED);
+                    throw new AssertionError("native requirement silently fell back to Java");
+                } catch (UnsatisfiedLinkError expected) {
+                    require("m3_collections_mask JNI library unavailable".equals(expected.getMessage()),
+                            "native absence error changed");
+                }
+            }
+        } else {
+            verifyFilter(source, new boolean[] {true}, M3IndexMaskCompactor.Backend.NATIVE_REQUIRED);
+            verifyFilter(source, new boolean[] {false}, M3IndexMaskCompactor.Backend.NATIVE_REQUIRED);
+        }
+        require(calls[0] == 0, "validation or absent native library invoked predicate");
+    }
+
+    @Test
+    public void allPassSharesOnlyCompleteImmutableIndexStorage() throws Exception {
+        Integer[] values = new Integer[129];
+        for (int i = 0; i < values.length; i++) values[i] = values.length - i;
+        M3IndexedListSnapshot<Integer> source = M3IndexedListSnapshot.copyOf(values);
+        source.physicalMaskCopy();
+        M3IndexedListSnapshot<Integer> selected = source.filtered(value -> true);
+        require(field(selected, "values") == field(source, "values"), "payload was copied");
+        require(field(selected, "positions") == field(source, "positions"),
+                "complete immutable directory was redundantly copied");
+        require(field(selected, "physicalMembership") == field(source, "physicalMembership"),
+                "immutable membership was redundantly rebuilt");
+        M3IndexedListSnapshot<Integer> sorted = selected.sorted();
+        require(sorted.get(0).equals(1), "sort of selected directory");
+        require(source.get(0).equals(129) && selected.get(0).equals(129),
+                "sorting selected snapshot mutated shared index storage");
+        M3IndexedListSnapshot<Integer> slice = source.slice(63, 65);
+        M3IndexedListSnapshot<Integer> selectedSlice = slice.filtered(value -> true);
+        require(field(selectedSlice, "positions") != field(slice, "positions"),
+                "small selection retained larger index storage");
+        require(((int[]) field(selectedSlice, "positions")).length == 65,
+                "slice did not retain exact index storage");
+        require(Arrays.equals(selectedSlice.physicalIndices(), slice.physicalIndices()),
+                "all-pass slice changed physical coordinates");
+    }
+
+
     public static void main(String[] args) throws Exception {
         M3IndexedListSnapshotCopyTest test = new M3IndexedListSnapshotCopyTest();
         test.emptySingletonNullsAndDuplicateReferencesAreDetached();
@@ -241,6 +439,12 @@ public final class M3IndexedListSnapshotCopyTest {
         test.sourceFailuresAndNullOverloadsPreserveBehavior();
         test.arrayOverloadStillCopiesAndCollectionCopyReadsNoElements();
         test.randomizedViewsRetainLogicalIdentityAndDetachedStorage();
-        System.out.println("M3_SNAPSHOT_COPY PASS tests=7 observations=" + observations);
+        test.filteringPreservesOccurrencesAcrossWordBoundaries();
+        test.filteringSortedAndNestedSlicesKeepsPhysicalCoordinates();
+        test.predicateFailureIdentityAndDemandRemainUnchanged();
+        test.reentrantFilteringRetainsIndependentInvocationState();
+        test.filteringValidationAndNativeRequirementPrecedeCallbacks();
+        test.allPassSharesOnlyCompleteImmutableIndexStorage();
+        System.out.println("M3_SNAPSHOT_COPY PASS tests=13 observations=" + observations);
     }
 }
